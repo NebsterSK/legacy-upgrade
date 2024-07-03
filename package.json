@@ -1,0 +1,21 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "mix",
+        "watch": "mix watch",
+        "staging": "NODE_ENV=staging mix",
+        "prod": "mix --production"
+    },
+    "devDependencies": {
+        "@popperjs/core": "^2.11.8",
+        "autoprefixer": "^10.4.19",
+        "bootstrap": "^5.3.3",
+        "css-loader": "^7.1.2",
+        "laravel-mix": "^6.0.39",
+        "laravel-mix-jigsaw": "^2.0.0",
+        "postcss-loader": "^8.1.1",
+        "sass": "^1.77.6",
+        "sass-loader": "^14.2.1",
+        "style-loader": "^4.0.0"
+    }
+}

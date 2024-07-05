@@ -11,6 +11,12 @@
     </head>
 
     <body>
+        <a href="{{ $page->baseUrl }}/">Index</a>
+        <a href="{{ $page->baseUrl }}/services">Services</a>
+        <a href="{{ $page->baseUrl }}/references">References</a>
+        <a href="{{ $page->baseUrl }}/tech-stack">Tech stack</a>
+        <a href="{{ $page->baseUrl }}/contact">Contact</a>
+
         @yield('body')
 
         <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>

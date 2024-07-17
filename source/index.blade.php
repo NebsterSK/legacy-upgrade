@@ -1,7 +1,7 @@
 @extends('_layouts.main')
 
 @section('body')
-<div>
-    <h1>Legacy Upgrade</h1>
+<div class="container-lg">
+    <h1 class="text-primary">Home</h1>
 </div>
 @endsection

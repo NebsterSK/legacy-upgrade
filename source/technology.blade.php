@@ -2,6 +2,6 @@
 
 @section('body')
 <div>
-    <h1>Tech stack</h1>
+    <h1>Technology</h1>
 </div>
 @endsection

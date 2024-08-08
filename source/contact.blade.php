@@ -8,7 +8,7 @@
 
     <p>info@legacy-upgrade.com</p>
 
-    <p>Address</p>
+    <p>Address & timezone</p>
 
     <p>Company ID (IČO): </p>
 

@@ -4,22 +4,24 @@
 <div class="container-lg">
     <h1 class="text-primary">Home</h1>
 
+    <p>(photo)</p>
+
     <p>Lukas Neuschl</p>
 
     <p>Full-stack Web Developer</p>
 
-    <p>I specialize in:</p>
+    <p>Bio</p>
 
-    <ul>
-        <li>Laravel applications</li>
+    <p>Par viet o mne</p>
 
-        <li>Back-office systems</li>
+    <p>What I do</p>
 
-        <li>Dashboards</li>
+    <p>...</p>
 
-        <li>Performance optimizations</li>
-    </ul>
+    <p>Why I do it</p>
 
+    <p>...</p>
 
+    <p>(video vizitka)</p>
 </div>
 @endsection

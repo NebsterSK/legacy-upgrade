@@ -2,26 +2,36 @@
 
 @section('body')
 <div class="container-lg">
-    <h1 class="text-primary">Home</h1>
+    <div class="page-segment">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <img src="{{ mix('images/portrait.jpeg', 'assets/build') }}" class="img-fluid img-thumbnail" alt="" />
+            </div>
 
-    <p>(photo)</p>
+            <div class="col-12 col-lg-6">
+                <p class="lead">Lukas Neuschl</p>
 
-    <p>Lukas Neuschl</p>
+                <p><strong>Full-stack Web Developer</strong></p>
 
-    <p>Full-stack Web Developer</p>
+                <p>Par viet o mne</p>
+            </div>
+        </div>
+    </div>
 
-    <p>Bio</p>
+    <div class="page-segment">
+        <p>What I do</p>
 
-    <p>Par viet o mne</p>
+        <p>...</p>
+    </div>
 
-    <p>What I do</p>
+    <div class="page-segment">
+        <p>Why I do it</p>
 
-    <p>...</p>
+        <p>...</p>
+    </div>
 
-    <p>Why I do it</p>
-
-    <p>...</p>
-
-    <p>(video vizitka)</p>
+    <div class="page-segment">
+        <p>(video vizitka)</p>
+    </div>
 </div>
 @endsection

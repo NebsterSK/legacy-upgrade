@@ -8,10 +8,11 @@
         <title>{{ $page->title }}</title>
         <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
         <link rel="stylesheet" href="{{ mix('css/xs.css', 'assets/build') }}">
+        <link rel="stylesheet" href="{{ mix('css/lg.css', 'assets/build') }}" media="(min-width:992px)">
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav id="main-nav" class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-lg">
                 <a class="navbar-brand" href="{{ $page->baseUrl }}/">Legacy Upgrade</a>
 
@@ -43,10 +44,28 @@
 
         @yield('body')
 
-        <footer class="container-lg">
-            <hr>
+        <footer id="page-footer" class="container-lg">
+            <div class="row">
+                <div class="col-12 col-lg-3">
+                    <a href=""></a>
 
-            <p>logo, contact info, links</p>
+                    <a href=""></a>
+                </div>
+
+                <div class="col-12 col-lg-3">
+                    <a href=""></a>
+
+                    <a href=""></a>
+                </div>
+
+                <div class="col-12 col-lg-3">
+                    <p>contact</p>
+                </div>
+
+                <div class="col-12 col-lg-3">
+                    <p>{{ $page->company->name }} © {{ date('Y') }}</p>
+                </div>
+            </div>
         </footer>
 
         <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>

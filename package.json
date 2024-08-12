@@ -7,6 +7,7 @@
         "prod": "mix --production"
     },
     "devDependencies": {
+        "@fortawesome/fontawesome-free": "^6.6.0",
         "@popperjs/core": "^2.11.8",
         "autoprefixer": "^10.4.19",
         "bootstrap": "^5.3.3",

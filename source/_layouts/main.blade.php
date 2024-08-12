@@ -44,26 +44,64 @@
 
         @yield('body')
 
-        <footer id="page-footer" class="container-lg">
-            <div class="row">
-                <div class="col-12 col-lg-3">
-                    <a href=""></a>
+        <footer id="page-footer">
+            <div class="container-lg">
+                <div class="row">
+                    <div class="col-12 col-lg-3">
+                        <p><strong>Navigation</strong></p>
 
-                    <a href=""></a>
-                </div>
+                        <p>
+                            <a href="{{ $page->baseUrl }}/">Home</a>
+                        </p>
 
-                <div class="col-12 col-lg-3">
-                    <a href=""></a>
+                        <p>
+                            <a href="{{ $page->baseUrl }}/services">Services</a>
+                        </p>
 
-                    <a href=""></a>
-                </div>
+                        <p>
+                            <a href="{{ $page->baseUrl }}/references">References</a>
+                        </p>
 
-                <div class="col-12 col-lg-3">
-                    <p>contact</p>
-                </div>
+                        <p>
+                            <a href="{{ $page->baseUrl }}/technology">Technology</a>
+                        </p>
 
-                <div class="col-12 col-lg-3">
-                    <p>{{ $page->company->name }} © {{ date('Y') }}</p>
+                        <p>
+                            <a href="{{ $page->baseUrl }}/contact">Contact</a>
+                        </p>
+                    </div>
+
+                    <div class="col-12 col-lg-3">
+                        <p><strong>Social media</strong></p>
+
+                        <p>
+                            <a href="{{ $page->links->linkedin }}" target="_blank">LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </p>
+
+                        <p>
+                            <a href="{{ $page->links->github }}" target="_blank">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </p>
+
+                        <p>
+                            <a href="{{ $page->links->stackoverflow }}" target="_blank">Stack Overflow <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </p>
+                    </div>
+
+                    <div class="col-12 col-lg-3">
+                        <p><strong>Contact</strong></p>
+
+                        <p>{{ $page->company->name }}</p>
+
+                        <p>{{ $page->company->email }}</p>
+
+                        <p>{{ $page->company->phone }}</p>
+                    </div>
+
+                    <div class="col-12 col-lg-3">
+                        <img src="" class="img-fluid" alt="Company logo" />
+
+                        <p>{{ $page->company->name }} © {{ date('Y') }}</p>
+                    </div>
                 </div>
             </div>
         </footer>

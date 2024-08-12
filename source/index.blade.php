@@ -19,13 +19,13 @@
     </div>
 
     <div class="page-segment">
-        <p>What I do</p>
+        <h2 class="text-center">What I do</h2>
 
         <p>...</p>
     </div>
 
     <div class="page-segment">
-        <p>Why I do it</p>
+        <h2 class="text-center">Why I do it</h2>
 
         <p>...</p>
     </div>

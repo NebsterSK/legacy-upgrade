@@ -4,7 +4,7 @@ return [
 
     'production' => false,
 
-    'baseUrl' => 'https://legacy-upgrade.com',
+    'baseUrl' => 'https://legacy-upgrade.test',
 
     'title' => 'Legacy Upgrade',
 

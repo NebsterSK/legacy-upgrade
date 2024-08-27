@@ -1,7 +1,21 @@
 @import _variables
 
+@import xs/navigation
+
 .page-segment
   padding: 20px 0
+
+  &:nth-of-type(even)
+    background-color: #dadada
+
+.social-icon-link
+  display: inline-block
+  width: 30px
+  height: 30px
+  margin-right: 10px
+
+  svg
+    fill: $secondary
 
 #page-footer
   background-color: $secondary

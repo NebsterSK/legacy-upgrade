@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <nav id="main-nav" class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav id="main-nav" class="navbar navbar-expand-lg sticky-top">
             <div class="container-lg">
                 <a class="navbar-brand" href="{{ $page->baseUrl }}/">Legacy Upgrade</a>
 
@@ -21,17 +21,17 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ $page->baseUrl }}/services">Services</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ $page->baseUrl }}/references">References</a>
+                            <a class="nav-link" href="{{ $page->baseUrl }}/technology">Technology</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ $page->baseUrl }}/technology">Technology</a>
+                            <a class="nav-link" href="{{ $page->baseUrl }}/references">References</a>
                         </li>
 
                         <li class="nav-item">
@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="col-12 col-lg-3">
-                        <img src="" class="img-fluid" alt="Company logo" />
+                        <img src="" class="img-fluid" alt="Logo" />
 
                         <p>{{ $page->company->name }} © {{ date('Y') }}</p>
                     </div>

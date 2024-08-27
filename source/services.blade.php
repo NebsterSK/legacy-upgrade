@@ -13,6 +13,10 @@
 
         <li>Dashboards</li>
 
+        <li>REST APIs</li>
+
+        <li>AI chatbot integrations</li>
+
         <li>Performance optimizations</li>
 
         <li>Refactoring old codebase</li>

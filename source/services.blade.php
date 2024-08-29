@@ -2,38 +2,50 @@
 
 @section('body')
 <div class="container-lg">
-    <h1>Services</h1>
+    <div class="page-segment">
+        <h1>Services</h1>
 
-    <p>I specialize in:</p>
+        <p>I specialize in:</p>
 
-    <ul>
-        <li>Laravel applications</li>
+        <ul>
+            <li><strong>Laravel</strong> applications</li>
 
-        <li>Back-office systems</li>
+            <li>Back-office systems</li>
 
-        <li>Dashboards</li>
+            <li>Dashboards</li>
 
-        <li>REST APIs</li>
+            <li>REST <strong>APIs</strong></li>
 
-        <li>AI chatbot integrations</li>
+            <li>AI chatbot integrations</li>
 
-        <li>Performance optimizations</li>
+            <li>Performance optimizations</li>
 
-        <li>Refactoring old codebase</li>
+            <li>Refactoring old codebase</li>
 
-        <li>Reduction of tech debt</li>
+            <li>Reduction of technical debt</li>
 
-        <li>Improving Developer Experience</li>
-    </ul>
+            <li>Improving <strong>Developer Experience</strong></li>
+        </ul>
+    </div>
 
-    <h3>FAQ</h3>
+    <div class="page-segment">
+        <h3>FAQ</h3>
 
-    <p>Do you work with Wordpress?</p>
+        <p class="lead">Do you work with Wordpress?</p>
 
-    <p>Do you work with React JS?</p>
+        <p>No.</p>
 
-    <p>Can you make me a cheap website?</p>
+        <p class="lead">Do you work with React JS?</p>
 
-    <p>Can you fix my website ASAP?</p>
+        <p>No.</p>
+
+        <p class="lead">Can you make me a cheap website?</p>
+
+        <p>No.</p>
+
+        <p class="lead">Can you fix my website ASAP?</p>
+
+        <p>No.</p>
+    </div>
 </div>
 @endsection

@@ -22,6 +22,8 @@ return [
 
         'id' => 'N/A',
 
+        'tax' => 'N/A',
+
         'address' => [
 
             'street' => 'Kukučínova 42',
@@ -30,7 +32,7 @@ return [
 
             'zip' => '83103',
 
-            'country' => 'Slovakia',
+            'country' => 'Slovak Republic',
 
         ],
 
@@ -42,7 +44,7 @@ return [
 
         'github' => 'https://github.com/NebsterSK',
 
-        'stackoverflow' => 'https://stackoverflow.com/users/3970975/nebster',
+        'stack_overflow' => 'https://stackoverflow.com/users/3970975/nebster',
 
     ],
 

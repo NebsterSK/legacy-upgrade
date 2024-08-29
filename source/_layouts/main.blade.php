@@ -6,6 +6,7 @@
         <link rel="canonical" href="{{ $page->getUrl() }}">
         <meta name="description" content="{{ $page->description }}">
         <title>{{ $page->title }}</title>
+        <link rel="icon" type="image/x-icon" href="{{ mix('images/favicon.png', 'assets/build') }}">
         <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
         <link rel="stylesheet" href="{{ mix('css/xs.css', 'assets/build') }}">
         <link rel="stylesheet" href="{{ mix('css/lg.css', 'assets/build') }}" media="(min-width:992px)">
@@ -83,24 +84,24 @@
                         </p>
 
                         <p>
-                            <a href="{{ $page->links->stackoverflow }}" target="_blank">Stack Overflow <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="{{ $page->links->stack_overflow }}" target="_blank">Stack Overflow <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </p>
                     </div>
 
                     <div class="col-12 col-lg-3">
                         <p><strong>Contact</strong></p>
 
-                        <p>{{ $page->company->name }}</p>
+                        <p>Lukáš Neuschl</p>
 
                         <p>{{ $page->company->email }}</p>
 
                         <p>{{ $page->company->phone }}</p>
                     </div>
 
-                    <div class="col-12 col-lg-3">
-                        <img src="" class="img-fluid" alt="Logo" />
+                    <div class="col-12 col-lg-3 text-center">
+                        <img src="{{ mix('images/favicon.png', 'assets/build') }}" class="img-fluid mb-3" alt="Logo" />
 
-                        <p>{{ $page->company->name }} © {{ date('Y') }}</p>
+                        <p>LEGACY UPGRADE © {{ date('Y') }}</p>
                     </div>
                 </div>
             </div>

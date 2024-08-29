@@ -2,22 +2,30 @@
 
 @section('body')
 <div class="container-lg">
-    <h1>Contact</h1>
+    <div class="page-segment">
+        <h1>Contact</h1>
 
-    <p class="lead">Lukáš Neuschl</p>
+        <p class="lead">Lukáš Neuschl</p>
 
-    <p>+421 949 746 983</p>
+        <p>
+            <a href="mailto:{{ $page->company->email }}">{{ $page->company->email }}</a>
+        </p>
 
-    <p>
-        <a href="mailto:info@legacy-upgrade.com">info@legacy-upgrade.com</a>
-    </p>
+        <p>{{ $page->company->phone }}</p>
 
-    <p>...Address & timezone...</p>
+        <hr>
 
-    <hr>
+        <p>{{ $page->company->address->street }}</p>
 
-    <p>Company ID (IČO): </p>
+        <p>{{ $page->company->address->zip }}, {{ $page->company->address->city }}</p>
 
-    <p>Tax ID (DIČ): </p>
+        <p>{{ $page->company->address->country }}</p>
+
+        <hr>
+
+        <p>Company ID (IČO): {{ $page->company->id }}</p>
+
+        <p>Tax ID (DIČ): {{ $page->company->tax }}</p>
+    </div>
 </div>
 @endsection

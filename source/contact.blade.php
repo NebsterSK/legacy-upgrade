@@ -13,19 +13,19 @@
 
         <p>{{ $page->company->phone }}</p>
 
-        <hr>
+{{--        <hr>--}}
 
-        <p>{{ $page->company->address->street }}</p>
+{{--        <p>{{ $page->company->address->street }}</p>--}}
 
-        <p>{{ $page->company->address->zip }}, {{ $page->company->address->city }}</p>
+{{--        <p>{{ $page->company->address->zip }}, {{ $page->company->address->city }}</p>--}}
 
-        <p>{{ $page->company->address->country }}</p>
+{{--        <p>{{ $page->company->address->country }}</p>--}}
 
-        <hr>
+{{--        <hr>--}}
 
-        <p>Company ID (IČO): {{ $page->company->id }}</p>
+{{--        <p>Company ID (IČO): {{ $page->company->id }}</p>--}}
 
-        <p>Tax ID (DIČ): {{ $page->company->tax }}</p>
+{{--        <p>Tax ID (DIČ): {{ $page->company->tax }}</p>--}}
     </div>
 </div>
 @endsection

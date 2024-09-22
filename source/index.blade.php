@@ -5,15 +5,15 @@
     <div class="page-segment">
         <div class="row">
             <div class="col-12 col-lg-6">
-                <img src="{{ mix('images/portrait.jpeg', 'assets/build') }}" class="img-fluid img-thumbnail" alt="" />
+                <img src="{{ mix('images/portrait.webp', 'assets/build') }}" class="img-fluid" alt="" />
             </div>
 
             <div class="col-12 col-lg-6">
-                <p class="lead">Lukas Neuschl</p>
+                <p class="lead">Lukáš Neuschl</p>
 
                 <p><strong>Full-stack Web Developer</strong></p>
 
-                <p>I am a freelance Laravel developer from Slovakia with 15 years of experience with website development in PHP.</p>
+                <p>I am a freelance Laravel developer from Slovakia with 12 years of experience with website development in PHP.</p>
 
                 <p class="mb-4">
                     <a href="{{ $page->links->linkedin }}" target="_blank" title="LinkedIn" class="social-icon-link">
@@ -47,7 +47,7 @@
 
         <p class="lead">Because <strong>I love to solve technological challenges</strong> in the most efficient way.</p>
 
-        <a href="{{ $page->baseUrl }}/technology" class="btn btn-primary">How do I achieve that?</a>
+{{--        <a href="{{ $page->baseUrl }}/technology" class="btn btn-primary">How do I achieve that?</a>--}}
     </div>
 
 {{--    <div class="page-segment">--}}

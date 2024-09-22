@@ -27,13 +27,13 @@
                             <a class="nav-link" href="{{ $page->baseUrl }}/services">Services</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ $page->baseUrl }}/technology">Technology</a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="{{ $page->baseUrl }}/technology">Technology</a>--}}
+{{--                        </li>--}}
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ $page->baseUrl }}/references">References</a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="{{ $page->baseUrl }}/references">References</a>--}}
+{{--                        </li>--}}
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ $page->baseUrl }}/contact">Contact</a>
@@ -43,7 +43,9 @@
             </div>
         </nav>
 
-        @yield('body')
+        <div id="page-body">
+            @yield('body')
+        </div>
 
         <footer id="page-footer">
             <div class="container-lg">
@@ -59,13 +61,13 @@
                             <a href="{{ $page->baseUrl }}/services">Services</a>
                         </p>
 
-                        <p>
-                            <a href="{{ $page->baseUrl }}/references">References</a>
-                        </p>
+{{--                        <p>--}}
+{{--                            <a href="{{ $page->baseUrl }}/references">References</a>--}}
+{{--                        </p>--}}
 
-                        <p>
-                            <a href="{{ $page->baseUrl }}/technology">Technology</a>
-                        </p>
+{{--                        <p>--}}
+{{--                            <a href="{{ $page->baseUrl }}/technology">Technology</a>--}}
+{{--                        </p>--}}
 
                         <p>
                             <a href="{{ $page->baseUrl }}/contact">Contact</a>

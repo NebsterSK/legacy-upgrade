@@ -35,10 +35,6 @@
 
         <p>No.</p>
 
-        <p class="lead">Do you work with React JS?</p>
-
-        <p>No.</p>
-
         <p class="lead">Can you make me a cheap website?</p>
 
         <p>No.</p>

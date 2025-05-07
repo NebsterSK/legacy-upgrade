@@ -4,36 +4,44 @@
 <div class="container-lg">
     <div class="page-segment">
         <div class="row">
-            <div class="col-12 col-lg-6">
-                <img src="{{ mix('images/portrait.webp', 'assets/build') }}" class="img-fluid" alt="" />
+            <div class="col-12 col-lg-7">
+                <div class="d-flex align-items-center h-100">
+                    <div>
+                        <p class="lead mb-2">Lukáš Neuschl</p>
+
+                        <p class="display-4 text-primary fw-bold mb-2 f-kanit"><strong>Full-stack Web Developer</strong></p>
+
+                        <p class="mb-5">I am a freelance Laravel developer from Slovakia with 12 years of experience with website development.</p>
+
+                        <p class="mb-5">
+                            <a href="{{ $page->links->linkedin }}" target="_blank" title="LinkedIn" class="social-icon-link">
+                                @include('components/icons/linkedin')
+                            </a>
+
+                            <a href="{{ $page->links->github }}" target="_blank" title="GitHub" class="social-icon-link">
+                                @include('components/icons/github')
+                            </a>
+
+                            <a href="{{ $page->links->stackoverflow }}" target="_blank" title="Stack Overflow" class="social-icon-link">
+                                @include('components/icons/stack-overflow')
+                            </a>
+                        </p>
+
+                        <a href="{{ $page->baseUrl }}/contact" class="btn btn-primary me-2">Contact</a>
+
+                        <a href="{{ $page->baseUrl }}/contact" class="btn btn-outline-secondary">Services</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-12 col-lg-6">
-                <p class="lead">Lukáš Neuschl</p>
-
-                <p><strong>Full-stack Web Developer</strong></p>
-
-                <p>I am a freelance Laravel developer from Slovakia with 12 years of experience with website development in PHP.</p>
-
-                <p class="mb-4">
-                    <a href="{{ $page->links->linkedin }}" target="_blank" title="LinkedIn" class="social-icon-link">
-                        @include('components/icons/linkedin')
-                    </a>
-
-                    <a href="{{ $page->links->github }}" target="_blank" title="GitHub" class="social-icon-link">
-                        @include('components/icons/github')
-                    </a>
-
-                    <a href="{{ $page->links->stackoverflow }}" target="_blank" title="Stack Overflow" class="social-icon-link">
-                        @include('components/icons/stack-overflow')
-                    </a>
-                </p>
-
-                <a href="{{ $page->baseUrl }}/contact" class="btn btn-primary">Contact me</a>
+            <div class="col-12 col-lg-5">
+                <img src="{{ mix('images/portrait.webp', 'assets/build') }}" class="img-fluid" alt="" />
             </div>
         </div>
     </div>
+</div>
 
+<div class="container-fluid bg-secondary-light">
     <div class="page-segment text-center">
         <h2>What I do</h2>
 
@@ -41,7 +49,9 @@
 
         <a href="{{ $page->baseUrl }}/services" class="btn btn-primary">What do I specialize in?</a>
     </div>
+</div>
 
+<div class="container-lg">
     <div class="page-segment text-center">
         <h2>Why I do it</h2>
 

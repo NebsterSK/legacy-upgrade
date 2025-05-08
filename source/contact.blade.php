@@ -2,16 +2,18 @@
 
 @section('body')
 <div class="container-lg">
-    <div class="page-segment">
-        <h1>Contact</h1>
+    <div class="page-segment text-center">
+        <h1 class="text-primary mb-3">Contact</h1>
 
         <p class="lead">Lukáš Neuschl</p>
 
         <p>
-            <a href="mailto:{{ $page->company->email }}">{{ $page->company->email }}</a>
+            <i class="fa-solid fa-envelope"></i> <a href="mailto:{{ $page->company->email }}">{{ $page->company->email }}</a>
         </p>
 
-        <p>{{ $page->company->phone }}</p>
+        <p>
+            <i class="fa-solid fa-phone"></i> <a href="mailto:{{ $page->company->phone }}">{{ $page->company->phone }}</a>
+        </p>
 
 {{--        <hr>--}}
 

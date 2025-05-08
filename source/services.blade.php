@@ -3,9 +3,7 @@
 @section('body')
 <div class="container-lg">
     <div class="page-segment">
-        <h1>Services</h1>
-
-        <p>I specialize in:</p>
+        <h1 class="text-primary text-center mb-3">Services</h1>
 
         <ul>
             <li><strong>Laravel</strong> applications</li>
@@ -27,21 +25,25 @@
             <li>Improving <strong>Developer Experience</strong></li>
         </ul>
     </div>
+</div>
 
-    <div class="page-segment">
-        <h3>FAQ</h3>
+<div class="container-fluid bg-secondary-light">
+    <div class="container">
+        <div class="page-segment">
+            <h2 class="text-center mb-3"><span class="text-primary">F</span>requently <span class="text-primary">A</span>sked <span class="text-primary">Q</span>uestions</h2>
 
-        <p class="lead">Do you work with Wordpress?</p>
+            <p class="h5">Do you work with Wordpress?</p>
 
-        <p>No.</p>
+            <p>No.</p>
 
-        <p class="lead">Can you make me a cheap website?</p>
+            <p class="h5">Can you make me a cheap website?</p>
 
-        <p>No.</p>
+            <p>No.</p>
 
-        <p class="lead">Can you fix my website ASAP?</p>
+            <p class="h5">Can you fix my website ASAP?</p>
 
-        <p>No.</p>
+            <p>No.</p>
+        </div>
     </div>
 </div>
 @endsection

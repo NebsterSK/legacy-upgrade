@@ -27,9 +27,9 @@
                             </a>
                         </p>
 
-                        <a href="{{ $page->baseUrl }}/contact" class="btn btn-primary btn-lg d-block mb-2 d-lg-inline-block me-lg-2">Contact</a>
+                        <a href="/contact" class="btn btn-primary btn-lg d-block mb-2 d-lg-inline-block me-lg-2">Contact</a>
 
-                        <a href="{{ $page->baseUrl }}/services" class="btn btn-lg btn-outline-secondary d-block d-lg-inline-block">Services</a>
+                        <a href="/services" class="btn btn-lg btn-outline-secondary d-block d-lg-inline-block">Services</a>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
 
         <p class="lead mb-5">I build <strong>custom websites & webapps</strong> according to my client's needs and specifications.</p>
 
-        <a href="{{ $page->baseUrl }}/services" class="btn btn-primary">What do I specialize in?</a>
+        <a href="/services" class="btn btn-primary">What do I specialize in?</a>
     </div>
 </div>
 

@@ -30,7 +30,7 @@
 <div class="container-fluid bg-secondary-light">
     <div class="container">
         <div class="page-segment">
-            <h2 class="text-center mb-3"><span class="text-primary">F</span>requently <span class="text-primary">A</span>sked <span class="text-primary">Q</span>uestions</h2>
+            <h2 class="text-center mb-3">Frequently Asked Questions</h2>
 
             <p class="h5">Do you work with Wordpress?</p>
 

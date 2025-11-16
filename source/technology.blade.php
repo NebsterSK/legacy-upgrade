@@ -7,7 +7,7 @@
 
         <h2>Tech stack</h2>
 
-        <p>Laravel, MySQL, Livewire, Bootstrap, SASS</p>
+        <p>Laravel, MySQL, Livewire, Alpine, Bootstrap, SASS, Git</p>
 
         <h2>Infrastructure</h2>
 

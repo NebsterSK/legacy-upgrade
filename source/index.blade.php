@@ -27,7 +27,7 @@
                             </a>
                         </p>
 
-                        <a href="/contact" class="btn btn-primary btn-lg d-block mb-2 d-lg-inline-block me-lg-2">Contact</a>
+                        <a href="/contact" class="btn btn-primary btn-lg d-block mb-2 d-lg-inline-block mb-lg-0 me-lg-2">Contact</a>
 
                         <a href="/services" class="btn btn-lg btn-outline-secondary d-block d-lg-inline-block">Services</a>
                     </div>
@@ -35,7 +35,7 @@
             </div>
 
             <div class="col-12 col-lg-5">
-                <img src="{{ mix('images/portrait.webp', 'assets/build') }}" class="img-fluid mt-5 mt-lg-0" alt="" />
+                <img src="{{ mix('images/portrait.webp', 'assets/build') }}" class="img-fluid rounded mt-5 mt-lg-0" alt="" />
             </div>
         </div>
     </div>

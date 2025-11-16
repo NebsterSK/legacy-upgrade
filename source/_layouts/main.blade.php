@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="col-12 col-lg-3 text-center">
-                        <img src="{{ mix('images/favicon.png', 'assets/build') }}" class="img-fluid mb-3" alt="Logo" />
+                        <img src="{{ mix('images/favicon.png', 'assets/build') }}" class="img-fluid rounded mb-3" alt="Logo" />
 
                         <p>LEGACY UPGRADE © {{ date('Y') }}</p>
                     </div>

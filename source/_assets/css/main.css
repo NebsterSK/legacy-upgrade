@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@import "remixicon/fonts/remixicon.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+    font-family: 'Kanit';
+    src: url('../fonts/Kanit-Regular.ttf');
+}
+
+@theme {
+    --color-primary: oklch(50% 0.2 260);
+    --color-primary-dark: oklch(45% 0.2 260);
+}
+
+@layer base {
+    body {
+        font-family: system-ui, -apple-system, sans-serif;
+        color: var(--color-gray-600);
+        background-color: var(--color-white);
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+    .dark body {
+        background-color: var(--color-gray-900);
+        color: var(--color-gray-300);
+    }
+
+    /*!* Backgrounds *!*/
+    /*.dark .bg-white { background-color: var(--color-gray-700); }*/
+    /*.dark .bg-gray-50 { background-color: var(--color-gray-800); }*/
+    /*.dark .bg-gray-100 { background-color: var(--color-gray-800); }*/
+
+    /*!* Text *!*/
+    /*.dark .text-gray-400 { color: var(--color-gray-500); }*/
+    /*.dark .text-gray-500 { color: var(--color-gray-400); }*/
+    /*.dark .text-gray-600 { color: var(--color-gray-300); }*/
+    /*.dark .text-gray-700 { color: var(--color-gray-200); }*/
+
+    /*!* Borders *!*/
+    /*.dark .border-gray-200 { border-color: var(--color-gray-700); }*/
+    /*.dark .border-gray-400 { border-color: var(--color-gray-500); }*/
+    /*.dark .border-gray-500 { border-color: var(--color-gray-400); }*/
+
+    /*!* Hover states *!*/
+    /*.dark .hover\:bg-gray-100:hover { background-color: var(--color-gray-700); }*/
+}
+
+@utility font-kanit {
+    font-family: Kanit, sans-serif;
+}
+

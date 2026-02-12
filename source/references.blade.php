@@ -1,8 +1,8 @@
 @extends('_layouts.main')
 
 @section('body')
-<div class="container-lg">
-    <div class="page-segment">
+<div>
+    <div>
         <h1>References</h1>
 
         <p>Yasmin Trade</p>

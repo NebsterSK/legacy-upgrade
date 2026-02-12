@@ -1,67 +1,57 @@
 @extends('_layouts.main')
 
 @section('body')
-<div class="container-lg">
-    <div class="page-segment">
-        <div class="row">
-            <div class="col-12 col-lg-7">
-                <div class="d-flex align-items-center h-100">
-                    <div>
-                        <span class="badge text-bg-secondary text-light">Lukáš Neuschl</span>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
+    <div class="flex-1 text-center md:text-left">
+        <span class="text-primary text-4xl sm:text-5xl lg:text-6xl font-bold">Lukáš Neuschl</span>
 
-                        <p class="display-4 text-primary fw-bold mb-1 f-kanit"><strong>Legacy Upgrade</strong></p>
+        <p class="font-kanit font-bold mt-3 text-lg sm:text-xl text-gray-500">Full-stack developer</p>
 
-                        <p class="mb-5">Custom websites & web apps</p>
+        <p class="mt-2 text-gray-400">Custom websites | Laravel applications | Developer Experience</p>
 
-                        <p class="mb-4 mb-lg-5">
-                            <a href="{{ $page->links->linkedin }}" target="_blank" title="LinkedIn" class="social-icon-link">
-                                @include('components/icons/linkedin')
-                            </a>
+        <p class="mt-5 flex justify-center md:justify-start gap-4 text-4xl">
+            <a href="{{ $page->links->linkedin }}" target="_blank" title="LinkedIn" class="text-gray-500 hover:text-primary transition">
+                <i class="ri-linkedin-fill"></i>
+            </a>
 
-                            <a href="{{ $page->links->github }}" target="_blank" title="GitHub" class="social-icon-link">
-                                @include('components/icons/github')
-                            </a>
+            <a href="{{ $page->links->github }}" target="_blank" title="GitHub" class="text-gray-500 hover:text-primary transition">
+                <i class="ri-github-fill"></i>
+            </a>
 
-                            <a href="{{ $page->links->stack_overflow }}" target="_blank" title="Stack Overflow" class="social-icon-link">
-                                @include('components/icons/stack-overflow')
-                            </a>
-                        </p>
+            <a href="{{ $page->links->stack_overflow }}" target="_blank" title="Stack Overflow" class="text-gray-500 hover:text-primary transition">
+                <i class="ri-stack-overflow-fill"></i>
+            </a>
+        </p>
 
-                        <a href="/contact" class="btn btn-primary btn-lg d-block mb-2 d-lg-inline-block mb-lg-0 me-lg-2">Contact</a>
+        <div class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+            <a href="/contact" class="inline-block px-6 py-3 rounded-lg bg-primary hover:bg-primary-dark text-white font-semibold text-center transition">Contact</a>
 
-                        <a href="/services" class="btn btn-lg btn-outline-secondary d-block d-lg-inline-block">Services</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-5">
-                <img src="{{ vite('source/_assets/images/portrait.webp') }}" class="img-fluid rounded mt-5 mt-lg-0" alt="" />
-            </div>
+            <a href="/services" class="inline-block px-6 py-3 rounded-lg border-2 border-gray-500 text-gray-500 hover:bg-gray-100 font-semibold text-center transition">Services</a>
         </div>
     </div>
-</div>
 
-<div class="container-fluid bg-secondary-light">
-    <div class="page-segment text-center">
-        <h2 class="mb-1 f-kanit text-dark">What I do</h2>
-
-        <p class="lead mb-5">I build <strong>custom websites & webapps</strong> according to my client's needs and specifications.</p>
-
-        <a href="/services" class="btn btn-primary">What do I specialize in?</a>
+    <div class="shrink-0">
+        <img src="{{ vite('source/_assets/images/portrait.webp') }}" alt="" class="w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 rounded-full md:rounded-2xl object-cover shadow-lg" />
     </div>
 </div>
 
-<div class="container-lg">
-    <div class="page-segment text-center">
-        <h2 class="mb-1 f-kanit text-dark">Why I do it</h2>
+{{--<div>--}}
+{{--    <div>--}}
+{{--        <h2>What I do</h2>--}}
 
-        <p class="lead">Because <strong>I love to solve technological challenges</strong> in the most efficient way.</p>
+{{--        <p>I build <strong>custom websites & webapps</strong> according to my client's needs and specifications.</p>--}}
 
-{{--        <a href="{{ $page->baseUrl }}/technology" class="btn btn-primary">How do I achieve that?</a>--}}
-    </div>
-
-{{--    <div class="page-segment">--}}
-{{--        <p>(video vizitka)</p>--}}
+{{--        <a href="/services">What do I specialize in?</a>--}}
 {{--    </div>--}}
-</div>
+{{--</div>--}}
+
+{{--<div>--}}
+{{--    <div>--}}
+{{--        <h2>Why I do it</h2>--}}
+
+{{--        <p>Because <strong>I love to solve technological challenges</strong> in the most efficient way.</p>--}}
+
+{{--        <a href="/technology">How do I achieve that?</a>--}}
+{{--    </div>--}}
+{{--</div>--}}
 @endsection

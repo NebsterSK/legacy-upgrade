@@ -7,112 +7,69 @@
         <title>{{ $page->title }}</title>
         <link rel="icon" type="image/x-icon" href="{{ vite('source/_assets/images/favicon.png') }}">
         @viteRefresh()
-        <link rel="stylesheet" href="{{ vite('source/_assets/sass/main.sass') }}">
-        <link rel="stylesheet" href="{{ vite('source/_assets/sass/xs.sass') }}">
-        <link rel="stylesheet" href="{{ vite('source/_assets/sass/lg.sass') }}" media="(min-width:992px)">
+        <link rel="stylesheet" href="{{ vite('source/_assets/css/main.css') }}">
     </head>
 
-    <body>
-        <nav id="main-nav" class="navbar navbar-expand-lg sticky-top">
-            <div class="container-lg">
-                <a class="navbar-brand f-kanit" href="/">Legacy Upgrade</a>
+    <body class="flex flex-col min-h-screen">
+        <nav id="main-nav" class="shadow">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-wrap items-center justify-between">
+                    <a href="/" class="text-xl font-bold text-primary font-kanit py-4">Legacy Upgrade</a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center p-2 rounded hover:text-primary focus:outline-none" aria-label="Toggle navigation">
+                        <i id="nav-icon-open" class="ri-menu-line text-2xl"></i>
+                        <i id="nav-icon-close" class="ri-close-line text-2xl hidden"></i>
+                    </button>
 
-                <div class="collapse navbar-collapse" id="navbarContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/services">Services</a>
-                        </li>
-
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link" href="{{ $page->baseUrl }}/technology">Technology</a>--}}
-{{--                        </li>--}}
-
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link" href="{{ $page->baseUrl }}/references">References</a>--}}
-{{--                        </li>--}}
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact</a>
-                        </li>
-                    </ul>
+                    <div id="nav-menu" class="hidden w-full pb-4 md:flex md:w-auto md:items-center md:space-x-6 md:pb-0">
+                        <a href="/" class="block px-3 py-2  hover:text-primary md:px-0 md:py-0">Home</a>
+                        <a href="/services" class="block px-3 py-2 hover:text-primary md:px-0 md:py-0">Services</a>
+                        <a href="/contact" class="block px-3 py-2 hover:text-primary md:px-0 md:py-0">Contact</a>
+{{--                        <button id="dark-mode-toggle" class="block px-3 py-2 hover:text-primary md:px-0 md:py-0 cursor-pointer" aria-label="Toggle dark mode">--}}
+{{--                            <i id="dark-icon-sun" class="ri-sun-line text-xl hidden"></i>--}}
+{{--                            <i id="dark-icon-moon" class="ri-moon-line text-xl"></i>--}}
+{{--                        </button>--}}
+                    </div>
                 </div>
             </div>
         </nav>
 
-        <div id="page-body">
+        <div id="page-body" class="grow">
             @yield('body')
         </div>
 
-        <footer id="page-footer">
-            <div class="container-lg">
-                <div class="row">
-                    <div class="col-12 col-lg-3">
-                        <p><strong>Navigation</strong></p>
-
-                        <p>
-                            <a href="/">Home</a>
-                        </p>
-
-                        <p>
-                            <a href="/services">Services</a>
-                        </p>
-
-{{--                        <p>--}}
-{{--                            <a href="{{ $page->baseUrl }}/references">References</a>--}}
-{{--                        </p>--}}
-
-{{--                        <p>--}}
-{{--                            <a href="{{ $page->baseUrl }}/technology">Technology</a>--}}
-{{--                        </p>--}}
-
-                        <p>
-                            <a href="/contact">Contact</a>
-                        </p>
+        <footer id="page-footer" class="bg-gray-100 py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div>
+                        <p class="font-bold mb-3">Navigation</p>
+                        <p class="mb-1"><a href="/" class="hover:text-primary transition">Home</a></p>
+                        <p class="mb-1"><a href="/services" class="hover:text-primary transition">Services</a></p>
+                        <p class="mb-1"><a href="/contact" class="hover:text-primary transition">Contact</a></p>
                     </div>
 
-                    <div class="col-12 col-lg-3">
-                        <p><strong>Social media</strong></p>
-
-                        <p>
-                            <a href="{{ $page->links->linkedin }}" target="_blank">LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </p>
-
-                        <p>
-                            <a href="{{ $page->links->github }}" target="_blank">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </p>
-
-                        <p>
-                            <a href="{{ $page->links->stack_overflow }}" target="_blank">Stack Overflow <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </p>
+                    <div>
+                        <p class="font-bold mb-3">Social media</p>
+                        <p class="mb-1"><a href="{{ $page->links->linkedin }}" target="_blank" class="hover:text-primary transition">LinkedIn <i class="ri-external-link-line"></i></a></p>
+                        <p class="mb-1"><a href="{{ $page->links->github }}" target="_blank" class="hover:text-primary transition">GitHub <i class="ri-external-link-line"></i></a></p>
+                        <p class="mb-1"><a href="{{ $page->links->stack_overflow }}" target="_blank" class="hover:text-primary transition">Stack Overflow <i class="ri-external-link-line"></i></a></p>
                     </div>
 
-                    <div class="col-12 col-lg-3">
-                        <p><strong>Contact</strong></p>
-
-                        <p>Lukáš Neuschl</p>
-
-                        <p>{{ $page->company->email }}</p>
-
-                        <p>{{ $page->company->phone }}</p>
+                    <div>
+                        <p class="font-bold mb-3">Contact</p>
+                        <p class="mb-1">Lukáš Neuschl</p>
+                        <p class="mb-1"><a href="mailto:{{ $page->company->email }}" class="hover:text-primary transition">{{ $page->company->email }}</a></p>
+                        <p class="mb-1"><a href="mailto:{{ $page->company->phone }}" class="hover:text-primary transition">{{ $page->company->phone }}</a></p>
                     </div>
 
-                    <div class="col-12 col-lg-3 text-center">
-                        <img src="{{ vite('source/_assets/images/favicon.png') }}" class="img-fluid rounded mb-3" alt="Logo" />
-
-                        <p>LEGACY UPGRADE © {{ date('Y') }}</p>
+                    <div class="text-center">
+                        <img src="{{ vite('source/_assets/images/favicon.png') }}" alt="Logo" class="h-12 mb-3 mx-auto" />
+                        <p class="text-sm"><span class="font-kanit">LEGACY UPGRADE</span> © <script>document.write(new Date().getFullYear())</script></p>
                     </div>
                 </div>
             </div>
         </footer>
 
-        <script defer type="module" src="{{ vite('source/_assets/js/main.js') }}"></script>
+        <script src="{{ vite('source/_assets/js/main.js') }}" defer></script>
     </body>
 </html>

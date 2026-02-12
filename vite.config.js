@@ -1,42 +1,39 @@
 import { defineConfig } from 'vite';
 import jigsaw from '@tighten/jigsaw-vite-plugin';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+    base: '/assets/build/',
     plugins: [
+        tailwindcss(),
         jigsaw({
             input: [
+                'source/_assets/css/main.css',
                 'source/_assets/js/main.js',
-                'source/_assets/sass/main.sass',
-                'source/_assets/sass/xs.sass',
-                'source/_assets/sass/lg.sass',
+
+                // Images
                 'source/_assets/images/favicon.png',
                 'source/_assets/images/portrait.webp',
             ],
-            refresh: true,
+            refresh: {
+                files: [
+                    'source/**/*.blade.php',
+                    'source/_assets/css/**/*.css',
+                    'source/_assets/js/**/*.js',
+                    'source/_layouts/main.blade.php',
+                    'config.php',
+                ],
+                delay: 300,
+            },
         }),
         viteStaticCopy({
             targets: [
                 {
-                    src: 'source/_assets/images/*',
-                    dest: 'images',
-                },
-                {
                     src: 'source/_assets/fonts/*',
-                    dest: 'fonts',
-                },
-                {
-                    src: 'node_modules/@fortawesome/fontawesome-free/webfonts/*',
                     dest: 'fonts',
                 },
             ],
         }),
     ],
-    css: {
-        preprocessorOptions: {
-            sass: {
-                // Suppress deprecation warnings if needed
-            },
-        },
-    },
 });

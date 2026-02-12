@@ -9,9 +9,9 @@
                     <div>
                         <span class="badge text-bg-secondary text-light">Lukáš Neuschl</span>
 
-                        <p class="display-4 text-primary fw-bold mb-1 f-kanit"><strong>Full-stack Web Developer</strong></p>
+                        <p class="display-4 text-primary fw-bold mb-1 f-kanit"><strong>Legacy Upgrade</strong></p>
 
-                        <p class="mb-5">I am a freelance Laravel developer from Slovakia with 12 years of experience in website development.</p>
+                        <p class="mb-5">Custom websites & web apps</p>
 
                         <p class="mb-4 mb-lg-5">
                             <a href="{{ $page->links->linkedin }}" target="_blank" title="LinkedIn" class="social-icon-link">
@@ -22,7 +22,7 @@
                                 @include('components/icons/github')
                             </a>
 
-                            <a href="{{ $page->links->stackoverflow }}" target="_blank" title="Stack Overflow" class="social-icon-link">
+                            <a href="{{ $page->links->stack_overflow }}" target="_blank" title="Stack Overflow" class="social-icon-link">
                                 @include('components/icons/stack-overflow')
                             </a>
                         </p>
@@ -35,7 +35,7 @@
             </div>
 
             <div class="col-12 col-lg-5">
-                <img src="{{ mix('images/portrait.webp', 'assets/build') }}" class="img-fluid rounded mt-5 mt-lg-0" alt="" />
+                <img src="{{ vite('source/_assets/images/portrait.webp') }}" class="img-fluid rounded mt-5 mt-lg-0" alt="" />
             </div>
         </div>
     </div>

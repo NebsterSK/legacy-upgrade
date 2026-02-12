@@ -5,10 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="{{ $page->description }}">
         <title>{{ $page->title }}</title>
-        <link rel="icon" type="image/x-icon" href="{{ mix('images/favicon.png', 'assets/build') }}">
-        <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
-        <link rel="stylesheet" href="{{ mix('css/xs.css', 'assets/build') }}">
-        <link rel="stylesheet" href="{{ mix('css/lg.css', 'assets/build') }}" media="(min-width:992px)">
+        <link rel="icon" type="image/x-icon" href="{{ vite('source/_assets/images/favicon.png') }}">
+        @viteRefresh()
+        <link rel="stylesheet" href="{{ vite('source/_assets/sass/main.sass') }}">
+        <link rel="stylesheet" href="{{ vite('source/_assets/sass/xs.sass') }}">
+        <link rel="stylesheet" href="{{ vite('source/_assets/sass/lg.sass') }}" media="(min-width:992px)">
     </head>
 
     <body>
@@ -104,7 +105,7 @@
                     </div>
 
                     <div class="col-12 col-lg-3 text-center">
-                        <img src="{{ mix('images/favicon.png', 'assets/build') }}" class="img-fluid rounded mb-3" alt="Logo" />
+                        <img src="{{ vite('source/_assets/images/favicon.png') }}" class="img-fluid rounded mb-3" alt="Logo" />
 
                         <p>LEGACY UPGRADE © {{ date('Y') }}</p>
                     </div>
@@ -112,6 +113,6 @@
             </div>
         </footer>
 
-        <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>
+        <script defer type="module" src="{{ vite('source/_assets/js/main.js') }}"></script>
     </body>
 </html>

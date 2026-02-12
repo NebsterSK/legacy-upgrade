@@ -16,13 +16,15 @@ return [
 
         'name' => 'Lukáš Neuschl - Legacy Upgrade',
 
-        'email' => 'info@legacy-upgrade.com',
+        'email' => 'lukas@legacy-upgrade.com',
 
         'phone' => '+421 949 746 983',
 
-        'id' => 'N/A',
+        'id' => '47722843',
 
-        'tax' => 'N/A',
+        'tax' => '1086419125',
+
+        'iban' => 'N/A',
 
         'address' => [
 

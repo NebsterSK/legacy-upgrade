@@ -11,21 +11,24 @@
     </head>
 
     <body class="flex flex-col min-h-screen">
-        <nav id="main-nav" class="shadow">
+        <nav id="main-nav" class="bg-primary-100 text-primary-600">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap items-center justify-between">
-                    <a href="/" class="text-xl font-bold text-primary font-kanit py-4">Legacy Upgrade</a>
+                    <a href="/" class="text-xl font-bold text-primary-600 font-kanit py-4">Legacy Upgrade</a>
 
-                    <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center p-2 rounded hover:text-primary focus:outline-none" aria-label="Toggle navigation">
+                    <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center p-2 rounded hover:text-primary-600 focus:outline-none" aria-label="Toggle navigation">
                         <i id="nav-icon-open" class="ri-menu-line text-2xl"></i>
                         <i id="nav-icon-close" class="ri-close-line text-2xl hidden"></i>
                     </button>
 
                     <div id="nav-menu" class="hidden w-full pb-4 md:flex md:w-auto md:items-center md:space-x-6 md:pb-0">
-                        <a href="/" class="block px-3 py-2  hover:text-primary md:px-0 md:py-0">Home</a>
-                        <a href="/services" class="block px-3 py-2 hover:text-primary md:px-0 md:py-0">Services</a>
-                        <a href="/contact" class="block px-3 py-2 hover:text-primary md:px-0 md:py-0">Contact</a>
-{{--                        <button id="dark-mode-toggle" class="block px-3 py-2 hover:text-primary md:px-0 md:py-0 cursor-pointer" aria-label="Toggle dark mode">--}}
+                        <a href="/" class="nav-link block px-3 py-2 md:px-0 md:py-0">Home</a>
+
+                        <a href="/services" class="nav-link block px-3 py-2 md:px-0 md:py-0">Services</a>
+
+                        <a href="/contact" class="nav-link block px-3 py-2 md:px-0 md:py-0">Contact</a>
+
+{{--                        <button id="dark-mode-toggle" class="block px-3 py-2 hover:text-primary-600 md:px-0 md:py-0 cursor-pointer" aria-label="Toggle dark mode">--}}
 {{--                            <i id="dark-icon-sun" class="ri-sun-line text-xl hidden"></i>--}}
 {{--                            <i id="dark-icon-moon" class="ri-moon-line text-xl"></i>--}}
 {{--                        </button>--}}
@@ -38,28 +41,28 @@
             @yield('body')
         </div>
 
-        <footer id="page-footer" class="bg-gray-100 py-8">
+        <footer id="page-footer" class="bg-gray-100 text-gray-400 py-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-4 gap-8">
                     <div>
                         <p class="font-bold mb-3">Navigation</p>
-                        <p class="mb-1"><a href="/" class="hover:text-primary transition">Home</a></p>
-                        <p class="mb-1"><a href="/services" class="hover:text-primary transition">Services</a></p>
-                        <p class="mb-1"><a href="/contact" class="hover:text-primary transition">Contact</a></p>
+                        <p class="mb-1"><a href="/" class="hover:text-primary-600 transition">Home</a></p>
+                        <p class="mb-1"><a href="/services" class="hover:text-primary-600 transition">Services</a></p>
+                        <p class="mb-1"><a href="/contact" class="hover:text-primary-600 transition">Contact</a></p>
                     </div>
 
                     <div>
                         <p class="font-bold mb-3">Social media</p>
-                        <p class="mb-1"><a href="{{ $page->links->linkedin }}" target="_blank" class="hover:text-primary transition">LinkedIn <i class="ri-external-link-line"></i></a></p>
-                        <p class="mb-1"><a href="{{ $page->links->github }}" target="_blank" class="hover:text-primary transition">GitHub <i class="ri-external-link-line"></i></a></p>
-                        <p class="mb-1"><a href="{{ $page->links->stack_overflow }}" target="_blank" class="hover:text-primary transition">Stack Overflow <i class="ri-external-link-line"></i></a></p>
+                        <p class="mb-1"><a href="{{ $page->links->linkedin }}" target="_blank" class="hover:text-primary-600 transition">LinkedIn <i class="ri-external-link-line"></i></a></p>
+                        <p class="mb-1"><a href="{{ $page->links->github }}" target="_blank" class="hover:text-primary-600 transition">GitHub <i class="ri-external-link-line"></i></a></p>
+                        <p class="mb-1"><a href="{{ $page->links->stack_overflow }}" target="_blank" class="hover:text-primary-600 transition">Stack Overflow <i class="ri-external-link-line"></i></a></p>
                     </div>
 
                     <div>
                         <p class="font-bold mb-3">Contact</p>
                         <p class="mb-1">Lukáš Neuschl</p>
-                        <p class="mb-1"><a href="mailto:{{ $page->company->email }}" class="hover:text-primary transition">{{ $page->company->email }}</a></p>
-                        <p class="mb-1"><a href="mailto:{{ $page->company->phone }}" class="hover:text-primary transition">{{ $page->company->phone }}</a></p>
+                        <p class="mb-1"><a href="mailto:{{ $page->company->email }}" class="hover:text-primary-600 transition">{{ $page->company->email }}</a></p>
+                        <p class="mb-1"><a href="mailto:{{ $page->company->phone }}" class="hover:text-primary-600 transition">{{ $page->company->phone }}</a></p>
                     </div>
 
                     <div class="text-center">

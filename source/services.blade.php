@@ -1,20 +1,20 @@
 @extends('_layouts.main')
 
 @section('body')
-<div class="bg-gray-50 py-16">
+<div class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="font-kanit text-primary text-4xl mb-8 text-center">Services</h1>
+        <h1 class="font-kanit text-primary-600 text-4xl mb-8 text-center">Services</h1>
 
         <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <li class="bg-white rounded-lg hover:text-primary px-5 py-4 shadow-sm"><strong>Laravel</strong> applications</li>
-            <li class="bg-white rounded-lg hover:text-primary px-5 py-4 shadow-sm">Back-office systems</li>
-            <li class="bg-white rounded-lg hover:text-primary px-5 py-4 shadow-sm">Dashboards</li>
-            <li class="bg-white rounded-lg hover:text-primary px-5 py-4 shadow-sm">REST <strong>APIs</strong></li>
-            <li class="bg-white rounded-lg hover:text-primary px-5 py-4 shadow-sm">AI chatbot integrations</li>
-            <li class="bg-white rounded-lg hover:text-primary px-5 py-4 shadow-sm">Performance optimizations</li>
-            <li class="bg-white rounded-lg hover:text-primary px-5 py-4 shadow-sm">Refactoring old codebase</li>
-            <li class="bg-white rounded-lg hover:text-primary px-5 py-4 shadow-sm">Reduction of technical debt</li>
-            <li class="bg-white rounded-lg hover:text-primary px-5 py-4 shadow-sm">Improving <strong>Developer Experience</strong></li>
+            <li class="bg-white rounded-lg hover:text-primary-600 px-5 py-4 shadow-sm"><strong>Laravel</strong> applications</li>
+            <li class="bg-white rounded-lg hover:text-primary-600 px-5 py-4 shadow-sm">Back-office systems</li>
+            <li class="bg-white rounded-lg hover:text-primary-600 px-5 py-4 shadow-sm">Dashboards</li>
+            <li class="bg-white rounded-lg hover:text-primary-600 px-5 py-4 shadow-sm">REST <strong>APIs</strong></li>
+            <li class="bg-white rounded-lg hover:text-primary-600 px-5 py-4 shadow-sm">AI chatbot integrations</li>
+            <li class="bg-white rounded-lg hover:text-primary-600 px-5 py-4 shadow-sm">Performance optimizations</li>
+            <li class="bg-white rounded-lg hover:text-primary-600 px-5 py-4 shadow-sm">Refactoring old codebase</li>
+            <li class="bg-white rounded-lg hover:text-primary-600 px-5 py-4 shadow-sm">Reduction of technical debt</li>
+            <li class="bg-white rounded-lg hover:text-primary-600 px-5 py-4 shadow-sm">Improving <strong>Developer Experience</strong></li>
         </ul>
     </div>
 </div>

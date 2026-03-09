@@ -3,7 +3,7 @@
     "type": "module",
     "scripts": {
         "watch": "vite",
-        "prod": "vite build --mode production"
+        "build": "vite build --mode production"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.2.1",

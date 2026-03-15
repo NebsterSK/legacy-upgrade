@@ -3,9 +3,9 @@
 @section('body')
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
     <div class="flex-1 text-center md:text-left">
-        <p class="slide-from-left animation-delay-1s text-primary-600 text-4xl sm:text-5xl lg:text-6xl font-bold">Lukáš Neuschl</p>
+        <p class="text-primary-600 text-4xl sm:text-5xl lg:text-6xl font-bold">Lukáš Neuschl</p>
 
-        <p class="slide-from-right animation-delay-1s font-kanit font-bold mt-3 text-lg sm:text-xl text-gray-500">Full-stack developer</p>
+        <p class="font-kanit font-bold mt-3 text-lg sm:text-xl text-gray-500">Full-stack developer</p>
 
         <p class="mt-2 text-gray-400">Custom websites | Laravel applications | Developer Experience</p>
 
@@ -31,7 +31,7 @@
     </div>
 
     <div class="shrink-0">
-        <img src="{{ vite('source/_assets/images/portrait.webp') }}" alt="" class="hero-image w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 rounded-full md:rounded-2xl object-cover shadow-lg" />
+        <img src="{{ vite('source/_assets/images/portrait.webp') }}" alt="" class="w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 rounded-full md:rounded-2xl object-cover shadow-lg" />
     </div>
 </div>
 

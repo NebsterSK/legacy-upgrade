@@ -32,7 +32,7 @@ return [
 
             'city' => 'Bratislava',
 
-            'zip' => '83103',
+            'zip' => '831 03',
 
             'country' => 'Slovak Republic',
 

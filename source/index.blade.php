@@ -35,6 +35,28 @@
     </div>
 </div>
 
+<div>
+    <h2 class="font-kanit text-gray-600 text-3xl mb-8 text-center">Clients</h2>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-16">
+        <a href="https://meetbrackets.com/" target="_blank" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow">
+            <img src="{{ vite('source/_assets/images/logo_brackets.svg') }}" alt="Brackets" class="h-16 w-auto object-contain" />
+        </a>
+
+        <a href="https://remam.sk/" target="_blank" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow">
+            <img src="{{ vite('source/_assets/images/logo_remam.png') }}" alt="Rema M" class="h-16 w-auto object-contain" />
+        </a>
+
+        <a href="https://yasmin-trade.com/" target="_blank" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow">
+            <img src="{{ vite('source/_assets/images/logo_yasmin.png') }}" alt="Yasmin Trade" class="h-16 w-auto object-contain" />
+        </a>
+
+        <a href="https://stcham.com/" target="_blank" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow">
+            <img src="{{ vite('source/_assets/images/logo_stcc.png') }}" alt="STCC" class="h-16 w-auto object-contain" />
+        </a>
+    </div>
+</div>
+
 {{--<div>--}}
 {{--    <div>--}}
 {{--        <h2>What I do</h2>--}}

@@ -15,6 +15,10 @@ export default defineConfig({
                 // Images
                 'source/_assets/images/favicon.png',
                 'source/_assets/images/portrait.webp',
+                'source/_assets/images/logo_brackets.svg',
+                'source/_assets/images/logo_remam.png',
+                'source/_assets/images/logo_stcc.png',
+                'source/_assets/images/logo_yasmin.png',
             ],
             refresh: {
                 files: [

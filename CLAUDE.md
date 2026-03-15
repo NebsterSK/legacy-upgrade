@@ -21,7 +21,6 @@ Legacy Upgrade is a static company website for freelance web development busines
 ```bash
 npm run watch    # Vite dev server with hot reload
 npm run build    # Vite build + Jigsaw build (local/development)
-npm run prod     # Vite build + Jigsaw build (production mode)
 ```
 
 ## Styling Architecture
@@ -32,8 +31,7 @@ npm run prod     # Vite build + Jigsaw build (production mode)
 
 ## Static Assets
 
-Images and fonts are copied to the build output by `vite-plugin-static-copy`:
-- `source/_assets/images/*` → `assets/build/images/`
+Fonts are copied to the build output by `vite-plugin-static-copy`:
 - `source/_assets/fonts/*` → `assets/build/fonts/`
 
 ## Configuration Data

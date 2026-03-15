@@ -2,25 +2,25 @@
 
 @section('body')
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
-    <div class="flex-1 text-center md:text-left">
-        <p class="text-primary-600 text-4xl sm:text-5xl lg:text-6xl font-bold">Lukáš Neuschl</p>
+    <div class="md:w-3/5 text-center md:text-left">
+        <h1 class="font-kanit text-primary-600 text-4xl sm:text-5xl lg:text-6xl">Lukas Neuschl</h1>
 
-        <p class="font-kanit font-bold mt-3 text-lg sm:text-xl text-gray-500">Full-stack developer</p>
+        <p class="font-bold text-lg sm:text-xl text-gray-400">Freelance Web Developer</p>
 
-        <p class="mt-2 text-gray-400">Custom websites | Laravel applications | Developer Experience</p>
+{{--        <p class="mt-3 text-gray-400">Custom websites | Laravel applications</p>--}}
 
         <p class="mt-5 flex justify-center md:justify-start gap-4 text-4xl">
-            <a href="{{ $page->links->linkedin }}" target="_blank" title="LinkedIn" class="text-gray-500 hover:text-primary-600 transition">
+            <a href="{{ $page->links->linkedin }}" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="text-gray-500 hover:text-primary-600 transition">
                 <i class="ri-linkedin-fill"></i>
             </a>
 
-            <a href="{{ $page->links->github }}" target="_blank" title="GitHub" class="text-gray-500 hover:text-primary-600 transition">
+            <a href="{{ $page->links->github }}" target="_blank" rel="noopener noreferrer" title="GitHub" class="text-gray-500 hover:text-primary-600 transition">
                 <i class="ri-github-fill"></i>
             </a>
 
-            <a href="{{ $page->links->stack_overflow }}" target="_blank" title="Stack Overflow" class="text-gray-500 hover:text-primary-600 transition">
-                <i class="ri-stack-overflow-fill"></i>
-            </a>
+{{--            <a href="{{ $page->links->stack_overflow }}" target="_blank" rel="noopener noreferrer" title="Stack Overflow" class="text-gray-500 hover:text-primary-600 transition">--}}
+{{--                <i class="ri-stack-overflow-fill"></i>--}}
+{{--            </a>--}}
         </p>
 
         <div class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
@@ -30,29 +30,31 @@
         </div>
     </div>
 
-    <div class="shrink-0">
-        <img src="{{ vite('source/_assets/images/portrait.webp') }}" alt="" class="w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 rounded-full md:rounded-2xl object-cover shadow-lg" />
+    <div class="md:w-2/5">
+        <img src="{{ vite('source/_assets/images/portrait.webp') }}" alt="Lukas Neuschl, Full-stack Web Developer" class="w-48 h-48 sm:w-64 sm:h-64 md:w-full md:h-full rounded-full md:rounded-2xl object-cover shadow-lg" />
     </div>
 </div>
 
-<div>
-    <h2 class="font-kanit text-gray-600 text-3xl mb-8 text-center">Clients</h2>
+<div class="bg-gray-50 py-16">
+    <h2 class="font-kanit text-gray-600 text-2xl mb-2 text-center">Clients</h2>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-16">
-        <a href="https://meetbrackets.com/" target="_blank" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow">
-            <img src="{{ vite('source/_assets/images/logo_brackets.svg') }}" alt="Brackets" class="h-16 w-auto object-contain" />
+    <p class="text-center text-gray-400 mb-10 max-w-xl mx-auto px-4">Companies I have had the pleasure of working with.</p>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <a href="https://meetbrackets.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
+            <img src="{{ vite('source/_assets/images/logo_brackets.svg') }}" alt="Brackets" class="h-20 w-auto object-contain" />
         </a>
 
-        <a href="https://remam.sk/" target="_blank" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow">
-            <img src="{{ vite('source/_assets/images/logo_remam.png') }}" alt="Rema M" class="h-16 w-auto object-contain" />
+        <a href="https://remam.sk/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
+            <img src="{{ vite('source/_assets/images/logo_remam.png') }}" alt="Rema M" class="h-20 w-auto object-contain" />
         </a>
 
-        <a href="https://yasmin-trade.com/" target="_blank" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow">
-            <img src="{{ vite('source/_assets/images/logo_yasmin.png') }}" alt="Yasmin Trade" class="h-16 w-auto object-contain" />
+        <a href="https://yasmin-trade.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
+            <img src="{{ vite('source/_assets/images/logo_yasmin.png') }}" alt="Yasmin Trade" class="h-20 w-auto object-contain" />
         </a>
 
-        <a href="https://stcham.com/" target="_blank" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow">
-            <img src="{{ vite('source/_assets/images/logo_stcc.png') }}" alt="STCC" class="h-16 w-auto object-contain" />
+        <a href="https://stcham.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
+            <img src="{{ vite('source/_assets/images/logo_stcc.png') }}" alt="STCC" class="h-20 w-auto object-contain" />
         </a>
     </div>
 </div>

@@ -3,7 +3,7 @@ document.getElementById('nav-toggle').addEventListener('click', function () {
     const menu = document.getElementById('nav-menu');
     const iconOpen = document.getElementById('nav-icon-open');
     const iconClose = document.getElementById('nav-icon-close');
-    menu.classList.toggle('hidden');
+    menu.classList.toggle('nav-open');
     iconOpen.classList.toggle('hidden');
     iconClose.classList.toggle('hidden');
 });

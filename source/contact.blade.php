@@ -7,7 +7,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {{-- Personal info --}}
-            <div class="bg-gray-200 rounded-lg shadow-sm p-6 flex flex-col items-center text-center">
+            <div class="bg-gray-200 rounded-lg shadow-sm p-6 flex flex-col items-center text-center hover:shadow-md transition">
                 <div class="bg-primary-100 rounded-full w-14 h-14 flex items-center justify-center mb-4">
                     <i class="ri-user-line text-primary-600 text-2xl"></i>
                 </div>
@@ -23,7 +23,7 @@
             </div>
 
             {{-- Address --}}
-            <div class="bg-gray-200 rounded-lg shadow-sm p-6 flex flex-col items-center text-center">
+            <div class="bg-gray-200 rounded-lg shadow-sm p-6 flex flex-col items-center text-center hover:shadow-md transition">
                 <div class="bg-primary-100 rounded-full w-14 h-14 flex items-center justify-center mb-4">
                     <i class="ri-map-pin-line text-primary-600 text-2xl"></i>
                 </div>
@@ -34,7 +34,7 @@
             </div>
 
             {{-- Company details --}}
-            <div class="bg-gray-200 rounded-lg shadow-sm p-6 flex flex-col items-center text-center md:col-span-2">
+            <div class="bg-gray-200 rounded-lg shadow-sm p-6 flex flex-col items-center text-center md:col-span-2 hover:shadow-md transition">
                 <div class="bg-primary-100 rounded-full w-14 h-14 flex items-center justify-center mb-4">
                     <i class="ri-building-line text-primary-600 text-2xl"></i>
                 </div>

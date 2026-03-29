@@ -16,9 +16,17 @@ return [
 
         'name' => 'Lukáš Neuschl - Legacy Upgrade',
 
-        'email' => 'lukas@legacy-upgrade.com',
+        'contact' => [
 
-        'phone' => '+421 949 746 983',
+            'email' => 'lukas@legacy-upgrade.com',
+
+            'phone' => '+421 949 746 983',
+
+            'messenger' => 'https://m.me/lukas.neuschl.5',
+
+            'whatsapp' => 'https://wa.me/421949746983',
+
+        ],
 
         'id' => '47722843',
 

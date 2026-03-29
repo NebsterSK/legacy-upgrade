@@ -13,12 +13,20 @@
                 </div>
                 <p class="text-xl font-bold mb-4">Lukáš Neuschl</p>
 
-                <a href="mailto:{{ $page->company->email }}" class="flex items-center gap-2 hover:text-primary-600 transition mb-2">
-                    <i class="ri-mail-fill text-primary-600"></i> {{ $page->company->email }}
+                <a href="mailto:{{ $page->company->contact->email }}" class="flex items-center gap-2 hover:text-primary-600 transition mb-1">
+                    <i class="ri-mail-fill text-primary-600"></i> {{ $page->company->contact->email }}
                 </a>
 
-                <a href="tel:{{ $page->company->phone }}" class="flex items-center gap-2 hover:text-primary-600 transition">
-                    <i class="ri-phone-fill text-primary-600"></i> {{ $page->company->phone }}
+                <a href="tel:{{ $page->company->contact->phone }}" class="flex items-center gap-2 hover:text-primary-600 transition mb-1">
+                    <i class="ri-phone-fill text-primary-600"></i> {{ $page->company->contact->phone }}
+                </a>
+
+                <a href="{{ $page->company->contact->messenger }}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-primary-600 transition mb-1">
+                    <i class="ri-messenger-fill text-primary-600"></i> Messenger
+                </a>
+
+                <a href="{{ $page->company->contact->whatsapp }}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-primary-600 transition">
+                    <i class="ri-whatsapp-fill text-primary-600"></i> WhatsApp
                 </a>
             </div>
 

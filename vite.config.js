@@ -15,10 +15,20 @@ export default defineConfig({
                 // Images
                 'source/_assets/images/favicon.png',
                 'source/_assets/images/portrait.webp',
-                'source/_assets/images/logo_brackets.svg',
-                'source/_assets/images/logo_remam.png',
-                'source/_assets/images/logo_stcc.png',
-                'source/_assets/images/logo_yasmin.png',
+
+                // Logos
+                'source/_assets/images/logos/brackets.svg',
+                'source/_assets/images/logos/remam.webp',
+                'source/_assets/images/logos/laravel.svg',
+                'source/_assets/images/logos/claude.svg',
+                'source/_assets/images/logos/vuejs.svg',
+                'source/_assets/images/logos/tailwindcss.svg',
+                'source/_assets/images/logos/inertiajs.svg',
+                'source/_assets/images/logos/mysql.svg',
+                'source/_assets/images/logos/forge.svg',
+                'source/_assets/images/logos/websupport.webp',
+                'source/_assets/images/logos/yasmin.png',
+                'source/_assets/images/logos/stcc.png',
             ],
             refresh: {
                 files: [

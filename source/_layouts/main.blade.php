@@ -26,6 +26,8 @@
 
                         <a href="/services" class="nav-link block px-3 py-2 md:px-0 md:py-0 {{ $page->getPath() == '/services' ? 'nav-link-active' : '' }}">Services</a>
 
+                        <a href="/technology" class="nav-link block px-3 py-2 md:px-0 md:py-0 {{ $page->getPath() == '/technology' ? 'nav-link-active' : '' }}">Technology</a>
+
                         <a href="/contact" class="nav-link block px-3 py-2 md:px-0 md:py-0 {{ $page->getPath() == '/contact' ? 'nav-link-active' : '' }}">Contact</a>
 
 {{--                        <button id="dark-mode-toggle" class="block px-3 py-2 hover:text-primary-600 md:px-0 md:py-0 cursor-pointer" aria-label="Toggle dark mode">--}}
@@ -45,20 +47,22 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row gap-8">
                     <div class="text-center md:text-left">
+                        <p class="font-bold mb-3">Contact</p>
+                        <p class="mb-1"><a href="mailto:{{ $page->company->contact->email }}" class="hover:text-primary-600 transition">{{ $page->company->contact->email }}</a></p>
+                        <p class="mb-1"><a href="tel:{{ $page->company->contact->phone }}" class="hover:text-primary-600 transition">{{ $page->company->contact->phone }}</a></p>
+                        <p class="mb-1"><a href="{{ $page->company->contact->messenger }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 transition">Messenger <i class="ri-external-link-line"></i></a></p>
+                        <p class="mb-1"><a href="{{ $page->company->contact->whatsapp }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 transition">WhatsApp <i class="ri-external-link-line"></i></a></p>
+                    </div>
+
+                    <div class="text-center md:text-left">
                         <p class="font-bold mb-3">Social media</p>
                         <p class="mb-1"><a href="{{ $page->links->linkedin }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 transition">LinkedIn <i class="ri-external-link-line"></i></a></p>
                         <p class="mb-1"><a href="{{ $page->links->github }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 transition">GitHub <i class="ri-external-link-line"></i></a></p>
 {{--                        <p class="mb-1"><a href="{{ $page->links->stack_overflow }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 transition">Stack Overflow <i class="ri-external-link-line"></i></a></p>--}}
                     </div>
 
-                    <div class="text-center md:text-left">
-                        <p class="font-bold mb-3">Contact</p>
-                        <p class="mb-1"><a href="mailto:{{ $page->company->email }}" class="hover:text-primary-600 transition">{{ $page->company->email }}</a></p>
-                        <p class="mb-1"><a href="tel:{{ $page->company->phone }}" class="hover:text-primary-600 transition">{{ $page->company->phone }}</a></p>
-                    </div>
-
-                    <div class="text-center md:text-right grow">
-                        <img src="{{ vite('source/_assets/images/favicon.png') }}" alt="Logo" class="h-12 mb-3 mx-auto md:ml-auto md:mr-0" />
+                    <div class="text-center md:text-right grow flex flex-col justify-end">
+                        <img src="{{ vite('source/_assets/images/favicon.png') }}" alt="Logo" class="mb-3 mx-auto md:ml-auto md:mr-0" />
                         <p class="text-sm"><span class="font-kanit">LEGACY UPGRADE</span> © <script>document.write(new Date().getFullYear())</script></p>
                     </div>
                 </div>

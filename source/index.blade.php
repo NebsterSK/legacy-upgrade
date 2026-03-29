@@ -31,30 +31,28 @@
     </div>
 
     <div class="md:w-2/5">
-        <img src="{{ vite('source/_assets/images/portrait.webp') }}" alt="Lukas Neuschl, Full-stack Web Developer" class="w-48 h-48 sm:w-64 sm:h-64 md:w-full md:h-full rounded-full md:rounded-2xl object-cover shadow-lg" />
+        <img src="{{ vite('source/_assets/images/portrait.webp') }}" alt="Lukas Neuschl, Freelance Web Developer" class="w-48 h-48 sm:w-64 sm:h-64 md:w-full md:h-full rounded-full md:rounded-2xl object-cover shadow-lg" />
     </div>
 </div>
 
 <div class="bg-gray-50 py-16">
-    <h2 class="font-kanit text-gray-600 text-2xl mb-2 text-center">Clients</h2>
+    <h2 class="text-lg font-kanit text-gray-400 uppercase tracking-widest mb-10 text-center">Clients</h2>
 
-    <p class="text-center text-gray-400 mb-10 max-w-xl mx-auto px-4">Companies I have had the pleasure of working with.</p>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
         <a href="https://meetbrackets.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
-            <img src="{{ vite('source/_assets/images/logo_brackets.svg') }}" alt="Brackets" class="h-20 w-auto object-contain" />
+            <img src="{{ vite('source/_assets/images/logos/brackets.svg') }}" alt="Brackets" class="h-20 w-auto object-contain" />
         </a>
 
         <a href="https://remam.sk/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
-            <img src="{{ vite('source/_assets/images/logo_remam.png') }}" alt="Rema M" class="h-20 w-auto object-contain" />
+            <img src="{{ vite('source/_assets/images/logos/remam.webp') }}" alt="RemaM" class="h-20 w-auto object-contain" />
         </a>
 
-        <a href="https://yasmin-trade.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
-            <img src="{{ vite('source/_assets/images/logo_yasmin.png') }}" alt="Yasmin Trade" class="h-20 w-auto object-contain" />
+        <a href="https://yasmin-trade.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 lg:py-12 bg-gray-200 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
+            <img src="{{ vite('source/_assets/images/logos/yasmin.png') }}" alt="Yasmin Trade" class="h-40 w-auto object-contain" />
         </a>
 
-        <a href="https://stcham.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 bg-gray-200 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
-            <img src="{{ vite('source/_assets/images/logo_stcc.png') }}" alt="STCC" class="h-20 w-auto object-contain" />
+        <a href="https://stcham.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 lg:py-12 bg-gray-200 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
+            <img src="{{ vite('source/_assets/images/logos/stcc.png') }}" alt="STCC" class="h-40 w-auto object-contain" />
         </a>
     </div>
 </div>

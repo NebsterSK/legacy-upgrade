@@ -3,8 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="{{ $page->description }}">
-        <title>{{ $page->title }}</title>
+        <meta name="description" content="@yield('pageDescription')">
+        <title>@yield('pageTitle') | Legacy Upgrade</title>
+        <link rel="canonical" href="{{ $page->baseUrl }}{{ $page->getPath() ?: '/' }}">
+
+        @include('_includes/og')
+
+        @include('_includes/twitter')
+
         <link rel="icon" type="image/x-icon" href="{{ vite('source/_assets/images/favicon.png') }}">
         @viteRefresh()
         <link rel="stylesheet" href="{{ vite('source/_assets/css/main.css') }}">
@@ -14,7 +20,7 @@
         <nav id="main-nav" class="bg-primary-100 text-primary-600">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap items-center justify-between">
-                    <a href="/" class="text-xl font-bold text-primary-600 font-kanit py-4">Legacy Upgrade</a>
+                    <a href="/" class="text-xl text-primary-600 font-kanit py-4">Legacy Upgrade</a>
 
                     <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center p-2 rounded hover:text-primary-600 focus:outline-none" aria-label="Toggle navigation">
                         <i id="nav-icon-open" class="ri-menu-line text-2xl"></i>
@@ -39,9 +45,9 @@
             </div>
         </nav>
 
-        <div id="page-body" class="grow">
+        <main id="page-body" class="grow">
             @yield('body')
-        </div>
+        </main>
 
         <footer id="page-footer" class="bg-gray-100 text-gray-400 py-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,12 +68,16 @@
                     </div>
 
                     <div class="text-center md:text-right grow flex flex-col justify-end">
-                        <img src="{{ vite('source/_assets/images/favicon.png') }}" alt="Logo" class="mb-3 mx-auto md:ml-auto md:mr-0" />
+                        <img src="{{ vite('source/_assets/images/favicon.png') }}" alt="Legacy Upgrade logo" class="mb-3 mx-auto md:ml-auto md:mr-0" />
                         <p class="text-sm"><span class="font-kanit">LEGACY UPGRADE</span> © <script>document.write(new Date().getFullYear())</script></p>
                     </div>
                 </div>
             </div>
         </footer>
+
+        @include('_includes/ld-json')
+
+        @yield('jsonld')
 
         <script src="{{ vite('source/_assets/js/main.js') }}" defer></script>
     </body>

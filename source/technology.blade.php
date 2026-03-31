@@ -1,9 +1,14 @@
 @extends('_layouts.main')
 
+@section('pageTitle', 'Technology')
+@section('pageDescription', 'Built on Laravel, Vue.js, Tailwind CSS, and Claude AI. Modern tech stack for reliable, scalable business software and automation.')
+
 @section('body')
 <div class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="font-kanit text-primary-600 text-4xl mb-16 text-center">Technology</h1>
+        <h1 class="font-kanit text-primary-600 text-4xl mb-6 text-center">Technology</h1>
+
+        <p class="text-gray-500 text-center max-w-2xl mx-auto mb-16">I choose proven, modern tools that deliver reliable and maintainable business software. Every technology in my stack is selected to help your project scale and stay easy to work with.</p>
 
         <h2 class="text-lg font-kanit text-gray-400 uppercase tracking-widest mb-10 text-center">Tech Stack</h2>
 
@@ -51,5 +56,11 @@
             @endforeach
         </div>
     </div>
+</div>
+
+<div class="bg-gray-50 py-16 text-center">
+    <h2 class="text-lg font-kanit text-gray-400 uppercase tracking-widest mb-10 text-center">Interested in working together?</h2>
+
+    <a href="/contact" class="inline-block px-6 py-3 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-semibold transition">Get in touch</a>
 </div>
 @endsection

@@ -1,9 +1,14 @@
 @extends('_layouts.main')
 
+@section('pageTitle', 'Contact')
+@section('pageDescription', 'Get in touch for custom software development, business digitalization, and automation projects. Based in Bratislava, available remotely.')
+
 @section('body')
 <div class="py-16">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="font-kanit text-primary-600 text-4xl mb-12 text-center">Contact</h1>
+        <h1 class="font-kanit text-primary-600 text-4xl mb-6 text-center">Contact</h1>
+
+        <p class="text-gray-500 text-center mb-12">Ready to digitalize your business processes or automate a workflow? Let's discuss your product.</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {{-- Personal info --}}

@@ -8,7 +8,7 @@ return [
 
     'title' => 'Legacy Upgrade',
 
-    'description' => 'Freelance Laravel developer in Bratislava. APIs, dashboards, AI integrations, legacy refactoring and performance optimizations for your web apps.',
+    'description' => 'Digitalization and automation through custom software. Freelance developer in Bratislava building APIs, dashboards, AI integrations, and business applications.',
 
     'collections' => [],
 

@@ -6,6 +6,7 @@
 /.idea/
 /.vscode/
 npm-debug.log
+/.claude
 
 # Optional ignores
 # /build_staging/

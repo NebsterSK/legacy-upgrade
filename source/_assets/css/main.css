@@ -44,10 +44,10 @@
         transition: background-color 0.2s, color 0.2s;
     }
 
-    /*.dark body {*/
-    /*    background-color: var(--color-gray-900);*/
-    /*    color: var(--color-gray-300);*/
-    /*}*/
+    .dark body {
+        background-color: var(--color-gray-900);
+        color: var(--color-gray-300);
+    }
 }
 
 @utility font-kanit {
@@ -70,6 +70,14 @@
         height: 2px;
         background-color: var(--color-primary-600);
         transition: width 0.25s ease;
+    }
+
+    .dark .nav-link-active {
+        color: var(--color-primary-400);
+    }
+
+    .dark .nav-link::after {
+        background-color: var(--color-primary-400);
     }
 
     .nav-link:hover::after {

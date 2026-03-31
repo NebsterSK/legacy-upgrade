@@ -12,15 +12,23 @@
         @include('_includes/twitter')
 
         <link rel="icon" type="image/x-icon" href="{{ vite('source/_assets/images/favicon.png') }}">
+        <script>
+            (function() {
+                var stored = localStorage.getItem('darkMode');
+                if (stored === 'true' || (stored === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                }
+            })();
+        </script>
         @viteRefresh()
         <link rel="stylesheet" href="{{ vite('source/_assets/css/main.css') }}">
     </head>
 
-    <body class="flex flex-col min-h-screen">
-        <nav id="main-nav" class="bg-primary-100 text-primary-600">
+    <body class="flex flex-col min-h-screen dark:bg-gray-900 dark:text-gray-300">
+        <nav id="main-nav" class="bg-primary-100 text-primary-600 dark:bg-gray-800 dark:text-primary-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap items-center justify-between">
-                    <a href="/" class="text-xl text-primary-600 font-kanit py-4">Legacy Upgrade</a>
+                    <a href="/" class="text-xl text-primary-600 dark:text-primary-400 font-kanit py-4">Legacy Upgrade</a>
 
                     <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center p-2 rounded hover:text-primary-600 focus:outline-none" aria-label="Toggle navigation">
                         <i id="nav-icon-open" class="ri-menu-line text-2xl"></i>
@@ -36,10 +44,10 @@
 
                         <a href="/contact" class="nav-link block px-3 py-2 md:px-0 md:py-0 {{ $page->getPath() == '/contact' ? 'nav-link-active' : '' }}">Contact</a>
 
-{{--                        <button id="dark-mode-toggle" class="block px-3 py-2 hover:text-primary-600 md:px-0 md:py-0 cursor-pointer" aria-label="Toggle dark mode">--}}
-{{--                            <i id="dark-icon-sun" class="ri-sun-line text-xl hidden"></i>--}}
-{{--                            <i id="dark-icon-moon" class="ri-moon-line text-xl"></i>--}}
-{{--                        </button>--}}
+                        <button id="dark-mode-toggle" class="block px-3 py-2 hover:text-primary-600 dark:hover:text-primary-400 md:px-0 md:py-0 cursor-pointer" aria-label="Toggle dark mode">
+                            <i id="dark-icon-sun" class="ri-sun-line text-xl hidden"></i>
+                            <i id="dark-icon-moon" class="ri-moon-line text-xl"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -49,21 +57,21 @@
             @yield('body')
         </main>
 
-        <footer id="page-footer" class="bg-gray-100 text-gray-400 py-8">
+        <footer id="page-footer" class="bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-500 py-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row gap-8">
                     <div class="text-center md:text-left">
-                        <p class="font-bold mb-3">Contact</p>
-                        <p class="mb-1"><a href="mailto:{{ $page->company->contact->email }}" class="hover:text-primary-600 transition">{{ $page->company->contact->email }}</a></p>
-                        <p class="mb-1"><a href="tel:{{ $page->company->contact->phone }}" class="hover:text-primary-600 transition">{{ $page->company->contact->phone }}</a></p>
-                        <p class="mb-1"><a href="{{ $page->company->contact->messenger }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 transition">Messenger <i class="ri-external-link-line"></i></a></p>
-                        <p class="mb-1"><a href="{{ $page->company->contact->whatsapp }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 transition">WhatsApp <i class="ri-external-link-line"></i></a></p>
+                        <p class="font-bold mb-3 dark:text-gray-300">Contact</p>
+                        <p class="mb-1"><a href="mailto:{{ $page->company->contact->email }}" class="hover:text-primary-600 dark:hover:text-primary-400 transition">{{ $page->company->contact->email }}</a></p>
+                        <p class="mb-1"><a href="tel:{{ $page->company->contact->phone }}" class="hover:text-primary-600 dark:hover:text-primary-400 transition">{{ $page->company->contact->phone }}</a></p>
+                        <p class="mb-1"><a href="{{ $page->company->contact->messenger }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-400 transition">Messenger <i class="ri-external-link-line"></i></a></p>
+                        <p class="mb-1"><a href="{{ $page->company->contact->whatsapp }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-400 transition">WhatsApp <i class="ri-external-link-line"></i></a></p>
                     </div>
 
                     <div class="text-center md:text-left">
-                        <p class="font-bold mb-3">Social media</p>
-                        <p class="mb-1"><a href="{{ $page->links->linkedin }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 transition">LinkedIn <i class="ri-external-link-line"></i></a></p>
-                        <p class="mb-1"><a href="{{ $page->links->github }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 transition">GitHub <i class="ri-external-link-line"></i></a></p>
+                        <p class="font-bold mb-3 dark:text-gray-300">Social media</p>
+                        <p class="mb-1"><a href="{{ $page->links->linkedin }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-400 transition">LinkedIn <i class="ri-external-link-line"></i></a></p>
+                        <p class="mb-1"><a href="{{ $page->links->github }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-400 transition">GitHub <i class="ri-external-link-line"></i></a></p>
 {{--                        <p class="mb-1"><a href="{{ $page->links->stack_overflow }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 transition">Stack Overflow <i class="ri-external-link-line"></i></a></p>--}}
                     </div>
 

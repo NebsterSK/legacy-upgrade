@@ -6,11 +6,11 @@
 @section('body')
 <div class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="font-kanit text-primary-600 text-4xl mb-6 text-center">Technology</h1>
+        <h1 class="font-kanit text-primary-600 dark:text-primary-400 text-4xl mb-6 text-center">Technology</h1>
 
-        <p class="text-gray-500 text-center max-w-2xl mx-auto mb-16">I choose proven, modern tools that deliver reliable and maintainable business software. Every technology in my stack is selected to help your project scale and stay easy to work with.</p>
+        <p class="text-gray-500 dark:text-gray-400 text-center max-w-2xl mx-auto mb-16">I choose proven, modern tools that deliver reliable and maintainable business software. Every technology in my stack is selected to help your project scale and stay easy to work with.</p>
 
-        <h2 class="text-lg font-kanit text-gray-400 uppercase tracking-widest mb-10 text-center">Tech Stack</h2>
+        <h2 class="text-lg font-kanit text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-10 text-center">Tech Stack</h2>
 
         <div class="grid grid-cols-3 gap-6 md:grid-cols-6 md:gap-10 mb-20 px-2 justify-items-center">
             @foreach([
@@ -35,7 +35,7 @@
             @endforeach
         </div>
 
-        <h2 class="text-lg font-kanit text-gray-400 uppercase tracking-widest mb-10 text-center">Infrastructure</h2>
+        <h2 class="text-lg font-kanit text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-10 text-center">Infrastructure</h2>
 
         <div class="flex flex-wrap justify-center gap-8 sm:gap-12">
             @foreach([
@@ -58,8 +58,8 @@
     </div>
 </div>
 
-<div class="bg-gray-50 py-16 text-center">
-    <h2 class="text-lg font-kanit text-gray-400 uppercase tracking-widest mb-10 text-center">Interested in working together?</h2>
+<div class="bg-gray-50 dark:bg-gray-800 py-16 text-center">
+    <h2 class="text-lg font-kanit text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-10 text-center">Interested in working together?</h2>
 
     <a href="/contact" class="inline-block px-6 py-3 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-semibold transition">Get in touch</a>
 </div>

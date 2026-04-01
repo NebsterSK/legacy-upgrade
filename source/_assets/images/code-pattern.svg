@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="none" stroke="#9ca3af" stroke-width="1" opacity="0.3">
+  <!-- curly braces -->
+  <g transform="rotate(-12, 20, 30)">
+    <path d="M16 20 Q10 20 10 26 Q10 32 4 32 Q10 32 10 38 Q10 44 16 44" />
+    <path d="M26 20 Q32 20 32 26 Q32 32 38 32 Q32 32 32 38 Q32 44 26 44" />
+  </g>
+
+  <!-- angle brackets / tag -->
+  <g transform="rotate(8, 95, 22)">
+    <path d="M88 12 L78 22 L88 32" />
+    <path d="M98 12 L108 22 L98 32" />
+    <line x1="91" y1="11" x2="96" y2="33" />
+  </g>
+
+  <!-- square brackets -->
+  <g transform="rotate(-20, 165, 28)">
+    <path d="M158 16 L152 16 L152 40 L158 40" />
+    <path d="M168 16 L174 16 L174 40 L168 40" />
+  </g>
+
+  <!-- arrow => -->
+  <g transform="rotate(15, 40, 80)">
+    <line x1="28" y1="80" x2="46" y2="80" />
+    <path d="M40 74 L48 80 L40 86" />
+  </g>
+
+  <!-- semicolon -->
+  <g transform="rotate(-25, 120, 75)">
+    <circle cx="120" cy="70" r="2" fill="#9ca3af" stroke="none" />
+    <circle cx="120" cy="80" r="2" fill="#9ca3af" stroke="none" />
+    <line x1="120" y1="82" x2="117" y2="88" />
+  </g>
+
+  <!-- hash # -->
+  <g transform="rotate(22, 180, 78)">
+    <line x1="174" y1="66" x2="172" y2="90" />
+    <line x1="182" y1="66" x2="180" y2="90" />
+    <line x1="168" y1="73" x2="186" y2="73" />
+    <line x1="167" y1="83" x2="185" y2="83" />
+  </g>
+
+  <!-- parentheses -->
+  <g transform="rotate(18, 55, 135)">
+    <path d="M48 125 Q40 135 48 145" />
+    <path d="M60 125 Q68 135 60 145" />
+  </g>
+
+  <!-- pipe | -->
+  <g transform="rotate(-30, 130, 130)">
+    <line x1="130" y1="118" x2="130" y2="142" />
+  </g>
+
+  <!-- equals == -->
+  <g transform="rotate(10, 185, 135)">
+    <line x1="172" y1="130" x2="198" y2="130" />
+    <line x1="172" y1="140" x2="198" y2="140" />
+  </g>
+
+  <!-- dots ... -->
+  <g transform="rotate(-15, 35, 180)">
+    <circle cx="25" cy="180" r="2" fill="#9ca3af" stroke="none" />
+    <circle cx="35" cy="180" r="2" fill="#9ca3af" stroke="none" />
+    <circle cx="45" cy="180" r="2" fill="#9ca3af" stroke="none" />
+  </g>
+
+  <!-- asterisk * -->
+  <g transform="rotate(25, 110, 180)">
+    <line x1="110" y1="170" x2="110" y2="190" />
+    <line x1="100" y1="175" x2="120" y2="185" />
+    <line x1="120" y1="175" x2="100" y2="185" />
+  </g>
+
+  <!-- forward slash -->
+  <g transform="rotate(-8, 175, 178)">
+    <line x1="180" y1="188" x2="170" y2="168" />
+  </g>
+
+  <!-- extra: curly brace single -->
+  <g transform="rotate(30, 75, 52)">
+    <path d="M71 42 Q65 42 65 48 Q65 54 59 54 Q65 54 65 60 Q65 66 71 66" />
+  </g>
+
+  <!-- extra: angle bracket -->
+  <g transform="rotate(-18, 155, 108)">
+    <path d="M162 98 L148 108 L162 118" />
+  </g>
+
+  <!-- extra: double colon :: -->
+  <g transform="rotate(12, 28, 112)">
+    <circle cx="24" cy="108" r="2" fill="#9ca3af" stroke="none" />
+    <circle cx="24" cy="116" r="2" fill="#9ca3af" stroke="none" />
+    <circle cx="32" cy="108" r="2" fill="#9ca3af" stroke="none" />
+    <circle cx="32" cy="116" r="2" fill="#9ca3af" stroke="none" />
+  </g>
+</svg>

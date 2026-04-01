@@ -1,101 +1,104 @@
-// Sticky nav shadow on scroll
 const nav = document.getElementById('main-nav');
-window.addEventListener('scroll', function () {
+const menu = document.getElementById('nav-menu');
+const navHeight = nav.offsetHeight;
+
+// Nav shadow on scroll
+window.addEventListener('scroll', () => {
     nav.classList.toggle('shadow-md', window.scrollY > 0);
 });
 
-// Responsive navbar toggle
-document.getElementById('nav-toggle').addEventListener('click', function () {
-    const menu = document.getElementById('nav-menu');
-    const iconOpen = document.getElementById('nav-icon-open');
-    const iconClose = document.getElementById('nav-icon-close');
+// Mobile menu toggle
+document.getElementById('nav-toggle').addEventListener('click', () => {
     menu.classList.toggle('nav-open');
-    iconOpen.classList.toggle('hidden');
-    iconClose.classList.toggle('hidden');
+    document.getElementById('nav-icon-open').classList.toggle('hidden');
+    document.getElementById('nav-icon-close').classList.toggle('hidden');
 });
 
-// Smooth scroll for anchor links
-document.querySelectorAll('.nav-scroll').forEach(function (link) {
-    link.addEventListener('click', function (e) {
-        var target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            var offset = nav.offsetHeight;
-            var top = target.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({ top: top, behavior: 'smooth' });
+// Close mobile menu
+function closeMenu() {
+    if (!menu.classList.contains('nav-open')) return false;
+    menu.classList.remove('nav-open');
+    document.getElementById('nav-icon-open').classList.remove('hidden');
+    document.getElementById('nav-icon-close').classList.add('hidden');
+    return true;
+}
 
-            // Close mobile menu if open
-            var menu = document.getElementById('nav-menu');
-            if (menu.classList.contains('nav-open')) {
-                menu.classList.remove('nav-open');
-                document.getElementById('nav-icon-open').classList.remove('hidden');
-                document.getElementById('nav-icon-close').classList.add('hidden');
-            }
+// Animated scroll (500ms ease-in-out)
+function smoothScroll(target) {
+    const targetY = target.getBoundingClientRect().top + window.scrollY - navHeight;
+    const startY = window.scrollY;
+    const diff = targetY - startY;
+    let start;
+
+    function step(ts) {
+        if (!start) start = ts;
+        const t = Math.min((ts - start) / 500, 1);
+        const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        window.scrollTo(0, startY + diff * ease);
+        if (t < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+}
+
+// Anchor link clicks — close menu first, then scroll
+document.querySelectorAll('.nav-scroll').forEach(link => {
+    link.addEventListener('click', e => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+
+        if (closeMenu()) {
+            menu.addEventListener('transitionend', () => smoothScroll(target), { once: true });
+        } else {
+            smoothScroll(target);
         }
     });
 });
 
-// Scroll spy — highlight active nav link based on scroll position
-var navLinks = document.querySelectorAll('#nav-menu .nav-scroll');
-var sections = [];
-navLinks.forEach(function (link) {
-    var id = link.getAttribute('href').substring(1);
-    var section = document.getElementById(id);
-    if (section) sections.push({ id: id, el: section });
-});
+// Scroll spy — highlight active nav link
+const navLinks = document.querySelectorAll('#nav-menu .nav-scroll');
+const sections = [...navLinks].map(link => {
+    const id = link.getAttribute('href').substring(1);
+    return { id, el: document.getElementById(id) };
+}).filter(s => s.el);
 
 function updateActiveNav() {
-    var offset = nav.offsetHeight + 20;
-    var current = '';
+    const threshold = navHeight + 20;
+    let current = '';
 
-    sections.forEach(function (s) {
-        if (s.el.getBoundingClientRect().top <= offset) {
-            current = s.id;
-        }
-    });
+    for (const s of sections) {
+        if (s.el.getBoundingClientRect().top <= threshold) current = s.id;
+    }
 
-    // If scrolled to bottom, activate last section
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
         current = sections[sections.length - 1].id;
     }
 
-    navLinks.forEach(function (link) {
-        var isActive = link.getAttribute('href') === '#' + current;
-        link.classList.toggle('nav-link-active', isActive);
+    navLinks.forEach(link => {
+        link.classList.toggle('nav-link-active', link.getAttribute('href') === '#' + current);
     });
 }
 
 window.addEventListener('scroll', updateActiveNav);
 updateActiveNav();
 
-// Dark mode toggle
+// Dark mode
 const darkToggle = document.getElementById('dark-mode-toggle');
-const iconSun = document.getElementById('dark-icon-sun');
-const iconMoon = document.getElementById('dark-icon-moon');
-const labelLight = document.getElementById('dark-label-light');
-const labelDark = document.getElementById('dark-label-dark');
+const darkEls = ['dark-icon-sun', 'dark-label-light'];
+const lightEls = ['dark-icon-moon', 'dark-label-dark'];
 
 function applyDarkMode(isDark) {
     document.documentElement.classList.toggle('dark', isDark);
-    iconSun.classList.toggle('hidden', !isDark);
-    iconMoon.classList.toggle('hidden', isDark);
-    labelLight.classList.toggle('hidden', !isDark);
-    labelDark.classList.toggle('hidden', isDark);
+    darkEls.forEach(id => document.getElementById(id).classList.toggle('hidden', !isDark));
+    lightEls.forEach(id => document.getElementById(id).classList.toggle('hidden', isDark));
 }
 
-// Initialize from localStorage or system preference
 const stored = localStorage.getItem('darkMode');
-if (stored !== null) {
-    applyDarkMode(stored === 'true');
-} else {
-    applyDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
-}
+applyDarkMode(stored !== null ? stored === 'true' : matchMedia('(prefers-color-scheme: dark)').matches);
 
-darkToggle.addEventListener('click', function () {
+darkToggle.addEventListener('click', () => {
     const isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('darkMode', isDark);
-    iconSun.classList.toggle('hidden', !isDark);
-    iconMoon.classList.toggle('hidden', isDark);
-    labelLight.classList.toggle('hidden', !isDark);
-    labelDark.classList.toggle('hidden', isDark);
+    applyDarkMode(isDark);
 });

@@ -28,9 +28,9 @@
         <nav id="main-nav" class="bg-primary-100 text-primary-600 dark:bg-gray-800 dark:text-primary-300 sticky top-0 z-50 transition-shadow">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap items-center justify-between">
-                    <a href="/" class="text-xl dark:text-primary-400 font-kanit py-4">Legacy Upgrade</a>
+                    <a id="nav-brand" href="#home" class="nav-scroll text-xl dark:text-primary-400 font-kanit py-4">Legacy Upgrade</a>
 
-                    <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center p-2 rounded focus:outline-none" aria-label="Toggle navigation">
+                    <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center p-2 focus:outline-none" aria-label="Toggle navigation">
                         <i id="nav-icon-open" class="ri-menu-line text-2xl"></i>
                         <i id="nav-icon-close" class="ri-close-line text-2xl hidden"></i>
                     </button>
@@ -69,7 +69,9 @@
                     </div>
 
                     <div class="text-center md:text-right grow flex flex-col justify-end">
-                        <img src="{{ vite('source/_assets/images/favicon.png') }}" alt="Legacy Upgrade logo" class="mb-3 mx-auto md:ml-auto md:mr-0" />
+                        <a href="#home" class="nav-scroll self-center md:self-end">
+                            <img src="{{ vite('source/_assets/images/favicon.png') }}" alt="Legacy Upgrade logo" class="mb-3" />
+                        </a>
                         <p class="text-sm"><span class="font-kanit">LEGACY UPGRADE</span> © <script>document.write(new Date().getFullYear())</script></p>
                     </div>
                 </div>

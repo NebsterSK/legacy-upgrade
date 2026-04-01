@@ -37,6 +37,10 @@
 }
 
 @layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         font-family: system-ui, -apple-system, sans-serif;
         color: var(--color-gray-600);

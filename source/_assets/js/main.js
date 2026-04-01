@@ -12,11 +12,15 @@ document.getElementById('nav-toggle').addEventListener('click', function () {
 const darkToggle = document.getElementById('dark-mode-toggle');
 const iconSun = document.getElementById('dark-icon-sun');
 const iconMoon = document.getElementById('dark-icon-moon');
+const labelLight = document.getElementById('dark-label-light');
+const labelDark = document.getElementById('dark-label-dark');
 
 function applyDarkMode(isDark) {
     document.documentElement.classList.toggle('dark', isDark);
     iconSun.classList.toggle('hidden', !isDark);
     iconMoon.classList.toggle('hidden', isDark);
+    labelLight.classList.toggle('hidden', !isDark);
+    labelDark.classList.toggle('hidden', isDark);
 }
 
 // Initialize from localStorage or system preference
@@ -32,5 +36,7 @@ darkToggle.addEventListener('click', function () {
     localStorage.setItem('darkMode', isDark);
     iconSun.classList.toggle('hidden', !isDark);
     iconMoon.classList.toggle('hidden', isDark);
+    labelLight.classList.toggle('hidden', !isDark);
+    labelDark.classList.toggle('hidden', isDark);
 });
 

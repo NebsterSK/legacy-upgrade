@@ -28,14 +28,14 @@
         <nav id="main-nav" class="bg-primary-100 text-primary-600 dark:bg-gray-800 dark:text-primary-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap items-center justify-between">
-                    <a href="/" class="text-xl text-primary-600 dark:text-primary-400 font-kanit py-4">Legacy Upgrade</a>
+                    <a href="/" class="text-xl dark:text-primary-400 font-kanit py-4">Legacy Upgrade</a>
 
-                    <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center p-2 rounded hover:text-primary-600 focus:outline-none" aria-label="Toggle navigation">
+                    <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center p-2 rounded focus:outline-none" aria-label="Toggle navigation">
                         <i id="nav-icon-open" class="ri-menu-line text-2xl"></i>
                         <i id="nav-icon-close" class="ri-close-line text-2xl hidden"></i>
                     </button>
 
-                    <div id="nav-menu" class="nav-menu-collapsible w-full md:flex md:w-auto md:items-center md:space-x-6">
+                    <div id="nav-menu" class="nav-menu-collapsible w-full text-right md:text-left md:flex md:w-auto md:items-center md:space-x-6">
                         <a href="/" class="nav-link block px-3 py-2 md:px-0 md:py-0 {{ $page->getPath() == '' || $page->getPath() == '/' ? 'nav-link-active' : '' }}">Home</a>
 
                         <a href="/services" class="nav-link block px-3 py-2 md:px-0 md:py-0 {{ $page->getPath() == '/services' ? 'nav-link-active' : '' }}">Services</a>
@@ -44,9 +44,11 @@
 
                         <a href="/contact" class="nav-link block px-3 py-2 md:px-0 md:py-0 {{ $page->getPath() == '/contact' ? 'nav-link-active' : '' }}">Contact</a>
 
-                        <button id="dark-mode-toggle" class="block px-3 py-2 hover:text-primary-600 dark:hover:text-primary-400 md:px-0 md:py-0 cursor-pointer" aria-label="Toggle dark mode">
+                        <button id="dark-mode-toggle" class="flex items-center gap-1 ml-auto px-3 py-2 md:px-0 md:py-0 mt-1 pt-1 border-t border-primary-300 dark:border-gray-600 md:mt-0 md:pt-0 md:border-t-0 md:ml-2 md:pl-4 md:border-l opacity-60 hover:opacity-100 transition-opacity cursor-pointer" aria-label="Toggle dark mode">
                             <i id="dark-icon-sun" class="ri-sun-line text-xl hidden"></i>
                             <i id="dark-icon-moon" class="ri-moon-line text-xl"></i>
+                            <span id="dark-label-light" class="text-sm hidden">Light</span>
+                            <span id="dark-label-dark" class="text-sm">Dark</span>
                         </button>
                     </div>
                 </div>

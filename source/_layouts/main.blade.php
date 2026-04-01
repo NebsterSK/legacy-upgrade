@@ -25,7 +25,7 @@
     </head>
 
     <body class="flex flex-col min-h-screen dark:bg-gray-900 dark:text-gray-300">
-        <nav id="main-nav" class="bg-primary-100 text-primary-600 dark:bg-gray-800 dark:text-primary-300">
+        <nav id="main-nav" class="bg-primary-100 text-primary-600 dark:bg-gray-800 dark:text-primary-300 sticky top-0 z-50 transition-shadow">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap items-center justify-between">
                     <a href="/" class="text-xl dark:text-primary-400 font-kanit py-4">Legacy Upgrade</a>

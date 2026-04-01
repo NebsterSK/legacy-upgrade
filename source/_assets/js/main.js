@@ -1,3 +1,9 @@
+// Sticky nav shadow on scroll
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', function () {
+    nav.classList.toggle('shadow-md', window.scrollY > 0);
+});
+
 // Responsive navbar toggle
 document.getElementById('nav-toggle').addEventListener('click', function () {
     const menu = document.getElementById('nav-menu');

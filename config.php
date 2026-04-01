@@ -54,8 +54,6 @@ return [
 
         'github' => 'https://github.com/NebsterSK',
 
-        'stack_overflow' => 'https://stackoverflow.com/users/3970975/nebster',
-
     ],
 
 ];

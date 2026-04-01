@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Legacy Upgrade is a static company website for a freelance software development business focused on **digitalization and automation through custom software for businesses**. Built with **Jigsaw** (Laravel-based static site generator) and **Vite 6**.
+Legacy Upgrade is a **single-page** static company website for a freelance software development business focused on **digitalization and automation through custom software for businesses**. Built with **Jigsaw** (Laravel-based static site generator) and **Vite 6**.
 
 **Live URL:** https://legacy-upgrade.com
 **Local URL:** https://legacy-upgrade.test
@@ -34,16 +34,22 @@ npm run build    # Vite build + Jigsaw build (local/development)
 ## Styling Architecture
 
 - **`source/_assets/css/main.css`** — Plain CSS file containing all Tailwind CSS v4 directives (`@import "tailwindcss"`, `@theme`, `@utility`, `@layer`).
-- **Tailwind theme colors** are defined as CSS custom properties in `@theme` (e.g., `--color-primary`).
+- **Tailwind theme colors** are defined as CSS custom properties in `@theme` (only shades actually used: 100, 300, 400, 600, 700, 950).
+- **Custom utilities** — `font-kanit` (font family), `bg-code-pattern` (hero background texture via SVG pseudo-element).
 - **Remix Icon classes** (`ri-*`) are kept on `<i>` elements in Blade templates.
+- **Dark mode** — class-based (`.dark` on `<html>`), detected from OS preference and stored in `localStorage`. Custom variant defined via `@custom-variant dark`.
+
+## Site Structure
+
+All content lives in `source/index.blade.php` as sections with anchor IDs (`#home`, `#services`, `#technology`, `#contact`). Navigation uses smooth-scroll anchor links. There are no separate page files.
 
 ## SEO Architecture
 
-- **Per-page meta** — Pages define `@section('pageTitle', '...')` and `@section('pageDescription', '...')`. The layout reads these via `$__env->yieldContent()` and computes `$metaTitle` (with `| Legacy Upgrade` suffix) and `$metaDescription` (falls back to `config.php` description).
-- **Open Graph** — `source/_includes/og.blade.php` (uses `$metaTitle`, `$metaDescription` from layout).
-- **Twitter Card** — `source/_includes/twitter.blade.php` (uses `$metaTitle`, `$metaDescription` from layout).
-- **JSON-LD** — `source/_includes/ld-json.blade.php` (ProfessionalService schema on all pages). Per-page schemas via `@section('jsonld')` / `@yield('jsonld')` (e.g., FAQPage on services).
-- **`robots.txt`** and **`sitemap.xml`** — Static files in `source/`.
+- **Meta tags** — `@section('pageTitle', '...')` and `@section('pageDescription', '...')` in `index.blade.php`. The layout appends `| Legacy Upgrade` to the title.
+- **Open Graph** — `source/_includes/og.blade.php`.
+- **Twitter Card** — `source/_includes/twitter.blade.php`.
+- **JSON-LD** — `source/_includes/ld-json.blade.php` (ProfessionalService schema). FAQPage schema defined inline in `index.blade.php` via `@section('jsonld')` / `@yield('jsonld')`.
+- **`robots.txt`** and **`sitemap.xml`** — Static files in `source/`. Sitemap contains a single URL (`/`).
 
 ## Static Assets
 

@@ -7,6 +7,11 @@
     "email": "{{ $page->company->contact->email }}",
     "telephone": "{{ $page->company->contact->phone }}",
     "description": "{{ $page->description }}",
+    "priceRange": "$$",
+    "areaServed": {
+        "@@type": "Country",
+        "name": "Slovakia"
+    },
     "address": {
         "@@type": "PostalAddress",
         "streetAddress": "{{ $page->company->address->street }}",

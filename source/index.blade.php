@@ -9,7 +9,7 @@
     <div class="bg-code-pattern">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
             <div class="md:w-3/5 text-center md:text-left">
-                <h1 class="font-kanit text-primary-600 text-4xl sm:text-5xl lg:text-6xl">Lukas Neuschl</h1>
+                <h2 class="font-kanit text-primary-600 text-4xl sm:text-5xl lg:text-6xl">Lukas Neuschl</h2>
 
                 <p class="font-bold text-lg sm:text-xl text-gray-400 dark:text-gray-500">Freelance Software Developer</p>
 
@@ -40,7 +40,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="text-center md:text-left">
-{{--                    <h2 class="font-kanit text-primary-600 dark:text-primary-400 text-2xl mb-4">What I do</h2>--}}
                     <h2 class="text-lg font-kanit text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-10 text-center">What I do</h2>
 
                     <p class="text-gray-500 dark:text-gray-400">I build <strong>custom software and automation solutions</strong> tailored to each client's business needs. From internal tools and dashboards to API integrations and AI-powered workflows.</p>
@@ -49,7 +48,6 @@
                 </div>
 
                 <div class="text-center md:text-left">
-{{--                    <h2 class="font-kanit text-primary-600 dark:text-primary-400 text-2xl mb-4">Why I do it</h2>--}}
                     <h2 class="text-lg font-kanit text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-10 text-center">Why I do it?</h2>
 
                     <p class="text-gray-500 dark:text-gray-400">Because I love to <strong>solve technological challenges</strong> in the most efficient way. Helping companies modernize, automate, and scale their operations through software.</p>
@@ -121,19 +119,19 @@
 
             <div class="space-y-6">
                 <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-                    <p class="font-semibold text-lg dark:text-gray-200">Do you work with Squarespace / Framer / Wordpress / Drupal / Joomla?</p>
+                    <h3 class="font-semibold text-lg dark:text-gray-200">Do you work with Squarespace / Framer / Wordpress / Drupal / Joomla?</h3>
 
                     <p class="mt-2 text-gray-500 dark:text-gray-400"><i class="ri-close-line text-red-600 dark:text-red-400"></i> No. I know how to code and I use that knowledge to my advantage in building custom software based on my client's needs.</p>
                 </div>
 
                 <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-                    <p class="font-semibold text-lg dark:text-gray-200">Can you make me a cheap website?</p>
+                    <h3 class="font-semibold text-lg dark:text-gray-200">Can you make me a cheap website?</h3>
 
                     <p class="mt-2 text-gray-500 dark:text-gray-400"><i class="ri-close-line text-red-600 dark:text-red-400"></i> No.</p>
                 </div>
 
                 <div>
-                    <p class="font-semibold text-lg dark:text-gray-200">Can you fix my website ASAP?</p>
+                    <h3 class="font-semibold text-lg dark:text-gray-200">Can you fix my website ASAP?</h3>
 
                     <p class="mt-2 text-gray-500 dark:text-gray-400"><i class="ri-question-line text-yellow-500 dark:text-yellow-400"></i> No. Well... maybe. Yes, but it will cost you extra.</p>
                 </div>

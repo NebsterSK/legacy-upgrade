@@ -40,7 +40,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="text-center md:text-left">
-                    <h2 class="text-lg font-kanit text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-10 text-center">What I do</h2>
+                    <x-subsection-header>What I do</x-subsection-header>
 
                     <p class="text-gray-500 dark:text-gray-400">I build <strong>custom software and automation solutions</strong> tailored to each client's business needs. From internal tools and dashboards to API integrations and AI-powered workflows.</p>
 
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="text-center md:text-left">
-                    <h2 class="text-lg font-kanit text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-10 text-center">Why I do it?</h2>
+                    <x-subsection-header>Why I do it</x-subsection-header>
 
                     <p class="text-gray-500 dark:text-gray-400">Because I love to <strong>solve technological challenges</strong> in the most efficient way. Helping companies modernize, automate, and scale their operations through software.</p>
 
@@ -60,7 +60,7 @@
 
     <div class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-lg font-kanit text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-10 text-center">Clients</h2>
+            <x-subsection-header>Clients</x-subsection-header>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <a href="https://meetbrackets.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 bg-gray-200 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
@@ -87,20 +87,18 @@
 <section id="services">
     <div class="bg-gray-50 dark:bg-gray-800 py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-kanit text-primary-600 dark:text-primary-400 text-4xl mb-6 text-center">Services</h2>
+            <x-section-header>Services</x-section-header>
 
             <p class="text-gray-500 dark:text-gray-400 text-center max-w-2xl mx-auto mb-12">I help businesses digitalize and automate their workflows through custom-built software. From internal tools and dashboards to API integrations and AI-powered solutions.</p>
 
             <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Custom business applications (<strong class="text-primary-600 dark:text-primary-400">Laravel</strong>)</li>
-
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Business process automation</li>
+                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Custom software solutions</li>
 
                 <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Dashboards & back-office systems</li>
 
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">REST <strong class="text-primary-600 dark:text-primary-400">APIs</strong> & system integrations</li>
+                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">REST APIs & system integrations</li>
 
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">AI chatbot integrations</li>
+                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">AI integrations</li>
 
                 <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Workflow automation</li>
 
@@ -108,26 +106,91 @@
 
                 <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Performance optimizations</li>
 
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Reducing technical debt & improving <strong class="text-primary-600 dark:text-primary-400">DX</strong></li>
+                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Reducing technical debt</li>
+
+                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Improving Developer Experience</li>
             </ul>
         </div>
     </div>
 
     <div class="py-16">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-lg font-kanit text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-10 text-center">Frequently Asked Questions</h2>
+            <x-subsection-header>Pricing</x-subsection-header>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {{-- Custom Software Project --}}
+                <div class="flex flex-col bg-gray-200 dark:bg-gray-700 rounded-lg shadow-sm p-6 ring-2 ring-primary-600 dark:ring-primary-400">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-primary-100 dark:bg-primary-950 rounded-full w-10 h-10 flex items-center justify-center">
+                            <i class="ri-code-s-slash-line text-primary-600 dark:text-primary-400 text-lg"></i>
+                        </div>
+                        <h3 class="font-bold text-lg dark:text-gray-200">Custom Software Project</h3>
+                    </div>
+
+                    <p class="text-2xl font-bold dark:text-gray-200">from € 800</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 mb-5">per project</p>
+
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
+                        <li class="flex items-start gap-2">
+                            <i class="ri-check-line text-primary-600 dark:text-primary-400 mt-0.5"></i>
+                            Client meetings & calls
+                        </li>
+
+                        <li class="flex items-start gap-2">
+                            <i class="ri-check-line text-primary-600 dark:text-primary-400 mt-0.5"></i>
+                            Solution proposal with timeframe & milestones
+                        </li>
+
+                        <li class="flex items-start gap-2">
+                            <i class="ri-check-line text-primary-600 dark:text-primary-400 mt-0.5"></i>
+                            Implementation & testing
+                        </li>
+
+                        <li class="flex items-start gap-2">
+                            <i class="ri-check-line text-primary-600 dark:text-primary-400 mt-0.5"></i>
+                            Deployment
+                        </li>
+                    </ul>
+
+                    <a href="#contact" class="nav-scroll inline-block mt-auto px-5 py-2.5 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-semibold text-sm text-center transition w-full">Get a quote</a>
+                </div>
+
+                {{-- Hourly Rate --}}
+                <div class="flex flex-col bg-gray-200 dark:bg-gray-700 rounded-lg shadow-sm p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-primary-100 dark:bg-primary-950 rounded-full w-10 h-10 flex items-center justify-center">
+                            <i class="ri-time-line text-primary-600 dark:text-primary-400 text-lg"></i>
+                        </div>
+
+                        <h3 class="font-bold text-lg dark:text-gray-200">Hourly Rate</h3>
+                    </div>
+
+                    <p class="text-2xl font-bold dark:text-gray-200">€ 30</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 mb-5">per hour</p>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">For clients who prefer to hire on an hourly basis. Suitable for smaller tasks, consultations, or ongoing support work.</p>
+
+                    <a href="#contact" class="nav-scroll inline-block mt-auto px-5 py-2.5 rounded-lg border-2 border-gray-500 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 font-semibold text-sm text-center transition w-full">Get in touch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-16">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <x-subsection-header>Frequently Asked Questions</x-subsection-header>
 
             <div class="space-y-6">
                 <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-                    <h3 class="font-semibold text-lg dark:text-gray-200">Do you work with Squarespace / Framer / Wordpress / Drupal / Joomla?</h3>
+                    <h3 class="font-semibold text-lg dark:text-gray-200">Do you work with Wix / Webflow / Squarespace / Framer / Wordpress / Drupal / Joomla or similar?</h3>
 
-                    <p class="mt-2 text-gray-500 dark:text-gray-400"><i class="ri-close-line text-red-600 dark:text-red-400"></i> No. I know how to code and I use that knowledge to my advantage in building custom software based on my client's needs.</p>
+                    <p class="mt-2 text-gray-500 dark:text-gray-400"><i class="ri-close-line text-red-600 dark:text-red-400"></i> No. I know how to code and I use that knowledge to my advantage in building custom software solutions based on my client's needs.</p>
                 </div>
 
                 <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-                    <h3 class="font-semibold text-lg dark:text-gray-200">Can you make me a cheap website?</h3>
+                    <h3 class="font-semibold text-lg dark:text-gray-200">Can you make me a BEAUTIFUL website?</h3>
 
-                    <p class="mt-2 text-gray-500 dark:text-gray-400"><i class="ri-close-line text-red-600 dark:text-red-400"></i> No.</p>
+                    <p class="mt-2 text-gray-500 dark:text-gray-400"><i class="ri-information-line text-blue-600 dark:text-blue-400"></i> I prefer to make GOOD websites that don't take seconds to load, dont crash and are maintainable for the long future.</p>
                 </div>
 
                 <div>
@@ -144,15 +207,11 @@
 <section id="technology">
     <div class="bg-gray-50 dark:bg-gray-800 py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-kanit text-primary-600 dark:text-primary-400 text-4xl mb-6 text-center">Technology</h2>
+            <x-section-header>Technology</x-section-header>
 
-            <p class="text-gray-500 dark:text-gray-400 text-center max-w-2xl mx-auto">I choose proven, modern tools that deliver reliable and maintainable business software. Every technology in my stack is selected to help your project scale and stay easy to work with.</p>
-        </div>
-    </div>
+            <p class="text-gray-500 dark:text-gray-400 text-center max-w-2xl mx-auto mb-12">I choose proven, modern tools that deliver reliable and maintainable business software. Every technology in my stack is selected to help your project scale and stay easy to work with.</p>
 
-    <div class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-lg font-kanit text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-10 text-center">Tech Stack</h3>
+            <x-subsection-header>Tech Stack</x-subsection-header>
 
             <div class="grid grid-cols-3 gap-6 md:grid-cols-6 md:gap-10 px-2 justify-items-center">
                 @foreach([
@@ -175,9 +234,9 @@
         </div>
     </div>
 
-    <div class="bg-gray-50 dark:bg-gray-800 py-16">
+    <div class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-lg font-kanit text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-10 text-center">Infrastructure</h3>
+            <x-subsection-header>Infrastructure</x-subsection-header>
 
             <div class="flex flex-wrap justify-center gap-8 sm:gap-12">
                 @foreach([
@@ -199,9 +258,9 @@
 
 {{-- Contact --}}
 <section id="contact">
-    <div class="py-16">
+    <div class="bg-gray-50 dark:bg-gray-800 py-16">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-kanit text-primary-600 dark:text-primary-400 text-4xl mb-6 text-center">Contact</h2>
+            <x-section-header>Contact</x-section-header>
 
             <p class="text-gray-500 dark:text-gray-400 text-center mb-12">Ready to digitalize your business processes or automate a workflow? Let's discuss your product.</p>
 
@@ -273,18 +332,18 @@
     "mainEntity": [
         {
             "@@type": "Question",
-            "name": "Do you work with Squarespace / Framer / Wordpress / Drupal / Joomla?",
+            "name": "Do you work with Wix / Webflow / Squarespace / Framer / Wordpress / Drupal / Joomla or similar?",
             "acceptedAnswer": {
                 "@@type": "Answer",
-                "text": "No. I know how to code and I use that knowledge to my advantage in building custom software based on my client's needs."
+                "text": "No. I know how to code and I use that knowledge to my advantage in building custom software solutions based on my client's needs."
             }
         },
         {
             "@@type": "Question",
-            "name": "Can you make me a cheap website?",
+            "name": "Can you make me a BEAUTIFUL website?",
             "acceptedAnswer": {
                 "@@type": "Answer",
-                "text": "No."
+                "text": "I prefer to make GOOD websites that don't take seconds to load, dont crash and are maintainable for the long future."
             }
         },
         {

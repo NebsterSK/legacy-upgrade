@@ -62,22 +62,46 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-subsection-header>Clients</x-subsection-header>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <a href="https://meetbrackets.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 bg-gray-200 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
-                    <img src="{{ vite('source/_assets/images/logos/brackets.svg') }}" alt="Brackets" class="h-20" />
-                </a>
+            <div class="space-y-12 sm:space-y-16">
+                {{-- Brackets — logo left, text right --}}
+                <div class="flex flex-col sm:flex-row items-center gap-6">
+                    <div class="shrink-0 w-full sm:w-auto flex items-center justify-center p-6 bg-gray-200 dark:bg-gray-800 rounded-xl">
+                        <img src="{{ vite('source/_assets/images/logos/brackets.svg') }}" alt="Brackets" class="h-16 sm:h-20" />
+                    </div>
 
-                <a href="https://remam.sk/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 bg-gray-200 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
-                    <img src="{{ vite('source/_assets/images/logos/remam.webp') }}" alt="RemaM" class="h-20" />
-                </a>
+                    <p class="text-gray-500 dark:text-gray-400 text-center sm:text-left">Hourly rate collaboration across multiple projects: service desk, e-learning platform, investment portal and backend for mobile apps.
+                        <br> <a href="https://meetbrackets.com/" target="_blank" rel="noopener noreferrer" class="underline text-primary-400 hover:text-primary-500 dark:text-primary-600 dark:hover:text-primary-500">meetbrackets.com <i class="ri-external-link-line"></i></a>
+                    </p>
+                </div>
 
-                <a href="https://yasmin-trade.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 lg:py-12 bg-gray-200 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
-                    <img src="{{ vite('source/_assets/images/logos/yasmin.png') }}" alt="Yasmin Trade" class="h-40" />
-                </a>
+                {{-- RemaM — text left, logo right --}}
+                <div class="flex flex-col sm:flex-row-reverse items-center gap-6">
+                    <div class="shrink-0 w-full sm:w-auto flex items-center justify-center p-6 bg-gray-200 dark:bg-gray-800 rounded-xl">
+                        <img src="{{ vite('source/_assets/images/logos/remam.webp') }}" alt="RemaM" class="h-16 sm:h-20" />
+                    </div>
 
-                <a href="https://stcham.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center p-6 lg:py-12 bg-gray-200 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition">
-                    <img src="{{ vite('source/_assets/images/logos/stcc.png') }}" alt="STCC" class="h-40" />
-                </a>
+                    <p class="text-gray-500 dark:text-gray-400 text-center sm:text-right">Custom e-shop for a Slovak importer and distributor of leatherworking, shoemaking, and craft materials. The platform serves both wholesale and retail customers.
+                        <br> <a href="https://remam.sk/" target="_blank" rel="noopener noreferrer" class="underline text-primary-400 hover:text-primary-500 dark:text-primary-600 dark:hover:text-primary-500">remam.sk <i class="ri-external-link-line"></i></a>
+                    </p>
+                </div>
+
+                {{-- Yasmin Trade & STCC --}}
+                <div class="flex flex-col items-center gap-6">
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="flex items-center justify-center p-6 bg-gray-200 dark:bg-gray-800 rounded-xl">
+                            <img src="{{ vite('source/_assets/images/logos/yasmin.png') }}" alt="Yasmin Trade" class="h-28 sm:h-32" />
+                        </div>
+
+                        <div class="flex items-center justify-center p-6 bg-gray-200 dark:bg-gray-800 rounded-xl">
+                            <img src="{{ vite('source/_assets/images/logos/stcc.png') }}" alt="STCC" class="h-28 sm:h-32" />
+                        </div>
+                    </div>
+
+                    <p class="text-gray-500 dark:text-gray-400 text-center">Presentation websites for a Central European trading company connecting businesses between Eastern Asia and CEE, and the Slovakia-Taiwan Chamber of Commerce facilitating cross-border networking and investment.
+                        <br> <a href="https://yasmin-trade.com/" target="_blank" rel="noopener noreferrer" class="underline text-primary-400 hover:text-primary-500 dark:text-primary-600 dark:hover:text-primary-500">yasmin-trade.com <i class="ri-external-link-line"></i></a>
+                        <br> <a href="https://stcham.com/" target="_blank" rel="noopener noreferrer" class="underline text-primary-400 hover:text-primary-500 dark:text-primary-600 dark:hover:text-primary-500">stcham.com <i class="ri-external-link-line"></i></a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -91,25 +115,64 @@
 
             <p class="text-gray-500 dark:text-gray-400 text-center max-w-2xl mx-auto mb-12">I help businesses digitalize and automate their workflows through custom-built software. From internal tools and dashboards to API integrations and AI-powered solutions.</p>
 
-            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Custom software solutions</li>
-
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Dashboards & back-office systems</li>
-
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">REST APIs & system integrations</li>
-
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">AI integrations</li>
-
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Workflow automation</li>
-
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Legacy system modernization</li>
-
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Performance optimizations</li>
-
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Reducing technical debt</li>
-
-                <li class="bg-gray-200 dark:bg-gray-600 rounded-lg px-5 py-4 shadow-sm">Improving Developer Experience</li>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                @foreach([
+                    ['icon' => 'ri-terminal-box-line', 'text' => 'Custom software solutions'],
+                    ['icon' => 'ri-dashboard-line',    'text' => 'Dashboards & back-office systems'],
+                    ['icon' => 'ri-link',              'text' => 'REST APIs & system integrations'],
+                    ['icon' => 'ri-robot-2-line',      'text' => 'AI integrations'],
+                    ['icon' => 'ri-flow-chart',        'text' => 'Workflow automation'],
+                    ['icon' => 'ri-refresh-line',      'text' => 'Legacy system modernization'],
+                    ['icon' => 'ri-speed-up-line',     'text' => 'Performance optimizations'],
+                    ['icon' => 'ri-scissors-cut-line',  'text' => 'Reducing technical debt'],
+                    ['icon' => 'ri-hammer-line',       'text' => 'Improving Developer Experience'],
+                ] as $service)
+                    <li class="flex items-center gap-4 bg-gray-200 dark:bg-gray-700 rounded-lg shadow-sm p-5">
+                        <div class="shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-950 flex items-center justify-center">
+                            <i class="{{ $service['icon'] }} text-primary-600 dark:text-primary-400 text-lg"></i>
+                        </div>
+                        <span class="font-semibold text-sm dark:text-gray-200">{{ $service['text'] }}</span>
+                    </li>
+                @endforeach
             </ul>
+        </div>
+    </div>
+
+    <div class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <x-subsection-header>Process</x-subsection-header>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="relative">
+                    {{-- Vertical timeline line --}}
+                    <div class="absolute left-5 sm:left-6 top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-700"></div>
+
+                    <div class="space-y-10">
+                        @foreach([
+                            ['icon' => 'ri-chat-3-line',        'title' => 'Consultation',             'desc' => 'A free initial call or meeting to understand your business, goals, and the problem you need solved.'],
+                            ['icon' => 'ri-file-list-3-line',    'title' => 'Planning & Estimation',    'desc' => 'I outline the technical approach, break the work into milestones, and provide a transparent cost and time estimate.'],
+                            ['icon' => 'ri-slideshow-3-line',    'title' => 'Demo',                     'desc' => 'Before committing to the full build, I prepare a working prototype or demo so you can see the direction early on.'],
+                            ['icon' => 'ri-code-s-slash-line',   'title' => 'Implementation',           'desc' => 'Building the actual solution milestone by milestone, with regular check-ins to keep you in the loop.'],
+                            ['icon' => 'ri-presentation-line',   'title' => 'Presentation & Testing',   'desc' => 'I present the finished result for your review. You test it in real conditions and share your feedback.'],
+                            ['icon' => 'ri-loop-left-line',      'title' => 'Iteration & Support',      'desc' => 'Refining the solution based on your feedback, fixing edge cases, and providing ongoing support as needed.'],
+                        ] as $index => $step)
+                            <div class="relative flex items-start gap-5 sm:gap-6">
+                                {{-- Step icon --}}
+                                <div class="relative z-10 shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary-100 dark:bg-primary-950 flex items-center justify-center ring-4 ring-white dark:ring-gray-900">
+                                    <i class="{{ $step['icon'] }} text-primary-600 dark:text-primary-400 text-lg sm:text-xl"></i>
+                                </div>
+
+                                {{-- Step content --}}
+                                <div class="pt-1">
+                                    <p class="text-xs font-semibold text-primary-600 dark:text-primary-400 uppercase tracking-wider mb-1">Step {{ $index + 1 }}</p>
+                                    <h3 class="font-bold text-lg dark:text-gray-200">{{ $step['title'] }}</h3>
+                                    <p class="mt-1 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{{ $step['desc'] }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -124,11 +187,10 @@
                         <div class="bg-primary-100 dark:bg-primary-950 rounded-full w-10 h-10 flex items-center justify-center">
                             <i class="ri-code-s-slash-line text-primary-600 dark:text-primary-400 text-lg"></i>
                         </div>
-                        <h3 class="font-bold text-lg dark:text-gray-200">Custom Software Project</h3>
+                        <h3 class="font-bold text-lg dark:text-gray-200">Custom Project</h3>
                     </div>
 
-                    <p class="text-2xl font-bold dark:text-gray-200">from € 800</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 mb-5">per project</p>
+                    <p class="text-2xl font-bold dark:text-gray-200 mb-5">from € 800</p>
 
                     <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
                         <li class="flex items-start gap-2">
@@ -190,7 +252,7 @@
                 <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
                     <h3 class="font-semibold text-lg dark:text-gray-200">Can you make me a BEAUTIFUL website?</h3>
 
-                    <p class="mt-2 text-gray-500 dark:text-gray-400"><i class="ri-information-line text-blue-600 dark:text-blue-400"></i> I prefer to make GOOD websites that don't take seconds to load, dont crash and are maintainable for the long future.</p>
+                    <p class="mt-2 text-gray-500 dark:text-gray-400"><i class="ri-information-line text-blue-600 dark:text-blue-400"></i> I prefer to make GOOD websites that don't take seconds to load, don't crash and are maintainable for the long future.</p>
                 </div>
 
                 <div>
@@ -209,7 +271,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-section-header>Technology</x-section-header>
 
-            <p class="text-gray-500 dark:text-gray-400 text-center max-w-2xl mx-auto mb-12">I choose proven, modern tools that deliver reliable and maintainable business software. Every technology in my stack is selected to help your project scale and stay easy to work with.</p>
+            <p class="text-gray-500 dark:text-gray-400 text-center max-w-2xl mx-auto mb-12">I choose proven, modern tools that deliver reliable and maintainable business software. Every technology in my stack is selected to help your product scale and stay easy to work with.</p>
 
             <x-subsection-header>Tech Stack</x-subsection-header>
 
@@ -262,61 +324,82 @@
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-section-header>Contact</x-section-header>
 
-            <p class="text-gray-500 dark:text-gray-400 text-center mb-12">Ready to digitalize your business processes or automate a workflow? Let's discuss your product.</p>
+            <p class="text-gray-500 dark:text-gray-400 text-center mb-12">Have an idea or a process to improve? Reach out, the initial consultation is free and non-binding.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {{-- Personal info --}}
-                <div class="bg-gray-200 dark:bg-gray-700 rounded-lg shadow-sm p-6 flex flex-col items-center text-center">
-                    <div class="bg-primary-100 dark:bg-primary-950 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                        <i class="ri-user-line text-primary-600 dark:text-primary-400 text-2xl"></i>
+                <div class="bg-gray-200 dark:bg-gray-700 rounded-lg shadow-sm p-6">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="shrink-0 bg-primary-100 dark:bg-primary-950 rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="ri-user-line text-primary-600 dark:text-primary-400 text-xl"></i>
+                        </div>
+                        <p class="text-lg font-bold dark:text-gray-200">Lukáš Neuschl</p>
                     </div>
-                    <p class="text-xl font-bold mb-4 dark:text-gray-200">Lukáš Neuschl</p>
 
-                    <a href="mailto:{{ $page->company->contact->email }}" class="flex items-center gap-2 hover:text-primary-600 dark:hover:text-primary-400 transition mb-1">
-                        <i class="ri-mail-fill text-primary-600 dark:text-primary-400"></i> {{ $page->company->contact->email }}
-                    </a>
+                    <div class="space-y-1">
+                        <a href="mailto:{{ $page->company->contact->email }}" class="flex items-center gap-3 rounded-lg px-3 py-1 -mx-3 hover:bg-gray-300/60 dark:hover:bg-gray-600/60 transition group">
+                            <i class="ri-mail-fill text-primary-600 dark:text-primary-400 text-lg"></i>
+                            <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition">{{ $page->company->contact->email }}</span>
+                        </a>
 
-                    <a href="tel:{{ $page->company->contact->phone }}" class="flex items-center gap-2 hover:text-primary-600 dark:hover:text-primary-400 transition mb-1">
-                        <i class="ri-phone-fill text-primary-600 dark:text-primary-400"></i> {{ $page->company->contact->phone }}
-                    </a>
+                        <a href="tel:{{ $page->company->contact->phone }}" class="flex items-center gap-3 rounded-lg px-3 py-1 -mx-3 hover:bg-gray-300/60 dark:hover:bg-gray-600/60 transition group">
+                            <i class="ri-phone-fill text-primary-600 dark:text-primary-400 text-lg"></i>
+                            <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition">{{ $page->company->contact->phone }}</span>
+                        </a>
 
-                    <a href="{{ $page->company->contact->messenger }}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-primary-600 dark:hover:text-primary-400 transition mb-1">
-                        <i class="ri-messenger-fill text-primary-600 dark:text-primary-400"></i> Messenger
-                    </a>
+                        <a href="{{ $page->company->contact->messenger }}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-lg px-3 py-1 -mx-3 hover:bg-gray-300/60 dark:hover:bg-gray-600/60 transition group">
+                            <i class="ri-messenger-fill text-primary-600 dark:text-primary-400 text-lg"></i>
+                            <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition">Messenger</span>
+                        </a>
 
-                    <a href="{{ $page->company->contact->whatsapp }}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-primary-600 dark:hover:text-primary-400 transition">
-                        <i class="ri-whatsapp-fill text-primary-600 dark:text-primary-400"></i> WhatsApp
-                    </a>
+                        <a href="{{ $page->company->contact->whatsapp }}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-lg px-3 py-1 -mx-3 hover:bg-gray-300/60 dark:hover:bg-gray-600/60 transition group">
+                            <i class="ri-whatsapp-fill text-primary-600 dark:text-primary-400 text-lg"></i>
+                            <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition">WhatsApp</span>
+                        </a>
+                    </div>
                 </div>
 
                 {{-- Address --}}
-                <div class="bg-gray-200 dark:bg-gray-700 rounded-lg shadow-sm p-6 flex flex-col items-center text-center">
-                    <div class="bg-primary-100 dark:bg-primary-950 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                        <i class="ri-map-pin-line text-primary-600 dark:text-primary-400 text-2xl"></i>
+                <div class="bg-gray-200 dark:bg-gray-700 rounded-lg shadow-sm p-6">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="shrink-0 bg-primary-100 dark:bg-primary-950 rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="ri-map-pin-line text-primary-600 dark:text-primary-400 text-xl"></i>
+                        </div>
+                        <p class="text-lg font-bold dark:text-gray-200">Address</p>
                     </div>
 
-                    <p class="font-bold mb-2 dark:text-gray-200">Address</p>
-
-                    <p>{{ $page->company->address->street }}</p>
-
-                    <p>{{ $page->company->address->zip }}, {{ $page->company->address->city }}</p>
-
-                    <p>{{ $page->company->address->country }}</p>
+                    <div class="space-y-1 text-sm text-gray-500 dark:text-gray-400">
+                        <p>{{ $page->company->address->street }}</p>
+                        <p>{{ $page->company->address->zip }}, {{ $page->company->address->city }}</p>
+                        <p>{{ $page->company->address->country }}</p>
+                    </div>
                 </div>
 
                 {{-- Company details --}}
-                <div class="bg-gray-200 dark:bg-gray-700 rounded-lg shadow-sm p-6 flex flex-col items-center text-center md:col-span-2">
-                    <div class="bg-primary-100 dark:bg-primary-950 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                        <i class="ri-building-line text-primary-600 dark:text-primary-400 text-2xl"></i>
+                <div class="bg-gray-200 dark:bg-gray-700 rounded-lg shadow-sm p-6 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="shrink-0 bg-primary-100 dark:bg-primary-950 rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="ri-building-line text-primary-600 dark:text-primary-400 text-xl"></i>
+                        </div>
+                        <p class="text-lg font-bold dark:text-gray-200">Company Details</p>
                     </div>
 
-                    <p class="font-bold mb-2 dark:text-gray-200">Company Details</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <p class="text-xs font-semibold text-primary-600 dark:text-primary-400 uppercase tracking-wider mb-1">Company ID / IČO</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">{{ $page->company->id }}</p>
+                        </div>
 
-                    <p><span class="text-primary-600 dark:text-primary-400">Company ID / IČO:</span> {{ $page->company->id }}</p>
+                        <div>
+                            <p class="text-xs font-semibold text-primary-600 dark:text-primary-400 uppercase tracking-wider mb-1">Tax ID / DIČ</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">{{ $page->company->tax }}</p>
+                        </div>
 
-                    <p><span class="text-primary-600 dark:text-primary-400">Tax ID / DIČ:</span> {{ $page->company->tax }}</p>
-
-                    <p><span class="text-primary-600 dark:text-primary-400">IBAN:</span> {{ $page->company->iban }}</p>
+                        <div>
+                            <p class="text-xs font-semibold text-primary-600 dark:text-primary-400 uppercase tracking-wider mb-1">IBAN</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">{{ $page->company->iban }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

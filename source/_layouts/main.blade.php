@@ -8,10 +8,20 @@
         <link rel="canonical" href="{{ $page->baseUrl }}{{ $page->getPath() ?: '/' }}">
 
         <!-- Privacy-friendly analytics by Plausible -->
-        <script async src="https://plausible.io/js/pa-MFipDzvSeHBuUY5tCy4Ik.js"></script>
+{{--        <script async src="https://plausible.io/js/pa-MFipDzvSeHBuUY5tCy4Ik.js"></script>--}}
+{{--        <script>--}}
+{{--            window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};--}}
+{{--            plausible.init()--}}
+{{--        </script>--}}
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BECNN06810"></script>
         <script>
-            window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-            plausible.init()
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-BECNN06810');
         </script>
 
         @include('_includes/og')
@@ -28,7 +38,9 @@
             })();
         </script>
         @viteRefresh()
-        <link rel="stylesheet" href="{{ vite('source/_assets/css/main.css') }}">
+        <link rel="preload" href="{{ vite('source/_assets/fonts/Kanit-Regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{{ vite('source/_assets/css/main.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="{{ vite('source/_assets/css/main.css') }}"></noscript>
     </head>
 
     <body class="flex flex-col min-h-screen dark:bg-gray-900 dark:text-gray-300">
@@ -77,7 +89,7 @@
 
                     <div class="text-center md:text-right grow flex flex-col justify-end">
                         <a href="#home" class="nav-scroll self-center md:self-end">
-                            <img src="{{ vite('source/_assets/images/favicon.png') }}" alt="Legacy Upgrade logo" class="mb-3" />
+                            <img src="{{ vite('source/_assets/images/favicon.png') }}" alt="Legacy Upgrade logo" width="48" height="48" class="mb-3" />
                         </a>
                         <p class="text-sm"><span class="font-kanit">LEGACY UPGRADE</span> © <script>document.write(new Date().getFullYear())</script></p>
                     </div>

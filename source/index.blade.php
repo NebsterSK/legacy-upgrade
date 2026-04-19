@@ -1,7 +1,7 @@
 @extends('_layouts.main')
 
-@section('pageTitle', 'Digitalization & Custom Software for Businesses')
-@section('pageDescription', 'Custom software, automation, and digitalization solutions for businesses. Freelance developer in Bratislava specializing in Laravel, APIs, and AI integrations.')
+@section('pageTitle', 'Custom Software & Business Automation')
+@section('pageDescription', 'Custom software, automation, and digitalization for businesses. Dependable internal tools, integrations, and legacy system modernization. Get a free consultation.')
 
 @section('body')
 {{-- Hero --}}
@@ -9,9 +9,9 @@
     <div class="bg-code-pattern">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
             <div class="md:w-3/5 text-center md:text-left">
-                <h2 class="font-kanit text-primary-600 text-4xl sm:text-5xl lg:text-6xl">Lukas Neuschl</h2>
+                <h1 class="font-kanit text-primary-600 text-4xl sm:text-5xl lg:text-6xl">Lukas Neuschl</h1>
 
-                <p class="font-bold text-lg sm:text-xl text-gray-400 dark:text-gray-500">Freelance Software Developer</p>
+                <p class="font-bold text-lg sm:text-xl text-gray-400 dark:text-gray-500">Custom software, automation, and digitalization for businesses</p>
 
                 <p class="mt-5 flex justify-center md:justify-start gap-4 text-4xl">
                     <a href="{{ $page->links->linkedin }}" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition">
@@ -31,7 +31,7 @@
             </div>
 
             <div class="md:w-2/5">
-                <img src="{{ vite('source/_assets/images/portrait.webp') }}" alt="Lukas Neuschl, Freelance Software Developer in Bratislava" class="w-48 h-48 sm:w-64 sm:h-64 md:w-full md:h-full rounded-full md:rounded-2xl object-cover shadow hover:shadow-lg hover:-translate-y-1 transition" />
+                <img src="{{ vite('source/_assets/images/portrait.webp') }}" alt="Lukáš Neuschl, custom software developer based in Bratislava, Slovakia" width="500" height="538" fetchpriority="high" decoding="async" class="w-48 h-48 sm:w-64 sm:h-64 md:w-full md:h-full rounded-full md:rounded-2xl object-cover shadow hover:shadow-lg hover:-translate-y-1 transition" />
             </div>
         </div>
     </div>
@@ -42,17 +42,17 @@
                 <div class="text-center md:text-left">
                     <x-subsection-header>What I do</x-subsection-header>
 
-                    <p class="text-gray-500 dark:text-gray-400">I build <strong>custom software and automation solutions</strong> tailored to each client's business needs. From internal tools and dashboards to API integrations and AI-powered workflows.</p>
+                    <p class="text-gray-500 dark:text-gray-400">I deliver <strong>custom software that fits the way your business actually works</strong>. Internal tools, dashboards, API integrations, and automated workflows that remove repetitive work and give you a clear view of your operations.</p>
 
                     <a href="#services" class="nav-scroll inline-block mt-4 text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition">Services <i class="ri-arrow-right-line"></i></a>
                 </div>
 
                 <div class="text-center md:text-left">
-                    <x-subsection-header>Why I do it</x-subsection-header>
+                    <x-subsection-header>Why it matters</x-subsection-header>
 
-                    <p class="text-gray-500 dark:text-gray-400">Because I love to <strong>solve technological challenges</strong> in the most efficient way. Helping companies modernize, automate, and scale their operations through software.</p>
+                    <p class="text-gray-500 dark:text-gray-400">Well-built software <strong>saves hours, prevents mistakes, and scales with your company</strong>. My goal is straightforward: reduce manual work, consolidate fragmented systems, and leave you with a dependable long-term foundation.</p>
 
-                    <a href="#technology" class="nav-scroll inline-block mt-4 text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition">Tech stack <i class="ri-arrow-right-line"></i></a>
+                    <a href="#technology" class="nav-scroll inline-block mt-4 text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition">Technology <i class="ri-arrow-right-line"></i></a>
                 </div>
             </div>
         </div>
@@ -62,14 +62,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-subsection-header>Clients</x-subsection-header>
 
-            <div class="space-y-12 sm:space-y-16">
+            <div class="space-y-12 sm:space-y-20 lg:space-y-30">
                 {{-- Brackets — logo left, text right --}}
                 <div class="flex flex-col sm:flex-row items-center gap-6">
                     <div class="shrink-0 w-full sm:w-auto flex items-center justify-center p-6 bg-gray-200 dark:bg-gray-800 rounded-xl">
                         <img src="{{ vite('source/_assets/images/logos/brackets.svg') }}" alt="Brackets" class="h-16 sm:h-20" />
                     </div>
 
-                    <p class="text-gray-500 dark:text-gray-400 text-center sm:text-left">Hourly rate collaboration across multiple projects: service desk, e-learning platform, investment portal and backend for mobile apps.
+                    <p class="text-gray-500 dark:text-gray-400 text-center sm:text-left">Long-term collaboration on a range of products: a service desk, an e-learning system, an investment portal, and backend services powering mobile applications.
                         <br> <a href="https://meetbrackets.com/" target="_blank" rel="noopener noreferrer" class="underline text-primary-400 hover:text-primary-500 dark:text-primary-600 dark:hover:text-primary-500">meetbrackets.com <i class="ri-external-link-line"></i></a>
                     </p>
                 </div>
@@ -80,7 +80,7 @@
                         <img src="{{ vite('source/_assets/images/logos/remam.webp') }}" alt="RemaM" class="h-16 sm:h-20" />
                     </div>
 
-                    <p class="text-gray-500 dark:text-gray-400 text-center sm:text-right">Custom e-shop for a Slovak importer and distributor of leatherworking, shoemaking, and craft materials. The platform serves both wholesale and retail customers.
+                    <p class="text-gray-500 dark:text-gray-400 text-center sm:text-right">A custom e-commerce platform for a Slovak importer and distributor of leatherworking, shoemaking, and craft materials. Built to serve wholesale and retail customers.
                         <br> <a href="https://remam.sk/" target="_blank" rel="noopener noreferrer" class="underline text-primary-400 hover:text-primary-500 dark:text-primary-600 dark:hover:text-primary-500">remam.sk <i class="ri-external-link-line"></i></a>
                     </p>
                 </div>
@@ -97,7 +97,7 @@
                         </div>
                     </div>
 
-                    <p class="text-gray-500 dark:text-gray-400 text-center">Presentation websites for a Central European trading company connecting businesses between Eastern Asia and CEE, and the Slovakia-Taiwan Chamber of Commerce facilitating cross-border networking and investment.
+                    <p class="text-gray-500 dark:text-gray-400 text-center">Corporate websites for a Central European trading company bridging businesses between East Asia and the CEE region, and for the Slovakia-Taiwan Chamber of Commerce supporting cross-border investment and networking.
                         <br> <a href="https://yasmin-trade.com/" target="_blank" rel="noopener noreferrer" class="underline text-primary-400 hover:text-primary-500 dark:text-primary-600 dark:hover:text-primary-500">yasmin-trade.com <i class="ri-external-link-line"></i></a>
                         <br> <a href="https://stcham.com/" target="_blank" rel="noopener noreferrer" class="underline text-primary-400 hover:text-primary-500 dark:text-primary-600 dark:hover:text-primary-500">stcham.com <i class="ri-external-link-line"></i></a>
                     </p>
@@ -113,19 +113,19 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-section-header>Services</x-section-header>
 
-            <p class="text-gray-500 dark:text-gray-400 text-center max-w-2xl mx-auto mb-12">I help businesses digitalize and automate their workflows through custom-built software. From internal tools and dashboards to API integrations and AI-powered solutions.</p>
+            <p class="text-gray-500 dark:text-gray-400 text-center max-w-2xl mx-auto mb-12">I help businesses digitalize and automate the way they operate. Each project is a custom-built solution focused on measurable outcomes: less manual work, fewer errors, and systems you can rely on for years.</p>
 
             <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach([
-                    ['icon' => 'ri-terminal-box-line', 'text' => 'Custom software solutions'],
+                    ['icon' => 'ri-terminal-box-line', 'text' => 'Custom business software'],
                     ['icon' => 'ri-dashboard-line',    'text' => 'Dashboards & back-office systems'],
-                    ['icon' => 'ri-link',              'text' => 'REST APIs & system integrations'],
+                    ['icon' => 'ri-link',              'text' => 'API & system integrations'],
                     ['icon' => 'ri-robot-2-line',      'text' => 'AI integrations'],
-                    ['icon' => 'ri-flow-chart',        'text' => 'Workflow automation'],
+                    ['icon' => 'ri-flow-chart',        'text' => 'Process & workflow automation'],
                     ['icon' => 'ri-refresh-line',      'text' => 'Legacy system modernization'],
-                    ['icon' => 'ri-speed-up-line',     'text' => 'Performance optimizations'],
-                    ['icon' => 'ri-scissors-cut-line',  'text' => 'Reducing technical debt'],
-                    ['icon' => 'ri-hammer-line',       'text' => 'Improving Developer Experience'],
+                    ['icon' => 'ri-speed-up-line',     'text' => 'Performance optimization'],
+                    ['icon' => 'ri-scissors-cut-line', 'text' => 'Reducing technical debt'],
+                    ['icon' => 'ri-hammer-line',       'text' => 'Long-term maintenance & support'],
                 ] as $service)
                     <li class="flex items-center gap-4 bg-gray-200 dark:bg-gray-700 rounded-lg shadow-sm p-5">
                         <div class="shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-950 flex items-center justify-center">
@@ -140,7 +140,7 @@
 
     <div class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <x-subsection-header>Process</x-subsection-header>
+            <x-subsection-header>How We Work Together</x-subsection-header>
 
             <div class="max-w-3xl mx-auto">
                 <div class="relative">
@@ -149,12 +149,12 @@
 
                     <div class="space-y-10">
                         @foreach([
-                            ['icon' => 'ri-chat-3-line',        'title' => 'Consultation',             'desc' => 'A free initial call or meeting to understand your business, goals, and the problem you need solved.'],
-                            ['icon' => 'ri-file-list-3-line',    'title' => 'Planning & Estimation',    'desc' => 'I outline the technical approach, break the work into milestones, and provide a transparent cost and time estimate.'],
-                            ['icon' => 'ri-slideshow-3-line',    'title' => 'Demo',                     'desc' => 'Before committing to the full build, I prepare a working prototype or demo so you can see the direction early on.'],
-                            ['icon' => 'ri-code-s-slash-line',   'title' => 'Implementation',           'desc' => 'Building the actual solution milestone by milestone, with regular check-ins to keep you in the loop.'],
-                            ['icon' => 'ri-presentation-line',   'title' => 'Presentation & Testing',   'desc' => 'I present the finished result for your review. You test it in real conditions and share your feedback.'],
-                            ['icon' => 'ri-loop-left-line',      'title' => 'Iteration & Support',      'desc' => 'Refining the solution based on your feedback, fixing edge cases, and providing ongoing support as needed.'],
+                            ['icon' => 'ri-chat-3-line',        'title' => 'Consultation',             'desc' => 'A free, no-obligation call to understand your business, your goals, and the problem you need solved.'],
+                            ['icon' => 'ri-file-list-3-line',    'title' => 'Planning & Estimation',    'desc' => 'A clear proposal outlining the approach, broken down into milestones with a transparent timeline and budget, no surprises later.'],
+                            ['icon' => 'ri-slideshow-3-line',    'title' => 'Demo',                     'desc' => 'Before committing to the full build, you see an early working prototype. This keeps the project on track and confirms we are aligned on the direction.'],
+                            ['icon' => 'ri-code-s-slash-line',   'title' => 'Implementation',           'desc' => 'The solution is built milestone by milestone, with regular updates so you always know exactly where the project stands.'],
+                            ['icon' => 'ri-presentation-line',   'title' => 'Presentation & Testing',   'desc' => 'The finished result is presented for your review. You test it in real conditions, with real data, and share feedback.'],
+                            ['icon' => 'ri-loop-left-line',      'title' => 'Iteration & Support',      'desc' => 'Refinements based on your feedback, fixes for edge cases, and ongoing support for as long as you need it.'],
                         ] as $index => $step)
                             <div class="relative flex items-start gap-5 sm:gap-6">
                                 {{-- Step icon --}}
@@ -187,7 +187,7 @@
                         <div class="bg-primary-100 dark:bg-primary-950 rounded-full w-10 h-10 flex items-center justify-center">
                             <i class="ri-code-s-slash-line text-primary-600 dark:text-primary-400 text-lg"></i>
                         </div>
-                        <h3 class="font-bold text-lg dark:text-gray-200">Custom Project</h3>
+                        <h3 class="font-bold text-lg dark:text-gray-200">Fixed-Scope Project</h3>
                     </div>
 
                     <p class="text-2xl font-bold dark:text-gray-200 mb-5">from € 800</p>
@@ -195,26 +195,26 @@
                     <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
                         <li class="flex items-start gap-2">
                             <i class="ri-check-line text-primary-600 dark:text-primary-400 mt-0.5"></i>
-                            Client meetings & calls
+                            Consultation meetings and calls
                         </li>
 
                         <li class="flex items-start gap-2">
                             <i class="ri-check-line text-primary-600 dark:text-primary-400 mt-0.5"></i>
-                            Solution proposal with timeframe & milestones
+                            Written proposal with milestones and timeline
                         </li>
 
                         <li class="flex items-start gap-2">
                             <i class="ri-check-line text-primary-600 dark:text-primary-400 mt-0.5"></i>
-                            Implementation & testing
+                            Implementation and testing
                         </li>
 
                         <li class="flex items-start gap-2">
                             <i class="ri-check-line text-primary-600 dark:text-primary-400 mt-0.5"></i>
-                            Deployment
+                            Deployment to production
                         </li>
                     </ul>
 
-                    <a href="#contact" class="nav-scroll inline-block mt-auto px-5 py-2.5 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-semibold text-sm text-center transition w-full">Get a quote</a>
+                    <a href="#contact" class="nav-scroll inline-block mt-auto px-5 py-2.5 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-semibold text-sm text-center transition w-full">Request a quote</a>
                 </div>
 
                 {{-- Hourly Rate --}}
@@ -224,13 +224,13 @@
                             <i class="ri-time-line text-primary-600 dark:text-primary-400 text-lg"></i>
                         </div>
 
-                        <h3 class="font-bold text-lg dark:text-gray-200">Hourly Rate</h3>
+                        <h3 class="font-bold text-lg dark:text-gray-200">Hourly Engagement</h3>
                     </div>
 
                     <p class="text-2xl font-bold dark:text-gray-200">€ 30</p>
                     <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 mb-5">per hour</p>
 
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">For clients who prefer to hire on an hourly basis. Suitable for smaller tasks, consultations, or ongoing support work.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">A flexible option for smaller tasks, technical consultations, ongoing maintenance, or extending an existing system without a full fixed-scope engagement.</p>
 
                     <a href="#contact" class="nav-scroll inline-block mt-auto px-5 py-2.5 rounded-lg border-2 border-gray-500 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 font-semibold text-sm text-center transition w-full">Get in touch</a>
                 </div>
@@ -271,7 +271,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-section-header>Technology</x-section-header>
 
-            <p class="text-gray-500 dark:text-gray-400 text-center max-w-2xl mx-auto mb-12">I choose proven, modern tools that deliver reliable and maintainable business software. Every technology in my stack is selected to help your product scale and stay easy to work with.</p>
+            <p class="text-gray-500 dark:text-gray-400 text-center max-w-2xl mx-auto mb-12">I work exclusively with proven, well-supported technologies. The goal is straightforward: software your business can depend on, that any competent developer can maintain long after the initial delivery.</p>
 
             <x-subsection-header>Tech Stack</x-subsection-header>
 
@@ -324,7 +324,7 @@
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <x-section-header>Contact</x-section-header>
 
-            <p class="text-gray-500 dark:text-gray-400 text-center mb-12">Have an idea or a process to improve? Reach out, the initial consultation is free and non-binding.</p>
+            <p class="text-gray-500 dark:text-gray-400 text-center mb-12">Looking to automate a process, replace an outdated system, or build something custom for your business? Get in touch, the first consultation is free and without commitment.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {{-- Personal info --}}
@@ -415,26 +415,42 @@
     "mainEntity": [
         {
             "@@type": "Question",
-            "name": "Do you work with Wix / Webflow / Squarespace / Framer / Wordpress / Drupal / Joomla or similar?",
+            "name": "Do you build websites on WordPress, Wix, Webflow, or similar platforms?",
             "acceptedAnswer": {
                 "@@type": "Answer",
-                "text": "No. I know how to code and I use that knowledge to my advantage in building custom software solutions based on my client's needs."
+                "text": "No. I build custom software from the ground up. Template-based platforms work for simple brochure sites, but they become a bottleneck the moment your business needs something specific — a workflow, an integration, or a reliable way to handle your own data."
             }
         },
         {
             "@@type": "Question",
-            "name": "Can you make me a BEAUTIFUL website?",
+            "name": "Can you design a visually impressive website?",
             "acceptedAnswer": {
                 "@@type": "Answer",
-                "text": "I prefer to make GOOD websites that don't take seconds to load, dont crash and are maintainable for the long future."
+                "text": "My priority is dependable software: fast, stable, and maintainable for years. Visual design is part of that, but never at the expense of performance or long-term reliability. For heavily design-driven marketing pages, I am happy to collaborate with a dedicated designer."
             }
         },
         {
             "@@type": "Question",
-            "name": "Can you fix my website ASAP?",
+            "name": "How long does a typical project take?",
             "acceptedAnswer": {
                 "@@type": "Answer",
-                "text": "No. Well... maybe. Yes, but it will cost you extra."
+                "text": "It depends on the scope. Smaller internal tools and integrations typically take two to six weeks. Larger custom platforms run from two to six months. A concrete timeline is part of the written proposal before any work begins."
+            }
+        },
+        {
+            "@@type": "Question",
+            "name": "Do you offer support after the project is delivered?",
+            "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "Yes. Ongoing maintenance, improvements, and on-demand support are available on an hourly basis. Software evolves with your business, and I stay involved for as long as you need."
+            }
+        },
+        {
+            "@@type": "Question",
+            "name": "Can you urgently fix an existing website or system?",
+            "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "Urgent fixes on unfamiliar systems are possible, but they require a quick assessment first and are handled at a priority rate. Get in touch and I will tell you honestly whether I can help and how quickly."
             }
         }
     ]

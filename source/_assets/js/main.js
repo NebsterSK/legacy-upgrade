@@ -2,10 +2,15 @@ const nav = document.getElementById('main-nav');
 const menu = document.getElementById('nav-menu');
 const navHeight = nav.offsetHeight;
 
-// Nav shadow on scroll
+// Nav shadow on scroll — only toggle on state change, passive to avoid blocking scroll
+let hasNavShadow = false;
 window.addEventListener('scroll', () => {
-    nav.classList.toggle('shadow-md', window.scrollY > 0);
-});
+    const shouldShadow = window.scrollY > 0;
+    if (shouldShadow !== hasNavShadow) {
+        nav.classList.toggle('shadow-md', shouldShadow);
+        hasNavShadow = shouldShadow;
+    }
+}, { passive: true });
 
 // Mobile menu toggle
 document.getElementById('nav-toggle').addEventListener('click', () => {
@@ -56,32 +61,32 @@ document.querySelectorAll('.nav-scroll').forEach(link => {
     });
 });
 
-// Scroll spy — highlight active nav link
+// Scroll spy — IntersectionObserver (no per-scroll geometry reads)
 const navLinks = document.querySelectorAll('#nav-menu .nav-scroll');
 const sections = [...navLinks].map(link => {
     const id = link.getAttribute('href').substring(1);
-    return { id, el: document.getElementById(id) };
+    return { id, el: document.getElementById(id), link };
 }).filter(s => s.el);
 
-function updateActiveNav() {
-    const threshold = navHeight + 20;
-    let current = '';
-
-    for (const s of sections) {
-        if (s.el.getBoundingClientRect().top <= threshold) current = s.id;
-    }
-
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
-        current = sections[sections.length - 1].id;
-    }
-
+function setActive(id) {
     navLinks.forEach(link => {
-        link.classList.toggle('nav-link-active', link.getAttribute('href') === '#' + current);
+        link.classList.toggle('nav-link-active', link.getAttribute('href') === '#' + id);
     });
 }
 
-window.addEventListener('scroll', updateActiveNav);
-updateActiveNav();
+const visible = new Set();
+const spy = new IntersectionObserver(entries => {
+    for (const e of entries) {
+        if (e.isIntersecting) visible.add(e.target.id);
+        else visible.delete(e.target.id);
+    }
+    const firstVisible = sections.find(s => visible.has(s.id));
+    if (firstVisible) setActive(firstVisible.id);
+}, {
+    rootMargin: `-${navHeight + 20}px 0px -60% 0px`,
+    threshold: 0,
+});
+sections.forEach(s => spy.observe(s.el));
 
 // Dark mode
 const darkToggle = document.getElementById('dark-mode-toggle');

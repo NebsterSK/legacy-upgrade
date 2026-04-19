@@ -8,7 +8,7 @@ return [
 
     'title' => 'Legacy Upgrade',
 
-    'description' => 'Digitalization and automation through custom software. Freelance developer in Bratislava building APIs, dashboards, AI integrations, and business applications.',
+    'description' => 'Custom software development, business automation, and digitalization for companies in Slovakia. Reliable internal tools, dashboards, API integrations, and modernization of legacy systems.',
 
     'collections' => [],
 

@@ -922,7 +922,7 @@ HTML or a clean build log. **This is the checkpoint before Task 14 deletes `sour
 
 ## Task 14 — Remove the PHP toolchain
 
-- [ ] Done
+- [x] Done
 
 Only after Task 13. Delete:
 
@@ -939,6 +939,43 @@ Keep `.claude/`, `_linkedin/`, `scripts/`, `.gitattributes`, `.idea/`.
 
 **Done when:** `rg -l 'blade|jigsaw|\$page->' --glob '!.claude/**' --glob '!plan.md'` returns
 nothing, and `npm run build` still succeeds from a clean `node_modules` + `.next`.
+
+### Outcome
+
+Ran the full gate one last time before deleting anything — build, `verify:copy`, `verify:parity`,
+`verify:rendered` 13/13, `verify:deploy` 22/22, lint, typecheck: **all green**. Then removed:
+
+- **36 tracked files**: `source/` (all Blade templates, `_assets/`, `_components/`, `_includes/`,
+  `_layouts/`), `composer.json`, `composer.lock`, `bootstrap.php`, `config.php`,
+  `config.production.php`
+- **On disk**: `vendor/` (20 MB), `build_local/` (5.1 MB), `build_production/` (5.1 MB),
+  `source/` (5.3 MB)
+- **`scripts/verify-copy.mjs` and `scripts/verify-parity.mjs`** plus their npm scripts — both read
+  the Blade source, so they became meaningless rather than merely unused. `verify-copy` would have
+  reported "skipped (gone)" for all nine inputs and passed trivially, which is worse than not
+  existing.
+- The legacy block from `.gitignore`
+
+Then verified from a **completely clean slate** — `rm -rf .next out node_modules && npm ci &&
+npm run build` — that the build succeeds with no PHP, no Composer, and no `vendor/` present.
+Repo is now **13 MB** excluding `node_modules`/`.git` (down from ~48 MB) across **103 tracked
+files**. `verify:rendered` still 13/13, `verify:deploy` still 22/22.
+
+**Deviation on the done-when criterion.** The `rg` check does *not* return nothing: **28 files under
+`src/` still match**, because every ported component and content module carries a provenance comment
+like ``/** Ported from `source/index.blade.php:39-59`. */``. Those are comments, not dependencies —
+the criterion's intent ("no live dependency on Blade/Jigsaw remains") is satisfied, and the
+comments are genuinely useful for tracing where a string came from. Kept them deliberately rather
+than mutilating 28 files to satisfy a grep. Task 16 adds a note explaining that those paths refer
+to the pre-refactor tree, recoverable via `git show 182782f:source/index.blade.php`.
+
+`.idea/php.xml` and `.idea/legacy-upgrade.iml` also still reference PHP. That is the user's IDE
+configuration, which the task explicitly says to keep — worth cleaning up in PhpStorm, but not
+mine to touch.
+
+**What is now permanently lost:** the ability to re-run `verify:parity`. The Jigsaw reference build
+has no source to regenerate from. Its final verdict (PARITY OK, recorded under Task 13) is the
+last word, and the old tree lives on at commit `182782f` and earlier.
 
 ---
 

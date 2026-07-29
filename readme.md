@@ -21,7 +21,6 @@ npm install
 | `npm run preview` | Serve the built `out/` folder as a plain static site |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | `tsc --noEmit` |
-| `npm run verify:copy` | Every legacy Blade/PHP string is present in `src/content/` |
 | `npm run verify:rendered` | Every `src/content/` string reaches the built HTML |
 | `npm run verify:deploy` | `out/` is safe to upload (run after `build`) |
 | `npm run logos` | Regenerate AVIF logo variants (needs `src/assets/images/logos/src/`) |
@@ -31,8 +30,9 @@ npm install
 **All user-visible copy lives in `src/content/`.** Components render those values and never
 inline literal text. Change copy there, not in a component.
 
-`npm run verify:copy` and `npm run verify:rendered` bracket that rule from both sides — one checks
-content against the original Jigsaw source, the other checks content against the built output.
+`npm run verify:rendered` enforces it: every string in `src/content/` must appear in the built
+HTML (or in the JSON-LD, for schema-only copy). It strips the RSC payload first, so a string that
+only exists in React's flight data does not count as rendered.
 
 ## Environment
 

@@ -14,11 +14,3 @@ npm-debug.log*
 # --- Editors ---
 /.idea/
 /.vscode/
-
-# --- Legacy Jigsaw toolchain (removed in Task 14 of plan.md) ---
-/build_local
-/build_production
-/cache/
-/vendor/
-/source/assets/build/
-/source/hot

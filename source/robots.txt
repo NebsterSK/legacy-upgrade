@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://legacy-upgrade.com/sitemap.xml

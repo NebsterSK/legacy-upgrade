@@ -186,7 +186,7 @@ Content facts found while extracting, all preserved as-is:
 
 ## Task 3 — Initialize shadcn/ui with the stock theme
 
-- [ ] Done
+- [x] Done
 
 - Run `npx shadcn@latest init`. Choose the **default/neutral** base color. Accept the standard
   `app/globals.css` rewrite: `@import "tailwindcss"`, `@import "tw-animate-css"`,
@@ -202,6 +202,48 @@ Content facts found while extracting, all preserved as-is:
 
 **Done when:** `npx shadcn@latest add button` succeeds and a stock `<Button>` renders with correct
 colors in both light and dark (`.dark` toggled manually on `<html>`).
+
+### Outcome
+
+shadcn CLI **4.16.0**. `components.json`: `style: radix-nova`, `baseColor: neutral`,
+`iconLibrary: lucide`, `css: src/app/globals.css`, aliases wired. `src/lib/utils.ts` (`cn`) and
+`src/components/ui/button.tsx` created. All gates green (typecheck, lint, verify:copy, build).
+
+Verified by building a probe page with `<Button>`, `variant="outline"`, `variant="secondary"`, and
+a `.dark`-wrapped copy, then reading the compiled CSS: `--primary` resolves to `#171717` in
+`:root` and `#e5e5e5` under `.dark` — the stock neutral inversion — with `.bg-primary`,
+`.text-primary-foreground`, and `.bg-background` all wired to the token vars. Probe reverted after.
+(Note: Lightning CSS compiles the source `oklch()` values down to hex + `lab()` fallbacks, so grep
+the build output for hex, not `oklch`.)
+
+**The CLI has changed shape since this plan was written** — this matters for Task 15:
+
+- There is no `--base-color` flag any more. `init` prompts for one of **8 named presets** — Nova,
+  Vega, Maia, Lyra, Mira, Luma, Sera, Rhea, or Custom — and presets are now a first-class CLI
+  concept (`shadcn preset resolve|decode|url|open`). Task 15's "make preset-swapping fast" is
+  largely handed to us; revise that task to use the CLI's preset machinery rather than
+  hand-rolling `app/themes/*.css`.
+- `-y` does **not** make `init` non-interactive; it still blocks on the preset prompt. The working
+  invocation is `npx shadcn@latest init -y -b radix -p nova --css-variables`.
+- `-b/--base` selects the primitive library: `radix`, `base` (Base UI), or `aria` (React Aria).
+  **Chose `radix`** — the classic foundation that ui.shadcn.com/themes and tweakcn presets target.
+  The CLI's own default is `base-nova` (Base UI), which would be the less compatible pick for
+  "drop in a third-party theme quickly".
+
+Deviations and things to know:
+
+- **`shadcn` is now a runtime dependency**, not just a CLI. `globals.css` does
+  `@import "shadcn/tailwind.css"`, so the package must stay in `dependencies`.
+- **The Nova preset rewrote `layout.tsx` to load Geist from `next/font/google`.** That is a
+  build-time network fetch to Google and is not the intended font. Task 5 replaces it with
+  self-hosted Kanit via `next/font/local`; until then the build depends on network access.
+- **Custom CSS is exactly three rules**, in a commented block at the end of `globals.css`:
+  `section[id] { scroll-margin-top: 4rem }`, `html { scroll-behavior: smooth }`, and a
+  `prefers-reduced-motion` escape hatch for the latter (added — smooth scrolling is a motion
+  accessibility issue, and the old JS scroller ignored the preference too). Nothing from the old
+  `main.css` was ported: no `--primary-l/c/h`, no `.nav-link`, no `.nav-menu-collapsible`, no
+  `.bg-code-pattern`.
+- The old `source/_assets/css/main.css` file itself is still on disk; it is deleted in Task 14.
 
 ---
 
@@ -476,12 +518,19 @@ nothing, and `npm run build` still succeeds from a clean `node_modules` + `.next
 
 This is the payoff for the whole refactor — a theme change must be a one-file edit.
 
-- Isolate the shadcn token blocks (`:root`, `.dark`, `--radius`) into
-  `app/themes/_active.css`, imported by `globals.css`. Nothing else in the codebase may reference
-  a raw colour — only shadcn semantic tokens (`bg-background`, `text-muted-foreground`,
+> Revised after Task 3: shadcn CLI 4.16 has **native presets** (Nova, Vega, Maia, Lyra, Mira,
+> Luma, Sera, Rhea, Custom) plus `shadcn preset resolve|decode|url|open`. Lead with that machinery
+> instead of hand-rolling theme files. The project is currently on `radix-nova`.
+
+- First establish the discipline that makes any swap work: nothing in the codebase may reference a
+  raw colour — only shadcn semantic tokens (`bg-background`, `text-muted-foreground`,
   `border-border`, …). Grep for stragglers: `rg 'text-(gray|primary|zinc)-|bg-(gray|primary)-'`.
-- Add 2–3 presets under `app/themes/` (e.g. one from ui.shadcn.com/themes, one from tweakcn.com)
-  and document the swap as: change the one `@import` line in `globals.css`.
+- Try swapping to a second named preset via the CLI and confirm it rewrites only the token blocks
+  in `globals.css`. Record the exact command and what it touches.
+- If (and only if) the CLI's swap is destructive or hard to reverse, fall back to isolating the
+  `:root` / `.dark` / `--radius` blocks into `src/app/themes/_active.css` imported by
+  `globals.css`, with 2–3 presets alongside (one from ui.shadcn.com/themes, one from tweakcn.com)
+  and the swap being a one-line `@import` change.
 - Verify `npx shadcn@latest add <registry-url>` works against the project (`components.json` is
   correctly wired), including a remote registry item — that is what makes third-party blocks and
   themes drop in.

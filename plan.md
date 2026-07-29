@@ -622,7 +622,7 @@ over HTML entities are not.
 
 ## Task 10 — Sections: Technology and Contact
 
-- [ ] Done
+- [x] Done
 
 **Technology** — port `source/index.blade.php:269-319`:
 
@@ -642,6 +642,41 @@ over HTML entities are not.
 
 **Done when:** all four contact links open the right target, and lines 269–407 check out
 string-by-string.
+
+### Outcome
+
+New: `sections/technology.tsx`, `sections/contact.tsx`, `components/content-icon.tsx`.
+`page.tsx` now renders all four sections. All gates green.
+
+**Every content module is at 100% rendered — 13 of 13 OK:**
+
+```
+OK site 11/11    OK company 14/14   OK nav 13/13      OK hero 11/11
+OK about 14/14   OK clients 20/20   OK services 20/20 OK process 20/20
+OK pricing 17/17 OK faq 20/20       OK technology 20/20
+OK contact 30/30 OK footer 8/8
+```
+
+Spot-checked in the built HTML: all four contact hrefs (`mailto:`, `tel:`, `m.me`, `wa.me`) with
+`target="_blank" rel="noopener noreferrer"` on the two external ones; `Company ID / IČO`,
+`Tax ID / DIČ`, `IBAN` and all three values; `Kukučínova 42`, `831 03, Bratislava`,
+`Slovak Republic`; `alt="Laravel"` and `alt="Laravel Forge"`; and `tabindex="0"` preserved on each
+tooltip trigger tile so the logo labels stay keyboard-reachable.
+
+**`react-hooks/static-components` blocked the obvious icon pattern.** `const PersonIcon =
+getIcon(...)` in a render body is a lint error — binding a component to a capitalized variable
+during render defeats reconciliation if the lookup changes. Note it only fires at the top level of
+a render body, not inside a `.map()` callback, which is why Task 9 passed with the same shape.
+Fixed with `ContentIcon`, which resolves the name via `createElement` instead of a variable
+binding. Worth reusing in Tasks 9's components if they are ever touched again.
+
+Deviations: the Technology logo tooltips replace the hand-rolled fade-in `<span>` with the shadcn
+`Tooltip`, keeping the wrapper focusable. The Contact grid is a plain 1/2-column Card layout.
+
+Pre-existing issue carried over faithfully, **not** fixed: `href="tel:+421 949 746 983"` contains
+spaces, because the old Blade did `tel:{{ $page->company->contact->phone }}` against a
+space-formatted number. Most dialers cope, but a `tel:` URI should be `tel:+421949746983`. Left
+alone here since it is behaviour, not copy — worth a one-line fix during the later polish pass.
 
 ---
 

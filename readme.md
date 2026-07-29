@@ -80,13 +80,15 @@ the remote path set to the web root. Deploying then becomes connect → select a
 
 ## Theming
 
-Stock shadcn `radix-nova` preset, neutral base colour. The theme lives entirely in the
-`:root` / `.dark` token blocks in `src/app/globals.css`.
+Swapping the theme is one line in `src/app/globals.css`:
 
-Components must only reference semantic tokens (`bg-background`, `text-muted-foreground`,
-`border-border`, …) and never raw colours — that discipline is what makes swapping a preset a
-single-file change. shadcn CLI 4.x ships named presets (Nova, Vega, Maia, Lyra, Mira, Luma, Sera,
-Rhea) plus `shadcn preset resolve|decode|url|open`.
+```css
+@import "./themes/neutral.css";   /* neutral | brand | slate */
+```
+
+Theme files under `src/app/themes/` are the only place colour values may appear; everything else
+references semantic tokens. **See [THEMING.md](THEMING.md)** — including why
+`shadcn init -p <preset>` is not a colour switcher and is destructive on this project.
 
 Kanit is self-hosted from `src/assets/fonts/` via `next/font/local` — no Google Fonts request.
 

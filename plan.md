@@ -981,7 +981,7 @@ last word, and the old tree lives on at commit `182782f` and earlier.
 
 ## Task 15 — Make preset-swapping fast
 
-- [ ] Done
+- [x] Done
 
 This is the payoff for the whole refactor — a theme change must be a one-file edit.
 
@@ -1006,6 +1006,51 @@ This is the payoff for the whole refactor — a theme change must be a one-file 
 
 **Done when:** swapping the active preset visibly rethemes the whole page with no other file
 edits, in both light and dark.
+
+### Outcome
+
+**The Task 3 revision was wrong, and testing it is what proved that.** I had rewritten this task to
+lead with the shadcn CLI's named presets. They are not a colour theme switcher. Swapped Nova → Vega
+and diffed:
+
+- **Zero colour change.** Every OKLCH token value came out byte-identical; only block order moved.
+  Colour comes from `baseColor` at first init and re-running `init` does not touch it. What presets
+  actually change is the primitive style (`radix-nova` → `radix-vega`) and the bundled font.
+- **It rewrote `src/app/layout.tsx` destructively** — injected `Inter` from `next/font/google` and
+  replaced `className={kanit.variable}` with `cn("font-sans", inter.variable)`, dropping the Kanit
+  variable from `<html>` entirely (so `font-kanit` resolves to nothing) and re-adding the Google
+  Fonts request Task 5 deliberately removed.
+- **It reverted the `@theme inline` font mappings** back to `var(--font-sans)`.
+
+Reverted, and implemented the fallback the task specified instead.
+
+Token blocks now live in `src/app/themes/`, and `globals.css` contains **zero colour values** —
+just one import:
+
+```css
+@import "./themes/neutral.css";   /* neutral | brand | slate */
+```
+
+Three themes, each verified to change the compiled `--primary` in both light and dark with no other
+edit:
+
+| Theme | light `--primary` | notes |
+| --- | --- | --- |
+| `neutral.css` | `#171717` | **active**; stock shadcn, extracted verbatim |
+| `brand.css` | `#0559d2` | the old site's `oklch(0.5 0.2 260)` accent, restored |
+| `slate.css` | `#0074c9` | cool-grey neutrals, hue 250 |
+
+**Correction:** I have been calling the old brand colour "purple" throughout this plan. Compiled, it
+is `#0559d2` — a vivid blue-violet. Hue 260 in OKLCH sits on the blue side. The theme file is named
+`brand.css` rather than `violet.css` for that reason.
+
+Token discipline audited and **already clean before this task** — no raw Tailwind colour utilities
+and no hex/rgb/oklch literals anywhere in `src/` outside `src/app/themes/`, including inside
+`src/components/ui/`. The FAQ tone-icon decision at Task 9 is what kept it that way.
+
+Also added **`THEMING.md`** covering the swap procedure, the no-raw-colour rule with its audit
+commands, how to add a theme from ui.shadcn.com/themes or tweakcn.com, and a warning about what
+`shadcn init -p` does to this project. `readme.md` now points at it.
 
 ---
 

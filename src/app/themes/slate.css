@@ -1,0 +1,75 @@
+/**
+ * THEME: slate — cool grey with a blue primary.
+ *
+ * A second alternative, included so the swap mechanism is demonstrably exercised by
+ * more than one file. Hue 250, low chroma neutrals.
+ */
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.13 0.028 250);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.13 0.028 250);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.13 0.028 250);
+    --primary: oklch(0.55 0.16 250);
+    --primary-foreground: oklch(0.984 0.003 250);
+    --secondary: oklch(0.968 0.007 250);
+    --secondary-foreground: oklch(0.21 0.04 250);
+    --muted: oklch(0.968 0.007 250);
+    --muted-foreground: oklch(0.554 0.041 250);
+    --accent: oklch(0.94 0.02 250);
+    --accent-foreground: oklch(0.21 0.04 250);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.929 0.013 250);
+    --input: oklch(0.929 0.013 250);
+    --ring: oklch(0.55 0.16 250);
+    --chart-1: oklch(0.55 0.16 250);
+    --chart-2: oklch(0.65 0.13 250);
+    --chart-3: oklch(0.73 0.1 250);
+    --chart-4: oklch(0.81 0.07 250);
+    --chart-5: oklch(0.88 0.04 250);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.984 0.003 250);
+    --sidebar-foreground: oklch(0.13 0.028 250);
+    --sidebar-primary: oklch(0.55 0.16 250);
+    --sidebar-primary-foreground: oklch(0.984 0.003 250);
+    --sidebar-accent: oklch(0.94 0.02 250);
+    --sidebar-accent-foreground: oklch(0.21 0.04 250);
+    --sidebar-border: oklch(0.929 0.013 250);
+    --sidebar-ring: oklch(0.55 0.16 250);
+}
+
+.dark {
+    --background: oklch(0.13 0.028 250);
+    --foreground: oklch(0.984 0.003 250);
+    --card: oklch(0.21 0.034 250);
+    --card-foreground: oklch(0.984 0.003 250);
+    --popover: oklch(0.21 0.034 250);
+    --popover-foreground: oklch(0.984 0.003 250);
+    --primary: oklch(0.71 0.13 250);
+    --primary-foreground: oklch(0.21 0.04 250);
+    --secondary: oklch(0.279 0.041 250);
+    --secondary-foreground: oklch(0.984 0.003 250);
+    --muted: oklch(0.279 0.041 250);
+    --muted-foreground: oklch(0.704 0.04 250);
+    --accent: oklch(0.32 0.05 250);
+    --accent-foreground: oklch(0.984 0.003 250);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.71 0.13 250);
+    --chart-1: oklch(0.71 0.13 250);
+    --chart-2: oklch(0.63 0.12 250);
+    --chart-3: oklch(0.55 0.11 250);
+    --chart-4: oklch(0.47 0.09 250);
+    --chart-5: oklch(0.39 0.07 250);
+    --sidebar: oklch(0.21 0.034 250);
+    --sidebar-foreground: oklch(0.984 0.003 250);
+    --sidebar-primary: oklch(0.71 0.13 250);
+    --sidebar-primary-foreground: oklch(0.21 0.04 250);
+    --sidebar-accent: oklch(0.32 0.05 250);
+    --sidebar-accent-foreground: oklch(0.984 0.003 250);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.71 0.13 250);
+}

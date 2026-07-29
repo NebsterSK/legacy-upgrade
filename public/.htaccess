@@ -6,16 +6,31 @@
 </IfModule>
 
 # ----------------------------------------------------------------------
+# Error documents
+# ----------------------------------------------------------------------
+ErrorDocument 404 /404.html
+
+# ----------------------------------------------------------------------
 # Cache-Control headers
 # ----------------------------------------------------------------------
 <IfModule mod_headers.c>
-    # Fingerprinted build assets (CSS, JS, images, fonts hashed by Vite)
+    # Fingerprinted build assets. Everything Next emits under _next/static/ is
+    # content-hashed, and /icon.png, /opengraph-image.jpg and /twitter-image.jpg carry a
+    # hash query string, so a year + immutable is safe for all of them.
     <FilesMatch "\.(css|js|woff2?|ttf|otf|eot|webp|png|jpe?g|gif|svg|ico)$">
         Header set Cache-Control "public, max-age=31536000, immutable"
     </FilesMatch>
 
     # HTML — short TTL so content updates propagate quickly
     <FilesMatch "\.html?$">
+        Header set Cache-Control "public, max-age=300, must-revalidate"
+    </FilesMatch>
+
+    # React Server Component payloads (index.txt, __next.*.txt). These mirror page
+    # content, so they get the HTML TTL rather than the 1-day text/plain default —
+    # otherwise a client-side navigation could serve day-old copy after a deploy.
+    # MUST stay above the robots.txt rule below, which needs to win for that one file.
+    <FilesMatch "^(index|__next\..*|_not-found.*)\.txt$">
         Header set Cache-Control "public, max-age=300, must-revalidate"
     </FilesMatch>
 

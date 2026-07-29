@@ -736,7 +736,7 @@ Two things noted for Task 12:
 
 ## Task 12 — Production build, `.htaccess`, deploy path
 
-- [ ] Done
+- [x] Done
 
 - `.htaccess`: move `source/.htaccess` → `public/.htaccess` and verify it lands in `out/`. Check
   Next's asset layout against the rules — `_next/static/**` files are content-hashed, so the
@@ -765,6 +765,52 @@ Two things noted for Task 12:
 
 **Done when:** `npm run build` produces a complete `out/` (index.html, 404.html, `_next/static/`,
 `.htaccess`, robots, sitemap, all images) that works when served by a plain static file server.
+
+### Outcome
+
+`public/.htaccess` updated, `.env.example` + `.env.development` added, vestigial `.env` removed,
+`readme.md` rewritten, and **`scripts/verify-deploy.mjs` (`npm run verify:deploy`)** added as a
+pre-upload gate. **22/22 checks pass.** Served `out/` on a plain static server: index 200, CSS/JS/
+font/portrait/robots/sitemap/icon/OG all 200, unknown path 404.
+
+**Found and fixed a live footgun.** I first put `NEXT_PUBLIC_SITE_URL` in `.env.local` — and
+`.env.local` is loaded by `next build`, not just `next dev`. The production build came out with
+`<link rel="canonical" href="https://legacy-upgrade.test">`. On a manual FTP deploy that ships
+silently: the page looks perfect and the canonical points at a domain that does not resolve.
+Fixed by using **`.env.development`**, which Next loads only when `NODE_ENV=development`.
+
+`verify:deploy` exists because of that near-miss, and it was **negative-tested**: building with
+`NEXT_PUBLIC_SITE_URL=https://legacy-upgrade.test` in scope produces
+`3 check(s) failed — do NOT upload out/`, naming canonical and og:url. It checks 8 required files,
+that no dev origin appears anywhere, canonical / og:url / sitemap `<loc>` / robots sitemap line, the
+three `.htaccess` behaviours, both JSON-LD blocks, all four section ids, and that the footer year is
+*not* baked in.
+
+Note `sitemap.xml` and `robots.txt` were unaffected by the bad env, because they read `site.url`
+directly rather than the env var. Only `metadataBase` consumes it. Left as-is — those two always
+pointing at production is the safe direction.
+
+`.htaccess` changes:
+
+- Added `ErrorDocument 404 /404.html`.
+- Added a cache rule for the **RSC `.txt` payloads** giving them the 300s HTML TTL instead of the
+  1-day `text/plain` default — they mirror page content, so a day-old copy could be served after a
+  deploy. It is deliberately placed *above* the `robots.txt` rule, since later `Header set`
+  directives win in Apache and robots must keep its 1-day TTL.
+- Reworded the fingerprint comment (was "hashed by Vite") and confirmed the immutable rule is
+  correct for Next: everything under `_next/static/` is content-hashed, and `/icon.png`,
+  `/opengraph-image.jpg`, `/twitter-image.jpg` carry a hash query string, which browsers key
+  cache on.
+
+**Decision on the RSC payload files: upload them.** Measured at **251 kB of 1.61 MB — 15.6% of the
+deploy**, with `index.txt` and `__next._full.txt` being identical 68.6 kB duplicates. My earlier
+instinct was to exclude them, but they are the only thing making the 404 page's `Home` link a
+client navigation rather than a full reload, and "upload everything except `*.txt` except
+`robots.txt`" is a rule that gets fumbled by hand over FTP. Simplicity wins; the readme documents
+the option if upload time ever matters.
+
+Also removed the tracked `.env` (contained only `APP_URL=https://legacy-upgrade.test`, referenced
+nowhere in the codebase — a Jigsaw-era leftover).
 
 ---
 

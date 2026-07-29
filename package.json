@@ -11,7 +11,8 @@
         "typecheck": "tsc --noEmit",
         "verify:copy": "node scripts/verify-copy.mjs",
         "verify:rendered": "node scripts/verify-rendered.mjs",
-        "logos": "node scripts/convert-logos.mjs"
+        "logos": "node scripts/convert-logos.mjs",
+        "verify:deploy": "node scripts/verify-deploy.mjs"
     },
     "dependencies": {
         "class-variance-authority": "^0.7.1",

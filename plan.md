@@ -249,7 +249,7 @@ Deviations and things to know:
 
 ## Task 4 — Add the shadcn component set
 
-- [ ] Done
+- [x] Done
 
 `npx shadcn@latest add button card accordion badge separator sheet tooltip dropdown-menu`
 
@@ -267,6 +267,24 @@ Mapping to current markup, for reference:
 
 **Done when:** every component exists under `components/ui/`, `npx tsc --noEmit` passes, and
 `npm run lint` is clean.
+
+### Outcome
+
+All 8 present in `src/components/ui/`: `accordion`, `badge`, `button`, `card`, `dropdown-menu`,
+`separator`, `sheet`, `tooltip`. Typecheck, lint, and build clean.
+
+Verified with a probe page that imports and renders every one of them (catches API drift and
+missing peer deps, which a bare `ls` would not). Confirmed the interactive ones still
+server-render their content into the static export — `Fixed-Scope Project`, the accordion
+question, and the badge text are all present in `out/index.html`, so the Accordion/Sheet/Tooltip
+copy is crawlable rather than JS-only. Probe reverted.
+
+Carried forward to Task 6: **the Tooltip needs `<TooltipProvider>` wrapping the app** — the CLI
+prints this reminder on install. Without it the tech-stack tooltips in Task 10 silently fail.
+
+Baseline for later comparison: the probe build produced **7 JS chunks, 852 kB total unminified
+on disk** with all 8 components in the tree. Worth re-checking at Task 13 against the current
+live site, since the old page shipped ~1 small hand-written JS file.
 
 ---
 

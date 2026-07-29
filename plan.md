@@ -1056,7 +1056,7 @@ commands, how to add a theme from ui.shadcn.com/themes or tweakcn.com, and a war
 
 ## Task 16 — Docs
 
-- [ ] Done
+- [x] Done
 
 - Rewrite `CLAUDE.md` for the new stack. Remove all Blade/Jigsaw rules (`@@` JSON-LD escaping,
   `@push`/`@stack`, YAML front matter, `$page`). **Keep** the footer-year rule (still intentional)
@@ -1069,6 +1069,58 @@ commands, how to add a theme from ui.shadcn.com/themes or tweakcn.com, and a war
 
 **Done when:** a fresh reader can clone, install, run, build, deploy, and reskin from the docs
 alone, with no PHP mentioned anywhere.
+
+### Outcome
+
+`CLAUDE.md` rewritten for the new stack. Every Blade/Jigsaw rule removed (`@@` JSON-LD escaping,
+`@push`/`@stack`, YAML front matter, `$page`). Both rules worth keeping were kept: the
+client-rendered footer year and the `/linkedin` skill.
+
+Six new project rules encoded, each one earned by something that went wrong during this refactor
+rather than invented:
+
+1. Copy lives in `src/content/`; components never inline text.
+2. Only semantic shadcn tokens — colour values exclusively in `src/app/themes/`.
+3. `output: 'export'` constraints, including the `force-static` requirement on `robots.ts` /
+   `sitemap.ts`.
+4. Never `NEXT_PUBLIC_SITE_URL` in `.env.local` — it leaks the dev origin into production builds.
+5. Radix components that unmount hidden content need `forceMount` to stay in the static HTML.
+6. `source/*.blade.php` comments are provenance notes; retrieve the files via
+   `git show 182782f:source/index.blade.php`.
+
+Also documents the OG image conventions (no WebP, `.alt.txt` needs no trailing newline), that
+lucide ships no brand glyphs, and that the visible FAQ and FAQPage JSON-LD are different sets.
+
+`.claude/` needed **no changes** — swept it for `blade|jigsaw|config.php|vite|$page->` and the only
+hit was `vite` inside the word "invites" in the LinkedIn skill.
+
+`readme.md` was rewritten at Task 12 and updated again at Tasks 14 and 15. `THEMING.md` added at
+Task 15. Final full gate: build, typecheck, lint, `verify:rendered` 13/13, `verify:deploy` 22/22 —
+all green.
+
+---
+
+## Refactor complete
+
+All 16 tasks done. Jigsaw, PHP, Composer, Vite, and Remix Icon are gone; the site is Next.js 16 +
+Tailwind 4 + shadcn/ui exported to static HTML.
+
+**Still outstanding, and not something automation can settle:** the manual browser pass from
+Task 13 item 5 — scroll behaviour, the mobile Sheet, no-flash theme persistence, keyboard traversal,
+and whether the deliberately plainer layout is acceptable.
+
+**Open decisions, all small:**
+
+- Messenger and WhatsApp use generic lucide icons; real brand marks would need `simple-icons`.
+- `badge`, `dropdown-menu` and `separator` are unused shadcn files — delete or keep for later design
+  work.
+- `href="tel:+421 949 746 983"` contains spaces (inherited verbatim from the Blade). One-line fix.
+- The 404 inherits the home page's `<title>`; a dedicated one would be new copy.
+
+**Worth acting on independently of this refactor:** the old site's Lighthouse CLS was **0.447**
+against a 0.1 threshold — a live Core Web Vitals failure. The new build measures 0. And LCP
+regressed 4.2 s → 5.6 s, the real cost of 229 kB gzipped of first-party JS where the old page shipped
+about 3 kB; a performance pass would be well spent.
 
 ---
 

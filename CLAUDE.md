@@ -46,6 +46,11 @@ with **Next.js 16** (App Router) and **Tailwind CSS 4**, exported to static HTML
 
 ## Commands
 
+Local domain: Herd serves `https://legacy-upgrade.test` via an **nginx proxy** to the dev server
+(`herd proxy legacy-upgrade http://localhost:3000 --secure`), not by serving the directory — there is
+no PHP entry point any more. `next.config.ts` needs `allowedDevOrigins` for that to work. See
+`readme.md`.
+
 ```bash
 npm run dev              # dev server (loads .env.development)
 npm run build            # production build → out/

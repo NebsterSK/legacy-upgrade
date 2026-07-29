@@ -25,6 +25,44 @@ npm install
 | `npm run verify:deploy` | `out/` is safe to upload (run after `build`) |
 | `npm run logos` | Regenerate AVIF logo variants (needs `src/assets/images/logos/src/`) |
 
+## Local development with Laravel Herd
+
+`E:\webs` is a **parked** Herd path, so Herd used to serve `legacy-upgrade.test` straight off the
+directory. That no longer works: there is no PHP entry point, and Herd's
+`BasicWithPublicValetDriver` would serve `public/` — which now holds only `.htaccess`.
+
+Point the domain at the Next dev server with an nginx proxy instead. One-time setup:
+
+```bash
+herd proxy legacy-upgrade http://localhost:3000 --secure
+```
+
+Then, for every session:
+
+```bash
+npm run dev
+```
+
+and open **https://legacy-upgrade.test**. The existing TLS certificate is reused, HMR works over the
+proxy, and `.env.development` makes `canonical` / `og:url` resolve to the `.test` origin.
+
+To inspect the **production build** on the same domain, run `npm run build` then serve `out/` on the
+same port — the proxy does not care what is behind it:
+
+```bash
+npm run build
+npx serve out -l 3000
+```
+
+Housekeeping:
+
+- `herd proxies` lists it, `herd unproxy legacy-upgrade` removes it.
+- `next.config.ts` sets `allowedDevOrigins: ['legacy-upgrade.test', …]`. Without it Next 16 rejects
+  dev requests arriving from a non-localhost origin and HMR breaks.
+- Changing `next.config.ts` needs a dev server restart. If `next dev` says *"Another next dev server
+  is already running"*, kill the orphan by port:
+  `netstat -ano | grep ":3000.*LISTENING"` → `taskkill /PID <pid> /T /F`.
+
 ## Content
 
 **All user-visible copy lives in `src/content/`.** Components render those values and never

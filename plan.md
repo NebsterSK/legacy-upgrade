@@ -361,7 +361,7 @@ Deviations:
 
 ## Task 6 — Layout shell: providers, metadata, analytics, JSON-LD
 
-- [ ] Done
+- [x] Done
 
 Build `app/layout.tsx`:
 
@@ -386,6 +386,44 @@ Build `app/layout.tsx`:
 **Done when:** view-source on the built `out/index.html` shows the same `<title>`, description,
 canonical, OG, Twitter, and both JSON-LD blocks as the current live page, and both JSON-LD blocks
 validate on validator.schema.org.
+
+### Outcome
+
+New files: `src/components/theme-provider.tsx`, `json-ld.tsx`, `analytics.tsx`, and
+`src/lib/jsonld.ts`. `next-themes@0.4.6` installed. All gates green.
+
+Everything below was read out of the built `out/index.html`, not inferred:
+
+- `<title>Custom Software &amp; Business Automation | Legacy Upgrade</title>`, matching
+  description, `<link rel="canonical">`.
+- **11 `og:*` tags and 8 `twitter:*` tags**, including `og:image:alt` / `twitter:image:alt` with
+  diacritics and em dash intact, and image type/width/height. Declaring `openGraph`/`twitter` in
+  `metadata` without an `images` key correctly *merges* with the file-convention images rather
+  than overriding them.
+- GA loads `gtag/js?id=G-BECNN06810` with `strategy="afterInteractive"` plus the inline
+  `gtag('config', 'G-BECNN06810')` block.
+- **Both JSON-LD blocks parse and are field-complete.** Verified programmatically:
+  ProfessionalService has 6 `serviceType`, 9 `knowsAbout`, 2 `areaServed`, the full
+  `PostalAddress` with `addressCountry: SK`, founder + jobTitle, `priceRange: €€`, and 4
+  `hasOfferCatalog` offers. FAQPage has all 5 questions. Diacritics survive
+  (`Kukučínova 42`, `Lukáš Neuschl - Legacy Upgrade`).
+- **next-themes' anti-FOUC script is inlined** ahead of paint — reads `localStorage.getItem("theme")`,
+  falls back to `matchMedia('(prefers-color-scheme: dark)')`, sets the class *and*
+  `style.colorScheme`. Better than the old hand-written script, which did not set `colorScheme`.
+  (It is minified, so grepping for `localStorage.getItem("theme")` finds nothing — the key is a
+  mangled variable. Parse the inline scripts instead.)
+
+Two intentional diffs from the old output, both to be allowed at Task 13:
+
+- **`ProfessionalService.image` is now `/opengraph-image.jpg`**, not
+  `/assets/build/images/portrait.webp` — a knock-on of the Task 5 WebP→JPEG re-encode.
+- **Canonical and `og:url` have no trailing slash** (`https://legacy-upgrade.com`), where Blade
+  emitted `https://legacy-upgrade.com/`. Next normalizes this from `trailingSlash: false`. Per
+  RFC 3986 an empty path is equivalent to `/` for the root, so there is no SEO consequence; not
+  worth fighting the framework over.
+
+Also note: `grep -c 'application/ld+json' out/index.html` returns 4, not 2 — the RSC flight
+payload embedded in the HTML repeats each script. There are 2 real `<script>` tags.
 
 ---
 

@@ -1,5 +1,13 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+
+import { Analytics } from '@/components/analytics';
+import { JsonLd } from '@/components/json-ld';
+import { ThemeProvider } from '@/components/theme-provider';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import { site } from '@/content';
+import { faqPageSchema, professionalServiceSchema } from '@/lib/jsonld';
+
 import './globals.css';
 
 /**
@@ -16,10 +24,37 @@ const kanit = localFont({
     display: 'swap',
 });
 
+/**
+ * Ported from `source/_layouts/main.blade.php` + `_includes/og.blade.php` +
+ * `_includes/twitter.blade.php`. Strings come from `src/content/site.ts` verbatim.
+ *
+ * og:image / twitter:image are supplied by the `src/app/opengraph-image.jpg` and
+ * `twitter-image.jpg` file conventions (with their `.alt.txt` siblings) — not declared
+ * here, or they would override the hashed, dimension-annotated versions.
+ */
 export const metadata: Metadata = {
-    /** Absolute URLs for OG/Twitter images require this. Full metadata lands in Task 6. */
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://legacy-upgrade.com'),
-    title: 'Legacy Upgrade',
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? site.url),
+    title: {
+        default: `${site.pageTitle} | ${site.name}`,
+        template: site.titleTemplate,
+    },
+    description: site.pageDescription,
+    alternates: {
+        canonical: '/',
+    },
+    openGraph: {
+        type: 'website',
+        locale: site.ogLocale,
+        siteName: site.name,
+        title: `${site.pageTitle} | ${site.name}`,
+        description: site.pageDescription,
+        url: '/',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: `${site.pageTitle} | ${site.name}`,
+        description: site.pageDescription,
+    },
 };
 
 export default function RootLayout({
@@ -28,8 +63,22 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={kanit.variable}>
-            <body>{children}</body>
+        <html lang="en" className={kanit.variable} suppressHydrationWarning>
+            <body className="flex min-h-screen flex-col">
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <TooltipProvider>{children}</TooltipProvider>
+                </ThemeProvider>
+
+                <JsonLd data={professionalServiceSchema()} />
+                <JsonLd data={faqPageSchema()} />
+
+                <Analytics />
+            </body>
         </html>
     );
 }

@@ -10,6 +10,7 @@
         "lint": "eslint",
         "typecheck": "tsc --noEmit",
         "verify:copy": "node scripts/verify-copy.mjs",
+        "verify:rendered": "node scripts/verify-rendered.mjs",
         "logos": "node scripts/convert-logos.mjs"
     },
     "dependencies": {

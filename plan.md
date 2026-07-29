@@ -503,7 +503,7 @@ clean dev log cannot prove them.
 
 ## Task 8 — Section: Home (hero, What I do / Why it matters, Clients)
 
-- [ ] Done
+- [x] Done
 
 Port `source/index.blade.php:8-108` into `components/sections/home.tsx` (split into
 `hero.tsx`, `about.tsx`, `clients.tsx` if it gets long).
@@ -519,6 +519,48 @@ Port `source/index.blade.php:8-108` into `components/sections/home.tsx` (split i
 
 **Done when:** every string in lines 8–108 appears on the rendered page, in the same order,
 unchanged.
+
+### Outcome
+
+New: `sections/home.tsx`, `hero.tsx`, `about.tsx`, `clients.tsx`, plus `section-header.tsx`
+(both `SectionHeader` and `SubsectionHeader`), `rich-text.tsx`, and `src/lib/logos.ts`.
+`page.tsx` now renders `<Home />`. All gates green.
+
+**Added `scripts/verify-rendered.mjs` (`npm run verify:rendered`)** — the counterpart to
+`verify-copy.mjs`. That one checks content against the *legacy source*; this one checks content
+against the *built output*, so a string can no longer be present in `src/content/` yet quietly
+never reach the page. It doubles as a progress dashboard, and Task 13 step 1 is now largely this
+script. Current state:
+
+```
+OK   site         11/11      todo services     14/20
+todo company      10/14      todo process       6/20
+OK   nav          13/13      todo pricing       4/17
+OK   hero         11/11      todo faq          11/20
+OK   about        14/14      todo technology   12/20
+OK   clients      20/20      todo contact      17/30
+OK   footer         8/8
+```
+
+Two real bugs it caught immediately, which is the point of building it:
+
+- **Both `about` paragraphs read as missing.** They render fine — but they wrap `<strong>`, so the
+  full sentence is not a contiguous substring of the markup. Fixed by checking a tag-stripped copy
+  of the HTML as well as the raw markup (attributes like `alt`/`title` only exist in the latter).
+  A naive substring check over raw HTML would have silently under-reported for the rest of the
+  port.
+- **`nav.theme.light` ("Light") reads as missing** and legitimately is: the toggle only renders
+  that label once dark mode is active, so it is never in prerendered HTML. Added to the
+  not-rendered skip list with a comment rather than papering over it.
+
+`src/lib/logos.ts` maps logo filename → static import for all 12 logos. `src/content/` keeps
+filenames as plain strings so it stays dependency-free; this is the single place they become
+hashed assets with intrinsic dimensions. Task 10 reuses it for the tech-stack grid.
+
+Deviation: **the Clients block is a uniform 3-column Card grid.** The old markup alternated
+logo-left / logo-right / stacked-pair per client. Flattened deliberately — design fidelity is
+explicitly not a goal — but it is the most visible layout departure so far, so expect it to look
+different from the live site while reading identically.
 
 ---
 

@@ -290,7 +290,7 @@ live site, since the old page shipped ~1 small hand-written JS file.
 
 ## Task 5 — Assets, fonts, and images
 
-- [ ] Done
+- [x] Done
 
 - Move `source/_assets/fonts/Kanit-{Regular,Bold}.woff2` → `src/assets/fonts/`. Load with
   `next/font/local` (weights 400 and 700, `display: 'swap'`, `variable: '--font-kanit'`), and
@@ -311,6 +311,51 @@ live site, since the old page shipped ~1 small hand-written JS file.
 
 **Done when:** Kanit renders in the browser (check DevTools → Network for the woff2, and that no
 `remixicon` font is requested), and every image resolves in `out/` after a build.
+
+### Outcome
+
+Assets in place: `src/assets/fonts/` (2 woff2), `src/assets/images/` (portrait, code-pattern,
+logo_lg, logo_sm) and `src/assets/images/logos/` (12 files). `public/` holds `.htaccess`,
+`robots.txt`, `sitemap.xml`. `src/app/` holds `icon.png`, `opengraph-image.jpg`,
+`twitter-image.jpg`, and the two `.alt.txt` files. All gates green; `out/` is 1.1 MB.
+
+Verified from the build output, not assumed:
+
+- Kanit emitted as two hashed woff2 under `_next/static/media/`, **auto-preloaded** with
+  `rel="preload" as="font" crossorigin` — the old layout did this by hand for Regular only.
+- `.font-kanit{font-family:var(--font-kanit)}` present in the compiled CSS.
+- Static image imports hash correctly (`portrait.1o7-pk7vpb5ze.webp`, `laravel.1zgcfb2owwwb1.svg`).
+- `<link rel="icon" href="/icon.png?…" sizes="48x48">` generated from the file convention.
+- `public/` contents land at the root of `out/`, `.htaccess` included.
+
+**`opengraph-image.webp` silently produced no tags** — Next's image file convention only accepts
+`.jpg/.jpeg/.png/.gif`, not WebP. Re-encoded both OG/Twitter images to JPEG with sharp (quality
+88, same 500×538 dimensions, ~27 kB each) and they now emit `og:image`, `:type`, `:width`,
+`:height` with absolute URLs off `metadataBase`. Worth noting the old site served
+`portrait.webp` as its `og:image`, which several scrapers (Twitter, WhatsApp) do not reliably
+render — so this is a small fix, not just a port.
+
+**`opengraph-image.alt.txt` needs no trailing newline.** With one, Next emits no `og:image:alt` at
+all — no warning, no error. Written with `printf` (no `\n`); both alt tags now render with the
+diacritics and em dash intact.
+
+Deviations:
+
+- **Assets were copied, not moved.** `source/` stays byte-intact until Task 14 so the Jigsaw
+  reference build keeps working. Confirmed `build_local/index.html` already exists, so Task 13 has
+  its comparison target without needing PHP to run again.
+- **Font wiring differs from the old CSS.** `@theme inline` now maps `--font-kanit` (from
+  `next/font/local`) and points `--font-heading` at it, with `--font-sans` set to
+  `system-ui, -apple-system, sans-serif` — matching the old `body` rule. The Nova preset's
+  `Geist` + `next/font/google` import is **removed**, so the build no longer fetches from Google.
+- **`metadataBase` added here rather than at Task 12**, since the OG/Twitter file conventions need
+  it to produce absolute URLs. Reads `NEXT_PUBLIC_SITE_URL`, defaults to the production domain.
+- `scripts/convert-logos.mjs` repointed at `src/assets/images/logos/`, and now fails with a clear
+  message instead of an unhandled `ENOENT` — its `SRC_DIR` (`logos/src`) does not exist in the
+  repo and never did.
+- `code-pattern.svg`, `logo_lg.webp`, `logo_sm.webp` carried over even though nothing references
+  them (`code-pattern.svg` was only used by the dropped `.bg-code-pattern` rule). Keeps the option
+  open; they cost nothing until imported.
 
 ---
 

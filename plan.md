@@ -682,7 +682,7 @@ alone here since it is behaviour, not copy — worth a one-line fix during the l
 
 ## Task 11 — robots.txt, sitemap.xml, 404
 
-- [ ] Done
+- [x] Done
 
 - Replace the static files with Next conventions (they pre-render to static files under
   `output: 'export'`): `app/robots.ts` and `app/sitemap.ts` — single URL, `https://legacy-upgrade.com`.
@@ -692,6 +692,45 @@ alone here since it is behaviour, not copy — worth a one-line fix during the l
   This is new copy and the one place new text is allowed — keep it to a single line.
 
 **Done when:** `out/` contains `robots.txt`, `sitemap.xml`, and `404.html`, all correct.
+
+### Outcome
+
+`src/app/robots.ts`, `src/app/sitemap.ts`, `src/app/not-found.tsx` added; the static
+`public/robots.txt` and `public/sitemap.xml` deleted. All gates green, all 13 content modules
+still 100% rendered.
+
+**Both route conventions need `export const dynamic = 'force-static'` under `output: 'export'`.**
+Without it the build fails outright — *"export const dynamic = force-static / export const
+revalidate not configured on route /sitemap.xml with output: export"*. Not optional, and not
+mentioned in most examples.
+
+Diffed the generated files against the old static ones. Differences are cosmetic only, so the
+generated versions were kept:
+
+- `robots.txt`: `User-Agent:` vs `User-agent:` (the header is case-insensitive per the standard)
+  and a blank line before `Sitemap:`.
+- `sitemap.xml`: indentation dropped, and `<priority>1.0</priority>` serialized as
+  `<priority>1</priority>` — the same number, and Google has ignored `priority` for years anyway.
+
+`lastModified` is a **hardcoded `2026-04-19` constant, not the build date** — carried over from the
+old sitemap unchanged. A `lastmod` should track when content last changed, not when the site was
+last deployed; using `new Date()` would make every FTP upload churn the sitemap for no reason. This
+refactor changes no copy, so the old date is still the truthful value. Bump it when copy actually
+changes.
+
+The 404 renders inside the root layout, so it gets the real header and footer for free. It carries
+the one line of new copy the plan allows plus a `Home` link reusing `nav.items[0].label`.
+`@next/next/no-html-link-for-pages` correctly flagged `<a href="/">` — that is a route navigation,
+unlike the `#anchor` links everywhere else — so it uses `next/link`.
+
+Two things noted for Task 12:
+
+- **The 404 inherits the home page's `<title>`.** `not-found.tsx` cannot export its own `metadata`
+  in the App Router, and a dedicated title would be new copy. Harmless since 404s are excluded by
+  status code, but it is a diff from a hand-written 404.
+- `out/` also contains `_not-found/`, `_not-found.html`, `_not-found.txt` — Next's internal
+  not-found route, duplicating `404.html`. Fold into the Task 12 decision about which files
+  actually need uploading.
 
 ---
 

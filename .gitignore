@@ -1,14 +1,24 @@
+# --- Next.js ---
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# --- Node ---
+/node_modules/
+npm-debug.log*
+
+# --- Env ---
+.env*.local
+
+# --- Editors ---
+/.idea/
+/.vscode/
+
+# --- Legacy Jigsaw toolchain (removed in Task 14 of plan.md) ---
 /build_local
 /build_production
 /cache/
-/node_modules/
 /vendor/
-/.idea/
-/.vscode/
-npm-debug.log
-
-# Optional ignores
-# /build_staging/
-# /build_production/
 /source/assets/build/
 /source/hot

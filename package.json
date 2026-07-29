@@ -1,16 +1,29 @@
 {
+    "name": "legacy-upgrade",
+    "version": "0.1.0",
     "private": true,
-    "type": "module",
     "scripts": {
-        "watch": "vite",
-        "build": "vite build --mode production"
+        "dev": "next dev",
+        "build": "next build",
+        "preview": "npx --yes serve out",
+        "lint": "eslint",
+        "typecheck": "tsc --noEmit",
+        "logos": "node scripts/convert-logos.mjs"
+    },
+    "dependencies": {
+        "next": "16.2.12",
+        "react": "19.2.4",
+        "react-dom": "19.2.4"
     },
     "devDependencies": {
-        "@tailwindcss/vite": "^4.2.1",
-        "@tighten/jigsaw-vite-plugin": "^1.0.1",
-        "remixicon": "^4.9.1",
-        "tailwindcss": "^4.2.1",
-        "vite": "^6.0",
-        "vite-plugin-static-copy": "^3.2.0"
+        "@tailwindcss/postcss": "^4",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "16.2.12",
+        "sharp": "^0.34.5",
+        "tailwindcss": "^4",
+        "typescript": "^5"
     }
 }

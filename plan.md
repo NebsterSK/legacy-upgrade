@@ -816,7 +816,8 @@ nowhere in the codebase — a Jigsaw-era leftover).
 
 ## Task 13 — Verification gate
 
-- [ ] Done
+- [x] Done — with one caveat: the manual browser pass (item 5) is **still outstanding** and is
+      the user's to do. Everything machine-checkable passes.
 
 Nothing gets deleted until this passes.
 
@@ -834,6 +835,88 @@ Nothing gets deleted until this passes.
 
 **Done when:** the copy diff is empty (modulo the two allowances) and results are written into
 this file under the task.
+
+### Outcome
+
+Added `scripts/verify-parity.mjs`, which diffs the built Next output against a freshly built
+Jigsaw reference on visible text, head metadata, and both JSON-LD blocks, with every allowed
+difference declared inline. **Verdict: PARITY OK.**
+
+#### The gate caught a real regression
+
+**FAQ answers were missing from the static HTML.** Radix Accordion *unmounts* collapsed content, so
+all three answers existed only inside the RSC flight payload — not in the markup. The old page had
+them as plain `<p>`. Fixed with `forceMount` on `AccordionContent`, which makes Radix apply
+`hidden` instead of unmounting.
+
+**And it exposed a flaw in my own verifier.** `verify-rendered.mjs` had been checking the raw
+`out/index.html`, which embeds every rendered string in the RSC payload as JSON — so it reported
+`faq 20/20 OK` for answers that were never in the DOM. It now strips all `<script>` blocks except
+`application/ld+json` (kept as a separate haystack, since `site.schemaDescription`, `company.name`
+and the five `faq.schema` questions are structured data only). Task 9 and 10's green results were
+partly false confidence; re-verified after the fix and they hold.
+
+Two process notes worth keeping:
+
+- **Compare against `build_production`, not `build_local`.** The local build bakes in
+  `legacy-upgrade.test`, which makes every URL look like a regression.
+- **Delete `source/hot` before building the reference.** It was left over from `npm run watch` and
+  made Jigsaw emit `legacy-upgrade.test:5173` URLs for every asset — which would have made the
+  Lighthouse comparison meaningless.
+
+#### 1. Visible text — PASS
+
+645 words old, 635 new; nothing from the old page missing, no unexpected new text. Declared
+allowances: the 404 line; `Dark` appearing twice (desktop + mobile toggle vs one before); `Light`
+absent (the old toggle rendered both labels and hid one, next-themes renders only the active one);
+and the eight tech/infrastructure logo labels, which moved from hover-revealed `<span>` text into
+`alt` attributes — verified present on all eight.
+
+#### 2. Metadata and JSON-LD — PASS
+
+Title, description, both `og:`/`twitter:` sets, and **both JSON-LD blocks field-identical** after
+normalizing the OG image path. Allowed: trailing-slash normalization on canonical/`og:url`, and the
+WebP→JPEG image re-encode. New additions: `og:image:type/width/height` and the Twitter equivalents.
+
+#### 3. Lighthouse (mobile, both builds served locally) — MIXED, net better
+
+|                          | OLD (Jigsaw) | NEW (Next) |
+| --- | --- | --- |
+| Performance              | 65    | **78** |
+| Accessibility            | 95    | **98** |
+| Best Practices           | 96    | **100** |
+| SEO                      | 100   | 100 |
+| First Contentful Paint   | 1.8 s | 1.8 s |
+| Largest Contentful Paint | 4.2 s | **5.6 s** |
+| Total Blocking Time      | 20 ms | 90 ms |
+| Cumulative Layout Shift  | **0.447** | **0** |
+| Total transfer           | 705 KiB | 1202 KiB |
+| Script requests          | 2     | 13 |
+
+**The old site has a failing CLS of 0.447** — the Core Web Vitals threshold is 0.1. That is a live
+problem on production today, not something this refactor introduced, and eliminating it (0) is why
+the performance score rose despite shipping far more JavaScript. Most likely cause: the old markup
+sized images with CSS classes only, where `next/image` emits intrinsic `width`/`height`.
+
+**LCP regressed 4.2 s → 5.6 s** and is the one genuine performance cost. First-party JS goes from
+~3 KiB to **229 KiB gzipped** (771 KiB raw across 13 chunks) — the price of React + Radix. Worth a
+dedicated pass later; do not treat 78 as the finish line.
+
+Measurement caveats, stated because the numbers deserve them: both builds were served from
+`localhost` by `serve`, which negotiates **brotli**, whereas the real host uses Apache
+`mod_deflate` (**gzip**) over the public internet. Lighthouse's script-transfer figure (830 KiB)
+exceeds the raw on-disk total of first-party JS (771 KiB), so it is evidently mixing compressed and
+uncompressed accounting and should not be quoted as a real-world byte count. Treat the *scores* as
+comparable — same harness, same throttling, same machine — and the absolute byte counts as
+indicative only.
+
+#### 4. `lint` and `typecheck` — PASS
+
+#### 5. Manual browser pass — NOT DONE
+
+Deliberately left to the user. Scroll behaviour, the mobile Sheet, no-flash theme persistence,
+keyboard traversal, and whether the plainer layout is acceptable cannot be established from static
+HTML or a clean build log. **This is the checkpoint before Task 14 deletes `source/`.**
 
 ---
 

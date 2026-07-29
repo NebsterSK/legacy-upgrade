@@ -36,7 +36,14 @@ export function Faq() {
                                 <AccordionTrigger className="text-left text-lg font-semibold">
                                     {item.question}
                                 </AccordionTrigger>
-                                <AccordionContent>
+                                {/*
+                                    forceMount keeps the answer in the DOM while collapsed
+                                    (Radix applies `hidden` instead of unmounting). Without
+                                    it the answers exist only in the RSC payload, so they
+                                    are absent from the static HTML — a real regression
+                                    against the old page, where all three were plain <p>.
+                                */}
+                                <AccordionContent forceMount>
                                     <p className="text-muted-foreground flex items-start gap-2">
                                         <Icon
                                             className={

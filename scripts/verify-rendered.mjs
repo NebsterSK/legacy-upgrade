@@ -83,7 +83,26 @@ const decode = (s) =>
         .replace(/&nbsp;/g, ' ')
         .replace(/\\u([0-9a-fA-F]{4})/g, (_, h) => String.fromCharCode(parseInt(h, 16)));
 
-const raw = decode(await readFile(path.join(root, 'out/index.html'), 'utf8'));
+const file = await readFile(path.join(root, 'out/index.html'), 'utf8');
+
+/**
+ * JSON-LD is legitimate output, so keep it as its own haystack — `site.schemaDescription`,
+ * `company.name` and the five `faq.schema` questions are structured data only and never
+ * appear as visible text.
+ */
+const jsonLd = [...file.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map((m) => decode(m[1]))
+    .join(' ')
+    .replace(/\s+/g, ' ');
+
+/**
+ * Every OTHER script is stripped, deliberately.
+ *
+ * The RSC flight payload embedded in `out/index.html` contains every rendered string as
+ * JSON, so checking the unmodified file makes this script useless — it passed Radix
+ * Accordion answers that were never actually in the markup. Only real DOM counts.
+ */
+const raw = decode(file.replace(/<script[\s\S]*?<\/script>/gi, ' '));
 
 /** Attributes (alt, title, aria-label) only exist in the raw markup. */
 const htmlRaw = raw.replace(/\s+/g, ' ');
@@ -94,7 +113,7 @@ const htmlRaw = raw.replace(/\s+/g, ' ');
  */
 const htmlText = raw.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ');
 
-const present = (s) => htmlRaw.includes(s) || htmlText.includes(s);
+const present = (s) => htmlRaw.includes(s) || htmlText.includes(s) || jsonLd.includes(s);
 
 const norm = (s) => s.replace(/\s+/g, ' ').trim();
 

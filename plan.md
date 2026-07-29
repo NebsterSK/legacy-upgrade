@@ -566,7 +566,7 @@ different from the live site while reading identically.
 
 ## Task 9 — Section: Services (services grid, Process, Pricing, FAQ)
 
-- [ ] Done
+- [x] Done
 
 Port `source/index.blade.php:111-266` into `components/sections/services/`.
 
@@ -582,6 +582,41 @@ Port `source/index.blade.php:111-266` into `components/sections/services/`.
 
 **Done when:** all three visible FAQ items expand/collapse, and a string-by-string check against
 lines 111–266 passes.
+
+### Outcome
+
+New: `src/lib/icons.ts` and `components/sections/services/` — `index.tsx`, `services-grid.tsx`,
+`process.tsx`, `pricing.tsx`, `faq.tsx`. All gates green, and every module in this section now
+reports **100% rendered**: services 20/20, process 20/20, pricing 17/17, faq 20/20.
+
+Spot-checked in the built HTML: `from € 800`, `€ 30`, `per hour`, `Step 1` through `Step 6`, all
+six process titles, all three visible FAQ answers including the apostrophe in
+`my client's needs`. Accordion content is present in the static HTML while closed
+(`data-state="closed"` × 13), so it stays crawlable.
+
+`src/lib/icons.ts` maps the `IconName` strings from content to lucide components via an explicit
+named registry rather than a dynamic lookup — the bundle only carries the 23 icons actually used,
+and an unknown name throws at render instead of silently rendering nothing.
+
+Two deviations, both to avoid inventing copy:
+
+- **No Badge on the featured pricing tier.** The plan called for a Badge where the old `ring-2`
+  emphasis was, but a badge needs a label and any label ("Recommended", "Popular") would be new
+  user-visible copy. Kept the ring.
+- **FAQ answer icons keep their tone semantically but not their colours.** The old answers were
+  prefixed with red / blue / yellow Remix icons. `no` maps to `X` with `text-destructive`; `info`
+  and `maybe` use `Info` / `CircleHelp` with the default colour. Raw `blue-600` / `yellow-500`
+  would break the token discipline Task 15 depends on.
+
+**Three shadcn components are now unused**: `badge` (superseded by the ring above),
+`dropdown-menu` (superseded by the binary theme toggle in Task 7), and `separator` (never needed).
+Decide at Task 16 whether to delete them — they cost nothing in the bundle since nothing imports
+them, but they are dead files.
+
+Process note: an ad-hoc `node -e` check reported `Iteration & Support` as missing, which was a
+shell-quoting artifact in the throwaway command, not a real miss — re-checked properly and all
+five `&`-containing strings are present. `verify:rendered` is the authoritative check; ad-hoc greps
+over HTML entities are not.
 
 ---
 

@@ -14,6 +14,7 @@ Legacy Upgrade is a **single-page** static company website for a freelance softw
 - `@push` / `@stack` directives are NOT supported in Jigsaw — use `@section` / `@yield` instead.
 - YAML front matter (`---`) in Blade files is NOT supported in this Jigsaw setup — use `@section('key', 'value')` for per-page variables.
 - `$page` is hardcoded in Jigsaw's core and cannot be renamed.
+- For LinkedIn content, use the `/linkedin` skill (`.claude/skills/linkedin/`) — it is the single source of truth for LinkedIn voice and process. `_linkedin/YYYY_MM_DD.md` holds published posts as pure copy only (no frontmatter, no commentary); it is the voice corpus read before drafting.
 
 ## Tech Stack
 

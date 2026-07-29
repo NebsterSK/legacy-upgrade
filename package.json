@@ -2,12 +2,14 @@
     "name": "legacy-upgrade",
     "version": "0.1.0",
     "private": true,
+    "type": "module",
     "scripts": {
         "dev": "next dev",
         "build": "next build",
         "preview": "npx --yes serve out",
         "lint": "eslint",
         "typecheck": "tsc --noEmit",
+        "verify:copy": "node scripts/verify-copy.mjs",
         "logos": "node scripts/convert-logos.mjs"
     },
     "dependencies": {

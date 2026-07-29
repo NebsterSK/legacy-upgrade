@@ -117,7 +117,7 @@ Notes carried forward:
 
 ## Task 2 — Extract all copy into a typed content module
 
-- [ ] Done
+- [x] Done
 
 This is the safety net for constraint #1. Do it **before** writing any component.
 
@@ -138,6 +138,49 @@ This is the safety net for constraint #1. Do it **before** writing any component
 **Done when:** a throwaway script (or manual review) confirms every literal string in
 `source/index.blade.php` + `main.blade.php` + `_includes/*` + `config.php` appears verbatim in
 `src/content/`, and `npx tsc --noEmit` passes.
+
+### Outcome
+
+15 modules in `src/content/` (~600 lines): `types`, `site`, `company`, `nav`, `hero` (+ `about`),
+`clients`, `services`, `process`, `pricing`, `faq`, `technology`, `contact`, `footer`, `schema`,
+`index` (barrel). Typecheck, lint, and build all clean.
+
+The verifier became **permanent, not throwaway** — `scripts/verify-copy.mjs`, wired up as
+`npm run verify:copy`. It extracts candidate copy from all nine legacy Blade/PHP files and asserts
+each string is present in `src/content/`, exiting non-zero on a miss. Currently: **150 candidates
+checked against 211 content strings, 0 misses.** Task 13 reuses it rather than reinventing a diff.
+
+It was **negative-tested**, not just observed passing: rewording one visible FAQ answer and
+deleting one sentence from a schema answer both produced the expected 2 failures, and the check
+went green again on restore. A green run means something.
+
+Three design decisions worth knowing:
+
+- **Inline `<strong>` is preserved structurally, not as HTML.** Two paragraphs in the source
+  ("What I do", "Why it matters") bold a mid-sentence clause. Content stores them as
+  `RichText` — `['I deliver ', {bold: '…'}, '. Internal tools…']` — so no HTML lives in content
+  and `richTextToString()` reconstructs the exact sentence for the verifier. Confirmed: the built
+  HTML contains the sentence verbatim.
+- **`.ts` extensions on intra-content imports** (`from './types.ts'`), with
+  `allowImportingTsExtensions: true` in `tsconfig.json`. This is what lets plain `node` import the
+  content modules directly via type-stripping — otherwise the verifier would need a compile step.
+  Verified that Turbopack resolves both the `.ts` specifiers and the `@/content` alias by building
+  a throwaway page against them.
+- **`"type": "module"` restored to `package.json`.** Removed in Task 1 as Vite residue; needed
+  again so Node does not re-parse the content modules as CommonJS. Build unaffected.
+
+Content facts found while extracting, all preserved as-is:
+
+- **Two different descriptions exist.** `config.php`'s `description` (used only for the JSON-LD
+  `ProfessionalService.description`) is *not* the same text as `@section('pageDescription')` (the
+  `<meta name="description">`). Kept separately as `site.schemaDescription` and
+  `site.pageDescription`. Easy thing to accidentally collapse into one.
+- **The hero `<h1>` is "Lukas Neuschl" without diacritics**, while the Contact card and JSON-LD
+  `founder.name` both use "Lukáš Neuschl". Kept as `hero.name` vs `company.personName`.
+- Prices carry a space after the symbol (`from € 800`, `€ 30`). Not normalized.
+- Remix Icon → lucide mappings are recorded as comments in each module. Two have no real lucide
+  equivalent: `ri-messenger-fill` → `MessageCircle` and `ri-whatsapp-fill` → `MessageSquare`.
+  Brand glyphs will need Simple Icons or inline SVG if the exact logos matter (Task 10).
 
 ---
 

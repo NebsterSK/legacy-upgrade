@@ -10,6 +10,10 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
+    // src/content/* uses explicit .ts specifiers so plain `node` can import the
+    // content modules directly (type-stripping + ESM needs real extensions).
+    // See scripts/verify-copy.mjs.
+    "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,

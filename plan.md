@@ -429,7 +429,7 @@ payload embedded in the HTML repeats each script. There are 2 real `<script>` ta
 
 ## Task 7 — Header, nav, theme toggle, footer
 
-- [ ] Done
+- [x] Done
 
 - `components/site-header.tsx` (client component): sticky header, brand link `#home`, the four
   anchor links from `nav.ts`, `Sheet` for the mobile menu (closes on link click), and the theme
@@ -449,6 +449,55 @@ payload embedded in the HTML repeats each script. There are 2 real `<script>` ta
 **Done when:** nav anchors scroll to the right sections, the mobile Sheet opens/closes, the theme
 toggle persists across reload with no flash of the wrong theme, and the footer year is correct and
 absent from the static HTML.
+
+### Outcome
+
+New: `site-header.tsx`, `site-footer.tsx`, `theme-toggle.tsx`, `current-year.tsx`,
+`brand-icons.tsx`, `hooks/use-active-section.ts`, `hooks/use-is-hydrated.ts`. Header and footer
+wired into `layout.tsx` around `<main className="grow">`. All gates green; dev server renders
+200 with a clean log.
+
+Verified in `out/index.html`: all four nav labels, the brand, `Social media`, both social links,
+`Legacy Upgrade logo`, `LEGACY UPGRADE`, and both `aria-label`s (`Toggle dark mode`,
+`Toggle navigation`). **The `©` is present but no 4-digit year is anywhere near it** — the year is
+correctly client-only.
+
+Three findings that changed the implementation:
+
+- **`lucide-react` 1.x has no brand icons.** `Linkedin` and `Github` are simply not exported
+  (6014 icons, neither of them). Added `src/components/brand-icons.tsx` with the canonical Simple
+  Icons paths (CC0) inlined — no extra dependency for two glyphs. All 33 other icons the remaining
+  tasks need do exist; verified by probing the package exports.
+  Messenger and WhatsApp keep their generic lucide stand-ins: I am confident in the GitHub and
+  LinkedIn path data, less so in reconstructing those two from memory, and a wrong brand path
+  renders a visibly broken glyph. If exact marks matter, add `simple-icons` at Task 10.
+- **The theme control is a binary toggle, not a Light/Dark/System dropdown.** "System" would be
+  new user-visible copy, which the copy freeze forbids. It reproduces the old behaviour exactly:
+  shows the icon and label of the theme you would switch *to* (sun + "Light" while dark is active),
+  with the old `aria-label`. Consequence: **`dropdown-menu` from Task 4 is now unused** — decide at
+  Task 16 whether to delete it.
+- **`react-hooks/set-state-in-effect` rejects the usual `mounted` pattern.** The standard
+  `useState(false)` + `useEffect(() => setMounted(true), [])` is a lint error under Next 16's
+  ruleset. Replaced with `useSyncExternalStore(noopSubscribe, () => true, () => false)` in
+  `use-is-hydrated.ts`, and the same shape in `CurrentYear` (server snapshot `null`, client
+  snapshot the year). Cleaner than the pattern it replaces and it is what keeps the year out of the
+  static HTML.
+
+Also ported: scroll-spy via `IntersectionObserver` with the old
+`-(headerHeight + 20)px 0px -60% 0px` rootMargin, but measuring the header with a ref instead of
+hardcoding; and shadow-on-scroll as a `{ passive: true }` listener that only touches the DOM on
+state change. The `.nav-link::after` underline was **not** ported — active state is a shadcn-
+idiomatic weight/colour change.
+
+> **Gotcha for later tasks: `TaskStop` does not kill `next dev`.** It stops the `npm` wrapper; the
+> child `next dev` process keeps the port. A stale server from Task 1 was still holding :3000 and
+> serving **HTTP 500** (its module graph predated every file added since), which silently broke a
+> smoke test. Kill it by port instead:
+> `netstat -ano | grep ":3000.*LISTENING"` → `taskkill //PID <pid> //T //F`.
+
+Not verified here, deferred to the Task 13 manual pass: actual scroll behaviour, Sheet
+open/close, and no-flash theme persistence. Those need a real browser — the static HTML and a
+clean dev log cannot prove them.
 
 ---
 

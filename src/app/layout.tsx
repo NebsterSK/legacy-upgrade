@@ -3,6 +3,8 @@ import localFont from 'next/font/local';
 
 import { Analytics } from '@/components/analytics';
 import { JsonLd } from '@/components/json-ld';
+import { SiteFooter } from '@/components/site-footer';
+import { SiteHeader } from '@/components/site-header';
 import { ThemeProvider } from '@/components/theme-provider';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { site } from '@/content';
@@ -71,7 +73,13 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <TooltipProvider>{children}</TooltipProvider>
+                    <TooltipProvider>
+                        <SiteHeader />
+
+                        <main className="grow">{children}</main>
+
+                        <SiteFooter />
+                    </TooltipProvider>
                 </ThemeProvider>
 
                 <JsonLd data={professionalServiceSchema()} />

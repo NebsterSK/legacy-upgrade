@@ -109,10 +109,12 @@ Produce a dated posting plan (his cadence, or ~1–2/week if unstated). Each ent
 - 100–250 words. Longer only if the story demands it.
 
 **Emojis**
-- Sparingly, for warmth or rhythm. Maximum **3 per post**, ever.
-- One well-placed emoji beats a cluster. No stacking (🚀🔥💯).
-- No decorative emoji on every bullet. That pattern reads as unprofessional.
-- Zero is always a fine answer.
+- **In prose: maximum 3 per post.** Sparingly, for warmth or rhythm. One well-placed emoji beats a cluster.
+- **In a list: one per item is fine, and preferred over bullet characters** when the list carries the post. Lukáš likes this. Use them as visual anchors, not decoration.
+- Each list emoji must *mean* its item (⚡ for speed, 🔗 for connecting systems). If you can swap two of them without anyone noticing, they are decoration and should go.
+- Keep the set visually distinct and tonally flat. No stacking (🚀🔥💯), no hype emoji, no emoji inside a sentence mid-clause.
+- Never emoji the signature line.
+- Zero is always a fine answer for a prose-only post.
 
 **Signature closing line**
 Every post MUST end with a horizontal rule and a signature line:

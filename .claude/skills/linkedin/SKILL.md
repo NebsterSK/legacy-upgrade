@@ -20,18 +20,28 @@ Legacy Upgrade helps small-to-medium businesses digitalize and automate their wo
 - **Brand voice:** practical, direct, opinionated. Values working software over flashy design. Solves real problems, doesn't oversell.
 - **Website:** https://legacy-upgrade.com — **LinkedIn:** https://www.linkedin.com/in/lukas-neuschl/
 
-## Two audiences, alternating
+## Two audiences, on a fixed weekly schedule
 
-Lukáš writes to **two** audiences and deliberately alternates between them. This is his stated preference (decided 2026-08-06). He knows a single narrow audience would convert better and has chosen breadth anyway because he enjoys writing both. **Do not re-litigate this.** Make the alternation work instead.
+Lukáš writes to **two** audiences on a fixed cadence (decided 2026-08-11):
+
+| Day | Audience |
+|---|---|
+| **Tuesday** | Business owners |
+| **Friday** | Developers |
+
+This is his stated preference. He knows a single narrow audience would convert better and has chosen breadth anyway because he enjoys writing both. **Do not re-litigate this.** Make it work instead.
 
 - **Owners** — the primary buyers. The persona below. Business language, no jargon, CTA is a message or a conversation.
 - **Developers** — peers and potential referrers. Opinions on craft, tooling, AI, technical debt. Jargon is allowed here. Success is reach and comments, not DMs.
 
 **How to handle it:**
-- **Alternate by default.** Owner, then developer, then owner. When planning, never queue two developer posts in a row unless he asks.
-- **Identify the audience before drafting** and say which one you're writing for. If a request is ambiguous, look at what the last post targeted and swap.
+- **The day determines the audience.** Tuesday means owners, Friday means developers. Never plan a Friday owner post or a Tuesday developer post without saying why.
+- **Post in the morning**, both days. Friday afternoon is the weakest slot of the week.
+- **A skipped slot beats a filler post.** Two per week is eight a month. If there is nothing real to say for a slot, say so and skip it rather than padding. Do not invent a topic just to fill Friday.
+- **Identify the audience before drafting** and name it in your response.
 - **Judge each post by its own audience.** A developer post that gets no enquiries is not a failure. Say so, rather than pushing every post toward a sales outcome.
 - **One thing never changes:** the signature line and the plain, direct voice. That continuity is what makes the two streams read as one person instead of two accounts.
+- **Crossover posts are allowed and are the best shape when they work.** A developer post whose principle a business owner also understands, usually because Lukáš applied to his own workflow the thing he sells to clients. Keep the mechanism to one mention, never explain features, and let the principle carry it. Still counts as a developer slot.
 - **The bridge is credibility, not conversion.** Owners who see a developer post do not understand it, but they register that peers take him seriously. Write developer posts to be *overheard* well: no contempt for non-technical people, no in-group sneering.
 
 ## Who you're writing for (the owner persona)
@@ -48,7 +58,9 @@ A non-technical business owner or operations manager, company of roughly 10–10
 
 ## Step 1 — Load context (always, before anything else)
 
-List `_linkedin/` and read the **5 most recent** files (filenames are `YYYY_MM_DD.md`, so sort descending). If fewer than 5 exist, read what's there. If it's empty, say so and work from this file alone.
+Read **`schedule.md`** in the repo root first. It holds the live posting calendar, the running chains, and the backlog. Keep it current: when a post is published, planned, or an angle is used up, update it in the same turn.
+
+Then list `_linkedin/` and read the **5 most recent** files (filenames are `YYYY_MM_DD.md`, so sort descending). If fewer than 5 exist, read what's there. If it's empty, say so and work from this file alone.
 
 Then state, in one or two lines:
 - what topics, angles, and pain points are already burned recently
@@ -104,7 +116,7 @@ Run the draft against `references/checklist.md`. Report:
 Be blunt. A useless "looks great!" wastes his time. If the angle is the problem, say the angle is the problem instead of polishing sentences.
 
 ### Plan mode
-Produce a dated posting plan (his cadence, or ~1–2/week if unstated). Each entry: date, **audience**, angle, hook, one-line note. Sequence so consecutive posts differ in shape, alternate owner and developer audiences, and so no pain point repeats within three posts.
+Produce a dated posting plan on the **Tuesday owners / Friday developers** schedule above. Each entry: date, day, audience, angle, hook, one-line note. Sequence so consecutive posts differ in shape and so no pain point repeats within three posts. Flag any slot you cannot fill with something real rather than inventing filler.
 
 ## Writing rules
 
@@ -128,7 +140,8 @@ Produce a dated posting plan (his cadence, or ~1–2/week if unstated). Each ent
 - Each list emoji must *mean* its item (⚡ for speed, 🔗 for connecting systems). If you can swap two of them without anyone noticing, they are decoration and should go.
 - Keep the set visually distinct and tonally flat. No stacking (🚀🔥💯), no hype emoji, no emoji inside a sentence mid-clause.
 - Never emoji the signature line.
-- Zero is always a fine answer for a prose-only post.
+- **Always include emojis. Do not wait to be asked.** Lukáš wants them and has had to remind me repeatedly. Default to 2 or 3 in a prose post, and one per item in a list. Zero only if he explicitly says so for that post.
+- Place them at the start of a line, on the paragraphs where the argument turns (the consequence, the insight, the takeaway). Never mid-clause.
 
 **Signature closing line**
 Every post MUST end with a horizontal rule and a signature line:
@@ -161,6 +174,7 @@ The `[something]` connects to the post's topic. Keep it to one clause, playful o
 - Engagement bait ("Like if you agree!", "Comment YES below")
 - Negativity toward competitors or other technologies
 - **Invented client facts.** No made-up metrics, company names, or "a client of mine" stories that didn't happen. If a story would sell the post, ask him for a real one.
+- **Unverifiable claims about what other people do.** No "everyone does X", "nobody does Y", "most developers never Z". Lukáš cannot know it, someone will challenge it, and it makes an honest post sound like marketing. Write what *he* does and let the reader notice the contrast themselves. Same for industry statistics he has not personally seen.
 
 ## Step 4 — Saving
 

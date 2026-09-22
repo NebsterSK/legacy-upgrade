@@ -12,15 +12,9 @@ export const technology = {
             { file: 'claude.svg', label: 'Claude' },
             { file: 'inertiajs.svg', label: 'Inertia.js' },
             { file: 'mysql.svg', label: 'MySQL' },
+            { file: 'postgresql.svg', label: 'PostgreSQL' },
             { file: 'vuejs.svg', label: 'Vue.js' },
-        ],
-    },
-
-    infrastructure: {
-        heading: 'Infrastructure',
-        logos: [
-            { file: 'websupport.webp', label: 'Websupport' },
-            { file: 'forge.svg', label: 'Laravel Forge' },
+            { file: 'react.svg', label: 'React.js' },
         ],
     },
 } as const;

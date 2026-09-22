@@ -11,7 +11,7 @@ import { site } from '@/content';
  * Bump it when the copy actually changes. Carried over from the old sitemap unchanged,
  * since this refactor does not alter a single string of copy.
  */
-const CONTENT_LAST_MODIFIED = '2026-04-19';
+const CONTENT_LAST_MODIFIED = '2026-09-22';
 
 /** Required under `output: 'export'`; the build fails without it. */
 export const dynamic = 'force-static';

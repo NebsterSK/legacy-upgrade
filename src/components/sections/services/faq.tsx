@@ -1,7 +1,5 @@
-import { CircleHelp, Info, X } from 'lucide-react';
-
 import { Container, SubsectionHeader } from '@/components/section-header';
-import { faq, type FaqTone } from '@/content';
+import { faq } from '@/content';
 
 /**
  * Ported from `source/index.blade.php:241-265` — the THREE visible questions only.
@@ -10,14 +8,7 @@ import { faq, type FaqTone } from '@/content';
  * Always open, no accordion: three short answers don't need hiding, and the answers are
  * the punchline, so making people click for them cost more than it saved. Plain markup
  * also means the answers are in the static HTML without any forceMount workaround.
- * The answer's tone icon keeps the old red/blue/yellow meaning semantically.
  */
-const toneIcons: Record<FaqTone, typeof Info> = {
-    no: X,
-    info: Info,
-    maybe: CircleHelp,
-};
-
 export function Faq() {
     return (
         <div className="py-[clamp(4.5rem,3rem+6vw,8rem)]">
@@ -27,27 +18,16 @@ export function Faq() {
                 </SubsectionHeader>
 
                 <dl className="border-t lg:col-span-8">
-                    {faq.visible.map((item) => {
-                        const Icon = toneIcons[item.tone];
-                        return (
-                            <div key={item.question} className="border-b py-6">
-                                <dt className="font-kanit text-[clamp(1.25rem,1.1rem+0.5vw,1.5rem)] leading-snug font-bold">
-                                    {item.question}
-                                </dt>
-                                <dd className="text-muted-foreground mt-3 flex max-w-[62ch] items-start gap-3 leading-relaxed">
-                                    <Icon
-                                        className={
-                                            item.tone === 'no'
-                                                ? 'text-destructive mt-1 size-4 shrink-0'
-                                                : 'text-primary mt-1 size-4 shrink-0'
-                                        }
-                                        aria-hidden
-                                    />
-                                    {item.answer}
-                                </dd>
-                            </div>
-                        );
-                    })}
+                    {faq.visible.map((item) => (
+                        <div key={item.question} className="border-b py-6">
+                            <dt className="font-kanit text-[clamp(1.25rem,1.1rem+0.5vw,1.5rem)] leading-snug font-bold">
+                                {item.question}
+                            </dt>
+                            <dd className="text-muted-foreground mt-3 max-w-[62ch] leading-relaxed">
+                                {item.answer}
+                            </dd>
+                        </div>
+                    ))}
                 </dl>
             </Container>
         </div>

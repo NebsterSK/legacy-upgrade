@@ -16,7 +16,6 @@ export { services } from './services.ts';
 export { process } from './process.ts';
 export { pricing } from './pricing.ts';
 export { faq } from './faq.ts';
-export type { FaqTone } from './faq.ts';
 export { technology } from './technology.ts';
 export { contact } from './contact.ts';
 export { footer } from './footer.ts';

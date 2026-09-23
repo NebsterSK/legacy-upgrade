@@ -17,7 +17,7 @@ export function Pricing() {
             <Container>
                 <SubsectionHeader>{pricing.heading}</SubsectionHeader>
 
-                <div className="mt-10 grid gap-5 md:grid-cols-[1.15fr_1fr]">
+                <div className="mt-10 grid gap-5 md:grid-cols-2">
                     {pricing.tiers.map((tier) => {
                         const Icon = getIcon(tier.icon);
                         return (

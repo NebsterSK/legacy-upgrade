@@ -1,14 +1,15 @@
 import type { IconName } from './types.ts';
 
 /**
- * From `source/index.blade.php:141-177`. Steps 2+3 and 5+6 were merged into one step
- * each (2026-09-23, owner's request); the descriptions are the originals joined.
+ * From `source/index.blade.php:141-177`, cut from six steps to four (owner's request,
+ * 2026-09-23): the Demo and Presentation & Testing steps were dropped; the remaining
+ * four keep their original titles and descriptions.
  *
  * Remix Icon → lucide mapping:
  *   ri-chat-3-line      → MessageCircle
  *   ri-file-list-3-line → ClipboardList
  *   ri-code-s-slash-line→ Code
- *   ri-presentation-line→ Presentation
+ *   ri-loop-left-line   → RotateCcw
  *
  * The "Step N" label is derived from the array index (`Step {{ $index + 1 }}`).
  */
@@ -26,8 +27,8 @@ export const process = {
         },
         {
             icon: 'ClipboardList' as IconName,
-            title: 'Planning, Estimation & Demo',
-            desc: 'A clear proposal outlining the approach, broken down into milestones with a transparent timeline and budget, no surprises later. Before committing to the full build, you see an early working prototype. This keeps the project on track and confirms we are aligned on the direction.',
+            title: 'Planning & Estimation',
+            desc: 'A clear proposal outlining the approach, broken down into milestones with a transparent timeline and budget, no surprises later.',
         },
         {
             icon: 'Code' as IconName,
@@ -35,9 +36,9 @@ export const process = {
             desc: 'The solution is built milestone by milestone, with regular updates so you always know exactly where the project stands.',
         },
         {
-            icon: 'Presentation' as IconName,
-            title: 'Presentation, Testing & Support',
-            desc: 'The finished result is presented for your review. You test it in real conditions, with real data, and share feedback. Refinements based on your feedback, fixes for edge cases, and ongoing support for as long as you need it.',
+            icon: 'RotateCcw' as IconName,
+            title: 'Iteration & Support',
+            desc: 'Refinements based on your feedback, fixes for edge cases, and ongoing support for as long as you need it.',
         },
     ],
 } as const;

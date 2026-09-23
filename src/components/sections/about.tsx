@@ -1,34 +1,39 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 
 import { RichText } from '@/components/rich-text';
-import { SubsectionHeader } from '@/components/section-header';
+import { Container, SubsectionHeader } from '@/components/section-header';
 import { about } from '@/content';
 
-/** Ported from `source/index.blade.php:39-59` (What I do / Why it matters). */
+/**
+ * What I do / Why it matters. Two plain statements under a heavy rule, the way a sign
+ * or a spec plate is laid out: heading, claim, where to read more. The bold runs in the
+ * copy carry the argument, so they are set in full ink against muted body text.
+ */
 export function About() {
     return (
-        <div className="bg-muted/50 py-16">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-                    {about.columns.map((column) => (
-                        <div key={column.heading} className="text-center md:text-left">
-                            <SubsectionHeader>{column.heading}</SubsectionHeader>
+        <div className="py-[clamp(4rem,3rem+5vw,7rem)]">
+            <Container className="grid gap-14 md:grid-cols-2 md:gap-12 lg:gap-20">
+                {about.columns.map((column) => (
+                    <div key={column.heading} className="border-foreground border-t-[3px] pt-7">
+                        <SubsectionHeader>{column.heading}</SubsectionHeader>
 
-                            <p className="text-muted-foreground">
-                                <RichText content={column.body} />
-                            </p>
+                        <p className="text-muted-foreground mt-5 max-w-[60ch] text-lg leading-relaxed [&_strong]:text-foreground [&_strong]:font-semibold">
+                            <RichText content={column.body} />
+                        </p>
 
-                            <a
-                                href={column.link.href}
-                                className="mt-4 inline-flex items-center gap-1 font-semibold transition-colors hover:underline"
-                            >
-                                {column.link.label}
-                                <ArrowRight className="size-4" aria-hidden />
-                            </a>
-                        </div>
-                    ))}
-                </div>
-            </div>
+                        <a
+                            href={column.link.href}
+                            className="text-primary group mt-6 inline-flex items-center gap-2 font-bold underline-offset-4 hover:underline"
+                        >
+                            {column.link.label}
+                            <ArrowDown
+                                className="size-4 transition-transform duration-300 ease-(--ease-out-expo) group-hover:translate-y-0.5"
+                                aria-hidden
+                            />
+                        </a>
+                    </div>
+                ))}
+            </Container>
         </div>
     );
 }

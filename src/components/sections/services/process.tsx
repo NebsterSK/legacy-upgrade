@@ -1,47 +1,43 @@
-import { SubsectionHeader } from '@/components/section-header';
+import { Container, SubsectionHeader } from '@/components/section-header';
 import { process } from '@/content';
 import { getIcon } from '@/lib/icons';
 
-/** Ported from `source/index.blade.php:141-177`. */
+/**
+ * The one place on the page where numbers earn their place: this IS a sequence, and the
+ * order carries meaning (you see a demo before the full build). Six steps on a 3×2 grid,
+ * each hung from a rule, with the step number set large in the brand colour.
+ */
 export function Process() {
     return (
-        <div className="py-16">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <SubsectionHeader>{process.heading}</SubsectionHeader>
+        <div className="py-[clamp(4.5rem,3rem+6vw,8rem)]">
+            <Container>
+                <SubsectionHeader className="max-w-[18ch]">{process.heading}</SubsectionHeader>
 
-                <div className="mx-auto max-w-3xl">
-                    <div className="relative">
-                        {/* Vertical timeline line */}
-                        <div className="bg-border absolute top-0 bottom-0 left-5 w-px sm:left-6" />
-
-                        <ol className="space-y-10">
-                            {process.steps.map((step, index) => {
-                                const Icon = getIcon(step.icon);
-                                return (
-                                    <li
-                                        key={step.title}
-                                        className="relative flex items-start gap-5 sm:gap-6"
-                                    >
-                                        <div className="bg-muted ring-background relative z-10 flex size-10 shrink-0 items-center justify-center rounded-full ring-4 sm:size-12">
-                                            <Icon className="size-5" aria-hidden />
-                                        </div>
-
-                                        <div className="pt-1">
-                                            <p className="text-muted-foreground mb-1 text-xs font-semibold tracking-wider uppercase">
-                                                {process.stepLabel} {index + 1}
-                                            </p>
-                                            <h4 className="text-lg font-bold">{step.title}</h4>
-                                            <p className="text-muted-foreground mt-1 text-sm leading-relaxed">
-                                                {step.desc}
-                                            </p>
-                                        </div>
-                                    </li>
-                                );
-                            })}
-                        </ol>
-                    </div>
-                </div>
-            </div>
+                <ol className="mt-12 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+                    {process.steps.map((step, index) => {
+                        const Icon = getIcon(step.icon);
+                        return (
+                            <li key={step.title} className="border-border border-t-2 pt-6">
+                                <div className="flex items-start justify-between">
+                                    <p className="flex items-baseline gap-2">
+                                        <span className="text-muted-foreground text-sm font-semibold">
+                                            {process.stepLabel}
+                                        </span>
+                                        <span className="font-kanit text-primary text-5xl leading-none font-bold">
+                                            {index + 1}
+                                        </span>
+                                    </p>
+                                    <Icon className="text-muted-foreground size-6" strokeWidth={1.75} aria-hidden />
+                                </div>
+                                <h4 className="font-kanit mt-5 text-2xl leading-tight font-bold">{step.title}</h4>
+                                <p className="text-muted-foreground mt-2 max-w-[40ch] leading-relaxed">
+                                    {step.desc}
+                                </p>
+                            </li>
+                        );
+                    })}
+                </ol>
+            </Container>
         </div>
     );
 }

@@ -1,35 +1,40 @@
-import { SectionHeader } from '@/components/section-header';
+import { Container, SectionHeader } from '@/components/section-header';
 import { services } from '@/content';
 import { getIcon } from '@/lib/icons';
 
-/** Ported from `source/index.blade.php:111-139`. */
+/**
+ * Services as a spec sheet: the heading and the one paragraph of positioning hold the left
+ * column while the nine offerings run down the right as a ruled list. A list is what this
+ * is (nine short noun phrases), so it is set as one instead of nine identical cards.
+ */
 export function ServicesGrid() {
     return (
-        <div className="bg-muted/50 py-16">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <SectionHeader>{services.heading}</SectionHeader>
+        <div className="bg-muted py-[clamp(4.5rem,3rem+6vw,8rem)]">
+            <Container className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+                <div className="lg:col-span-5">
+                    <div className="lg:sticky lg:top-28">
+                        <SectionHeader>{services.heading}</SectionHeader>
+                        <p className="text-muted-foreground mt-6 max-w-[46ch] text-lg leading-relaxed">
+                            {services.intro}
+                        </p>
+                    </div>
+                </div>
 
-                <p className="text-muted-foreground mx-auto mb-12 max-w-2xl text-center">
-                    {services.intro}
-                </p>
-
-                <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <ul className="grid content-start sm:grid-cols-2 sm:gap-x-10 lg:col-span-7">
                     {services.items.map((item) => {
                         const Icon = getIcon(item.icon);
                         return (
                             <li
                                 key={item.text}
-                                className="bg-card flex items-center gap-4 rounded-lg border p-5 shadow-sm"
+                                className="border-foreground/15 flex items-center gap-4 border-b py-5"
                             >
-                                <div className="bg-muted flex size-10 shrink-0 items-center justify-center rounded-full">
-                                    <Icon className="size-5" aria-hidden />
-                                </div>
-                                <span className="text-sm font-semibold">{item.text}</span>
+                                <Icon className="text-primary size-6 shrink-0" strokeWidth={1.75} aria-hidden />
+                                <span className="text-lg leading-snug font-semibold">{item.text}</span>
                             </li>
                         );
                     })}
                 </ul>
-            </div>
+            </Container>
         </div>
     );
 }

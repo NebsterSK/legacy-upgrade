@@ -1,59 +1,70 @@
-import { ExternalLink } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 
-import { SubsectionHeader } from '@/components/section-header';
-import { Card, CardContent } from '@/components/ui/card';
+import { Container, SubsectionHeader } from '@/components/section-header';
 import { clients } from '@/content';
 import { logos } from '@/lib/logos';
+import { cn } from '@/lib/utils';
 
 /**
- * Ported from `source/index.blade.php:61-107`.
- *
- * The old markup alternated logo-left / logo-right / stacked per client. Flattened to a
- * uniform Card grid — design fidelity is explicitly not a goal for this refactor.
+ * Named clients as a ledger, not a card grid: one row per engagement, logo on a fixed
+ * white plate (several logos are dark-on-transparent and vanish in dark mode without it),
+ * what was built, and where to see it. Rows read like line items on an invoice, which
+ * suits a page whose argument is "real work, plainly stated".
  */
 export function Clients() {
     return (
-        <div className="py-16">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="pb-[clamp(4rem,3rem+5vw,7rem)]">
+            <Container>
                 <SubsectionHeader>{clients.heading}</SubsectionHeader>
 
-                <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                <ul className="mt-8 border-b">
                     {clients.items.map((item) => (
-                        <Card key={item.body} className="flex flex-col">
-                            <CardContent className="flex grow flex-col gap-6">
-                                <div className="flex items-center justify-center gap-8">
-                                    {item.logos.map((logo) => (
-                                        <Image
-                                            key={logo.file}
-                                            src={logos[logo.file]}
-                                            alt={logo.alt}
-                                            className="h-16 w-auto object-contain sm:h-20"
+                        <li
+                            key={item.body}
+                            className="grid gap-5 border-t py-8 md:grid-cols-[16rem_1fr_12rem] md:items-center md:gap-10"
+                        >
+                            <div
+                                className={cn(
+                                    'flex h-24 items-center justify-center gap-6 rounded-(--radius) border px-6',
+                                    item.logos.some((logo) => 'inverse' in logo && logo.inverse)
+                                        ? 'bg-plate-inverse'
+                                        : 'bg-plate'
+                                )}
+                            >
+                                {item.logos.map((logo) => (
+                                    <Image
+                                        key={logo.file}
+                                        src={logos[logo.file]}
+                                        alt={logo.alt}
+                                        className="h-14 w-auto max-w-[80%] object-contain"
+                                    />
+                                ))}
+                            </div>
+
+                            <p className="text-muted-foreground max-w-[62ch]">{item.body}</p>
+
+                            <div className="flex flex-col gap-1.5 md:items-end">
+                                {item.links.map((link) => (
+                                    <a
+                                        key={link.href}
+                                        href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group inline-flex items-center gap-1 font-semibold underline-offset-4 hover:underline"
+                                    >
+                                        {link.label}
+                                        <ArrowUpRight
+                                            className="text-primary size-4 transition-transform duration-300 ease-(--ease-out-expo) group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                            aria-hidden
                                         />
-                                    ))}
-                                </div>
-
-                                <p className="text-muted-foreground grow text-sm">{item.body}</p>
-
-                                <div className="flex flex-col gap-1">
-                                    {item.links.map((link) => (
-                                        <a
-                                            key={link.href}
-                                            href={link.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1 text-sm underline transition-colors hover:no-underline"
-                                        >
-                                            {link.label}
-                                            <ExternalLink className="size-3.5" aria-hidden />
-                                        </a>
-                                    ))}
-                                </div>
-                            </CardContent>
-                        </Card>
+                                    </a>
+                                ))}
+                            </div>
+                        </li>
                     ))}
-                </div>
-            </div>
+                </ul>
+            </Container>
         </div>
     );
 }

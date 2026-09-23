@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { SectionHeader, SubsectionHeader } from '@/components/section-header';
+import { Container, SectionHeader, SubsectionHeader } from '@/components/section-header';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { technology } from '@/content';
 import { logos } from '@/lib/logos';
@@ -9,14 +9,13 @@ import { cn } from '@/lib/utils';
 type LogoItem = { readonly file: string; readonly label: string };
 
 /**
- * The old markup used a hand-rolled `<span>` that faded in on hover/focus. Replaced with
- * the shadcn Tooltip, keeping the wrapper focusable so the label is reachable by keyboard.
- *
  * Sized by HEIGHT, not by a square box. Every mark shares a `0 0 24 24` viewBox but the
  * artwork inside it does not: Inertia is 1.79:1, Tailwind 1.67:1, MySQL 1.47:1, while
  * Laravel/Claude/Postgres are square. In a square tile `object-contain` binds on width, so
- * the wide marks could only ever render 56–68% as tall as the square ones. Fixed height +
- * `w-auto` equalises the cap height and lets each mark take the width its shape needs.
+ * the wide marks could only ever render 56–68% as tall as the square ones.
+ *
+ * Logos stay in colour. Grayscale-until-hover hid the one bit of visual variety this
+ * section has behind an interaction touch users never get.
  */
 function LogoTile({ item, className }: { item: LogoItem; className: string }) {
     return (
@@ -25,7 +24,7 @@ function LogoTile({ item, className }: { item: LogoItem; className: string }) {
                 <div
                     tabIndex={0}
                     className={cn(
-                        'flex w-auto cursor-default items-center justify-center opacity-60 grayscale transition duration-300 outline-none hover:opacity-100 hover:grayscale-0 focus-visible:opacity-100 focus-visible:grayscale-0',
+                        'focus-visible:ring-ring flex w-auto cursor-default items-center justify-center rounded-sm transition-transform duration-300 ease-(--ease-out-expo) outline-none hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:ring-offset-(--plate)',
                         className
                     )}
                 >
@@ -41,27 +40,30 @@ function LogoTile({ item, className }: { item: LogoItem; className: string }) {
     );
 }
 
-/** Ported from `source/index.blade.php:268-319`. */
 export function Technology() {
     return (
-        <section id="technology">
-            <div className="bg-muted/50 py-16">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <SectionHeader>{technology.heading}</SectionHeader>
-
-                    <p className="text-muted-foreground mx-auto mb-12 max-w-2xl text-center">
+        <section id="technology" className="bg-muted py-[clamp(4.5rem,3rem+6vw,8rem)]">
+            <Container>
+                <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
+                    <SectionHeader className="lg:col-span-5">{technology.heading}</SectionHeader>
+                    <p className="text-muted-foreground max-w-[58ch] text-lg leading-relaxed lg:col-span-7 lg:pt-3">
                         {technology.intro}
                     </p>
+                </div>
 
-                    <SubsectionHeader>{technology.stack.heading}</SubsectionHeader>
+                <div className="border-foreground mt-16 border-t-[3px] pt-8">
+                    <SubsectionHeader className="text-2xl sm:text-2xl">
+                        {technology.stack.heading}
+                    </SubsectionHeader>
 
-                    <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-8 px-2 md:gap-x-10">
+                    {/* On a plate, like the client logos: MySQL's dark teal wordmark disappears on the dark theme otherwise. */}
+                    <div className="bg-plate mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-8 rounded-(--radius) border px-6 py-10 sm:justify-between sm:px-12 md:gap-x-14">
                         {technology.stack.logos.map((item) => (
-                            <LogoTile key={item.file} item={item} className="h-12 md:h-20" />
+                            <LogoTile key={item.file} item={item} className="h-11 md:h-14" />
                         ))}
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 }

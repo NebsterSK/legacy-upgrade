@@ -20,8 +20,10 @@ const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2
  * - Lands where the browser would: the target's top minus its `scroll-margin-top`.
  * - Duration scales with distance (350–900ms), eased in and out.
  * - Any wheel, touch or key input cancels the animation and hands control back.
- * - Updates the URL hash, and moves focus to the section so keyboard and screen-reader
- *   users continue from where they landed.
+ * - Leaves the URL alone (no #hash, no history entry): the page is one screen of
+ *   sections, not a set of addresses.
+ * - Moves focus to the section so keyboard and screen-reader users continue from where
+ *   they landed.
  */
 export function SmoothAnchors() {
     useEffect(() => {
@@ -78,8 +80,6 @@ export function SmoothAnchors() {
                 target.focus({ preventScroll: true });
             };
             frame = requestAnimationFrame(step);
-
-            if (window.location.hash !== `#${id}`) history.pushState(null, '', `#${id}`);
         };
 
         document.addEventListener('click', onClick);

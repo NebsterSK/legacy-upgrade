@@ -135,9 +135,15 @@
  * `--primary-l/c/h` palette. None of it is ported (plan.md Task 3).
  * ------------------------------------------------------------------ */
 @layer base {
-    /* Anchor sections must clear the sticky header when scrolled to. */
+    /* One source for the sticky header's height: the header uses it for its own height,
+       and anchor sections use it to land flush under the header (no gap, no overlap). */
+    :root {
+        --header-height: 4rem;
+    }
+
+    /* +1px: the header's bottom border sits outside its content height. */
     section[id] {
-        scroll-margin-top: 4.5rem;
+        scroll-margin-top: calc(var(--header-height) + 1px);
     }
 
     body {

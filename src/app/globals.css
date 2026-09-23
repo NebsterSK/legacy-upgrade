@@ -199,8 +199,8 @@
 }
 
 /*
- * The one orchestrated entrance: the hero assembles on load (headline, tagline,
- * actions, portrait, in that order) while the arrow motif pushes up from below.
+ * The one orchestrated entrance: on load the hero portrait rises into place while the
+ * arrow motif pushes up from below. The hero text and buttons are static.
  * CSS keyframes, not a JS-toggled class, so it runs in the static HTML with no
  * hydration dependency. Everything else on the page is still; motion is spent here.
  * Runs for everyone, reduced-motion preference included (see the note on html above).

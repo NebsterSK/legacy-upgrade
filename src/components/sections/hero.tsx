@@ -18,8 +18,9 @@ const socialHrefs: Record<string, string> = {
 
 /**
  * The hero is the logo square, blown up to full width: brand blue drench, the up-arrow
- * pushing up from below the fold, the name set big in Kanit. This is the page's one
- * orchestrated entrance (`rise` / `lift` in globals.css).
+ * pushing up from below the fold, the name set big in Kanit. The text and buttons are
+ * static (owner's call: the staggered text entrance was too much); only the portrait
+ * rises and the arrow lifts on load (`rise` / `lift` in globals.css).
  */
 export function Hero() {
     return (
@@ -29,22 +30,19 @@ export function Hero() {
             <Container className="grid items-end gap-12 pt-14 pb-16 md:grid-cols-12 md:gap-8 md:pt-24 md:pb-24">
                 <div className="md:col-span-7">
                     <h1
-                        className="font-kanit rise text-[clamp(3.25rem,1.9rem+6vw,6rem)] leading-[0.92] font-bold tracking-[-0.03em]"
-                        style={{ '--i': 0 } as React.CSSProperties}
+                        className="font-kanit text-[clamp(3.25rem,1.9rem+6vw,6rem)] leading-[0.92] font-bold tracking-[-0.03em]"
                     >
                         {hero.name}
                     </h1>
 
                     <p
-                        className="rise text-brand-muted-foreground mt-6 max-w-[26ch] text-[clamp(1.25rem,1.05rem+0.9vw,1.75rem)] leading-snug font-medium"
-                        style={{ '--i': 1 } as React.CSSProperties}
+                        className="text-brand-muted-foreground mt-6 max-w-[26ch] text-[clamp(1.25rem,1.05rem+0.9vw,1.75rem)] leading-snug font-medium"
                     >
                         {hero.tagline}
                     </p>
 
                     <div
-                        className="rise mt-10 flex flex-wrap items-center gap-3"
-                        style={{ '--i': 2 } as React.CSSProperties}
+                        className="mt-10 flex flex-wrap items-center gap-3"
                     >
                         <a
                             href={hero.ctas.primary.href}

@@ -226,3 +226,19 @@
 @utility lift {
     animation: lift 1400ms var(--ease-out-expo) both;
 }
+
+/*
+ * Tech Stack diagram: short packets travel along the wires in the direction of the flow
+ * (Tailwind toward the databases). Sparse and slow, so it reads as data moving through
+ * a circuit, not as a loading spinner. Offset per cycle = one dash period (4 + 24).
+ */
+@keyframes flow-dash {
+    to {
+        stroke-dashoffset: -28;
+    }
+}
+
+.flow-line {
+    stroke-dasharray: 4 24;
+    animation: flow-dash 1.4s linear infinite;
+}

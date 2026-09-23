@@ -2,6 +2,7 @@ import type { StaticImageData } from 'next/image';
 
 import brackets from '@/assets/images/logos/brackets.svg';
 import claude from '@/assets/images/logos/claude.svg';
+import forge from '@/assets/images/logos/forge.svg';
 import inertiajs from '@/assets/images/logos/inertiajs.svg';
 import laravel from '@/assets/images/logos/laravel.svg';
 import mysql from '@/assets/images/logos/mysql.svg';
@@ -21,6 +22,7 @@ import yasmin from '@/assets/images/logos/yasmin.png';
 export const logos: Record<string, StaticImageData> = {
     'brackets.svg': brackets,
     'claude.svg': claude,
+    'forge.svg': forge,
     'inertiajs.svg': inertiajs,
     'laravel.svg': laravel,
     'mysql.svg': mysql,

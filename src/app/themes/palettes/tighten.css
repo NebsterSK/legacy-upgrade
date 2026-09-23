@@ -4,7 +4,8 @@
  * second voice, deep navy closes the page. Pastels (rose, lavender, sky) live on the
  * dark bands as accents and on light canvas as chip grounds.
  */
-:root {
+:root,
+.theme-light {
     --primary: #3c6492;
     --primary-foreground: #ffffff;
     --ring: #3c6492;

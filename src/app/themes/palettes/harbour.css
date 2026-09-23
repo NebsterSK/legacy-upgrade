@@ -3,7 +3,8 @@
  * Matte denim leads, a deep sage green is the second voice, slate ink closes the page.
  * Pastels (apricot, mint, butter) warm the cool blue without going cream.
  */
-:root {
+:root,
+.theme-light {
     --primary: #45689c;
     --primary-foreground: #ffffff;
     --ring: #45689c;

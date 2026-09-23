@@ -19,4 +19,5 @@ export { faq } from './faq.ts';
 export { technology } from './technology.ts';
 export { contact } from './contact.ts';
 export { footer } from './footer.ts';
+export { brand } from './brand.ts';
 export { schema } from './schema.ts';

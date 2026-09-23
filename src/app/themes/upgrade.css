@@ -11,9 +11,13 @@
  *
  *   --plate          white tile for client logos, identical in both modes
  *   --plate-inverse  dark tile for the one white-on-transparent logo (RemaM)
+ *
+ * `.theme-light` re-applies the light values to a subtree even when <html> is `.dark`;
+ * /brand uses it so its screenshot assets always come out in the light brand colours.
  */
 
-:root {
+:root,
+.theme-light {
     --background: oklch(0.985 0.004 262);
     --foreground: oklch(0.2 0.03 262);
     --card: oklch(1 0 0);

@@ -3,7 +3,8 @@
  * Matte steel blue leads, a muted berry rose is the second voice, midnight closes the
  * page. Pastels (rose, sea-glass teal, periwinkle) as accents.
  */
-:root {
+:root,
+.theme-light {
     --primary: #4d6b96;
     --primary-foreground: #ffffff;
     --ring: #4d6b96;

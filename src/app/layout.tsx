@@ -2,14 +2,10 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import { Analytics } from '@/components/analytics';
-import { JsonLd } from '@/components/json-ld';
-import { SiteFooter } from '@/components/site-footer';
-import { SiteHeader } from '@/components/site-header';
 import { SmoothAnchors } from '@/components/smooth-anchors';
 import { ThemeProvider } from '@/components/theme-provider';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { site } from '@/content';
-import { faqPageSchema, professionalServiceSchema } from '@/lib/jsonld';
 
 import './globals.css';
 
@@ -74,17 +70,10 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <TooltipProvider>
-                        <SiteHeader />
-
-                        <main className="grow">{children}</main>
-
-                        <SiteFooter />
-                    </TooltipProvider>
+                    {/* Header, footer and JSON-LD live in (site)/layout.tsx, so pages like
+                        /brand can render without the site chrome. */}
+                    <TooltipProvider>{children}</TooltipProvider>
                 </ThemeProvider>
-
-                <JsonLd data={professionalServiceSchema()} />
-                <JsonLd data={faqPageSchema()} />
 
                 <SmoothAnchors />
                 <Analytics />

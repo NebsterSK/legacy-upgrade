@@ -18,7 +18,7 @@ export function SiteHeader() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const [active, select] = useActiveSection(SECTION_IDS, headerHeight);
+    const active = useActiveSection(SECTION_IDS, headerHeight);
 
     // Measure instead of hardcoding, so the scroll-spy offset tracks the real header.
     useEffect(() => {
@@ -46,7 +46,6 @@ export function SiteHeader() {
             <div className="mx-auto flex h-(--header-height) w-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
                 <a
                     href="#home"
-                    onClick={() => select('home')}
                     className="font-kanit flex items-center gap-2.5 text-lg font-normal"
                 >
                     <UpgradeMark className="size-7 rounded-[3px]" />
@@ -59,7 +58,6 @@ export function SiteHeader() {
                             <a
                                 key={item.href}
                                 href={item.href}
-                                onClick={() => select(item.href.replace('#', ''))}
                                 aria-current={
                                     active === item.href.replace('#', '') ? 'true' : undefined
                                 }
@@ -96,10 +94,7 @@ export function SiteHeader() {
                                     <a
                                         key={item.href}
                                         href={item.href}
-                                        onClick={() => {
-                                            select(item.href.replace('#', ''));
-                                            setMenuOpen(false);
-                                        }}
+                                        onClick={() => setMenuOpen(false)}
                                         className={cn(
                                             'rounded-md px-2 py-2 text-sm transition-colors',
                                             active === item.href.replace('#', '')

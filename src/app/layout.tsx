@@ -5,6 +5,7 @@ import { Analytics } from '@/components/analytics';
 import { JsonLd } from '@/components/json-ld';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { SmoothAnchors } from '@/components/smooth-anchors';
 import { ThemeProvider } from '@/components/theme-provider';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { site } from '@/content';
@@ -85,6 +86,7 @@ export default function RootLayout({
                 <JsonLd data={professionalServiceSchema()} />
                 <JsonLd data={faqPageSchema()} />
 
+                <SmoothAnchors />
                 <Analytics />
             </body>
         </html>

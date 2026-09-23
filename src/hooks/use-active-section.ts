@@ -1,6 +1,8 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+import { ANCHOR_SCROLL_END, ANCHOR_SCROLL_START } from '@/components/smooth-anchors';
 
 /**
  * Scroll-spy for the anchor nav.
@@ -12,10 +14,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
  * - **The last section.** At the bottom of the page Contact often cannot scroll up to
  *   the line, while the tail of Technology still sits in the band, so Contact never
  *   lit up. Reaching the bottom of the document now always selects the last section.
- * - **Clicks.** A smooth scroll to a far section passes through every section in
- *   between and the highlight would flicker through them. `select(id)` pins the clicked
- *   section until the scroll settles (`scrollend`, with a timeout fallback for browsers
- *   without it).
+ * - **Clicks.** An animated scroll to a far section passes through every section in
+ *   between and the highlight would flicker through them. While <SmoothAnchors> is
+ *   animating, its start/end events pin the target as active.
  *
  * Geometry is read at most once per frame (rAF-throttled), for a handful of sections.
  *
@@ -67,18 +68,22 @@ export function useActiveSection(ids: readonly string[], topOffset: number) {
         };
     }, [idsKey, topOffset]);
 
-    const select = useCallback((id: string) => {
-        setActive(id);
-        pinned.current = id;
-
-        const release = () => {
-            pinned.current = null;
-            window.removeEventListener('scrollend', release);
-            window.clearTimeout(timer);
+    useEffect(() => {
+        const onStart = (event: Event) => {
+            const id = (event as CustomEvent<string>).detail;
+            pinned.current = id;
+            setActive(id);
         };
-        window.addEventListener('scrollend', release, { once: true });
-        const timer = window.setTimeout(release, 1500);
+        const onEnd = () => {
+            pinned.current = null;
+        };
+        window.addEventListener(ANCHOR_SCROLL_START, onStart);
+        window.addEventListener(ANCHOR_SCROLL_END, onEnd);
+        return () => {
+            window.removeEventListener(ANCHOR_SCROLL_START, onStart);
+            window.removeEventListener(ANCHOR_SCROLL_END, onEnd);
+        };
     }, []);
 
-    return [active, select] as const;
+    return active;
 }

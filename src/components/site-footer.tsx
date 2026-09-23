@@ -47,7 +47,7 @@ export function SiteFooter() {
                         aria-label={footer.logoAlt}
                         className="group focus-visible:ring-deep-foreground rounded-[4px] outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-(--deep-plate)"
                     >
-                        <UpgradeMark className="ring-deep-foreground/30 size-11 rounded-[4px] ring-1 transition-transform duration-300 ease-(--ease-out-expo) group-hover:-translate-y-1" />
+                        <UpgradeMark className="size-11 rounded-[4px] transition-transform duration-300 ease-(--ease-out-expo) group-hover:-translate-y-1" />
                     </a>
                 </div>
             </Container>

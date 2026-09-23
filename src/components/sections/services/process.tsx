@@ -1,26 +1,63 @@
 import { Container, SubsectionHeader } from '@/components/section-header';
 import { process } from '@/content';
 import { getIcon } from '@/lib/icons';
+import { cn } from '@/lib/utils';
 
 /**
- * The one place on the page where numbers earn their place: this IS a sequence, and the
- * order carries meaning (you see a demo before the full build). Four steps on a 2×2 grid
- * (two of them carry two stages' worth of text, too long for four narrow columns), each
- * hung from a rule, with the step number set large in the section's accent (tint-2).
+ * A real sequence, drawn as one: a vertical spine down the middle with the steps
+ * alternating left and right of it (1 left, 2 right, …), each hung from an icon node on
+ * the spine. Left-hand steps mirror toward the spine (right-aligned) so every step reads
+ * outward from the same line. From md up each step after the first is pulled up so it
+ * sits beside the tail of the previous one: a zigzag, not a staircase of half-empty rows.
+ *
+ * Below md the spine moves to the left edge and every step sits to its right, in order.
+ * DOM order is the visual order at every width.
+ *
+ * The spine is drawn per step (node → bottom of that step) so it stays continuous
+ * whatever the text lengths; the last step has none. From md up it stops 5rem short of
+ * the step bottom, which is exactly where the next (pulled-up) node begins.
  */
 export function Process() {
     return (
         <div className="py-[clamp(4.5rem,3rem+6vw,8rem)]">
             <Container>
-                <SubsectionHeader className="max-w-[18ch]">{process.heading}</SubsectionHeader>
+                <SubsectionHeader>{process.heading}</SubsectionHeader>
 
-                <ol className="mt-12 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:gap-x-16">
+                <ol className="mx-auto mt-14 max-w-5xl">
                     {process.steps.map((step, index) => {
                         const Icon = getIcon(step.icon);
+                        const left = index % 2 === 0;
+                        const last = index === process.steps.length - 1;
                         return (
-                            <li key={step.title} className="border-border border-t-2 pt-6">
-                                <div className="flex items-start justify-between">
-                                    <p className="flex items-baseline gap-2">
+                            <li
+                                key={step.title}
+                                className="relative grid grid-cols-[3.5rem_1fr] gap-x-5 md:grid-cols-[1fr_3.5rem_1fr] md:gap-x-10 md:not-first:-mt-20"
+                            >
+                                {!last && (
+                                    <span
+                                        aria-hidden
+                                        className="bg-border absolute top-14 bottom-0 left-7 w-0.5 -translate-x-1/2 md:bottom-20 md:left-1/2"
+                                    />
+                                )}
+
+                                <span className="bg-tint-2 text-tint-2-ink ring-background relative z-10 col-start-1 row-start-1 grid size-14 place-items-center self-start rounded-full ring-8 md:col-start-2">
+                                    <Icon className="size-6" strokeWidth={1.75} aria-hidden />
+                                </span>
+
+                                <div
+                                    className={cn(
+                                        'col-start-2 row-start-1 max-w-[30rem] pb-14 md:pb-24',
+                                        left
+                                            ? 'md:col-start-1 md:justify-self-end md:text-right'
+                                            : 'md:col-start-3'
+                                    )}
+                                >
+                                    <p
+                                        className={cn(
+                                            'flex items-baseline gap-2',
+                                            left && 'md:justify-end'
+                                        )}
+                                    >
                                         <span className="text-muted-foreground text-sm font-semibold">
                                             {process.stepLabel}
                                         </span>
@@ -28,14 +65,13 @@ export function Process() {
                                             {index + 1}
                                         </span>
                                     </p>
-                                    <span className="bg-tint-2 text-tint-2-ink grid size-10 place-items-center rounded-(--radius)">
-                                        <Icon className="size-5" strokeWidth={1.75} aria-hidden />
-                                    </span>
+                                    <h4 className="font-kanit mt-4 text-2xl leading-tight font-bold">
+                                        {step.title}
+                                    </h4>
+                                    <p className="text-muted-foreground mt-2 leading-relaxed">
+                                        {step.desc}
+                                    </p>
                                 </div>
-                                <h4 className="font-kanit mt-5 text-2xl leading-tight font-bold">{step.title}</h4>
-                                <p className="text-muted-foreground mt-2 max-w-[56ch] leading-relaxed">
-                                    {step.desc}
-                                </p>
                             </li>
                         );
                     })}

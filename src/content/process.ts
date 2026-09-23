@@ -13,7 +13,7 @@ import type { IconName } from './types.ts';
  * The "Step N" label is derived from the array index (`Step {{ $index + 1 }}`).
  */
 export const process = {
-    heading: 'How We Work Together',
+    heading: 'Process',
 
     /** Prefix for the per-step eyebrow label: `Step 1`, `Step 2`, … */
     stepLabel: 'Step',

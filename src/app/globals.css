@@ -15,6 +15,8 @@
  * See THEMING.md.
  * ------------------------------------------------------------------ */
 @import "./themes/upgrade.css";
+@import "./themes/palettes/tighten.css"; /* tighten | harbour | dusk */
+@import "./themes/dosage-bands.css"; /* bands | neutral */
 
 @theme inline {
     /* Kanit is self-hosted via next/font/local, which sets --font-kanit on <html>.
@@ -27,6 +29,23 @@
     --color-brand-muted-foreground: var(--brand-muted-foreground);
     --color-brand-deep: var(--brand-deep);
     --color-brand-line: var(--brand-line);
+    --color-second: var(--second);
+    --color-second-foreground: var(--second-foreground);
+    --color-second-muted-foreground: var(--second-muted-foreground);
+    --color-second-line: var(--second-line);
+    --color-second-accent: var(--second-accent);
+    --color-deep: var(--deep);
+    --color-deep-foreground: var(--deep-foreground);
+    --color-deep-muted-foreground: var(--deep-muted-foreground);
+    --color-deep-plate: var(--deep-plate);
+    --color-deep-line: var(--deep-line);
+    --color-deep-accent: var(--deep-accent);
+    --color-tint-1: var(--tint-1);
+    --color-tint-1-ink: var(--tint-1-ink);
+    --color-tint-2: var(--tint-2);
+    --color-tint-2-ink: var(--tint-2-ink);
+    --color-tint-3: var(--tint-3);
+    --color-tint-3-ink: var(--tint-3-ink);
     --color-plate: var(--plate);
     --color-plate-inverse: var(--plate-inverse);
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);

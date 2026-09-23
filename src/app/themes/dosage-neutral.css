@@ -1,0 +1,20 @@
+/**
+ * DOSAGE: neutral. Only the hero and the featured price keep a colour field; the
+ * second and deep kits collapse onto the neutral surfaces, and their accents fall back
+ * to the pastel inks so they stay legible on a light ground.
+ */
+:root,
+.dark {
+    --second: var(--muted);
+    --second-foreground: var(--foreground);
+    --second-muted-foreground: var(--muted-foreground);
+    --second-line: var(--border);
+    --second-accent: var(--tint-3-ink);
+
+    --deep: var(--muted);
+    --deep-foreground: var(--foreground);
+    --deep-muted-foreground: var(--muted-foreground);
+    --deep-plate: var(--card);
+    --deep-line: var(--border);
+    --deep-accent: var(--tint-1-ink);
+}

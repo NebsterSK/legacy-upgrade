@@ -1,0 +1,69 @@
+/**
+ * PALETTE: tighten — closest to the Jigsaw reference.
+ * Matte slate blue leads (the logo blue with the shine taken off), dusty plum is the
+ * second voice, deep navy closes the page. Pastels (rose, lavender, sky) live on the
+ * dark bands as accents and on light canvas as chip grounds.
+ */
+:root {
+    --primary: #3c6492;
+    --primary-foreground: #ffffff;
+    --ring: #3c6492;
+
+    --brand: #3c6492;
+    --brand-foreground: #ffffff;
+    --brand-muted-foreground: #dbe5f1;
+    --brand-deep: #2f5079;
+    --brand-line: #5479a3;
+
+    --second: #7d4a86;
+    --second-foreground: #ffffff;
+    --second-muted-foreground: #efe1f2;
+    --second-line: #93629b;
+    --second-accent: #f8d6df;
+
+    --deep: #13294a;
+    --deep-foreground: #f3f6fa;
+    --deep-muted-foreground: #b9c7da;
+    --deep-plate: #0d2039;
+    --deep-line: #2a4468;
+    --deep-accent: #f8d6df;
+
+    --tint-1: #f8d6df;
+    --tint-1-ink: #9c3558;
+    --tint-2: #e5dbf7;
+    --tint-2-ink: #5b3f91;
+    --tint-3: #d5eef5;
+    --tint-3-ink: #1f5f73;
+}
+
+.dark {
+    --primary: #8fb0d8;
+    --primary-foreground: #0f1c2e;
+    --ring: #8fb0d8;
+
+    --brand: #2d4a6e;
+    --brand-foreground: #f3f6fa;
+    --brand-muted-foreground: #c9d7e8;
+    --brand-deep: #223a58;
+    --brand-line: #3b5a82;
+
+    --second: #5a3562;
+    --second-foreground: #f7f0f8;
+    --second-muted-foreground: #e2cfe6;
+    --second-line: #6e4577;
+    --second-accent: #f2c4d2;
+
+    --deep: #0e1f38;
+    --deep-foreground: #eef2f8;
+    --deep-muted-foreground: #aebcd0;
+    --deep-plate: #0a172b;
+    --deep-line: #23385a;
+    --deep-accent: #f2c4d2;
+
+    --tint-1: #4a2a37;
+    --tint-1-ink: #f5c6d4;
+    --tint-2: #342a4d;
+    --tint-2-ink: #d8c8f5;
+    --tint-3: #1f3a44;
+    --tint-3-ink: #b9e3ef;
+}

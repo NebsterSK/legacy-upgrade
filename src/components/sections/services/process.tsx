@@ -5,7 +5,7 @@ import { getIcon } from '@/lib/icons';
 /**
  * The one place on the page where numbers earn their place: this IS a sequence, and the
  * order carries meaning (you see a demo before the full build). Six steps on a 3×2 grid,
- * each hung from a rule, with the step number set large in the brand colour.
+ * each hung from a rule, with the step number set large in the section's accent (tint-2).
  */
 export function Process() {
     return (
@@ -23,11 +23,13 @@ export function Process() {
                                         <span className="text-muted-foreground text-sm font-semibold">
                                             {process.stepLabel}
                                         </span>
-                                        <span className="font-kanit text-primary text-5xl leading-none font-bold">
+                                        <span className="font-kanit text-tint-2-ink text-5xl leading-none font-bold">
                                             {index + 1}
                                         </span>
                                     </p>
-                                    <Icon className="text-muted-foreground size-6" strokeWidth={1.75} aria-hidden />
+                                    <span className="bg-tint-2 text-tint-2-ink grid size-10 place-items-center rounded-(--radius)">
+                                        <Icon className="size-5" strokeWidth={1.75} aria-hidden />
+                                    </span>
                                 </div>
                                 <h4 className="font-kanit mt-5 text-2xl leading-tight font-bold">{step.title}</h4>
                                 <p className="text-muted-foreground mt-2 max-w-[40ch] leading-relaxed">

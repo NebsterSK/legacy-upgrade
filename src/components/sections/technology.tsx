@@ -42,16 +42,19 @@ function LogoTile({ item, className }: { item: LogoItem; className: string }) {
 
 export function Technology() {
     return (
-        <section id="technology" className="bg-muted py-[clamp(4.5rem,3rem+6vw,8rem)]">
+        <section
+            id="technology"
+            className="bg-second text-second-foreground py-[clamp(4.5rem,3rem+6vw,8rem)]"
+        >
             <Container>
                 <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
                     <SectionHeader className="lg:col-span-5">{technology.heading}</SectionHeader>
-                    <p className="text-muted-foreground max-w-[58ch] text-lg leading-relaxed lg:col-span-7 lg:pt-3">
+                    <p className="text-second-muted-foreground max-w-[58ch] text-lg leading-relaxed lg:col-span-7 lg:pt-3">
                         {technology.intro}
                     </p>
                 </div>
 
-                <div className="border-foreground mt-16 border-t-[3px] pt-8">
+                <div className="border-second-accent mt-16 border-t-[3px] pt-8">
                     <SubsectionHeader className="text-2xl sm:text-2xl">
                         {technology.stack.heading}
                     </SubsectionHeader>

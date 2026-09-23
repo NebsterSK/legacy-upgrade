@@ -12,10 +12,10 @@ import { footer } from '@/content';
  */
 export function SiteFooter() {
     return (
-        <footer className="bg-brand-deep text-brand-foreground">
+        <footer className="bg-deep-plate text-deep-foreground">
             <Container className="flex flex-col gap-8 py-10 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                    <p className="text-brand-muted-foreground text-sm font-semibold">
+                    <p className="text-deep-muted-foreground text-sm font-semibold">
                         {footer.social.heading}
                     </p>
                     <ul className="mt-2 flex gap-6">
@@ -25,7 +25,7 @@ export function SiteFooter() {
                                     href={item.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="focus-visible:ring-brand-foreground inline-flex items-center gap-1 rounded-sm font-semibold underline-offset-4 outline-none hover:underline focus-visible:ring-2"
+                                    className="focus-visible:ring-deep-foreground inline-flex items-center gap-1 rounded-sm font-semibold underline-offset-4 outline-none hover:underline focus-visible:ring-2"
                                 >
                                     {item.label}
                                     <ArrowUpRight className="size-4" aria-hidden />
@@ -36,8 +36,8 @@ export function SiteFooter() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <p className="text-brand-muted-foreground text-sm">
-                        <span className="font-kanit text-brand-foreground font-bold tracking-wide">
+                    <p className="text-deep-muted-foreground text-sm">
+                        <span className="font-kanit text-deep-foreground font-bold tracking-wide">
                             {footer.wordmark}
                         </span>{' '}
                         © <CurrentYear />
@@ -45,9 +45,9 @@ export function SiteFooter() {
                     <a
                         href={footer.logoHref}
                         aria-label={footer.logoAlt}
-                        className="group focus-visible:ring-brand-foreground rounded-[4px] outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-(--brand-deep)"
+                        className="group focus-visible:ring-deep-foreground rounded-[4px] outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-(--deep-plate)"
                     >
-                        <UpgradeMark className="ring-brand-foreground/30 size-11 rounded-[4px] ring-1 transition-transform duration-300 ease-(--ease-out-expo) group-hover:-translate-y-1" />
+                        <UpgradeMark className="ring-deep-foreground/30 size-11 rounded-[4px] ring-1 transition-transform duration-300 ease-(--ease-out-expo) group-hover:-translate-y-1" />
                     </a>
                 </div>
             </Container>

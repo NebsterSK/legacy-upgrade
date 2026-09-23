@@ -28,7 +28,9 @@ export function ServicesGrid() {
                                 key={item.text}
                                 className="border-foreground/15 flex items-center gap-4 border-b py-5"
                             >
-                                <Icon className="text-primary size-6 shrink-0" strokeWidth={1.75} aria-hidden />
+                                <span className="bg-tint-1 text-tint-1-ink grid size-10 shrink-0 place-items-center rounded-(--radius)">
+                                    <Icon className="size-5" strokeWidth={1.75} aria-hidden />
+                                </span>
                                 <span className="text-lg leading-snug font-semibold">{item.text}</span>
                             </li>
                         );

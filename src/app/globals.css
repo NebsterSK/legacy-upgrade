@@ -137,6 +137,23 @@
         text-wrap: pretty;
     }
 
+    /* Browser surfaces carry the palette too: selection is the brand drench,
+       the caret and native controls take the brand blue, scrollbars sit on the page. */
+    ::selection {
+        background-color: var(--brand);
+        color: var(--brand-foreground);
+    }
+
+    html {
+        accent-color: var(--primary);
+        caret-color: var(--primary);
+        scrollbar-color: var(--muted-foreground) var(--background);
+    }
+
+    a {
+        text-underline-offset: 0.2em;
+    }
+
     /* Replaces the 47-line hand-written easing scroller in main.js. */
     html {
         scroll-behavior: smooth;

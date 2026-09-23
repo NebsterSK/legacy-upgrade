@@ -19,7 +19,7 @@ type LogoItem = { readonly file: string; readonly label: string };
  */
 function LogoTile({ item, className }: { item: LogoItem; className: string }) {
     return (
-        <Tooltip>
+        <Tooltip delayDuration={600}>
             <TooltipTrigger asChild>
                 <div
                     tabIndex={0}

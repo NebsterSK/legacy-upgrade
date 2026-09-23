@@ -48,7 +48,7 @@ export function Hero() {
                     >
                         <a
                             href={hero.ctas.primary.href}
-                            className="bg-brand-foreground text-brand focus-visible:ring-brand-foreground focus-visible:ring-offset-brand inline-flex h-13 items-center rounded-(--radius) px-7 text-base font-bold transition-transform duration-200 outline-none hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-offset-2"
+                            className="bg-brand-foreground text-brand focus-visible:ring-brand-foreground focus-visible:ring-offset-brand inline-flex h-13 items-center rounded-(--radius) px-7 text-base font-bold transition-transform duration-200 outline-none hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-offset-2"
                         >
                             {hero.ctas.primary.label}
                         </a>

@@ -87,7 +87,7 @@ export function Pricing() {
                                 <a
                                     href={tier.cta.href}
                                     className={cn(
-                                        'inline-flex h-12 items-center justify-center rounded-(--radius) px-6 font-bold transition-transform duration-200 outline-none hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-offset-2',
+                                        'inline-flex h-12 items-center justify-center rounded-(--radius) px-6 font-bold transition-transform duration-200 outline-none hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-offset-2',
                                         tier.featured
                                             ? 'bg-brand-foreground text-brand focus-visible:ring-brand-foreground focus-visible:ring-offset-brand'
                                             : 'bg-primary text-primary-foreground focus-visible:ring-ring focus-visible:ring-offset-card'

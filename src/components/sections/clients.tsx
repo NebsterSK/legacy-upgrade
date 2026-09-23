@@ -22,7 +22,7 @@ export function Clients() {
                     {clients.items.map((item) => (
                         <li
                             key={item.body}
-                            className="grid gap-5 border-t py-8 md:grid-cols-[16rem_1fr_12rem] md:items-center md:gap-10"
+                            className="grid gap-5 border-t py-8 md:grid-cols-[12rem_1fr] md:items-center md:gap-x-10 md:gap-y-4 lg:grid-cols-[16rem_1fr_12rem]"
                         >
                             <div
                                 className={cn(
@@ -44,7 +44,7 @@ export function Clients() {
 
                             <p className="text-muted-foreground max-w-[62ch]">{item.body}</p>
 
-                            <div className="flex flex-col gap-1.5 md:items-end">
+                            <div className="flex flex-col gap-1.5 md:col-start-2 md:flex-row md:gap-6 lg:col-start-auto lg:flex-col lg:items-end lg:gap-1.5">
                                 {item.links.map((link) => (
                                     <a
                                         key={link.href}

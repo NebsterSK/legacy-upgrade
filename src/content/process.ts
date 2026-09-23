@@ -1,15 +1,14 @@
 import type { IconName } from './types.ts';
 
 /**
- * Verbatim from `source/index.blade.php:141-177`.
+ * From `source/index.blade.php:141-177`. Steps 2+3 and 5+6 were merged into one step
+ * each (2026-09-23, owner's request); the descriptions are the originals joined.
  *
  * Remix Icon → lucide mapping:
  *   ri-chat-3-line      → MessageCircle
  *   ri-file-list-3-line → ClipboardList
- *   ri-slideshow-3-line → MonitorPlay
  *   ri-code-s-slash-line→ Code
  *   ri-presentation-line→ Presentation
- *   ri-loop-left-line   → RotateCcw
  *
  * The "Step N" label is derived from the array index (`Step {{ $index + 1 }}`).
  */
@@ -27,13 +26,8 @@ export const process = {
         },
         {
             icon: 'ClipboardList' as IconName,
-            title: 'Planning & Estimation',
-            desc: 'A clear proposal outlining the approach, broken down into milestones with a transparent timeline and budget, no surprises later.',
-        },
-        {
-            icon: 'MonitorPlay' as IconName,
-            title: 'Demo',
-            desc: 'Before committing to the full build, you see an early working prototype. This keeps the project on track and confirms we are aligned on the direction.',
+            title: 'Planning, Estimation & Demo',
+            desc: 'A clear proposal outlining the approach, broken down into milestones with a transparent timeline and budget, no surprises later. Before committing to the full build, you see an early working prototype. This keeps the project on track and confirms we are aligned on the direction.',
         },
         {
             icon: 'Code' as IconName,
@@ -42,13 +36,8 @@ export const process = {
         },
         {
             icon: 'Presentation' as IconName,
-            title: 'Presentation & Testing',
-            desc: 'The finished result is presented for your review. You test it in real conditions, with real data, and share feedback.',
-        },
-        {
-            icon: 'RotateCcw' as IconName,
-            title: 'Iteration & Support',
-            desc: 'Refinements based on your feedback, fixes for edge cases, and ongoing support for as long as you need it.',
+            title: 'Presentation, Testing & Support',
+            desc: 'The finished result is presented for your review. You test it in real conditions, with real data, and share feedback. Refinements based on your feedback, fixes for edge cases, and ongoing support for as long as you need it.',
         },
     ],
 } as const;

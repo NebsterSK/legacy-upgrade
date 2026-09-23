@@ -46,9 +46,9 @@ export function SiteHeader() {
             <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
                 <a
                     href="#home"
-                    className="font-kanit group flex items-center gap-2.5 text-lg font-bold tracking-tight"
+                    className="font-kanit flex items-center gap-2.5 text-lg font-normal"
                 >
-                    <UpgradeMark className="size-7 rounded-[3px] transition-transform duration-300 ease-(--ease-out-expo) group-hover:-translate-y-0.5" />
+                    <UpgradeMark className="size-7 rounded-[3px]" />
                     {nav.brand}
                 </a>
 

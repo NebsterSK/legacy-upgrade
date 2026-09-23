@@ -13,8 +13,7 @@ export const nav = {
     toggleAriaLabel: 'Toggle navigation',
 
     theme: {
+        /** The toggle is an icon-only switch; this is its accessible name. */
         ariaLabel: 'Toggle dark mode',
-        light: 'Light',
-        dark: 'Dark',
     },
 } as const;

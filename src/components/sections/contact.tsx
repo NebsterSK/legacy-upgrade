@@ -83,13 +83,15 @@ export function Contact() {
                             <ContentIcon name={contact.details.icon} className="text-deep-accent size-4" />
                             {contact.details.heading}
                         </p>
-                        <dl className="mt-3 grid gap-x-8 gap-y-4 sm:grid-cols-3">
+                        {/* Flex-wrap, not a 3-column grid: the IBAN must never break, so each field takes
+                            the width it needs and wraps to its own line as a whole. */}
+                        <dl className="mt-3 flex flex-wrap gap-x-10 gap-y-4">
                             {contact.details.fields.map((field) => (
                                 <div key={field.label}>
                                     <dt className="text-deep-muted-foreground text-sm">
                                         {field.label}
                                     </dt>
-                                    <dd className="mt-0.5 font-semibold tabular-nums">
+                                    <dd className="mt-0.5 font-semibold whitespace-nowrap tabular-nums">
                                         {field.value}
                                     </dd>
                                 </div>

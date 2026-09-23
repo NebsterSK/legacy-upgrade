@@ -5,13 +5,12 @@ import { useTheme } from 'next-themes';
 
 import { nav } from '@/content';
 import { useIsHydrated } from '@/hooks/use-is-hydrated';
+import { cn } from '@/lib/utils';
 
 /**
- * Binary light/dark toggle, matching the old nav control: it shows the icon and label of
- * the theme you would switch *to* (sun + "Light" while dark is active).
- *
- * Deliberately not a Light/Dark/System dropdown — "System" would be new user-visible copy,
- * which the copy freeze rules out until the later copy pass.
+ * Light/dark as a real switch: a track with a thumb that slides right for dark mode and
+ * carries the current mode's icon. Icon-only, so the accessible name comes from
+ * `aria-label` and the state from `role="switch"` + `aria-checked`.
  */
 export function ThemeToggle() {
     const { resolvedTheme, setTheme } = useTheme();
@@ -24,12 +23,28 @@ export function ThemeToggle() {
     return (
         <button
             type="button"
-            onClick={() => setTheme(isDark ? 'light' : 'dark')}
+            role="switch"
+            aria-checked={isDark}
             aria-label={nav.theme.ariaLabel}
-            className="text-muted-foreground hover:text-foreground flex cursor-pointer items-center gap-1.5 transition-colors"
+            onClick={() => setTheme(isDark ? 'light' : 'dark')}
+            className={cn(
+                'focus-visible:ring-ring relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border p-0.5 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+                // Checked (dark) fills the track with the primary, like any on-switch.
+                isDark ? 'bg-primary border-primary' : 'bg-muted border-input hover:bg-accent'
+            )}
         >
-            {isDark ? <Sun className="size-5" aria-hidden /> : <Moon className="size-5" aria-hidden />}
-            <span className="text-sm">{isDark ? nav.theme.light : nav.theme.dark}</span>
+            <span
+                className={cn(
+                    'grid size-[1.375rem] place-items-center rounded-full shadow-sm transition-transform duration-200 ease-(--ease-out-expo)',
+                    isDark ? 'bg-primary-foreground text-primary translate-x-5' : 'bg-card text-foreground'
+                )}
+            >
+                {isDark ? (
+                    <Moon className="size-3.5" aria-hidden />
+                ) : (
+                    <Sun className="size-3.5" aria-hidden />
+                )}
+            </span>
         </button>
     );
 }

@@ -4,8 +4,9 @@ import { getIcon } from '@/lib/icons';
 
 /**
  * The one place on the page where numbers earn their place: this IS a sequence, and the
- * order carries meaning (you see a demo before the full build). Six steps on a 3×2 grid,
- * each hung from a rule, with the step number set large in the section's accent (tint-2).
+ * order carries meaning (you see a demo before the full build). Four steps on a 2×2 grid
+ * (two of them carry two stages' worth of text, too long for four narrow columns), each
+ * hung from a rule, with the step number set large in the section's accent (tint-2).
  */
 export function Process() {
     return (
@@ -13,7 +14,7 @@ export function Process() {
             <Container>
                 <SubsectionHeader className="max-w-[18ch]">{process.heading}</SubsectionHeader>
 
-                <ol className="mt-12 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+                <ol className="mt-12 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:gap-x-16">
                     {process.steps.map((step, index) => {
                         const Icon = getIcon(step.icon);
                         return (
@@ -32,7 +33,7 @@ export function Process() {
                                     </span>
                                 </div>
                                 <h4 className="font-kanit mt-5 text-2xl leading-tight font-bold">{step.title}</h4>
-                                <p className="text-muted-foreground mt-2 max-w-[40ch] leading-relaxed">
+                                <p className="text-muted-foreground mt-2 max-w-[56ch] leading-relaxed">
                                     {step.desc}
                                 </p>
                             </li>

@@ -1,20 +1,15 @@
 import { CircleHelp, Info, X } from 'lucide-react';
 
 import { Container, SubsectionHeader } from '@/components/section-header';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
 import { faq, type FaqTone } from '@/content';
 
 /**
  * Ported from `source/index.blade.php:241-265` — the THREE visible questions only.
  * The five FAQPage questions are JSON-LD only and live in `faq.schema` (see Task 6).
  *
- * Heading holds the left column; the questions are set large in Kanit, because they are
- * the funniest and most on-voice lines on the page and deserve to be read, not skimmed.
+ * Always open, no accordion: three short answers don't need hiding, and the answers are
+ * the punchline, so making people click for them cost more than it saved. Plain markup
+ * also means the answers are in the static HTML without any forceMount workaround.
  * The answer's tone icon keeps the old red/blue/yellow meaning semantically.
  */
 const toneIcons: Record<FaqTone, typeof Info> = {
@@ -31,40 +26,29 @@ export function Faq() {
                     {faq.heading}
                 </SubsectionHeader>
 
-                <Accordion type="single" collapsible className="border-t lg:col-span-8">
-                    {faq.visible.map((item, index) => {
+                <dl className="border-t lg:col-span-8">
+                    {faq.visible.map((item) => {
                         const Icon = toneIcons[item.tone];
                         return (
-                            <AccordionItem
-                                key={item.question}
-                                value={`item-${index}`}
-                                className="border-b"
-                            >
-                                <AccordionTrigger className="font-kanit py-6 text-left text-[clamp(1.25rem,1.1rem+0.5vw,1.5rem)] leading-snug font-bold hover:no-underline **:data-[slot=accordion-trigger-icon]:mt-1.5 **:data-[slot=accordion-trigger-icon]:size-5">
+                            <div key={item.question} className="border-b py-6">
+                                <dt className="font-kanit text-[clamp(1.25rem,1.1rem+0.5vw,1.5rem)] leading-snug font-bold">
                                     {item.question}
-                                </AccordionTrigger>
-                                {/*
-                                    forceMount keeps the answer in the DOM while collapsed.
-                                    Without it the answers exist only in the RSC payload, so
-                                    they are absent from the static HTML.
-                                */}
-                                <AccordionContent forceMount>
-                                    <p className="text-muted-foreground flex max-w-[62ch] items-start gap-3 pb-4 text-base leading-relaxed">
-                                        <Icon
-                                            className={
-                                                item.tone === 'no'
-                                                    ? 'text-destructive mt-1 size-4 shrink-0'
-                                                    : 'text-primary mt-1 size-4 shrink-0'
-                                            }
-                                            aria-hidden
-                                        />
-                                        {item.answer}
-                                    </p>
-                                </AccordionContent>
-                            </AccordionItem>
+                                </dt>
+                                <dd className="text-muted-foreground mt-3 flex max-w-[62ch] items-start gap-3 leading-relaxed">
+                                    <Icon
+                                        className={
+                                            item.tone === 'no'
+                                                ? 'text-destructive mt-1 size-4 shrink-0'
+                                                : 'text-primary mt-1 size-4 shrink-0'
+                                        }
+                                        aria-hidden
+                                    />
+                                    {item.answer}
+                                </dd>
+                            </div>
                         );
                     })}
-                </Accordion>
+                </dl>
             </Container>
         </div>
     );

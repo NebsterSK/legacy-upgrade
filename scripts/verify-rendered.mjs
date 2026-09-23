@@ -30,8 +30,6 @@ const NOT_RENDERED = [
     /^(SquareTerminal|LayoutDashboard|Link|Bot|Workflow|RefreshCw|Gauge|Scissors|Hammer|MessageCircle|ClipboardList|MonitorPlay|Code|Presentation|RotateCcw|Clock|Check|User|Mail|Phone|MessageSquare|MapPin|Building2|Linkedin|Github)$/,
     /^(website|en_US|summary_large_image|G-BECNN06810|%s \| Legacy Upgrade)$/,
     /^https:\/\/legacy-upgrade\.com$/,
-    // Only rendered once dark mode is active, i.e. never in the prerendered HTML.
-    /^Light$/,
 ];
 
 const skip = (s) => NOT_RENDERED.some((re) => re.test(s)) || s.length < 3;

@@ -13,26 +13,20 @@
  * pass, NOT here.
  */
 
-/** The `<i>` icon + colour on each visible answer, kept as a semantic tone. */
-export type FaqTone = 'no' | 'info' | 'maybe';
-
 export const faq = {
     heading: 'Frequently Asked Questions',
 
     visible: [
         {
-            tone: 'no' as FaqTone,
             question:
                 'Do you work with Wix / Webflow / Squarespace / Framer / Wordpress / Drupal / Joomla or similar?',
             answer: "No. I know how to code and I use that knowledge to my advantage in building custom software solutions based on my client's needs.",
         },
         {
-            tone: 'info' as FaqTone,
             question: 'Can you make me a BEAUTIFUL website?',
             answer: "I prefer to make GOOD websites that don't take seconds to load, don't crash and are maintainable for the long future.",
         },
         {
-            tone: 'maybe' as FaqTone,
             question: 'Can you fix my website ASAP?',
             answer: 'No. Well... maybe. Yes, but it will cost you extra.',
         },

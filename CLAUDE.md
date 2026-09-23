@@ -70,9 +70,10 @@ providers, metadata, and JSON-LD are in `src/app/layout.tsx`. Smooth scrolling i
 
 ## Styling Architecture
 
-- **`src/app/globals.css`** — Tailwind entry, `@theme inline` token mapping, and three
-  project-specific base rules (`section[id]` scroll margin, `scroll-behavior: smooth`, and a
-  `prefers-reduced-motion` escape hatch). Contains **no colour values**.
+- **`src/app/globals.css`** — Tailwind entry, `@theme inline` token mapping, and two
+  project-specific base rules (`section[id]` scroll margin and `scroll-behavior: smooth`).
+  Motion is **not** gated on `prefers-reduced-motion` anywhere: the owner wants every visitor
+  to get the same animations. Contains **no colour values**.
 - **`src/app/themes/*.css`** — the `:root` / `.dark` token blocks. Swap the single `@import` in
   `globals.css` to change theme: `neutral` (active), `brand`, `slate`.
 - **Fonts** — `--font-kanit` from `next/font/local`; `--font-heading` points at it, `--font-sans` is

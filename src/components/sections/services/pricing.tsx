@@ -1,86 +1,106 @@
 import { Check } from 'lucide-react';
 
-import { SubsectionHeader } from '@/components/section-header';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Container, SubsectionHeader } from '@/components/section-header';
 import { pricing } from '@/content';
 import { getIcon } from '@/lib/icons';
 import { cn } from '@/lib/utils';
 
 /**
- * Ported from `source/index.blade.php:179-239`.
- *
- * The featured tier keeps the old `ring-2` emphasis rather than gaining a Badge: a badge
- * needs a label, and any label would be new user-visible copy the freeze does not allow.
+ * Two prices, stated plainly. The featured tier takes the brand drench (the same blue as
+ * the hero) so emphasis comes from commitment, not from a badge, which would need new copy.
+ * The price is the largest thing in each block: the copy is blunt about money, so the
+ * design doesn't bury the number under the feature list.
  */
 export function Pricing() {
     return (
-        <div className="py-16">
-            <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div className="bg-muted py-[clamp(4.5rem,3rem+6vw,8rem)]">
+            <Container>
                 <SubsectionHeader>{pricing.heading}</SubsectionHeader>
 
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <div className="mt-10 grid gap-5 md:grid-cols-2">
                     {pricing.tiers.map((tier) => {
                         const Icon = getIcon(tier.icon);
                         return (
-                            <Card
+                            <div
                                 key={tier.title}
                                 className={cn(
-                                    'flex flex-col',
-                                    tier.featured && 'ring-primary ring-2'
+                                    'flex flex-col rounded-(--radius) p-8 sm:p-10',
+                                    tier.featured
+                                        ? 'bg-brand text-brand-foreground'
+                                        : 'bg-card text-card-foreground border'
                                 )}
                             >
-                                <CardContent className="flex grow flex-col">
-                                    <div className="mb-4 flex items-center gap-3">
-                                        <div className="bg-muted flex size-10 items-center justify-center rounded-full">
-                                            <Icon className="size-5" aria-hidden />
-                                        </div>
-                                        <h4 className="text-lg font-bold">{tier.title}</h4>
-                                    </div>
+                                <div className="flex items-center gap-3">
+                                    <Icon
+                                        className={cn(
+                                            'size-6',
+                                            tier.featured
+                                                ? 'text-brand-muted-foreground'
+                                                : 'text-primary'
+                                        )}
+                                        strokeWidth={1.75}
+                                        aria-hidden
+                                    />
+                                    <h4 className="text-lg font-bold">{tier.title}</h4>
+                                </div>
 
-                                    <p className="text-2xl font-bold">{tier.price}</p>
-
+                                <p className="mt-8 flex flex-wrap items-baseline gap-x-3">
+                                    <span className="font-kanit text-[clamp(3rem,2.4rem+2.4vw,4.25rem)] leading-none font-bold tracking-[-0.02em]">
+                                        {tier.price}
+                                    </span>
                                     {tier.priceNote && (
-                                        <p className="text-muted-foreground mt-1 text-sm">
+                                        <span
+                                            className={cn(
+                                                'text-lg',
+                                                tier.featured
+                                                    ? 'text-brand-muted-foreground'
+                                                    : 'text-muted-foreground'
+                                            )}
+                                        >
                                             {tier.priceNote}
-                                        </p>
+                                        </span>
                                     )}
+                                </p>
 
-                                    <div className="mb-6" />
+                                {tier.features.length > 0 && (
+                                    <ul className="mt-8 space-y-3">
+                                        {tier.features.map((feature) => (
+                                            <li key={feature} className="flex items-start gap-3">
+                                                <Check
+                                                    className="text-brand-muted-foreground mt-1 size-4 shrink-0"
+                                                    strokeWidth={3}
+                                                    aria-hidden
+                                                />
+                                                {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
 
-                                    {tier.features.length > 0 && (
-                                        <ul className="text-muted-foreground mb-6 space-y-2 text-sm">
-                                            {tier.features.map((feature) => (
-                                                <li key={feature} className="flex items-start gap-2">
-                                                    <Check
-                                                        className="mt-0.5 size-4 shrink-0"
-                                                        aria-hidden
-                                                    />
-                                                    {feature}
-                                                </li>
-                                            ))}
-                                        </ul>
+                                {tier.body && (
+                                    <p className="text-muted-foreground mt-8 max-w-[48ch] leading-relaxed">
+                                        {tier.body}
+                                    </p>
+                                )}
+
+                                <div className="mt-auto pt-10">
+                                <a
+                                    href={tier.cta.href}
+                                    className={cn(
+                                        'inline-flex h-12 items-center justify-center rounded-(--radius) px-6 font-bold transition-transform duration-200 outline-none hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-offset-2',
+                                        tier.featured
+                                            ? 'bg-brand-foreground text-brand focus-visible:ring-brand-foreground focus-visible:ring-offset-brand'
+                                            : 'bg-primary text-primary-foreground focus-visible:ring-ring focus-visible:ring-offset-card'
                                     )}
-
-                                    {tier.body && (
-                                        <p className="text-muted-foreground mb-6 text-sm">
-                                            {tier.body}
-                                        </p>
-                                    )}
-
-                                    <Button
-                                        asChild
-                                        variant={tier.featured ? 'default' : 'outline'}
-                                        className="mt-auto w-full"
-                                    >
-                                        <a href={tier.cta.href}>{tier.cta.label}</a>
-                                    </Button>
-                                </CardContent>
-                            </Card>
+                                >
+                                    {tier.cta.label}
+                                </a>
+                                </div>
+                            </div>
                         );
                     })}
                 </div>
-            </div>
+            </Container>
         </div>
     );
 }

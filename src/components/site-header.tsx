@@ -4,6 +4,7 @@ import { Menu } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 import { ThemeToggle } from '@/components/theme-toggle';
+import { UpgradeMark } from '@/components/upgrade-arrow';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { nav } from '@/content';
 import { useActiveSection } from '@/hooks/use-active-section';
@@ -38,17 +39,21 @@ export function SiteHeader() {
         <header
             ref={headerRef}
             className={cn(
-                'bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50 border-b backdrop-blur transition-shadow',
-                scrolled && 'shadow-sm'
+                'bg-background sticky top-0 z-50 border-b border-transparent transition-[border-color,box-shadow] duration-300',
+                scrolled && 'border-border shadow-[0_1px_0_0_var(--border)]'
             )}
         >
-            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-                <a href="#home" className="font-kanit text-xl">
+            <div className="mx-auto flex h-(--header-height) w-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+                <a
+                    href="#home"
+                    className="font-kanit flex items-center gap-2.5 text-lg font-normal"
+                >
+                    <UpgradeMark className="size-7 rounded-[3px]" />
                     {nav.brand}
                 </a>
 
-                <div className="hidden items-center gap-6 md:flex">
-                    <nav className="flex items-center gap-6">
+                <div className="hidden h-full items-center gap-8 md:flex">
+                    <nav className="flex h-full items-center gap-7">
                         {nav.items.map((item) => (
                             <a
                                 key={item.href}
@@ -57,9 +62,9 @@ export function SiteHeader() {
                                     active === item.href.replace('#', '') ? 'true' : undefined
                                 }
                                 className={cn(
-                                    'text-sm transition-colors',
+                                    'flex h-full items-center border-y-2 border-transparent text-[0.9375rem] font-medium transition-colors',
                                     active === item.href.replace('#', '')
-                                        ? 'text-foreground font-semibold'
+                                        ? 'text-foreground border-b-primary'
                                         : 'text-muted-foreground hover:text-foreground'
                                 )}
                             >

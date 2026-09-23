@@ -1,6 +1,26 @@
 # Theming
 
-## Swapping the theme
+## Redesign branch: base + palette + dosage
+
+On `redesign/impeccable` the theme is three imports in `src/app/globals.css`:
+
+```css
+@import "./themes/upgrade.css";            /* neutral base: white / cool grey / ink */
+@import "./themes/palettes/tighten.css";   /* tighten | harbour | dusk */
+@import "./themes/dosage-bands.css";       /* bands | neutral */
+```
+
+- **Palette** owns `--primary` and the colour kits: `brand` (hero, featured price),
+  `second` (Technology band), `deep` (Contact + footer), and three pastel
+  `tint-1..3` chip grounds, each with an `-ink` for text and icons on it.
+- **Dosage** decides how many sections the kits colour. `bands` uses them as-is;
+  `neutral` collapses `second` and `deep` onto the grey surfaces.
+
+`tighten` + `bands` is the chosen combination (matte slate blue, dusty plum, navy;
+rose / lavender / sky pastels), modelled on jigsaw.tighten.com. Every text pair in
+all three palettes is ≥ 4.5:1 in both light and dark.
+
+## Swapping the theme (master)
 
 One line, in `src/app/globals.css`:
 

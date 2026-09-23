@@ -14,14 +14,41 @@
  * references semantic tokens (bg-background, text-muted-foreground, …).
  * See THEMING.md.
  * ------------------------------------------------------------------ */
-@import "./themes/neutral.css";
+@import "./themes/upgrade.css";
+@import "./themes/palettes/tighten.css"; /* tighten | harbour | dusk */
+@import "./themes/dosage-bands.css"; /* bands | neutral */
 
 @theme inline {
     /* Kanit is self-hosted via next/font/local, which sets --font-kanit on <html>.
        Body copy stays on the system stack, matching the old site's `body` rule. */
     --font-kanit: var(--font-kanit);
     --font-heading: var(--font-kanit);
-    --font-sans: system-ui, -apple-system, sans-serif;
+    --font-sans: "Overpass", system-ui, -apple-system, sans-serif;
+    --color-brand: var(--brand);
+    --color-brand-foreground: var(--brand-foreground);
+    --color-brand-muted-foreground: var(--brand-muted-foreground);
+    --color-brand-deep: var(--brand-deep);
+    --color-brand-line: var(--brand-line);
+    --color-second: var(--second);
+    --color-second-foreground: var(--second-foreground);
+    --color-second-muted-foreground: var(--second-muted-foreground);
+    --color-second-line: var(--second-line);
+    --color-second-accent: var(--second-accent);
+    --color-deep: var(--deep);
+    --color-deep-foreground: var(--deep-foreground);
+    --color-deep-muted-foreground: var(--deep-muted-foreground);
+    --color-deep-plate: var(--deep-plate);
+    --color-deep-line: var(--deep-line);
+    --color-deep-accent: var(--deep-accent);
+    --color-tint-1: var(--tint-1);
+    --color-tint-1-ink: var(--tint-1-ink);
+    --color-tint-2: var(--tint-2);
+    --color-tint-2-ink: var(--tint-2-ink);
+    --color-tint-3: var(--tint-3);
+    --color-tint-3-ink: var(--tint-3-ink);
+    --color-plate: var(--plate);
+    --color-plate-inverse: var(--plate-inverse);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -62,6 +89,31 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/*
+ * Overpass: body face. Drawn from Highway Gothic, the road-signage face, which is the
+ * register this redesign lives in (plain, legible at a glance, built to be read by
+ * someone in a hurry). Variable weight, split into latin + latin-ext so the Slovak
+ * diacritics (š, č, ž) come from the same family. url() is relative, so Turbopack
+ * hashes both files like any other static asset.
+ */
+@font-face {
+    font-family: "Overpass";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("../assets/fonts/overpass-latin-wght-normal.woff2") format("woff2-variations");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "Overpass";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("../assets/fonts/overpass-latin-ext-wght-normal.woff2") format("woff2-variations");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -83,19 +135,110 @@
  * `--primary-l/c/h` palette. None of it is ported (plan.md Task 3).
  * ------------------------------------------------------------------ */
 @layer base {
-    /* Anchor sections must clear the sticky header when scrolled to. */
-    section[id] {
-        scroll-margin-top: 4rem;
+    /* One source for the sticky header's height: the header uses it for its own height,
+       and anchor sections use it to land flush under the header (no gap, no overlap). */
+    :root {
+        --header-height: 4rem;
     }
 
-    /* Replaces the 47-line hand-written easing scroller in main.js. */
+    /* +1px: the header's bottom border sits outside its content height. */
+    section[id] {
+        scroll-margin-top: calc(var(--header-height) + 1px);
+    }
+
+    /* <SmoothAnchors> focuses the section it scrolled to, for keyboard users; a ring
+       around the whole section would just be noise. */
+    section[id]:focus {
+        outline: none;
+    }
+
+    body {
+        font-size: 1.0625rem;
+        line-height: 1.6;
+        font-kerning: normal;
+    }
+
+    h1,
+    h2,
+    h3 {
+        text-wrap: balance;
+    }
+
+    p {
+        text-wrap: pretty;
+    }
+
+    /* Browser surfaces carry the palette too: selection is the brand drench,
+       the caret and native controls take the brand blue, scrollbars sit on the page. */
+    ::selection {
+        background-color: var(--brand);
+        color: var(--brand-foreground);
+    }
+
+    html {
+        accent-color: var(--primary);
+        caret-color: var(--primary);
+        scrollbar-color: var(--muted-foreground) var(--background);
+    }
+
+    a {
+        text-underline-offset: 0.2em;
+    }
+
+    /*
+     * Fallback only (e.g. a link opened with a #hash). In-page clicks are animated by
+     * <SmoothAnchors>, because browsers drop this rule when the OS animation setting is off.
+     *
+     * Motion is deliberately NOT gated on prefers-reduced-motion anywhere on this site:
+     * the owner's decision (2026-09-23) is that every visitor gets the same animations.
+     * Don't reintroduce a reduced-motion override without asking.
+     */
     html {
         scroll-behavior: smooth;
     }
+}
 
-    @media (prefers-reduced-motion: reduce) {
-        html {
-            scroll-behavior: auto;
-        }
+/*
+ * The one orchestrated entrance: on load the hero portrait rises into place while the
+ * arrow motif pushes up from below. The hero text and buttons are static.
+ * CSS keyframes, not a JS-toggled class, so it runs in the static HTML with no
+ * hydration dependency. Everything else on the page is still; motion is spent here.
+ * Runs for everyone, reduced-motion preference included (see the note on html above).
+ */
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(0.75rem);
     }
+}
+
+@keyframes lift {
+    from {
+        transform: translateY(14%);
+    }
+}
+
+@utility rise {
+    animation: rise 800ms var(--ease-out-expo) both;
+    animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+@utility lift {
+    animation: lift 1400ms var(--ease-out-expo) both;
+}
+
+/*
+ * Tech Stack diagram: short packets travel along the wires in the direction of the flow
+ * (Tailwind toward the databases). Sparse and slow, so it reads as data moving through
+ * a circuit, not as a loading spinner. Offset per cycle = one dash period (4 + 24).
+ */
+@keyframes flow-dash {
+    to {
+        stroke-dashoffset: -28;
+    }
+}
+
+.flow-line {
+    stroke-dasharray: 4 24;
+    animation: flow-dash 1.4s linear infinite;
 }

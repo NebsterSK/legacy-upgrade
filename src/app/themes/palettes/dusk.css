@@ -1,0 +1,69 @@
+/**
+ * PALETTE: dusk — cooler and moodier.
+ * Matte steel blue leads, a muted berry rose is the second voice, midnight closes the
+ * page. Pastels (rose, sea-glass teal, periwinkle) as accents.
+ */
+:root,
+.theme-light {
+    --primary: #4d6b96;
+    --primary-foreground: #ffffff;
+    --ring: #4d6b96;
+
+    --brand: #4d6b96;
+    --brand-foreground: #ffffff;
+    --brand-muted-foreground: #ebf0f7;
+    --brand-deep: #3e577c;
+    --brand-line: #6582ad;
+
+    --second: #94546a;
+    --second-foreground: #ffffff;
+    --second-muted-foreground: #fbedf1;
+    --second-line: #a96c81;
+    --second-accent: #e2f3f0;
+
+    --deep: #1c2438;
+    --deep-foreground: #f2f4f9;
+    --deep-muted-foreground: #bac1d4;
+    --deep-plate: #151b2b;
+    --deep-line: #2f3a55;
+    --deep-accent: #cfe9e5;
+
+    --tint-1: #f3d8df;
+    --tint-1-ink: #8b3a51;
+    --tint-2: #d0e9e5;
+    --tint-2-ink: #1f5f58;
+    --tint-3: #dde1f7;
+    --tint-3-ink: #3c4a8c;
+}
+
+.dark {
+    --primary: #99b0d6;
+    --primary-foreground: #121b2b;
+    --ring: #99b0d6;
+
+    --brand: #34496b;
+    --brand-foreground: #f2f4f9;
+    --brand-muted-foreground: #cbd5e6;
+    --brand-deep: #2a3b58;
+    --brand-line: #465f87;
+
+    --second: #6b3b4c;
+    --second-foreground: #fbf2f5;
+    --second-muted-foreground: #ebd0da;
+    --second-line: #82495e;
+    --second-accent: #b7ddd7;
+
+    --deep: #141a29;
+    --deep-foreground: #eef1f7;
+    --deep-muted-foreground: #aeb5c9;
+    --deep-plate: #0f1420;
+    --deep-line: #262f47;
+    --deep-accent: #b7ddd7;
+
+    --tint-1: #4b2a35;
+    --tint-1-ink: #f1c8d4;
+    --tint-2: #1c3d39;
+    --tint-2-ink: #b3e0d9;
+    --tint-3: #2b3159;
+    --tint-3-ink: #cdd3f5;
+}

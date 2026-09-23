@@ -9,7 +9,8 @@ export const clients = {
             links: [{ label: 'meetbrackets.com', href: 'https://meetbrackets.com/' }],
         },
         {
-            logos: [{ file: 'remam.webp', alt: 'RemaM' }],
+            /** White wordmark on transparent: needs a dark plate behind it or it vanishes. */
+            logos: [{ file: 'remam.webp', alt: 'RemaM', inverse: true }],
             body: 'A custom e-commerce platform for a Slovak importer and distributor of leatherworking, shoemaking, and craft materials. Built to serve wholesale and retail customers.',
             links: [{ label: 'remam.sk', href: 'https://remam.sk/' }],
         },

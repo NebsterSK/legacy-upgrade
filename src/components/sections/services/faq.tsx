@@ -1,4 +1,5 @@
 import { Container, SubsectionHeader } from '@/components/section-header';
+import { QuestionGlyph } from '@/components/upgrade-arrow';
 import { faq } from '@/content';
 
 /**
@@ -10,12 +11,19 @@ import { faq } from '@/content';
  * also means the answers are in the static HTML without any forceMount workaround.
  */
 export function Faq() {
+    // overflow-clip, not overflow-hidden: hidden makes this div a scroll container, which
+    // traps the sticky heading inside it. clip crops the glyph without that side effect.
     return (
-        <div className="py-[clamp(4.5rem,3rem+6vw,8rem)]">
+        <div className="relative isolate overflow-clip py-[clamp(4.5rem,3rem+6vw,8rem)]">
+            <QuestionGlyph className="text-tint-2 absolute bottom-[6%] -left-[10%] -z-10 w-[min(26rem,70vw)] md:-left-[2%]" />
+
             <Container className="grid gap-10 lg:grid-cols-12">
-                <SubsectionHeader className="max-w-[14ch] lg:col-span-4">
-                    {faq.heading}
-                </SubsectionHeader>
+                {/* From lg up the heading sticks while the questions scroll past, like Services. */}
+                <div className="lg:col-span-4">
+                    <SubsectionHeader className="max-w-[14ch] lg:sticky lg:top-28">
+                        {faq.heading}
+                    </SubsectionHeader>
+                </div>
 
                 <dl className="border-t lg:col-span-8">
                     {faq.visible.map((item) => (

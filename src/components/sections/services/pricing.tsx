@@ -1,6 +1,7 @@
 import { Check } from 'lucide-react';
 
-import { Container, SubsectionHeader } from '@/components/section-header';
+import { Container, SectionHeader } from '@/components/section-header';
+import { EuroGlyph } from '@/components/upgrade-arrow';
 import { pricing } from '@/content';
 import { getIcon } from '@/lib/icons';
 import { cn } from '@/lib/utils';
@@ -13,9 +14,11 @@ import { cn } from '@/lib/utils';
  */
 export function Pricing() {
     return (
-        <div className="bg-muted py-[clamp(4.5rem,3rem+6vw,8rem)]">
+        <div className="bg-muted relative isolate overflow-hidden py-[clamp(4.5rem,3rem+6vw,8rem)]">
+            <EuroGlyph className="text-tint-3 absolute -top-[12%] -right-[10%] -z-10 w-[min(44rem,95vw)] md:-right-[4%]" />
+
             <Container>
-                <SubsectionHeader>{pricing.heading}</SubsectionHeader>
+                <SectionHeader>{pricing.heading}</SectionHeader>
 
                 <div className="mt-10 grid gap-5 md:grid-cols-2">
                     {pricing.tiers.map((tier) => {

@@ -64,7 +64,8 @@ npm run verify:deploy    # out/ is safe to upload (run after build)
 ## Site Structure
 
 One route (`/`) plus `not-found`. Sections live in `src/components/sections/` and are assembled by
-`src/app/page.tsx` with anchor IDs (`#home`, `#services`, `#technology`, `#contact`). Header, footer,
+`src/app/(site)/page.tsx` with anchor IDs (`#home`, `#services`, `#pricing`, `#technology`,
+`#contact`), one per nav item. Header, footer,
 providers, metadata, and JSON-LD are in `src/app/layout.tsx`. Smooth scrolling is CSS
 (`scroll-behavior`), and the scroll-spy is `src/hooks/use-active-section.ts`.
 

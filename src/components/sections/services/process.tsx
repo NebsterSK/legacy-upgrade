@@ -46,7 +46,11 @@ export function Process() {
 
                                 <div
                                     className={cn(
-                                        'col-start-2 row-start-1 max-w-[30rem] pb-14 md:pb-24',
+                                        // The bottom padding is the gap to the next step (and where the
+                                        // spine runs); the last step has none, or it would stack on top of
+                                        // the section's own padding.
+                                        'col-start-2 row-start-1 max-w-[30rem]',
+                                        !last && 'pb-14 md:pb-24',
                                         left
                                             ? 'md:col-start-1 md:justify-self-end md:text-right'
                                             : 'md:col-start-3'

@@ -81,7 +81,7 @@ check('.htaccess caches assets immutably', /max-age=31536000, immutable/.test(ht
 /* Content ----------------------------------------------------------------- */
 
 check('both JSON-LD blocks present', (html.match(/application\/ld\+json/g) ?? []).length >= 2);
-check('all four sections present', ['home', 'services', 'technology', 'contact'].every((id) => html.includes(`id="${id}"`)));
+check('all five sections present', ['home', 'services', 'pricing', 'technology', 'contact'].every((id) => html.includes(`id="${id}"`)));
 check('footer year is NOT baked in', !/©\s*<\/?[^>]*>?\s*20\d\d/.test(html));
 
 /* Report ------------------------------------------------------------------ */

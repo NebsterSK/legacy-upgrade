@@ -3,6 +3,8 @@ import { Check } from 'lucide-react';
 import { Container, SectionHeader } from '@/components/section-header';
 import { EuroGlyph } from '@/components/upgrade-arrow';
 import { pricing } from '@/content';
+import { cta } from '@/lib/cta';
+import { PARALLAX_DRIFT } from '@/lib/parallax';
 import { getIcon } from '@/lib/icons';
 import { cn } from '@/lib/utils';
 
@@ -14,8 +16,11 @@ import { cn } from '@/lib/utils';
  */
 export function Pricing() {
     return (
-        <div className="bg-muted relative isolate overflow-hidden py-[clamp(4.5rem,3rem+6vw,8rem)]">
-            <EuroGlyph className="text-tint-3 absolute -top-[12%] -right-[10%] -z-10 w-[min(44rem,95vw)] md:-right-[4%]" />
+        <div className="parallax-scope bg-muted relative isolate overflow-hidden py-section">
+            <EuroGlyph
+                className="parallax text-brand-tint absolute -top-[12%] -right-[10%] -z-10 w-[min(44rem,95vw)] md:-right-[4%]"
+                style={PARALLAX_DRIFT}
+            />
 
             <Container>
                 <SectionHeader>{pricing.heading}</SectionHeader>
@@ -27,7 +32,7 @@ export function Pricing() {
                             <div
                                 key={tier.title}
                                 className={cn(
-                                    'flex flex-col rounded-(--radius) p-8 sm:p-10',
+                                    'flex flex-col rounded-lg p-8 sm:p-10',
                                     tier.featured
                                         ? 'bg-brand text-brand-foreground'
                                         : 'bg-card text-card-foreground border'
@@ -44,11 +49,11 @@ export function Pricing() {
                                         strokeWidth={1.75}
                                         aria-hidden
                                     />
-                                    <h4 className="text-lg font-bold">{tier.title}</h4>
+                                    <h3 className="text-lg font-bold">{tier.title}</h3>
                                 </div>
 
                                 <p className="mt-8 flex flex-wrap items-baseline gap-x-3">
-                                    <span className="font-kanit text-[clamp(3rem,2.4rem+2.4vw,4.25rem)] leading-none font-bold tracking-[-0.02em]">
+                                    <span className="font-kanit text-h2 leading-none font-bold">
                                         {tier.price}
                                     </span>
                                     {tier.priceNote && (
@@ -81,23 +86,18 @@ export function Pricing() {
                                 )}
 
                                 {tier.body && (
-                                    <p className="text-muted-foreground mt-8 max-w-[48ch] leading-relaxed">
+                                    <p className="text-muted-foreground mt-8 max-w-prose leading-relaxed">
                                         {tier.body}
                                     </p>
                                 )}
 
                                 <div className="mt-auto pt-10">
-                                <a
-                                    href={tier.cta.href}
-                                    className={cn(
-                                        'inline-flex h-12 items-center justify-center rounded-(--radius) px-6 font-bold transition-transform duration-200 outline-none hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-offset-2',
-                                        tier.featured
-                                            ? 'bg-brand-foreground text-brand focus-visible:ring-brand-foreground focus-visible:ring-offset-brand'
-                                            : 'bg-primary text-primary-foreground focus-visible:ring-ring focus-visible:ring-offset-card'
-                                    )}
-                                >
-                                    {tier.cta.label}
-                                </a>
+                                    <a
+                                        href={tier.cta.href}
+                                        className={tier.featured ? cta.solidOnBrand : cta.solid}
+                                    >
+                                        {tier.cta.label}
+                                    </a>
                                 </div>
                             </div>
                         );

@@ -12,9 +12,6 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // Legacy Jigsaw toolchain — removed in Task 14 of plan.md.
-    "vendor/**",
-    "source/**",
     "build_local/**",
     "build_production/**",
   ]),

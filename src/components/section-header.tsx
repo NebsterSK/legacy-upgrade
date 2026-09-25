@@ -11,7 +11,7 @@ export function SectionHeader({ children, className }: { children: ReactNode; cl
     return (
         <h2
             className={cn(
-                'font-kanit text-[clamp(2.5rem,1.6rem+3.6vw,4.5rem)] leading-[0.95] font-bold tracking-[-0.02em]',
+                'font-kanit text-h2 font-bold',
                 className
             )}
         >
@@ -30,7 +30,7 @@ export function SubsectionHeader({
     return (
         <h3
             className={cn(
-                'font-kanit text-[clamp(1.75rem,1.3rem+1.6vw,2.625rem)] leading-[1.05] font-bold tracking-[-0.015em]',
+                'font-kanit text-h3 font-bold',
                 className
             )}
         >

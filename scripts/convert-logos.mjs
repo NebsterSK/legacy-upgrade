@@ -8,7 +8,7 @@ const SIZES = [64, 128, 256, 512];
 
 // SRC_DIR is not committed — drop original logo files there before running.
 // Note: nothing currently references the `-{64,128,256,512}w.avif` output; the
-// page uses the plain svg/webp/png files. See plan.md "Open questions".
+// page uses the plain svg/webp/png files.
 let files;
 try {
     files = await readdir(SRC_DIR);

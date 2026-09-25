@@ -25,7 +25,7 @@ export function SiteFooter() {
                                     href={item.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="focus-visible:ring-deep-foreground inline-flex items-center gap-1 rounded-sm font-semibold underline-offset-4 outline-none hover:underline focus-visible:ring-2"
+                                    className="focus-visible:ring-deep-foreground decoration-deep-foreground/30 hover:decoration-deep-accent hover:text-deep-accent inline-flex items-center gap-1 rounded-sm font-semibold underline decoration-2 transition-[color,text-decoration-color] duration-200 outline-none focus-visible:ring-2"
                                 >
                                     {item.label}
                                     <ArrowUpRight className="size-4" aria-hidden />
@@ -45,9 +45,9 @@ export function SiteFooter() {
                     <a
                         href={footer.logoHref}
                         aria-label={footer.logoAlt}
-                        className="group focus-visible:ring-deep-foreground rounded-[4px] outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-(--deep-plate)"
+                        className="group focus-visible:ring-deep-foreground rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-deep-plate"
                     >
-                        <UpgradeMark className="size-11 rounded-[4px] transition-transform duration-300 ease-(--ease-out-expo) group-hover:-translate-y-1" />
+                        <UpgradeMark className="size-11 transition-transform duration-300 ease-(--ease-out-expo) group-hover:-translate-y-1" />
                     </a>
                 </div>
             </Container>

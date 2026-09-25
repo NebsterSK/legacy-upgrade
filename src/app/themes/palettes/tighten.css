@@ -8,6 +8,7 @@
 .theme-light {
     --primary: #3c6492;
     --primary-foreground: #ffffff;
+    --primary-hover: #2f5079;
     --ring: #3c6492;
 
     --brand: #3c6492;
@@ -15,6 +16,7 @@
     --brand-muted-foreground: #dbe5f1;
     --brand-deep: #2f5079;
     --brand-line: #5479a3;
+    --brand-tint: #d3dfee;
 
     --second: #7d4a86;
     --second-foreground: #ffffff;
@@ -40,6 +42,7 @@
 .dark {
     --primary: #8fb0d8;
     --primary-foreground: #0f1c2e;
+    --primary-hover: #c6d8f1;
     --ring: #8fb0d8;
 
     --brand: #2d4a6e;
@@ -47,6 +50,7 @@
     --brand-muted-foreground: #c9d7e8;
     --brand-deep: #223a58;
     --brand-line: #3b5a82;
+    --brand-tint: #22344f;
 
     --second: #5a3562;
     --second-foreground: #f7f0f8;

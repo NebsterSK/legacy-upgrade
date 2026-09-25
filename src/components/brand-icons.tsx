@@ -6,7 +6,7 @@ import type { SVGProps } from 'react';
  * not take another dependency for two icons.
  *
  * Messenger and WhatsApp deliberately still use generic lucide icons in the Contact
- * section; see plan.md Task 7 outcome.
+ * section.
  */
 
 type IconProps = SVGProps<SVGSVGElement>;

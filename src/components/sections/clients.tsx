@@ -14,11 +14,11 @@ import { cn } from '@/lib/utils';
  */
 export function Clients() {
     return (
-        <div className="pb-[clamp(4rem,3rem+5vw,7rem)]">
+        <div className="pb-section">
             <Container>
                 <SubsectionHeader>{clients.heading}</SubsectionHeader>
 
-                <ul className="mt-8 border-b">
+                <ul className="mt-10 border-b">
                     {clients.items.map((item) => (
                         <li
                             key={item.body}
@@ -26,7 +26,7 @@ export function Clients() {
                         >
                             <div
                                 className={cn(
-                                    'flex h-24 items-center justify-center gap-6 rounded-(--radius) border px-6',
+                                    'flex h-24 items-center justify-center gap-6 rounded-lg border px-6',
                                     item.logos.some((logo) => 'inverse' in logo && logo.inverse)
                                         ? 'bg-plate-inverse'
                                         : 'bg-plate'
@@ -42,7 +42,7 @@ export function Clients() {
                                 ))}
                             </div>
 
-                            <p className="text-muted-foreground max-w-[62ch]">{item.body}</p>
+                            <p className="text-muted-foreground max-w-prose">{item.body}</p>
 
                             <div className="flex flex-col gap-1.5 md:col-start-2 md:flex-row md:gap-6 lg:col-start-auto lg:flex-col lg:items-end lg:gap-1.5">
                                 {item.links.map((link) => (
@@ -51,7 +51,7 @@ export function Clients() {
                                         href={link.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="group inline-flex items-center gap-1 font-semibold underline-offset-4 hover:underline"
+                                        className="decoration-foreground/30 hover:text-primary hover:decoration-primary group inline-flex items-center gap-1 font-semibold underline decoration-2 transition-[color,text-decoration-color] duration-200"
                                     >
                                         {link.label}
                                         <ArrowUpRight

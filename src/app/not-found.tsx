@@ -5,10 +5,8 @@ import { SiteHeader } from '@/components/site-header';
 import { nav } from '@/content';
 
 /**
- * Builds to `out/404.html`; Apache serves it via `ErrorDocument 404 /404.html` (Task 12).
- *
- * The one line of copy here is new to the site — the old Jigsaw build had no 404 page at
- * all — and is the single exception the copy freeze allows (plan.md Task 11).
+ * Builds to `out/404.html`; Apache serves it via `ErrorDocument 404 /404.html`
+ * (`public/.htaccess`). The old Jigsaw build had no 404 page at all.
  *
  * It sits outside the (site) route group, so it brings the header and footer itself.
  */

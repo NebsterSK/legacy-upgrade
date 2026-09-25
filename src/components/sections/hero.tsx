@@ -5,6 +5,8 @@ import { GithubIcon, LinkedinIcon } from '@/components/brand-icons';
 import { Container } from '@/components/section-header';
 import { UpgradeArrow } from '@/components/upgrade-arrow';
 import { hero, links } from '@/content';
+import { cta } from '@/lib/cta';
+import { PARALLAX_HERO } from '@/lib/parallax';
 
 const socialIcons = {
     Linkedin: LinkedinIcon,
@@ -24,19 +26,26 @@ const socialHrefs: Record<string, string> = {
  */
 export function Hero() {
     return (
-        <div className="bg-brand text-brand-foreground relative isolate overflow-hidden">
-            <UpgradeArrow className="lift text-brand-line absolute -right-[12%] -bottom-[38%] -z-10 w-[min(62rem,110vw)] opacity-60 md:-right-[6%]" />
+        <div className="parallax-scope bg-brand text-brand-foreground relative isolate overflow-hidden">
+            {/* Parallax on the wrapper, the load-time lift on the arrow: two animations, two elements. */}
+            <div
+                aria-hidden
+                className="parallax absolute -right-[12%] -bottom-[38%] -z-10 w-[min(62rem,110vw)] md:-right-[6%]"
+                style={PARALLAX_HERO}
+            >
+                <UpgradeArrow className="lift text-brand-line w-full opacity-60" />
+            </div>
 
             <Container className="grid items-end gap-12 pt-14 pb-16 md:grid-cols-12 md:gap-8 md:pt-24 md:pb-24">
                 <div className="md:col-span-7">
                     <h1
-                        className="font-kanit text-[clamp(3.25rem,1.9rem+6vw,6rem)] leading-[0.92] font-bold tracking-[-0.03em]"
+                        className="font-kanit text-display font-bold"
                     >
                         {hero.name}
                     </h1>
 
                     <p
-                        className="text-brand-muted-foreground mt-6 max-w-[26ch] text-[clamp(1.25rem,1.05rem+0.9vw,1.75rem)] leading-snug font-medium"
+                        className="text-brand-muted-foreground mt-6 max-w-[26ch] text-lead font-medium"
                     >
                         {hero.tagline}
                     </p>
@@ -46,13 +55,13 @@ export function Hero() {
                     >
                         <a
                             href={hero.ctas.primary.href}
-                            className="bg-brand-foreground text-brand focus-visible:ring-brand-foreground focus-visible:ring-offset-brand inline-flex h-13 items-center rounded-(--radius) px-7 text-base font-bold transition-transform duration-200 outline-none hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-offset-2"
+                            className={cta.solidOnBrand}
                         >
                             {hero.ctas.primary.label}
                         </a>
                         <a
                             href={hero.ctas.secondary.href}
-                            className="border-brand-foreground/70 hover:border-brand-foreground focus-visible:ring-brand-foreground focus-visible:ring-offset-brand inline-flex h-13 items-center rounded-(--radius) border-2 px-7 text-base font-bold transition-colors outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                            className={cta.outlineOnBrand}
                         >
                             {hero.ctas.secondary.label}
                         </a>
@@ -70,7 +79,7 @@ export function Hero() {
                                         rel="noopener noreferrer"
                                         title={item.label}
                                         aria-label={item.label}
-                                        className="text-brand-muted-foreground hover:text-brand-foreground focus-visible:ring-brand-foreground inline-flex size-11 items-center first:-ml-2.5 sm:first:ml-0 justify-center rounded-(--radius) transition-colors outline-none focus-visible:ring-2"
+                                        className="text-brand-muted-foreground hover:text-brand-foreground hover:bg-brand-deep focus-visible:ring-brand-foreground inline-flex size-11 items-center first:-ml-2.5 sm:first:ml-0 justify-center rounded-lg transition-colors outline-none focus-visible:ring-2"
                                     >
                                         <Icon className="size-6" />
                                     </a>
@@ -84,13 +93,13 @@ export function Hero() {
                     className="rise mx-auto w-full max-w-xs sm:max-w-sm md:col-span-5 md:mr-0 md:max-w-md"
                     style={{ '--i': 3 } as React.CSSProperties}
                 >
-                    <div className="bg-brand-foreground rounded-(--radius) p-2 shadow-2xl">
+                    <div className="bg-brand-foreground rounded-lg p-2 shadow-2xl">
                         <Image
                             src={portrait}
                             alt={hero.portraitAlt}
                             priority
                             sizes="(min-width: 768px) 28rem, 24rem"
-                            className="aspect-[5/5.4] w-full rounded-[calc(var(--radius)-2px)] object-cover"
+                            className="aspect-[5/5.4] w-full rounded-sm object-cover"
                         />
                     </div>
                 </div>

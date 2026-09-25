@@ -11,19 +11,19 @@ import { about } from '@/content';
  */
 export function About() {
     return (
-        <div className="py-[clamp(4rem,3rem+5vw,7rem)]">
+        <div className="py-section">
             <Container className="grid gap-14 md:grid-cols-2 md:gap-12 lg:gap-20">
                 {about.columns.map((column) => (
-                    <div key={column.heading} className="border-foreground border-t-[3px] pt-7">
+                    <div key={column.heading} className="border-foreground border-t-[3px] pt-8">
                         <SubsectionHeader>{column.heading}</SubsectionHeader>
 
-                        <p className="text-muted-foreground mt-5 max-w-[60ch] text-lg leading-relaxed [&_strong]:text-foreground [&_strong]:font-semibold">
+                        <p className="text-muted-foreground mt-5 max-w-prose text-lg leading-relaxed [&_strong]:text-foreground [&_strong]:font-semibold">
                             <RichText content={column.body} />
                         </p>
 
                         <a
                             href={column.link.href}
-                            className="text-primary group mt-6 inline-flex items-center gap-2 font-bold underline-offset-4 hover:underline"
+                            className="text-primary decoration-primary/30 hover:text-primary-hover hover:decoration-primary-hover group mt-6 inline-flex items-center gap-2 font-bold underline decoration-2 transition-[color,text-decoration-color] duration-200"
                         >
                             {column.link.label}
                             <ArrowDown

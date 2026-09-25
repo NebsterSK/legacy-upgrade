@@ -52,7 +52,7 @@ straightforward.
 
 ## Accessibility & Inclusion
 
-WCAG 2.2 AA. Full keyboard path through header, sections, the FAQ accordion and footer. Visible
+WCAG 2.2 AA. Full keyboard path through header, phone menu, sections and footer. Visible
 focus on every interactive element. Animations run for every visitor, regardless of `prefers-reduced-motion` (owner's decision, 2026-09-23). Content
 must be present in the static HTML (the site is a static export and is read by crawlers), so
 nothing is gated behind JavaScript.

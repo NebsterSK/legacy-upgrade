@@ -1,9 +1,5 @@
 /**
  * Shared content types.
- *
- * Copy in `src/content/` is FROZEN — see plan.md constraint #1. Every string here
- * was copied verbatim out of the Jigsaw/Blade source. Do not reword, retype, or
- * "tidy" anything; a copy pass happens separately, later.
  */
 
 /**

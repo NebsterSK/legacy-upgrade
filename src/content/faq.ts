@@ -6,11 +6,9 @@
  * - `schema`   — the 5 questions in the FAQPage JSON-LD
  *                (`source/index.blade.php:410-459`).
  *
- * The overlapping questions are worded differently in each. Both are preserved
- * verbatim per plan.md constraint #1. This mismatch is a real SEO issue (Google
- * can flag FAQPage markup whose content is not present on the page) and is
- * logged under "Open questions" in plan.md — to be resolved in the later copy
- * pass, NOT here.
+ * The overlapping questions are worded differently in each; both came over verbatim
+ * from the Jigsaw source. The mismatch is a real SEO issue (Google can flag FAQPage
+ * markup whose content is not on the page) and should be reconciled in a copy pass.
  */
 
 export const faq = {

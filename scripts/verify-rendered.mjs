@@ -9,9 +9,7 @@
  *
  *   node scripts/verify-rendered.mjs hero about clients
  *
- * Exits non-zero only if a requested module has a miss. Complements
- * scripts/verify-copy.mjs, which checks content against the legacy Blade source; this one
- * checks content against the output.
+ * Exits non-zero only if a requested module has a miss.
  */
 
 import { readFile } from 'node:fs/promises';

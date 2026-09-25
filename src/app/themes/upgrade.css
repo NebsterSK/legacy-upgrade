@@ -62,7 +62,7 @@
  * floodlight at night.
  */
 .dark {
-    --background: oklch(0.16 0.02 262);
+    --background: oklch(0.25 0.028 262);
     --foreground: oklch(0.96 0.01 262);
     --card: oklch(0.2 0.025 262);
     --card-foreground: oklch(0.96 0.01 262);
@@ -74,11 +74,11 @@
     --secondary-foreground: oklch(0.96 0.01 262);
     --muted: oklch(0.2 0.025 262);
     --muted-foreground: oklch(0.76 0.03 262);
-    --accent: oklch(0.26 0.05 262);
+    --accent: oklch(0.31 0.05 262);
     --accent-foreground: oklch(0.9 0.05 262);
     --destructive: oklch(0.7 0.18 25);
-    --border: oklch(0.3 0.03 262);
-    --input: oklch(0.32 0.03 262);
+    --border: oklch(0.34 0.03 262);
+    --input: oklch(0.36 0.03 262);
     --ring: oklch(0.74 0.13 262);
     --chart-1: oklch(0.74 0.13 262);
     --chart-2: oklch(0.64 0.15 262);

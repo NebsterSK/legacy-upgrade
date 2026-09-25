@@ -4,6 +4,7 @@ import { ContentIcon } from '@/components/content-icon';
 import { Container, SectionHeader } from '@/components/section-header';
 import { UpgradeArrow } from '@/components/upgrade-arrow';
 import { contact } from '@/content';
+import { PARALLAX_RISE } from '@/lib/parallax';
 
 /**
  * The finale: the page closes on the deep kit (navy in the bands dosage), with the
@@ -18,14 +19,17 @@ export function Contact() {
     return (
         <section
             id="contact"
-            className="bg-deep text-deep-foreground relative isolate overflow-hidden"
+            className="parallax-scope bg-deep text-deep-foreground relative isolate overflow-hidden"
         >
-            <UpgradeArrow className="text-deep-line absolute top-[6%] -right-[14%] -z-10 hidden w-[min(40rem,50vw)] opacity-50 lg:block" />
+            <UpgradeArrow
+                className="parallax text-deep-line absolute top-[3%] -right-[28%] -z-10 w-[80vw] opacity-60 sm:-right-[18%] sm:w-[60vw] lg:top-[6%] lg:-right-[14%] lg:w-[min(40rem,50vw)]"
+                style={PARALLAX_RISE}
+            />
 
-            <Container className="py-[clamp(4.5rem,3rem+6vw,8rem)]">
+            <Container className="py-section">
                 <SectionHeader>{contact.heading}</SectionHeader>
 
-                <p className="text-deep-muted-foreground mt-6 max-w-[52ch] text-xl leading-relaxed">
+                <p className="text-deep-muted-foreground mt-6 max-w-prose text-lg leading-relaxed">
                     {contact.intro}
                 </p>
 
@@ -35,6 +39,8 @@ export function Contact() {
                         {contact.person.name}
                     </p>
 
+                    {/* The one size off the type scale, on purpose: it is fitted to keep the
+                        full address on one line from a 320px phone up to display size. */}
                     <a
                         href={primary.href}
                         className="font-kanit decoration-deep-accent hover:decoration-deep-foreground focus-visible:ring-deep-foreground mt-3 inline-flex max-w-full items-center gap-3 rounded-sm text-[clamp(1.25rem,0.5rem+4vw,4rem)] leading-tight font-bold tracking-[-0.02em] underline decoration-[3px] underline-offset-[0.18em] transition-colors outline-none focus-visible:ring-2"
@@ -51,7 +57,7 @@ export function Contact() {
                                 {...(method.external
                                     ? { target: '_blank', rel: 'noopener noreferrer' }
                                     : {})}
-                                className="bg-deep-plate hover:bg-deep-accent hover:text-deep focus-visible:ring-deep-foreground inline-flex h-12 items-center gap-2.5 rounded-(--radius) px-5 font-semibold transition-colors outline-none focus-visible:ring-2"
+                                className="bg-deep-plate hover:bg-deep-accent hover:text-deep focus-visible:ring-deep-foreground inline-flex h-12 items-center gap-2.5 rounded-lg px-5 font-semibold transition-colors outline-none focus-visible:ring-2"
                             >
                                 <ContentIcon name={method.icon} className="size-4 shrink-0" />
                                 {method.label}
@@ -63,7 +69,7 @@ export function Contact() {
                     </div>
                 </div>
 
-                <div className="bg-deep-plate mt-16 grid gap-10 rounded-(--radius) p-8 sm:p-10 md:grid-cols-[1fr_2fr]">
+                <div className="bg-deep-plate mt-16 grid gap-10 rounded-lg p-8 sm:p-10 md:grid-cols-[1fr_2fr]">
                     <div>
                         <p className="flex items-center gap-2 font-bold">
                             <ContentIcon name={contact.address.icon} className="text-deep-accent size-4" />

@@ -1,0 +1,607 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-25T13:56:47.941Z",
+  "title": "Design System: Legacy Upgrade",
+  "extensions": {
+    "colorMeta": {
+      "slate-blue": {
+        "role": "primary",
+        "displayName": "Slate Blue",
+        "canonical": "#3c6492",
+        "tonalRamp": [
+          "oklch(0.15 0.09 255)",
+          "oklch(0.25 0.09 255)",
+          "oklch(0.35 0.09 255)",
+          "oklch(0.45 0.09 255)",
+          "oklch(0.55 0.09 255)",
+          "oklch(0.7 0.09 255)",
+          "oklch(0.85 0.09 255)",
+          "oklch(0.95 0.09 255)"
+        ]
+      },
+      "slate-blue-deep": {
+        "role": "primary",
+        "displayName": "Deep Slate",
+        "canonical": "#2f5079",
+        "tonalRamp": [
+          "oklch(0.15 0.08 255)",
+          "oklch(0.25 0.08 255)",
+          "oklch(0.35 0.08 255)",
+          "oklch(0.45 0.08 255)",
+          "oklch(0.55 0.08 255)",
+          "oklch(0.7 0.08 255)",
+          "oklch(0.85 0.08 255)",
+          "oklch(0.95 0.08 255)"
+        ]
+      },
+      "slate-blue-line": {
+        "role": "primary",
+        "displayName": "Slate Line",
+        "canonical": "#5479a3",
+        "tonalRamp": [
+          "oklch(0.15 0.08 255)",
+          "oklch(0.25 0.08 255)",
+          "oklch(0.35 0.08 255)",
+          "oklch(0.45 0.08 255)",
+          "oklch(0.55 0.08 255)",
+          "oklch(0.7 0.08 255)",
+          "oklch(0.85 0.08 255)",
+          "oklch(0.95 0.08 255)"
+        ]
+      },
+      "slate-blue-mist": {
+        "role": "primary",
+        "displayName": "Slate Mist",
+        "canonical": "#dbe5f1",
+        "tonalRamp": [
+          "oklch(0.15 0.03 255)",
+          "oklch(0.25 0.03 255)",
+          "oklch(0.35 0.03 255)",
+          "oklch(0.45 0.03 255)",
+          "oklch(0.55 0.03 255)",
+          "oklch(0.7 0.03 255)",
+          "oklch(0.85 0.03 255)",
+          "oklch(0.95 0.03 255)"
+        ]
+      },
+      "slate-blue-wash": {
+        "role": "primary",
+        "displayName": "Slate Wash",
+        "canonical": "#d3dfee",
+        "tonalRamp": [
+          "oklch(0.15 0.035 255)",
+          "oklch(0.25 0.035 255)",
+          "oklch(0.35 0.035 255)",
+          "oklch(0.45 0.035 255)",
+          "oklch(0.55 0.035 255)",
+          "oklch(0.7 0.035 255)",
+          "oklch(0.85 0.035 255)",
+          "oklch(0.95 0.035 255)"
+        ]
+      },
+      "dusty-plum": {
+        "role": "secondary",
+        "displayName": "Dusty Plum",
+        "canonical": "#7d4a86",
+        "tonalRamp": [
+          "oklch(0.15 0.1 320)",
+          "oklch(0.25 0.1 320)",
+          "oklch(0.35 0.1 320)",
+          "oklch(0.45 0.1 320)",
+          "oklch(0.55 0.1 320)",
+          "oklch(0.7 0.1 320)",
+          "oklch(0.85 0.1 320)",
+          "oklch(0.95 0.1 320)"
+        ]
+      },
+      "dusty-plum-mist": {
+        "role": "secondary",
+        "displayName": "Plum Mist",
+        "canonical": "#efe1f2",
+        "tonalRamp": [
+          "oklch(0.15 0.03 320)",
+          "oklch(0.25 0.03 320)",
+          "oklch(0.35 0.03 320)",
+          "oklch(0.45 0.03 320)",
+          "oklch(0.55 0.03 320)",
+          "oklch(0.7 0.03 320)",
+          "oklch(0.85 0.03 320)",
+          "oklch(0.95 0.03 320)"
+        ]
+      },
+      "plum-line": {
+        "role": "secondary",
+        "displayName": "Plum Line",
+        "canonical": "#93629b",
+        "tonalRamp": [
+          "oklch(0.15 0.09 320)",
+          "oklch(0.25 0.09 320)",
+          "oklch(0.35 0.09 320)",
+          "oklch(0.45 0.09 320)",
+          "oklch(0.55 0.09 320)",
+          "oklch(0.7 0.09 320)",
+          "oklch(0.85 0.09 320)",
+          "oklch(0.95 0.09 320)"
+        ]
+      },
+      "harbour-navy": {
+        "role": "tertiary",
+        "displayName": "Harbour Navy",
+        "canonical": "#13294a",
+        "tonalRamp": [
+          "oklch(0.15 0.06 260)",
+          "oklch(0.25 0.06 260)",
+          "oklch(0.35 0.06 260)",
+          "oklch(0.45 0.06 260)",
+          "oklch(0.55 0.06 260)",
+          "oklch(0.7 0.06 260)",
+          "oklch(0.85 0.06 260)",
+          "oklch(0.95 0.06 260)"
+        ]
+      },
+      "harbour-navy-plate": {
+        "role": "tertiary",
+        "displayName": "Navy Plate",
+        "canonical": "#0d2039",
+        "tonalRamp": [
+          "oklch(0.15 0.055 260)",
+          "oklch(0.25 0.055 260)",
+          "oklch(0.35 0.055 260)",
+          "oklch(0.45 0.055 260)",
+          "oklch(0.55 0.055 260)",
+          "oklch(0.7 0.055 260)",
+          "oklch(0.85 0.055 260)",
+          "oklch(0.95 0.055 260)"
+        ]
+      },
+      "harbour-navy-line": {
+        "role": "tertiary",
+        "displayName": "Navy Line",
+        "canonical": "#2a4468",
+        "tonalRamp": [
+          "oklch(0.15 0.06 260)",
+          "oklch(0.25 0.06 260)",
+          "oklch(0.35 0.06 260)",
+          "oklch(0.45 0.06 260)",
+          "oklch(0.55 0.06 260)",
+          "oklch(0.7 0.06 260)",
+          "oklch(0.85 0.06 260)",
+          "oklch(0.95 0.06 260)"
+        ]
+      },
+      "navy-mist": {
+        "role": "tertiary",
+        "displayName": "Navy Mist",
+        "canonical": "#b9c7da",
+        "tonalRamp": [
+          "oklch(0.15 0.03 260)",
+          "oklch(0.25 0.03 260)",
+          "oklch(0.35 0.03 260)",
+          "oklch(0.45 0.03 260)",
+          "oklch(0.55 0.03 260)",
+          "oklch(0.7 0.03 260)",
+          "oklch(0.85 0.03 260)",
+          "oklch(0.95 0.03 260)"
+        ]
+      },
+      "blush": {
+        "role": "tertiary",
+        "displayName": "Blush",
+        "canonical": "#f8d6df",
+        "tonalRamp": [
+          "oklch(0.15 0.04 355)",
+          "oklch(0.25 0.04 355)",
+          "oklch(0.35 0.04 355)",
+          "oklch(0.45 0.04 355)",
+          "oklch(0.55 0.04 355)",
+          "oklch(0.7 0.04 355)",
+          "oklch(0.85 0.04 355)",
+          "oklch(0.95 0.04 355)"
+        ]
+      },
+      "blush-ink": {
+        "role": "tertiary",
+        "displayName": "Blush Ink",
+        "canonical": "#9c3558",
+        "tonalRamp": [
+          "oklch(0.15 0.13 355)",
+          "oklch(0.25 0.13 355)",
+          "oklch(0.35 0.13 355)",
+          "oklch(0.45 0.13 355)",
+          "oklch(0.55 0.13 355)",
+          "oklch(0.7 0.13 355)",
+          "oklch(0.85 0.13 355)",
+          "oklch(0.95 0.13 355)"
+        ]
+      },
+      "lavender": {
+        "role": "tertiary",
+        "displayName": "Lavender",
+        "canonical": "#e5dbf7",
+        "tonalRamp": [
+          "oklch(0.15 0.045 295)",
+          "oklch(0.25 0.045 295)",
+          "oklch(0.35 0.045 295)",
+          "oklch(0.45 0.045 295)",
+          "oklch(0.55 0.045 295)",
+          "oklch(0.7 0.045 295)",
+          "oklch(0.85 0.045 295)",
+          "oklch(0.95 0.045 295)"
+        ]
+      },
+      "lavender-ink": {
+        "role": "tertiary",
+        "displayName": "Lavender Ink",
+        "canonical": "#5b3f91",
+        "tonalRamp": [
+          "oklch(0.15 0.13 295)",
+          "oklch(0.25 0.13 295)",
+          "oklch(0.35 0.13 295)",
+          "oklch(0.45 0.13 295)",
+          "oklch(0.55 0.13 295)",
+          "oklch(0.7 0.13 295)",
+          "oklch(0.85 0.13 295)",
+          "oklch(0.95 0.13 295)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(0.985 0.004 262)",
+        "tonalRamp": [
+          "oklch(0.15 0.004 262)",
+          "oklch(0.25 0.004 262)",
+          "oklch(0.35 0.004 262)",
+          "oklch(0.45 0.004 262)",
+          "oklch(0.55 0.004 262)",
+          "oklch(0.7 0.004 262)",
+          "oklch(0.85 0.004 262)",
+          "oklch(0.95 0.004 262)"
+        ]
+      },
+      "card-white": {
+        "role": "neutral",
+        "displayName": "Card White",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.25 0 0)",
+          "oklch(0.35 0 0)",
+          "oklch(0.45 0 0)",
+          "oklch(0.55 0 0)",
+          "oklch(0.7 0 0)",
+          "oklch(0.85 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "cool-grey": {
+        "role": "neutral",
+        "displayName": "Cool Grey",
+        "canonical": "oklch(0.955 0.012 262)",
+        "tonalRamp": [
+          "oklch(0.15 0.012 262)",
+          "oklch(0.25 0.012 262)",
+          "oklch(0.35 0.012 262)",
+          "oklch(0.45 0.012 262)",
+          "oklch(0.55 0.012 262)",
+          "oklch(0.7 0.012 262)",
+          "oklch(0.85 0.012 262)",
+          "oklch(0.95 0.012 262)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(0.2 0.03 262)",
+        "tonalRamp": [
+          "oklch(0.15 0.03 262)",
+          "oklch(0.25 0.03 262)",
+          "oklch(0.35 0.03 262)",
+          "oklch(0.45 0.03 262)",
+          "oklch(0.55 0.03 262)",
+          "oklch(0.7 0.03 262)",
+          "oklch(0.85 0.03 262)",
+          "oklch(0.95 0.03 262)"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Ink Muted",
+        "canonical": "oklch(0.45 0.03 262)",
+        "tonalRamp": [
+          "oklch(0.15 0.03 262)",
+          "oklch(0.25 0.03 262)",
+          "oklch(0.35 0.03 262)",
+          "oklch(0.45 0.03 262)",
+          "oklch(0.55 0.03 262)",
+          "oklch(0.7 0.03 262)",
+          "oklch(0.85 0.03 262)",
+          "oklch(0.95 0.03 262)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(0.9 0.015 262)",
+        "tonalRamp": [
+          "oklch(0.15 0.015 262)",
+          "oklch(0.25 0.015 262)",
+          "oklch(0.35 0.015 262)",
+          "oklch(0.45 0.015 262)",
+          "oklch(0.55 0.015 262)",
+          "oklch(0.7 0.015 262)",
+          "oklch(0.85 0.015 262)",
+          "oklch(0.95 0.015 262)"
+        ]
+      },
+      "plate-white": {
+        "role": "neutral",
+        "displayName": "Logo Plate",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.25 0 0)",
+          "oklch(0.35 0 0)",
+          "oklch(0.45 0 0)",
+          "oklch(0.55 0 0)",
+          "oklch(0.7 0 0)",
+          "oklch(0.85 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "plate-dark": {
+        "role": "neutral",
+        "displayName": "Dark Logo Plate",
+        "canonical": "oklch(0.22 0.03 262)",
+        "tonalRamp": [
+          "oklch(0.15 0.03 262)",
+          "oklch(0.25 0.03 262)",
+          "oklch(0.35 0.03 262)",
+          "oklch(0.45 0.03 262)",
+          "oklch(0.55 0.03 262)",
+          "oklch(0.7 0.03 262)",
+          "oklch(0.85 0.03 262)",
+          "oklch(0.95 0.03 262)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The hero name only."
+      },
+      "h2": {
+        "displayName": "H2",
+        "purpose": "Section headings, both prices, the phone menu links."
+      },
+      "h3": {
+        "displayName": "H3",
+        "purpose": "Subsection headings and the process step numerals."
+      },
+      "h4": {
+        "displayName": "H4",
+        "purpose": "Item titles: process steps, FAQ questions, the Tech Stack label."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "The hero tagline."
+      },
+      "body-lg": {
+        "displayName": "Body large",
+        "purpose": "Statements and section intros; max 65ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Detail copy: answers, descriptions, card bodies; max 65ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Small captions (\"Step\", \"Find me on\")."
+      }
+    },
+    "shadows": [
+      {
+        "name": "rest",
+        "value": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        "purpose": "Solid buttons at rest."
+      },
+      {
+        "name": "lift",
+        "value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        "purpose": "Solid buttons on hover, with a 2px rise."
+      },
+      {
+        "name": "plate",
+        "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        "purpose": "White logo tiles in the tech diagram and the Forge label."
+      },
+      {
+        "name": "frame",
+        "value": "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+        "purpose": "The portrait's white frame on the hero; the page's one deep shadow."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Every entrance and hover nudge."
+      },
+      {
+        "name": "hover",
+        "value": "200ms",
+        "purpose": "Colour, lift and underline transitions on controls."
+      },
+      {
+        "name": "rise",
+        "value": "800ms ease-out-expo, 90ms stagger",
+        "purpose": "The portrait on load and the phone menu links as the sheet opens: fade up 0.75rem."
+      },
+      {
+        "name": "lift",
+        "value": "1400ms ease-out-expo",
+        "purpose": "The hero and menu arrow motif pushing up 14% on load."
+      },
+      {
+        "name": "flow-dash",
+        "value": "1.4s linear infinite",
+        "purpose": "Packets travelling along the tech diagram wires."
+      },
+      {
+        "name": "parallax",
+        "value": "scroll-driven view timeline, ~20% of scroll distance",
+        "purpose": "The arrow, euro and question-mark background motifs. Never gated on reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Solid Button on Blue",
+      "kind": "button",
+      "refersTo": "button-solid-on-brand",
+      "description": "The primary action on the brand band (hero, featured price card).",
+      "html": "<div class=\"ds-band-brand\"><a class=\"ds-btn-solid-on-brand\" href=\"#\">Contact</a></div>",
+      "css": ".ds-band-brand { background: var(--brand, #3c6492); padding: 2rem; } .ds-btn-solid-on-brand { display: inline-flex; align-items: center; justify-content: center; height: 3.25rem; padding: 0 1.75rem; border-radius: var(--radius, 0.375rem); font: 700 1rem/1 Overpass, system-ui, sans-serif; text-decoration: none; cursor: pointer; outline: none; transition: translate 200ms, scale 200ms, background-color 200ms, box-shadow 200ms, color 200ms, border-color 200ms; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); border: 0; background: var(--brand-foreground, #fff); color: var(--brand, #3c6492); } .ds-btn-solid-on-brand:hover { translate: 0 -2px; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); background: var(--brand-muted-foreground, #dbe5f1); } .ds-btn-solid-on-brand:active { translate: 0 0; scale: 0.98; } .ds-btn-solid-on-brand:focus-visible { box-shadow: 0 0 0 2px var(--brand, #3c6492), 0 0 0 4px var(--brand-foreground, #fff); }"
+    },
+    {
+      "name": "Outline Button on Blue",
+      "kind": "button",
+      "refersTo": "button-outline-on-brand",
+      "description": "The secondary action next to a solid one, on the brand band.",
+      "html": "<div class=\"ds-band-brand\"><a class=\"ds-btn-outline-on-brand\" href=\"#\">Services</a></div>",
+      "css": ".ds-band-brand { background: var(--brand, #3c6492); padding: 2rem; } .ds-btn-outline-on-brand { display: inline-flex; align-items: center; justify-content: center; height: 3.25rem; padding: 0 1.75rem; border-radius: var(--radius, 0.375rem); font: 700 1rem/1 Overpass, system-ui, sans-serif; text-decoration: none; cursor: pointer; outline: none; transition: translate 200ms, scale 200ms, background-color 200ms, box-shadow 200ms, color 200ms, border-color 200ms; background: transparent; color: var(--brand-foreground, #fff); border: 2px solid color-mix(in oklab, var(--brand-foreground, #fff) 70%, transparent); } .ds-btn-outline-on-brand:hover { background: var(--brand-foreground, #fff); color: var(--brand, #3c6492); border-color: var(--brand-foreground, #fff); } .ds-btn-outline-on-brand:focus-visible { box-shadow: 0 0 0 2px var(--brand, #3c6492), 0 0 0 4px var(--brand-foreground, #fff); }"
+    },
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "The primary action on paper or a card (hourly price card).",
+      "html": "<a class=\"ds-btn-solid\" href=\"#\">Get in touch</a>",
+      "css": ".ds-btn-solid { display: inline-flex; align-items: center; justify-content: center; height: 3.25rem; padding: 0 1.75rem; border-radius: var(--radius, 0.375rem); font: 700 1rem/1 Overpass, system-ui, sans-serif; text-decoration: none; cursor: pointer; outline: none; transition: translate 200ms, scale 200ms, background-color 200ms, box-shadow 200ms, color 200ms, border-color 200ms; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); border: 0; background: var(--primary, #3c6492); color: var(--primary-foreground, #fff); } .ds-btn-solid:hover { translate: 0 -2px; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); background: var(--primary-hover, #2f5079); } .ds-btn-solid:active { translate: 0 0; scale: 0.98; } .ds-btn-solid:focus-visible { box-shadow: 0 0 0 2px var(--card, #fff), 0 0 0 4px var(--ring, #3c6492); }"
+    },
+    {
+      "name": "Contact Chip",
+      "kind": "chip",
+      "refersTo": "contact-chip",
+      "description": "Secondary contact methods on the navy Contact band.",
+      "html": "<div class=\"ds-band-deep\"><a class=\"ds-contact-chip\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/></svg>WhatsApp<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"opacity:.7\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a></div>",
+      "css": ".ds-band-deep { background: var(--deep, #13294a); padding: 2rem; } .ds-contact-chip { display: inline-flex; align-items: center; gap: 0.625rem; height: 3rem; padding: 0 1.25rem; border-radius: var(--radius, 0.375rem); background: var(--deep-plate, #0d2039); color: var(--deep-foreground, #f3f6fa); font: 600 1.0625rem/1 Overpass, system-ui, sans-serif; text-decoration: none; transition: background-color 150ms, color 150ms; } .ds-contact-chip:hover { background: var(--deep-accent, #f8d6df); color: var(--deep, #13294a); } .ds-contact-chip:focus-visible { outline: 2px solid var(--deep-foreground, #f3f6fa); }"
+    },
+    {
+      "name": "Service Row",
+      "kind": "custom",
+      "refersTo": "icon-chip",
+      "description": "One line of the services ledger: a pastel icon chip and a semibold label over a hairline rule.",
+      "html": "<ul class=\"ds-ledger\"><li class=\"ds-ledger-row\"><span class=\"ds-icon-chip\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"9\" rx=\"1\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"5\" rx=\"1\"/><rect x=\"14\" y=\"12\" width=\"7\" height=\"9\" rx=\"1\"/><rect x=\"3\" y=\"16\" width=\"7\" height=\"5\" rx=\"1\"/></svg></span><span>Internal dashboards</span></li></ul>",
+      "css": ".ds-ledger { list-style: none; margin: 0; padding: 0; background: var(--muted, oklch(0.955 0.012 262)); } .ds-ledger-row { display: flex; align-items: center; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border, oklch(0.9 0.015 262)); font: 600 1.125rem/1.375 Overpass, system-ui, sans-serif; color: var(--foreground, oklch(0.2 0.03 262)); } .ds-icon-chip { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; flex-shrink: 0; border-radius: var(--radius, 0.375rem); background: var(--tint-1, #f8d6df); color: var(--tint-1-ink, #9c3558); }"
+    },
+    {
+      "name": "Featured Price Card",
+      "kind": "card",
+      "refersTo": "price-card-featured",
+      "description": "The committed price on the brand blue: title, a price at h2, a checklist, the CTA.",
+      "html": "<div class=\"ds-price-card\"><p class=\"ds-price-title\">Fixed-Scope Project</p><p class=\"ds-price\">from € 800</p><ul class=\"ds-price-list\"><li>Consultation meetings and calls</li><li>Deployment to production</li></ul></div>",
+      "css": ".ds-price-card { background: var(--brand, #3c6492); color: var(--brand-foreground, #fff); border-radius: var(--radius, 0.375rem); padding: 2.5rem; max-width: 36rem; } .ds-price-title { margin: 0; font: 700 1.125rem/1.4 Overpass, system-ui, sans-serif; } .ds-price { margin: 2rem 0 0; font: 700 clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem)/1 Kanit, sans-serif; letter-spacing: -0.02em; } .ds-price-list { margin: 2rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.75rem; font: 400 1.0625rem/1.6 Overpass, system-ui, sans-serif; } .ds-price-list li::before { content: '✓'; color: var(--brand-muted-foreground, #dbe5f1); margin-right: 0.75rem; font-weight: 800; }"
+    },
+    {
+      "name": "Desktop Navigation",
+      "kind": "nav",
+      "description": "Header nav: muted items, ink on hover, the active item marked by a 2px slate-blue bar on the header edge.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link\">Home</a><a href=\"#\" class=\"ds-nav-link\" aria-current=\"true\">Services</a><a href=\"#\" class=\"ds-nav-link\">Pricing</a><a href=\"#\" class=\"ds-nav-link\">Contact</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 1.75rem; height: 4rem; align-items: stretch; background: var(--background, oklch(0.985 0.004 262)); padding: 0 1.25rem; border-bottom: 1px solid var(--border, oklch(0.9 0.015 262)); } .ds-nav-link { display: flex; align-items: center; border-top: 2px solid transparent; border-bottom: 2px solid transparent; color: var(--muted-foreground, oklch(0.45 0.03 262)); font: 500 1rem/1 Overpass, system-ui, sans-serif; text-decoration: none; transition: color 150ms, border-color 150ms; } .ds-nav-link:hover { color: var(--foreground, oklch(0.2 0.03 262)); border-bottom-color: color-mix(in oklab, var(--muted-foreground, oklch(0.45 0.03 262)) 40%, transparent); } .ds-nav-link[aria-current] { color: var(--foreground, oklch(0.2 0.03 262)); border-bottom-color: var(--primary, #3c6492); }"
+    },
+    {
+      "name": "Process Step",
+      "kind": "custom",
+      "refersTo": "step-node",
+      "description": "One step of the timeline: a lavender node on the spine, the numeral at h3, the title at h4.",
+      "html": "<div class=\"ds-step\"><span class=\"ds-step-node\"><svg viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m16 18 6-6-6-6\"/><path d=\"m8 6-6 6 6 6\"/></svg></span><div><p class=\"ds-step-num\"><span>Step</span><b>3</b></p><h4 class=\"ds-step-title\">Implementation</h4><p class=\"ds-step-body\">The solution is built milestone by milestone.</p></div></div>",
+      "css": ".ds-step { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1.25rem; background: var(--background, oklch(0.985 0.004 262)); padding: 1.5rem; } .ds-step-node { display: grid; place-items: center; width: 3.5rem; height: 3.5rem; border-radius: 9999px; background: var(--tint-2, #e5dbf7); color: var(--tint-2-ink, #5b3f91); box-shadow: 0 0 0 8px var(--background, oklch(0.985 0.004 262)); } .ds-step-num { display: flex; align-items: baseline; gap: 0.5rem; margin: 0; } .ds-step-num span { font: 600 0.875rem/1 Overpass, system-ui, sans-serif; color: var(--muted-foreground, oklch(0.45 0.03 262)); } .ds-step-num b { font: 700 clamp(1.75rem, 1.3rem + 1.6vw, 2.625rem)/1 Kanit, sans-serif; color: var(--tint-2-ink, #5b3f91); } .ds-step-title { margin: 1rem 0 0; font: 700 clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem)/1.25 Kanit, sans-serif; color: var(--foreground, oklch(0.2 0.03 262)); } .ds-step-body { margin: 0.5rem 0 0; font: 400 1.0625rem/1.625 Overpass, system-ui, sans-serif; color: var(--muted-foreground, oklch(0.45 0.03 262)); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Spec Plate",
+    "overview": "The rating plate riveted to a machine: a flat field of colour, heavy lettering, ruled lines, and the facts stated once with nothing around them. That is how every section is laid out. Services is a spec sheet, clients are a ledger of line items, the prices are printed as large as the section headings, and the FAQ answers sit open under a heavy rule. Nothing is hidden behind a click and nothing is dressed up; the page reads like equipment that tells you what it does.\n\nThe plate's colour comes from the logo: the blue square with the white up-arrow. The hero is that square blown up to full width, and the arrow, a euro and a question mark come back as oversized, cropped background motifs that drift slowly as the page scrolls. The page runs as a sequence of full-width bands: blue hero, paper, cool grey, paper, grey Pricing, paper FAQ, plum Technology, navy Contact and a darker navy footer. Colour is spent a whole band at a time, never sprinkled.\n\nDensity is low and the type is large. Headings are Kanit Bold, the logo's own face, set tight; body copy is Overpass, drawn from the Highway Gothic road-sign lettering, so it stays plain and legible for someone reading in a hurry. Confidence comes from commitment (one colour per band, big type, stated prices), not from decoration.",
+    "keyCharacteristics": [
+      "Full-width colour bands, one colour kit per band, and no gradients.",
+      "Kanit Bold headings on a fluid five-step scale; Overpass body at 17px.",
+      "Ruled lists and ledgers instead of card grids.",
+      "One brand motif (the upgrade arrow) plus two siblings drawn to match it (€, ?), used large and cropped with parallax.",
+      "Flat surfaces; a shadow appears only on things that sit on top of a band or lift on hover.",
+      "Light and dark modes are both first-class; motion runs for every visitor."
+    ],
+    "rules": [
+      {
+        "name": "The Kit Rule",
+        "body": "A component on a colour band takes its colours from that band's kit and no other. A blue-band element never borrows the navy accent, and a plum-band element never borrows the brand blue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tokens-Only Rule",
+        "body": "Components name semantic tokens (`bg-brand`, `text-muted-foreground`) and never a raw colour. Colour values live only in `src/app/themes/*.css`.",
+        "section": "colors"
+      },
+      {
+        "name": "The Whole-Band Rule",
+        "body": "Colour is spent a section at a time. Within a band, emphasis comes from weight and size, not from a new colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Five-Step Rule",
+        "body": "Every heading, price and big link uses one of the five scale steps (display, h2, h3, h4, lead). A new size is added to the scale first, never inlined. The one exception is the contact email address, which is fitted so the whole address stays on one line from a 320px phone to desktop.",
+        "section": "typography"
+      },
+      {
+        "name": "The One-Face-Per-Job Rule",
+        "body": "Kanit is for headings, prices and numerals; Overpass is for everything read as sentences. No italics, no monospace and no letter-spaced caps.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ledger Rule",
+        "body": "Where content is a list, it is set as a ruled list (hairline rows) rather than a grid of identical cards. Cards exist only where two things are being compared (the prices).",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat at rest. No shadow on cards, bands or panels; depth comes from a darker or lighter plate of the same kit.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** take every heading, price and big link size from the five-step scale (display, h2, h3, h4, lead).",
+      "**Do** pad every band with the `section` token and wrap content in the shared container.",
+      "**Do** use the 0.375rem radius for anything rectangular; reserve circles for step nodes and the theme switch.",
+      "**Do** hold paragraphs to 65ch.",
+      "**Do** keep components on a band inside that band's colour kit.",
+      "**Do** build new CTAs from `src/lib/cta.ts` (solid, or outline on blue).",
+      "**Do** run motion for every visitor; animations are never gated on `prefers-reduced-motion`.",
+      "**Do** let a new section motif follow the arrow's language: solid, flat-cut, oversized, cropped, and drifting about 20% with the scroll."
+    ],
+    "donts": [
+      "**Don't** inline a colour value, a font size or a section padding in a component.",
+      "**Don't** add gradients, glass or blurred decoration, or \"AI agency\" purple-to-blue washes.",
+      "**Don't** set content as a grid of identical icon cards; use a ruled list or ledger.",
+      "**Don't** put a shadow on a resting card, band or panel.",
+      "**Don't** add italic serifs, monospace labels or letter-spaced eyebrow caps; this is a trade, not a magazine or a terminal.",
+      "**Don't** introduce a second button size or a new radius without adding it to the system first."
+    ]
+  }
+}

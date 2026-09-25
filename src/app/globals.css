@@ -4,11 +4,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Tailwind v4 wraps hover: in @media (hover: hover), so hover styles vanish in browsers
+ * that report no hover capability even with a mouse (Orca did). Plain :hover restores
+ * them everywhere. The cost is a "sticky" hover after a tap on touch screens, which is
+ * harmless here: every hovered element is a link or button that navigates on tap.
+ */
+@custom-variant hover (&:hover);
+
 /* ------------------------------------------------------------------ *
- * ACTIVE THEME — the single line to change when swapping presets.
- *
- * Available: ./themes/neutral.css (stock shadcn), ./themes/brand.css
- * (the original Legacy Upgrade brand purple), ./themes/slate.css.
+ * THEME — three layers: the neutral base, a palette (the colour kits) and a
+ * dosage (how many sections the kits colour). Swap a palette or a dosage by
+ * changing its one line below.
  *
  * These files are the ONLY place colour values may appear. Everything else
  * references semantic tokens (bg-background, text-muted-foreground, …).
@@ -20,7 +27,7 @@
 
 @theme inline {
     /* Kanit is self-hosted via next/font/local, which sets --font-kanit on <html>.
-       Body copy stays on the system stack, matching the old site's `body` rule. */
+       Body copy is Overpass, self-hosted by the @font-face rules below. */
     --font-kanit: var(--font-kanit);
     --font-heading: var(--font-kanit);
     --font-sans: "Overpass", system-ui, -apple-system, sans-serif;
@@ -29,6 +36,7 @@
     --color-brand-muted-foreground: var(--brand-muted-foreground);
     --color-brand-deep: var(--brand-deep);
     --color-brand-line: var(--brand-line);
+    --color-brand-tint: var(--brand-tint);
     --color-second: var(--second);
     --color-second-foreground: var(--second-foreground);
     --color-second-muted-foreground: var(--second-muted-foreground);
@@ -74,6 +82,7 @@
     --color-secondary: var(--secondary);
     --color-primary-foreground: var(--primary-foreground);
     --color-primary: var(--primary);
+    --color-primary-hover: var(--primary-hover);
     --color-popover-foreground: var(--popover-foreground);
     --color-popover: var(--popover);
     --color-card-foreground: var(--card-foreground);
@@ -87,6 +96,39 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/*
+ * The type and spacing scale. Every heading, price and section on the page draws from
+ * these; a size that isn't here is a one-off and should become one of them first.
+ *
+ *   display  the hero name (h1)
+ *   h2       section headings, the prices, the phone menu links
+ *   h3       subsection headings, the process step numerals
+ *   h4       item titles: process steps, FAQ questions, the Tech Stack label
+ *   lead     the hero tagline
+ *
+ * Body copy sits on two steps: text-lg for statements and section intros, the 17px base
+ * for detail. Both are held to max-w-prose.
+ *
+ * Section padding is one token (py-section / pb-section) for every band on the page.
+ */
+@theme {
+    --text-display: clamp(3.25rem, 1.9rem + 6vw, 6rem);
+    --text-display--line-height: 0.92;
+    --text-display--letter-spacing: -0.03em;
+    --text-h2: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+    --text-h2--line-height: 0.95;
+    --text-h2--letter-spacing: -0.02em;
+    --text-h3: clamp(1.75rem, 1.3rem + 1.6vw, 2.625rem);
+    --text-h3--line-height: 1.05;
+    --text-h3--letter-spacing: -0.015em;
+    --text-h4: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+    --text-h4--line-height: 1.25;
+    --text-lead: clamp(1.25rem, 1.05rem + 0.9vw, 1.75rem);
+    --text-lead--line-height: 1.375;
+
+    --spacing-section: clamp(4.5rem, 3rem + 6vw, 8rem);
 }
 
 /*
@@ -132,7 +174,7 @@
  * Replaces ~90 lines of hand-rolled CSS from the Jigsaw stylesheet:
  * `.nav-link` underline pseudo-elements, `.nav-menu-collapsible`
  * max-height animation, `.bg-code-pattern`, and the parametric
- * `--primary-l/c/h` palette. None of it is ported (plan.md Task 3).
+ * `--primary-l/c/h` palette. None of it is ported.
  * ------------------------------------------------------------------ */
 @layer base {
     /* One source for the sticky header's height: the header uses it for its own height,
@@ -182,7 +224,7 @@
     }
 
     a {
-        text-underline-offset: 0.2em;
+        text-underline-offset: 0.3em;
     }
 
     /*
@@ -241,4 +283,34 @@
 .flow-line {
     stroke-dasharray: 4 24;
     animation: flow-dash 1.4s linear infinite;
+}
+
+/*
+ * Parallax for the background motifs (hero and contact arrows, the euro, the question
+ * mark). Each host section names a view timeline; its motif translates across that
+ * section's pass through the viewport. The distances live in src/lib/parallax.ts.
+ *
+ * Pure CSS scroll-driven animation: runs off the main thread and can't stutter the page.
+ * Browsers without support get the motifs static, exactly as before. Uses `translate`,
+ * not `transform`, so it composes with the hero arrow's load-time `lift` on the child.
+ */
+@keyframes parallax {
+    from {
+        translate: 0 var(--parallax-from, 0);
+    }
+    to {
+        translate: 0 var(--parallax-to, 0);
+    }
+}
+
+@supports (animation-timeline: view()) {
+    .parallax-scope {
+        view-timeline-name: --parallax;
+    }
+
+    .parallax {
+        animation: parallax linear both;
+        animation-timeline: --parallax;
+        animation-range: var(--parallax-range, cover);
+    }
 }

@@ -19,11 +19,11 @@ import { cn } from '@/lib/utils';
  */
 export function Process() {
     return (
-        <div className="py-[clamp(4.5rem,3rem+6vw,8rem)]">
+        <div className="py-section">
             <Container>
                 <SubsectionHeader>{process.heading}</SubsectionHeader>
 
-                <ol className="mx-auto mt-14 max-w-5xl">
+                <ol className="mx-auto mt-10 max-w-5xl">
                     {process.steps.map((step, index) => {
                         const Icon = getIcon(step.icon);
                         const left = index % 2 === 0;
@@ -65,11 +65,11 @@ export function Process() {
                                         <span className="text-muted-foreground text-sm font-semibold">
                                             {process.stepLabel}
                                         </span>
-                                        <span className="font-kanit text-tint-2-ink text-5xl leading-none font-bold">
+                                        <span className="font-kanit text-tint-2-ink text-h3 leading-none font-bold">
                                             {index + 1}
                                         </span>
                                     </p>
-                                    <h4 className="font-kanit mt-4 text-2xl leading-tight font-bold">
+                                    <h4 className="font-kanit text-h4 mt-4 font-bold">
                                         {step.title}
                                     </h4>
                                     <p className="text-muted-foreground mt-2 leading-relaxed">

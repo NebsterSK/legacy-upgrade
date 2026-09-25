@@ -9,6 +9,8 @@ with **Next.js 16** (App Router) and **Tailwind CSS 4**, exported to static HTML
 **Live URL:** https://legacy-upgrade.com
 **Local URL:** https://legacy-upgrade.test
 
+Setup, commands, the Herd proxy and the deploy steps are in `README.md`; this file is the rules.
+
 ## Instructions
 
 - **All user-visible copy lives in `src/content/`.** Components render those values and must never
@@ -18,6 +20,16 @@ with **Next.js 16** (App Router) and **Tailwind CSS 4**, exported to static HTML
 - **Only semantic shadcn tokens** in components — `bg-background`, `text-muted-foreground`,
   `border-border`. Never raw Tailwind colours (`bg-gray-100`) or hex/rgb/oklch literals. Colour
   values belong exclusively in `src/app/themes/*.css`. See `THEMING.md`.
+- **No one-off sizes either.** Headings, prices and big links use the type scale in `globals.css`
+  (`text-display`, `text-h2`, `text-h3`, `text-h4`, `text-lead`), bands pad with `py-section`,
+  paragraphs cap at `max-w-prose`, rectangles round with `rounded-lg`, and CTAs come from
+  `src/lib/cta.ts`. A genuinely new value is added to the system (and `DESIGN.md`) first.
+  `cn()` knows the custom text sizes; add any new one to `src/lib/utils.ts` too.
+- **Motion runs for every visitor.** Never gate an animation on `prefers-reduced-motion`; that is
+  the owner's decision. Don't add a reduced-motion override without asking.
+- **Before calling a change done**, run `npm run lint`, `npm run typecheck`, `npm run build`, then
+  `npm run verify:rendered` and `npm run verify:deploy`. Don't build while the user's `npm run dev`
+  is running: it leaves the dev server serving stale CSS until `.next/` is deleted.
 - **`output: 'export'` is a hard constraint.** No route handlers, no ISR, no middleware, no
   `next/image` optimizer, no server-side env vars. `src/app/robots.ts` and `src/app/sitemap.ts` need
   `export const dynamic = 'force-static'` or the build fails.
@@ -25,8 +37,8 @@ with **Next.js 16** (App Router) and **Tailwind CSS 4**, exported to static HTML
   ships `canonical` / `og:url` / sitemap pointing at the local domain. Use `.env.development`.
   `npm run verify:deploy` catches it.
 - **Radix components that unmount hidden content need `forceMount`** if their text should be in the
-  static HTML. This already bit the FAQ Accordion: without it the answers existed only in the RSC
-  payload. Anything relying on collapsed content being crawlable needs the same treatment.
+  static HTML. This bit the old FAQ Accordion (the answers existed only in the RSC payload); the FAQ
+  is plain markup now, but anything collapsed that must be crawlable needs the same treatment.
 - For LinkedIn content, use the `/linkedin` skill (`.claude/skills/linkedin/`) — it is the single
   source of truth for LinkedIn voice and process. `_linkedin/YYYY_MM_DD.md` holds published posts as
   pure copy only (no frontmatter, no commentary); it is the voice corpus read before drafting.
@@ -42,43 +54,41 @@ with **Next.js 16** (App Router) and **Tailwind CSS 4**, exported to static HTML
 - **Icons:** `lucide-react`. It ships **no brand glyphs** — GitHub and LinkedIn are inlined Simple
   Icons paths in `src/components/brand-icons.tsx`.
 - **Theming:** `next-themes`, class strategy
-- **Custom font:** Kanit, self-hosted woff2 via `next/font/local` — no Google Fonts request
+- **Fonts:** Kanit (headings, `next/font/local`) and Overpass (body, `@font-face`), both
+  self-hosted woff2 — no Google Fonts request
 
-## Commands
+## Local Dev Notes
 
-Local domain: Herd serves `https://legacy-upgrade.test` via an **nginx proxy** to the dev server
-(`herd proxy legacy-upgrade http://localhost:3000 --secure`), not by serving the directory — there is
-no PHP entry point any more. `next.config.ts` needs `allowedDevOrigins` for that to work. See
-`readme.md`.
-
-```bash
-npm run dev              # dev server (loads .env.development)
-npm run build            # production build → out/
-npm run preview          # serve out/ as a plain static site
-npm run lint             # ESLint
-npm run typecheck        # tsc --noEmit
-npm run verify:rendered  # every src/content/ string reaches the built HTML
-npm run verify:deploy    # out/ is safe to upload (run after build)
-```
+- The `.test` domain is a Herd nginx proxy to the dev server, so `next.config.ts` needs
+  `allowedDevOrigins` for it; changing `next.config.ts` needs a dev server restart.
 
 ## Site Structure
 
-One route (`/`) plus `not-found`. Sections live in `src/components/sections/` and are assembled by
-`src/app/(site)/page.tsx` with anchor IDs (`#home`, `#services`, `#pricing`, `#technology`,
-`#contact`), one per nav item. Header, footer,
-providers, metadata, and JSON-LD are in `src/app/layout.tsx`. Smooth scrolling is CSS
-(`scroll-behavior`), and the scroll-spy is `src/hooks/use-active-section.ts`.
+The site is one route (`/`) plus `not-found`. Sections live in `src/components/sections/` and are
+assembled by `src/app/(site)/page.tsx` with anchor IDs (`#home`, `#services`, `#pricing`,
+`#technology`, `#contact`), one per nav item.
+
+- `src/app/layout.tsx` — html/body, fonts, metadata, `ThemeProvider`, `<SmoothAnchors>`.
+- `src/app/(site)/layout.tsx` — header, footer and JSON-LD for the site route group.
+  `not-found` renders the header and footer itself.
+- `/brand` — internal asset sheet (logo, lockups, social covers) outside the group, so it has no
+  site chrome; `noindex`, not in the sitemap. Exported PNGs live in `_brand/`.
+- Anchor scrolling is JS (`src/components/smooth-anchors.tsx`, no URL hash), because browsers drop
+  CSS smooth scroll when the OS animation setting is off. The scroll-spy is
+  `src/hooks/use-active-section.ts`.
+- Background motifs (arrows, €, ?) use a CSS scroll-driven parallax; distances are in
+  `src/lib/parallax.ts`.
 
 ## Styling Architecture
 
-- **`src/app/globals.css`** — Tailwind entry, `@theme inline` token mapping, and two
-  project-specific base rules (`section[id]` scroll margin and `scroll-behavior: smooth`).
-  Motion is **not** gated on `prefers-reduced-motion` anywhere: the owner wants every visitor
-  to get the same animations. Contains **no colour values**.
-- **`src/app/themes/*.css`** — the `:root` / `.dark` token blocks. Swap the single `@import` in
-  `globals.css` to change theme: `neutral` (active), `brand`, `slate`.
-- **Fonts** — `--font-kanit` from `next/font/local`; `--font-heading` points at it, `--font-sans` is
-  the system stack.
+- **`DESIGN.md`** — the design system: colour roles, the type scale, spacing, shapes, components
+  and the named rules. Read it before any visual change; `PRODUCT.md` holds the product context
+  (audience, voice, anti-references) the impeccable skill loads.
+- **`src/app/globals.css`** — Tailwind entry, `@theme inline` token mapping, the type/spacing scale
+  (`text-display|h2|h3|h4|lead`, `py-section`), keyframes and base rules. Contains **no colour
+  values**.
+- **`src/app/themes/`** — `upgrade.css` (neutral base) + `palettes/tighten.css` (active; `harbour`,
+  `dusk` alternate) + `dosage-bands.css` (`dosage-neutral` alternate). See `THEMING.md`.
 - **Dark mode** — `next-themes` with `attribute="class"`, `defaultTheme="system"`. Its inlined
   pre-paint script sets both the class and `style.colorScheme`. Storage key is `theme`.
 
@@ -105,7 +115,3 @@ providers, metadata, and JSON-LD are in `src/app/layout.tsx`. Smooth scrolling i
 - `src/lib/logos.ts` maps logo filenames to those imports, keeping `src/content/` dependency-free.
 - `public/` — only files needing a stable path: `.htaccess`.
 
-## Deploying
-
-Manual FTP upload of `out/` via FileZilla. `npm run build && npm run verify:deploy` first. The
-gotchas (hidden dotfiles, wiping the old Jigsaw asset tree, binary transfer mode) are in `readme.md`.

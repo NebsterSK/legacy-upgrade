@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Container, SectionHeader, SubsectionHeader } from '@/components/section-header';
+import { Container, SectionHeader } from '@/components/section-header';
 import { technology } from '@/content';
 import { logos } from '@/lib/logos';
 import { cn } from '@/lib/utils';
@@ -19,7 +19,7 @@ function Node({ item, className }: { item: LogoItem; className?: string }) {
     return (
         <div
             className={cn(
-                'bg-plate relative z-10 grid size-20 place-items-center rounded-(--radius) p-4 shadow-md md:size-24 md:p-5',
+                'bg-plate relative z-10 grid size-20 place-items-center rounded-lg p-4 shadow-md md:size-24 md:p-5',
                 className
             )}
         >
@@ -140,18 +140,18 @@ export function Technology() {
     return (
         <section
             id="technology"
-            className="bg-second text-second-foreground py-[clamp(4.5rem,3rem+6vw,8rem)]"
+            className="bg-second text-second-foreground py-section"
         >
             <Container>
                 <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
                     <SectionHeader className="lg:col-span-5">{technology.heading}</SectionHeader>
-                    <p className="text-second-muted-foreground max-w-[58ch] text-lg leading-relaxed lg:col-span-7 lg:pt-3">
+                    <p className="text-second-muted-foreground max-w-prose text-lg leading-relaxed lg:col-span-7 lg:pt-3">
                         {technology.intro}
                     </p>
                 </div>
 
                 <div className="border-second-accent mt-16 border-t-[3px] pt-8">
-                    <SubsectionHeader className="text-2xl sm:text-2xl">{stack.heading}</SubsectionHeader>
+                    <h3 className="font-kanit text-h4 font-bold">{stack.heading}</h3>
 
                     <figure className="mx-auto mt-10 max-w-5xl">
                         {/* Claude: on top of everything, wired into the boundary. */}
@@ -162,7 +162,7 @@ export function Technology() {
 
                         {/* Laravel Forge: the boundary the whole flow runs inside. */}
                         <div className="border-second-accent relative rounded-xl border-2 border-dashed px-3 pt-14 pb-6 sm:px-6 md:px-8 md:pt-16 md:pb-8">
-                            <div className="bg-plate absolute -top-5 left-5 flex h-10 items-center rounded-(--radius) px-4 shadow-md md:left-8">
+                            <div className="bg-plate absolute -top-5 left-5 flex h-10 items-center rounded-lg px-4 shadow-md md:left-8">
                                 <Image
                                     src={logos[stack.host.file]}
                                     alt={stack.host.label}

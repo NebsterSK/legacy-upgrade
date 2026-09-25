@@ -9,12 +9,12 @@ import { getIcon } from '@/lib/icons';
  */
 export function ServicesGrid() {
     return (
-        <div className="bg-muted py-[clamp(4.5rem,3rem+6vw,8rem)]">
+        <div className="bg-muted py-section">
             <Container className="grid gap-12 lg:grid-cols-12 lg:gap-10">
                 <div className="lg:col-span-5">
                     <div className="lg:sticky lg:top-28">
                         <SectionHeader>{services.heading}</SectionHeader>
-                        <p className="text-muted-foreground mt-6 max-w-[46ch] text-lg leading-relaxed">
+                        <p className="text-muted-foreground mt-6 max-w-prose text-lg leading-relaxed">
                             {services.intro}
                         </p>
                     </div>
@@ -26,9 +26,9 @@ export function ServicesGrid() {
                         return (
                             <li
                                 key={item.text}
-                                className="border-foreground/15 flex items-center gap-4 border-b py-5"
+                                className="flex items-center gap-4 border-b py-5"
                             >
-                                <span className="bg-tint-1 text-tint-1-ink grid size-10 shrink-0 place-items-center rounded-(--radius)">
+                                <span className="bg-tint-1 text-tint-1-ink grid size-10 shrink-0 place-items-center rounded-lg">
                                     <Icon className="size-5" strokeWidth={1.75} aria-hidden />
                                 </span>
                                 <span className="text-lg leading-snug font-semibold">{item.text}</span>

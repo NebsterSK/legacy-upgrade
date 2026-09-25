@@ -1,9 +1,8 @@
 /**
  * Single source of truth for every user-visible string on the site.
  *
- * COPY IS FROZEN (plan.md constraint #1): every string was lifted verbatim from the
- * Jigsaw/Blade source. Components must render these values and never inline literal
- * copy of their own. `scripts/verify-copy.mjs` enforces this against the old source.
+ * Components render these values and never inline literal copy of their own; change
+ * copy here. `npm run verify:rendered` checks that every string reaches the built page.
  */
 export * from './types.ts';
 

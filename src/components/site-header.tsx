@@ -3,8 +3,9 @@
 import { Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
-import { ThemeToggle } from '@/components/theme-toggle';
 import { ContentIcon } from '@/components/content-icon';
+import { Container } from '@/components/section-header';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { UpgradeArrow, UpgradeMark } from '@/components/upgrade-arrow';
 import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { contact, nav } from '@/content';
@@ -40,16 +41,16 @@ export function SiteHeader() {
         <header
             ref={headerRef}
             className={cn(
-                'bg-background sticky top-0 z-50 border-b border-transparent transition-[border-color,box-shadow] duration-300',
-                scrolled && 'border-border shadow-[0_1px_0_0_var(--border)]'
+                'bg-background sticky top-0 z-50 border-b border-transparent transition-colors duration-300',
+                scrolled && 'border-border'
             )}
         >
-            <div className="mx-auto flex h-(--header-height) w-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+            <Container className="flex h-(--header-height) items-center justify-between">
                 <a
                     href="#home"
                     className="font-kanit flex items-center gap-2.5 text-lg font-normal"
                 >
-                    <UpgradeMark className="size-7 rounded-[3px]" />
+                    <UpgradeMark className="size-7" />
                     {nav.brand}
                 </a>
 
@@ -63,10 +64,10 @@ export function SiteHeader() {
                                     active === item.href.replace('#', '') ? 'true' : undefined
                                 }
                                 className={cn(
-                                    'flex h-full items-center border-y-2 border-transparent text-[0.9375rem] font-medium transition-colors',
+                                    'flex h-full items-center border-y-2 border-transparent text-base font-medium transition-colors',
                                     active === item.href.replace('#', '')
                                         ? 'text-foreground border-b-primary'
-                                        : 'text-muted-foreground hover:text-foreground'
+                                        : 'text-muted-foreground hover:text-foreground hover:border-b-muted-foreground/40'
                                 )}
                             >
                                 {item.label}
@@ -95,22 +96,19 @@ export function SiteHeader() {
                         */}
                         <SheetContent
                             side="right"
-                            showCloseButton={false}
                             className="bg-brand text-brand-foreground isolate w-full gap-0 overflow-hidden border-0 data-[side=right]:w-full data-[side=right]:border-l-0 data-[side=right]:data-open:slide-in-from-right data-[side=right]:data-closed:slide-out-to-right sm:max-w-sm"
                         >
                             <UpgradeArrow className="lift text-brand-line absolute -right-[30%] -bottom-[18%] -z-10 w-[120%] opacity-60" />
 
                             <div className="flex h-(--header-height) shrink-0 items-center justify-between px-5 sm:px-8">
                                 <SheetTitle className="font-kanit text-brand-foreground flex items-center gap-2.5 text-lg font-normal">
-                                    <span className="bg-brand-foreground text-brand grid size-7 place-items-center rounded-[3px]">
-                                        <UpgradeArrow className="size-[62%]" />
-                                    </span>
+                                    <UpgradeMark className="bg-brand-foreground text-brand size-7" />
                                     {nav.brand}
                                 </SheetTitle>
 
                                 <SheetClose
                                     aria-label={nav.closeAriaLabel}
-                                    className="focus-visible:ring-brand-foreground -mr-2 grid size-11 cursor-pointer place-items-center rounded-(--radius) outline-none focus-visible:ring-2"
+                                    className="focus-visible:ring-brand-foreground -mr-2 grid size-11 cursor-pointer place-items-center rounded-lg outline-none focus-visible:ring-2"
                                 >
                                     <X className="size-6" aria-hidden />
                                 </SheetClose>
@@ -127,7 +125,7 @@ export function SiteHeader() {
                                             aria-current={current ? 'true' : undefined}
                                             style={{ '--i': index } as React.CSSProperties}
                                             className={cn(
-                                                'rise border-brand-line font-kanit focus-visible:ring-brand-foreground flex items-center justify-between border-b py-4 text-[2.5rem] leading-none font-bold tracking-[-0.02em] outline-none focus-visible:ring-2',
+                                                'rise border-brand-line font-kanit focus-visible:ring-brand-foreground flex items-center justify-between border-b py-4 text-h2 leading-none font-bold outline-none focus-visible:ring-2',
                                                 current
                                                     ? 'text-brand-foreground'
                                                     : 'text-brand-muted-foreground hover:text-brand-foreground'
@@ -150,9 +148,9 @@ export function SiteHeader() {
                                         <a
                                             key={method.href}
                                             href={method.href}
-                                            className="focus-visible:ring-brand-foreground -mx-2 flex items-center gap-3 rounded-(--radius) px-2 py-2 text-lg font-semibold tabular-nums outline-none focus-visible:ring-2"
+                                            className="focus-visible:ring-brand-foreground -mx-2 flex items-center gap-3 rounded-lg px-2 py-2 text-lg font-semibold tabular-nums outline-none focus-visible:ring-2"
                                         >
-                                            <ContentIcon name={method.icon} className="text-deep-accent size-5 shrink-0" />
+                                            <ContentIcon name={method.icon} className="text-brand-muted-foreground size-5 shrink-0" />
                                             {method.label}
                                         </a>
                                     ))}
@@ -160,7 +158,7 @@ export function SiteHeader() {
                         </SheetContent>
                     </Sheet>
                 </div>
-            </div>
+            </Container>
         </header>
     );
 }

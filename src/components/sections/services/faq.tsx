@@ -1,6 +1,7 @@
 import { Container, SubsectionHeader } from '@/components/section-header';
 import { QuestionGlyph } from '@/components/upgrade-arrow';
 import { faq } from '@/content';
+import { PARALLAX_DRIFT } from '@/lib/parallax';
 
 /**
  * Ported from `source/index.blade.php:241-265` — the THREE visible questions only.
@@ -14,8 +15,11 @@ export function Faq() {
     // overflow-clip, not overflow-hidden: hidden makes this div a scroll container, which
     // traps the sticky heading inside it. clip crops the glyph without that side effect.
     return (
-        <div className="relative isolate overflow-clip py-[clamp(4.5rem,3rem+6vw,8rem)]">
-            <QuestionGlyph className="text-tint-2 absolute bottom-[6%] -left-[10%] -z-10 w-[min(26rem,70vw)] md:-left-[2%]" />
+        <div className="parallax-scope relative isolate overflow-clip py-section">
+            <QuestionGlyph
+                className="parallax text-tint-2 absolute bottom-[16%] -left-[10%] -z-10 w-[min(26rem,70vw)] md:-left-[2%]"
+                style={PARALLAX_DRIFT}
+            />
 
             <Container className="grid gap-10 lg:grid-cols-12">
                 {/* From lg up the heading sticks while the questions scroll past, like Services. */}
@@ -28,10 +32,10 @@ export function Faq() {
                 <dl className="border-t lg:col-span-8">
                     {faq.visible.map((item) => (
                         <div key={item.question} className="border-b py-6">
-                            <dt className="font-kanit text-[clamp(1.25rem,1.1rem+0.5vw,1.5rem)] leading-snug font-bold">
+                            <dt className="font-kanit text-h4 font-bold">
                                 {item.question}
                             </dt>
-                            <dd className="text-muted-foreground mt-3 max-w-[62ch] leading-relaxed">
+                            <dd className="text-muted-foreground mt-3 max-w-prose leading-relaxed">
                                 {item.answer}
                             </dd>
                         </div>

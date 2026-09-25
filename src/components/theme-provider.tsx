@@ -8,7 +8,7 @@ import type { ComponentProps } from 'react';
  * logic from the Jigsaw layout.
  *
  * Note the storage key changes from `darkMode` to next-themes' `theme`, so returning
- * visitors fall back to their system preference once. Accepted trade-off (plan.md Task 6).
+ * visitors fall back to their system preference once. Accepted trade-off.
  */
 export function ThemeProvider({ children, ...props }: ComponentProps<typeof NextThemesProvider>) {
     return <NextThemesProvider {...props}>{children}</NextThemesProvider>;

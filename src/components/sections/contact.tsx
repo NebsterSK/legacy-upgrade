@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 
+import { GithubIcon, LinkedinIcon } from '@/components/brand-icons';
 import { ContentIcon } from '@/components/content-icon';
 import { Container, SectionHeader } from '@/components/section-header';
 import { UpgradeArrow } from '@/components/upgrade-arrow';
@@ -13,6 +14,12 @@ import { PARALLAX_RISE } from '@/lib/parallax';
  * follow as secondary actions; address and company details sit on a darker plate as the
  * paperwork they are.
  */
+/** lucide ships no brand marks, so LinkedIn and GitHub come from our own inlined paths. */
+const socialIcons = {
+    Linkedin: LinkedinIcon,
+    Github: GithubIcon,
+} as const;
+
 export function Contact() {
     const [primary, ...secondary] = contact.person.methods;
 
@@ -66,6 +73,26 @@ export function Contact() {
                                 )}
                             </a>
                         ))}
+
+                        {/* Profiles, a step quieter than the messaging chips: same geometry, but
+                            outlined instead of plated, because looking someone up is not the same
+                            act as messaging them. */}
+                        {contact.social.map((item) => {
+                            const Icon = socialIcons[item.icon as keyof typeof socialIcons];
+                            return (
+                                <a
+                                    key={item.href}
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="border-deep-line text-deep-muted-foreground hover:border-deep-foreground hover:text-deep-foreground focus-visible:ring-deep-foreground inline-flex h-12 items-center gap-2.5 rounded-lg border px-5 font-semibold transition-colors outline-none focus-visible:ring-2"
+                                >
+                                    <Icon className="size-4 shrink-0" />
+                                    {item.label}
+                                    <ArrowUpRight className="size-4 opacity-70" aria-hidden />
+                                </a>
+                            );
+                        })}
                     </div>
                 </div>
 

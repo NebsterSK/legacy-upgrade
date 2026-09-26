@@ -1,4 +1,4 @@
-import { company } from './company.ts';
+import { company, links } from './company.ts';
 import type { IconName } from './types.ts';
 
 /**
@@ -49,6 +49,21 @@ export const contact = {
             },
         ],
     },
+
+    /**
+     * Profiles, not ways to reach me — the work and the CV, for anyone who wants to look
+     * before writing. They moved here from the hero (2026-09-26): on a phone the two bare
+     * glyphs wrapped onto their own line under the CTAs and read as leftovers, and they
+     * belong with the other secondary contact routes anyway. Rendered a step quieter than
+     * the messaging chips, since a profile is not a way to reach a person.
+     *
+     * `icon` names a brand glyph in `src/components/brand-icons.tsx`, NOT a lucide icon:
+     * lucide ships no brand marks, so these cannot go through `ContentIcon`.
+     */
+    social: [
+        { icon: 'Linkedin', label: 'LinkedIn', href: links.linkedin },
+        { icon: 'Github', label: 'GitHub', href: links.github },
+    ],
 
     address: {
         icon: 'MapPin' as IconName,

@@ -362,6 +362,10 @@ hover, and carry no decoration; like the copy, they say what they do.
 ### Chips
 - **Contact chips:** phone, Messenger, WhatsApp on navy. Navy plate ground, 3rem tall, icon plus
   semibold label, with an up-right arrow for external links. Hover fills blush with navy text.
+- **Profile chips:** LinkedIn and GitHub, following the contact chips in the same row. Identical
+  geometry, but a 1px slate-line outline on the bare band instead of a plate ground, and muted
+  label text that brightens on hover. The quieter variant is the point: a profile is somewhere to
+  look you up, not a way to reach you, and the row should read in that order.
 - **Icon chips:** a 2.5rem square in a pastel ground with its ink-coloured icon (stroke 1.75),
   leading each service row.
 

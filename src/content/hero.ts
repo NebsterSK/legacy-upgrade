@@ -7,12 +7,6 @@ export const hero = {
 
     tagline: '12 years of building and maintaining custom software for businesses',
 
-    /** `title` attributes on the two hero social icons. */
-    social: [
-        { label: 'LinkedIn', icon: 'Linkedin' },
-        { label: 'GitHub', icon: 'Github' },
-    ],
-
     ctas: {
         primary: { label: 'Contact', href: '#contact' },
         secondary: { label: 'Services', href: '#services' },

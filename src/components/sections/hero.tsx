@@ -1,22 +1,11 @@
 import Image from 'next/image';
 
 import portrait from '@/assets/images/portrait.webp';
-import { GithubIcon, LinkedinIcon } from '@/components/brand-icons';
 import { Container } from '@/components/section-header';
 import { UpgradeArrow } from '@/components/upgrade-arrow';
-import { hero, links } from '@/content';
+import { hero } from '@/content';
 import { cta } from '@/lib/cta';
 import { PARALLAX_HERO } from '@/lib/parallax';
-
-const socialIcons = {
-    Linkedin: LinkedinIcon,
-    Github: GithubIcon,
-} as const;
-
-const socialHrefs: Record<string, string> = {
-    LinkedIn: links.linkedin,
-    GitHub: links.github,
-};
 
 /**
  * The hero is the logo square, blown up to full width: brand blue drench, the up-arrow
@@ -63,27 +52,6 @@ export function Hero() {
                         >
                             {hero.ctas.secondary.label}
                         </a>
-
-                        <span className="bg-brand-line mx-2 hidden h-8 w-px sm:block" aria-hidden />
-
-                        <span className="flex w-full gap-1 sm:w-auto">
-                            {hero.social.map((item) => {
-                                const Icon = socialIcons[item.icon as keyof typeof socialIcons];
-                                return (
-                                    <a
-                                        key={item.label}
-                                        href={socialHrefs[item.label]}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        title={item.label}
-                                        aria-label={item.label}
-                                        className="text-brand-muted-foreground hover:text-brand-foreground hover:bg-brand-deep focus-visible:ring-brand-foreground inline-flex size-11 items-center first:-ml-2.5 sm:first:ml-0 justify-center rounded-lg transition-colors outline-none focus-visible:ring-2"
-                                    >
-                                        <Icon className="size-6" />
-                                    </a>
-                                );
-                            })}
-                        </span>
                     </div>
                 </div>
 

@@ -1,6 +1,6 @@
 /** Verbatim from `source/index.blade.php:61-107`. */
 export const clients = {
-    heading: 'Clients',
+    heading: 'Clients & past work',
 
     items: [
         {

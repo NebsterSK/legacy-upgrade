@@ -4,12 +4,14 @@ import { faq } from '@/content';
 import { PARALLAX_DRIFT } from '@/lib/parallax';
 
 /**
- * Ported from `source/index.blade.php:241-265` — the THREE visible questions only.
- * The five FAQPage questions are JSON-LD only and live in `faq.schema` (see Task 6).
+ * The three original questions from `source/index.blade.php:241-265`, now preceded by the
+ * four a prospect actually asks. This list is also the FAQPage JSON-LD — one set, so the
+ * markup never claims copy the page does not show.
  *
- * Always open, no accordion: three short answers don't need hiding, and the answers are
- * the punchline, so making people click for them cost more than it saved. Plain markup
- * also means the answers are in the static HTML without any forceMount workaround.
+ * Always open, no accordion: the answers are the punchline, so making people click for
+ * them cost more than it saved. Plain markup also means every answer is in the static
+ * HTML without any forceMount workaround — which is the whole point, since this list is
+ * also the FAQPage structured data.
  */
 export function Faq() {
     // overflow-clip, not overflow-hidden: hidden makes this div a scroll container, which

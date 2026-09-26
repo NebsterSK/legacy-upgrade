@@ -10,9 +10,12 @@ import type { IconName } from './types.ts';
  *   ri-code-s-slash-line → Code
  *   ri-time-line         → Clock
  *   ri-check-line        → Check
+ *
+ * Each tier also carries a numeric `offer`: the visible `price` string is copy, the
+ * `offer` is what `src/lib/jsonld.ts` turns into a schema.org Offer.
  */
 export const pricing = {
-    heading: 'Pricing',
+    heading: 'What custom software costs',
 
     /** The `ring-2` emphasis on the first tier becomes a Badge (Task 9). */
     tiers: [
@@ -21,6 +24,8 @@ export const pricing = {
             title: 'Fixed-Scope Project',
             price: 'from € 800',
             priceNote: null,
+            /** Numeric mirror of `price`, for the JSON-LD Offer. Keep the two in step. */
+            offer: { minPrice: 800 },
             featured: true,
             features: [
                 'Consultation meetings and calls',
@@ -36,6 +41,8 @@ export const pricing = {
             title: 'Hourly Engagement',
             price: '€ 30',
             priceNote: 'per hour',
+            /** Numeric mirror of `price`, for the JSON-LD Offer. Keep the two in step. */
+            offer: { price: 30, perHour: true },
             featured: false,
             features: [],
             body: 'A flexible option for smaller tasks, technical consultations, ongoing maintenance, or extending an existing system without a full fixed-scope engagement.',

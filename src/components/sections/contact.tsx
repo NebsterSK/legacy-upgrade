@@ -22,7 +22,7 @@ export function Contact() {
             className="parallax-scope bg-deep text-deep-foreground relative isolate overflow-hidden"
         >
             <UpgradeArrow
-                className="parallax text-deep-line absolute top-[3%] -right-[28%] -z-10 w-[80vw] opacity-60 sm:-right-[18%] sm:w-[60vw] lg:top-[6%] lg:-right-[14%] lg:w-[min(40rem,50vw)]"
+                className="parallax text-deep-line absolute top-[3%] -right-[28%] -z-10 w-[80vw] opacity-60 sm:-right-[18%] sm:w-[60vw] lg:top-[6%] lg:-right-[12%] lg:w-[min(40rem,50vw)] xl:-right-[6%] 2xl:-right-[1%]"
                 style={PARALLAX_RISE}
             />
 

@@ -16,7 +16,7 @@ export function Clients() {
     return (
         <div className="pb-section">
             <Container>
-                <SubsectionHeader>{clients.heading}</SubsectionHeader>
+                <SubsectionHeader level={2}>{clients.heading}</SubsectionHeader>
 
                 <ul className="mt-10 border-b">
                     {clients.items.map((item) => (

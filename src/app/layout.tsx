@@ -41,6 +41,18 @@ export const metadata: Metadata = {
     alternates: {
         canonical: '/',
     },
+
+    /**
+     * Indexing is the default anyway; this block exists for `max-image-preview`. Without
+     * it Google serves a `standard` (small) thumbnail in results and Discover, and
+     * `large` opts into the full-size one. Declared at the top level rather than under
+     * `googleBot` so the directive reaches Bing as well.
+     */
+    robots: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+    },
     openGraph: {
         type: 'website',
         locale: site.ogLocale,

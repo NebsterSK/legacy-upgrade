@@ -15,7 +15,7 @@ export function About() {
             <Container className="grid gap-14 md:grid-cols-2 md:gap-12 lg:gap-20">
                 {about.columns.map((column) => (
                     <div key={column.heading} className="border-foreground border-t-[3px] pt-8">
-                        <SubsectionHeader>{column.heading}</SubsectionHeader>
+                        <SubsectionHeader level={2}>{column.heading}</SubsectionHeader>
 
                         <p className="text-muted-foreground mt-5 max-w-prose text-lg leading-relaxed [&_strong]:text-foreground [&_strong]:font-semibold">
                             <RichText content={column.body} />

@@ -20,22 +20,34 @@ export function SectionHeader({ children, className }: { children: ReactNode; cl
     );
 }
 
+/**
+ * `level` sets the heading TAG only; the visual size stays `text-h3` either way.
+ *
+ * The two are deliberately decoupled. On a one-route site the document outline has to be
+ * valid on its own — no h3 before the first h2, no skipped levels — but a block being
+ * top-level in the outline does not mean it should shout at `text-h2` on screen. Pass
+ * `level={2}` for a block that sits directly under the h1; leave it alone inside a
+ * section that already has its own SectionHeader.
+ */
 export function SubsectionHeader({
     children,
     className,
+    level = 3,
 }: {
     children: ReactNode;
     className?: string;
+    level?: 2 | 3;
 }) {
+    const Tag = level === 2 ? 'h2' : 'h3';
     return (
-        <h3
+        <Tag
             className={cn(
                 'font-kanit text-h3 font-bold',
                 className
             )}
         >
             {children}
-        </h3>
+        </Tag>
     );
 }
 

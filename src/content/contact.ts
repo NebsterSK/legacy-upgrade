@@ -14,7 +14,7 @@ import type { IconName } from './types.ts';
  *   ri-building-line   → Building2
  */
 export const contact = {
-    heading: 'Contact',
+    heading: 'Start with a free consultation',
 
     intro: 'Looking to automate a process, replace an outdated system, or build something custom for your business? Get in touch, the first consultation is free and without commitment.',
 

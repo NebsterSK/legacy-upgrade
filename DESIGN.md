@@ -259,9 +259,9 @@ built for someone moving past at speed.
 - **H2** (700, `clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem)`, 0.95, -0.02em): section headings (one per
   nav item), both prices, and the phone menu links.
 - **H3** (700, `clamp(1.75rem, 1.3rem + 1.6vw, 2.625rem)`, 1.05, -0.015em): subsection headings
-  (What I do, Clients, Process, FAQ) and the process step numerals.
+  (What I do, Clients, FAQ) and the process step numerals.
 - **H4** (700, `clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem)`, 1.25): item titles, meaning process
-  steps, FAQ questions and the Tech Stack label.
+  steps and FAQ questions.
 - **Lead** (Overpass 500, `clamp(1.25rem, 1.05rem + 0.9vw, 1.75rem)`, 1.375): the hero tagline.
 - **Body large** (Overpass 400, 1.125rem, 1.625): statements and section intros (About, Services,
   Technology, Contact).
@@ -395,7 +395,10 @@ spine moves to the left edge.
 
 ### Tech Stack Diagram
 The stack drawn as wiring on the plum band: white logo plates on a grid, joined by right-angle
-blush wires with small packets travelling along them, all inside a dashed Forge boundary.
+blush wires with small packets travelling along them, all inside a dashed Forge boundary. A
+second, solid boundary inside it encloses the code layers only (Tailwind through Laravel); its
+closing edge falls between Laravel and the branch into the databases, so it crosses one wire, not
+two. Claude hangs on that boundary's downstream corner as a full node, same plate as the rest.
 
 ## Do's and Don'ts
 

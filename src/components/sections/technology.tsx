@@ -151,9 +151,7 @@ export function Technology() {
                 </div>
 
                 <div className="border-second-accent mt-16 border-t-[3px] pt-8">
-                    <h3 className="font-kanit text-h4 font-bold">{stack.heading}</h3>
-
-                    <figure className="mx-auto mt-10 max-w-5xl">
+                    <figure className="mx-auto max-w-5xl">
                         {/* Claude: on top of everything, wired into the boundary. */}
                         <div className="flex flex-col items-center">
                             <Node item={stack.overseer} />

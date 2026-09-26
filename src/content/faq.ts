@@ -1,20 +1,39 @@
 /**
- * TWO SEPARATE FAQ SETS. They are not the same content and must not be merged.
+ * The FAQ. ONE set: the questions rendered on the page are also the questions in the
+ * FAQPage JSON-LD (`src/lib/jsonld.ts`).
  *
- * - `visible`  — the 3 questions actually rendered on the page
- *                (`source/index.blade.php:241-265`).
- * - `schema`   — the 5 questions in the FAQPage JSON-LD
- *                (`source/index.blade.php:410-459`).
+ * The first four answer the questions every prospect asks before making contact — what
+ * it is, who it is for, what it costs, how it runs. They are deliberately phrased the
+ * way people actually search, because this list is the site's most retrievable content:
+ * visible copy and structured data in one place. The last three are the original
+ * Jigsaw questions, kept for voice.
  *
- * The overlapping questions are worded differently in each; both came over verbatim
- * from the Jigsaw source. The mismatch is a real SEO issue (Google can flag FAQPage
- * markup whose content is not on the page) and should be reconciled in a copy pass.
+ * History: the old site carried a *second*, five-question set that existed only in the
+ * structured data, worded differently from the visible copy. FAQPage markup that is not
+ * on the page is exactly what Google flags, so it was removed on 2026-09-26. Those
+ * longer answers are still worth mining — `git show 3aa7672:src/content/faq.ts`.
  */
 
 export const faq = {
     heading: 'Frequently Asked Questions',
 
     visible: [
+        {
+            question: 'What exactly do you build?',
+            answer: 'Custom software for the way your business already runs: internal tools and back-office systems, dashboards that pull your numbers into one place, integrations between tools that do not talk to each other, and automation for the processes still done by hand. Not templates, and not a website builder.',
+        },
+        {
+            question: 'Who do you work with?',
+            answer: 'Small and mid-sized businesses across Europe, typically 5 to 50 people, that have outgrown spreadsheets and off-the-shelf tools. Usually there is no in-house developer, the owner or an operations lead makes the call, and at least one core process is still eating hours every week.',
+        },
+        {
+            question: 'What does a project cost?',
+            answer: 'Fixed-scope projects start at € 800, and hourly work is € 30 per hour. Which one fits depends on the job: a defined piece of work gets a fixed scope with milestones, while smaller tasks, consultations and ongoing maintenance run hourly. You get a written proposal with the full cost before any work starts.',
+        },
+        {
+            question: 'How does a project work?',
+            answer: 'Four steps. A free consultation to understand the problem, a written proposal broken into milestones with a timeline and budget, implementation milestone by milestone with regular updates, then iteration and support for as long as you need it.',
+        },
         {
             question:
                 'Do you work with Wix / Webflow / Squarespace / Framer / Wordpress / Drupal / Joomla or similar?',
@@ -27,31 +46,6 @@ export const faq = {
         {
             question: 'Can you fix my website ASAP?',
             answer: 'No. Well... maybe. Yes, but it will cost you extra.',
-        },
-    ],
-
-    /** JSON-LD only. Never rendered as visible text. */
-    schema: [
-        {
-            question:
-                'Do you build websites on WordPress, Wix, Webflow, or similar platforms?',
-            answer: 'No. I build custom software from the ground up. Template-based platforms work for simple brochure sites, but they become a bottleneck the moment your business needs something specific — a workflow, an integration, or a reliable way to handle your own data.',
-        },
-        {
-            question: 'Can you design a visually impressive website?',
-            answer: 'My priority is dependable software: fast, stable, and maintainable for years. Visual design is part of that, but never at the expense of performance or long-term reliability. For heavily design-driven marketing pages, I am happy to collaborate with a dedicated designer.',
-        },
-        {
-            question: 'How long does a typical project take?',
-            answer: 'It depends on the scope. Smaller internal tools and integrations typically take two to six weeks. Larger custom platforms run from two to six months. A concrete timeline is part of the written proposal before any work begins.',
-        },
-        {
-            question: 'Do you offer support after the project is delivered?',
-            answer: 'Yes. Ongoing maintenance, improvements, and on-demand support are available on an hourly basis. Software evolves with your business, and I stay involved for as long as you need.',
-        },
-        {
-            question: 'Can you urgently fix an existing website or system?',
-            answer: 'Urgent fixes on unfamiliar systems are possible, but they require a quick assessment first and are handled at a priority rate. Get in touch and I will tell you honestly whether I can help and how quickly.',
         },
     ],
 } as const;

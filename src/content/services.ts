@@ -15,7 +15,7 @@ import type { IconName } from './types.ts';
  *   ri-hammer-line       → Hammer
  */
 export const services = {
-    heading: 'Services',
+    heading: 'Custom software & automation',
 
     intro: 'I help businesses digitalize and automate the way they operate. Each project is a custom-built solution focused on measurable outcomes: less manual work, fewer errors, and systems you can rely on for years.',
 

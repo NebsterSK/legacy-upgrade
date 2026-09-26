@@ -11,14 +11,14 @@ export const site = {
 
     /** `index.blade.php` → `@section('pageDescription')`. The `<meta name="description">`. */
     pageDescription:
-        'Custom software, automation, and digitalization for businesses. Dependable internal tools, integrations, and legacy system modernization. Get a free consultation.',
+        '12 years of custom software, automation, and digitalization for businesses. Internal tools, integrations, and legacy system modernization. Free consultation.',
 
     /**
      * `config.php` → `description`. DIFFERENT from `pageDescription` — this one is
      * only used for the JSON-LD `ProfessionalService.description`. Both are kept.
      */
     schemaDescription:
-        'Custom software development, business automation, and digitalization for companies in Slovakia. Reliable internal tools, dashboards, API integrations, and modernization of legacy systems.',
+        '12 years of custom software development, business automation, and digitalization for companies in Slovakia. Reliable internal tools, dashboards, API integrations, and modernization of legacy systems.',
 
     /** `config.production.php` → `baseUrl`. Overridable via NEXT_PUBLIC_SITE_URL (Task 12). */
     url: 'https://legacy-upgrade.com',

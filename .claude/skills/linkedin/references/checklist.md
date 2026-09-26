@@ -35,7 +35,9 @@ Run every draft through this before calling it done. Any **hard fail** blocks pu
 - [ ] No paragraph longer than 4 sentences
 - [ ] 100–250 words, unless the story genuinely needs more
 - [ ] Reads as Lukáš in first person, conversational, direct
-- [ ] Closes with a soft CTA or real question, not a pitch
+- [ ] Ends on the takeaway, not on a tacked-on question
+- [ ] No generic engagement prompt ("What do you think?", "Agree?", "Let me know below")
+- [ ] If it ends on a question, it is one Lukáš genuinely wants answered and would read every reply to
 
 ## Freshness
 
@@ -46,4 +48,8 @@ Run every draft through this before calling it done. Any **hard fail** blocks pu
 
 ## The last question
 
-Would a business owner who has never heard of Lukáš get *anything* out of reading this, even if they never hire him? If no, the post is about him instead of about them. Rewrite.
+Name, in one sentence, what the reader knows or can do after reading this that they could not before.
+
+If you cannot write that sentence, the post teaches nothing and should be rewritten or dropped. A question at the end is the usual way of papering over that gap, and it is not allowed here.
+
+Then: would a business owner who has never heard of Lukáš get something out of it, even if they never hire him? If no, the post is about him instead of about them.

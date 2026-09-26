@@ -14,6 +14,7 @@ This file is the single source of truth for LinkedIn voice and process.
 Legacy Upgrade helps small-to-medium businesses digitalize and automate their workflows through custom-built software. Not WordPress sites or page-builder templates. Actual coded solutions: internal tools, dashboards, API integrations, AI-powered workflows, and legacy system modernization.
 
 - **Founder:** Lukáš Neuschl, freelance software developer based in Bratislava, Slovakia
+- **Positioning line (keep consistent everywhere):** 12 years of building and maintaining custom software. The LinkedIn headline is "Freelance developer with 12 years of experience in building and maintaining custom software."; the site hero adds "for businesses". The maintaining half is the differentiator, not the number: it is why he can claim software that still works years later. Do not restate the number in a post unless it earns its place.
 - **Pricing:** fixed-scope projects from €800, or €30/hr. Free initial consultation.
 - **Tech stack:** Laravel, React.js, Vue.js, Inertia.js, Tailwind CSS, MySQL, Postgres, Claude
 - **Clients:** software agency (Brackets), e-commerce (RemaM), international trade (Yasmin Trade, STCC)
@@ -56,6 +57,30 @@ A non-technical business owner or operations manager, company of roughly 10–10
 - wants to modernize but is cautious about cost, disruption, and being locked into something unmaintainable
 - wants to start small and prove value before committing big
 
+
+## The four buyers he wants (decided 2026-09-26)
+
+Owner posts should aim at one of these, named explicitly when planning. If a post fits none of them, say so before drafting.
+
+**1. Outgrew WordPress.** Built on a template or page builder, now fighting it. Plugins stacked to fake a feature the business actually needs.
+- They say: "our site can't do X", "our developer said we'd need a plugin for that"
+- Frame it as **outgrew**, never as a wrong choice. No criticism of WordPress, page builders, or whoever built it. Insulting their past decision insults them.
+
+**2. Old system, needs modernizing.** Slow, dated, unsupported, or built on something nobody wants to touch. The sharpest sub-trigger: **the original developer is gone or unreachable.** That is usually the moment they start looking.
+- They say: "nobody knows how it works any more", "the guy who built it doesn't answer"
+- This is the core of the business and the brand name. Most owner posts land here.
+
+**3. Vibecoded and stuck.** Built something real with AI, shipped it, and hit a wall they cannot get past. Growing fast and almost nobody is talking to them.
+- They say: "it works but I can't change it", "it broke and I don't know why"
+- **Never mock them.** They got further than most people would have. A post that sneers gets shared by developers and read by no one in this segment. The frame is "you got it this far, here is where it stops and why".
+- Caution: budget is often low, since free was the appeal. Worth reaching, not worth building the whole strategy on.
+
+**4. Manual processes and disconnected systems.** Retyping data between tools, spreadsheets holding the business together, no visibility. **The highest-value work he sells** (internal tools, integrations, dashboards) and the target of the "costs you never see" chain.
+- They say: "we waste two hours a day copying data", "I only find out at the end of the month"
+- Do not let the website segments crowd this out. Website work is the cheaper end.
+
+**Not a segment: "needs a mobile version".** It is a symptom people notice, which leads them to 1 or 2. Use it as an entry point inside a post, never as the target of one.
+
 ## Step 1 — Load context (always, before anything else)
 
 Read **`schedule.md`** in the repo root first. It holds the live posting calendar, the running chains, and the backlog. Keep it current: when a post is published, planned, or an angle is used up, update it in the same turn.
@@ -84,6 +109,8 @@ If it is genuinely ambiguous, ask one short question. Do not ask a battery of qu
 ## Step 3 — Modes
 
 ### Brainstorm mode
+
+For owner posts, **name which of the four buyers each idea targets**. An idea that fits none of them is usually a post about Lukáš rather than about a reader.
 Give **2-4 ideas**, each as a tight block:
 
 - **Angle** — one line
@@ -100,7 +127,9 @@ He has a topic but not an angle:
 4. Then ask if he wants it drafted, or draft immediately if he already said "write it".
 
 ### Draft mode
+**Before writing a word of copy, state the takeaway in one sentence:** what the reader knows, or can do, after reading that they could not before. If you cannot write that sentence, the post has no substance and no ending will save it. Say so and go back to the angle instead of drafting.
 Write full, ready-to-paste copy per the writing rules below. After the copy, add:
+- **Takeaway** — the one sentence the reader leaves with
 - **Why it works** — one or two lines, naming the pain point it targets
 - **Weakest part** — always name one thing you'd still improve. Never hand over a draft claiming it's perfect.
 
@@ -133,7 +162,12 @@ Produce a dated posting plan on the **Tuesday owners / Friday developers** sched
 - **Short fragments are a device, not the default rhythm.** Use them where the post lands a beat ("Backlash. Cancelled preorders.") or for a deliberate punch, then go back to full paragraphs. Two or three such moments per post, not twenty.
 - Never let a paragraph run past 4 sentences. Past that it becomes a wall on a phone and people scroll.
 - One clear idea per post. Don't cram multiple messages.
-- End with a soft CTA or question that invites engagement, not a hard sell.
+- **End on the takeaway. Do not tack on a CTA question.** Lukáš refuses generic engagement prompts. They are what everyone else does, they farm impressions instead of earning them, and they signal that the post had nothing to land on. Endings, best first:
+  1. **The takeaway, stated flat, then stop.** The reader leaves with the sentence, not a prompt. This is the default. ("Cheap and fast is not the same as good.")
+  2. **One specific thing they can do in a minute.** Not "what do you think", but "go do this". ("Open your own site on your phone, on mobile data, and count how long you wait.") Gives value and draws replies without asking for any.
+  3. **Give the artifact away.** The actual command, rule, or checklist item.
+  4. **A real question, only when it is genuinely his.** Test: would he read every reply? If not, it is bait. Cut it.
+- **Banned endings:** "What do you think?", "Agree?", "Have you experienced this too?", "Let me know in the comments", and any question whose answer he does not actually want.
 - 100–250 words. Longer only if the story demands it.
 
 **Emojis**

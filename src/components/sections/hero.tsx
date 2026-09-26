@@ -44,9 +44,7 @@ export function Hero() {
                         {hero.name}
                     </h1>
 
-                    <p
-                        className="text-brand-muted-foreground mt-6 max-w-[26ch] text-lead font-medium"
-                    >
+                    <p className="text-brand-muted-foreground mt-6 max-w-[40ch] text-lead font-medium">
                         {hero.tagline}
                     </p>
 

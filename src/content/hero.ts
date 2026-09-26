@@ -5,7 +5,7 @@ export const hero = {
     /** `<h1>` — spelled without diacritics in the source. */
     name: 'Lukas Neuschl',
 
-    tagline: 'Custom software, automation, and digitalization for businesses',
+    tagline: '12 years of building and maintaining custom software for businesses',
 
     /** `title` attributes on the two hero social icons. */
     social: [

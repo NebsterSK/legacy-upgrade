@@ -280,6 +280,11 @@ Headings balance their line breaks (`text-wrap: balance`), and paragraphs use
 exception is the contact email address, which is fitted so the whole address stays on one line
 from a 320px phone to desktop.
 
+**The Optical-Centring Rule.** Overpass's shipped metrics put the cap band 0.1em above the
+centre of its own line box, so text set beside an icon reads high. The fix is metric overrides on
+the @font-face (ascent 98.3%, descent 28.3%), applied once in `globals.css` — never a per-component
+nudge on the icon, and never a line-height change, which cannot move it. Kanit is unaffected.
+
 **The One-Face-Per-Job Rule.** Kanit is for headings, prices and numerals; Overpass is for
 everything read as sentences. No italics, no monospace and no letter-spaced caps.
 

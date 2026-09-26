@@ -138,6 +138,32 @@
  * diacritics (š, č, ž) come from the same family. url() is relative, so Turbopack
  * hashes both files like any other static asset.
  */
+/*
+ * Overpass ships asymmetric vertical metrics: unitsPerEm 2000, ascender 1766,
+ * descender -766, sCapHeight 1400 (read out of the woff2, not guessed).
+ *
+ * A line box puts the baseline at `ascent` below its top, so the cap band of the text
+ * sits (ascent - descent - capHeight) / 2 = -200 units = -0.1em ABOVE the centre of the
+ * box that `items-center` aligns. Next to an SVG icon, whose artwork fills its box
+ * symmetrically, that reads as "the text is too high" — ~1.7px at the 17px base. It is
+ * NOT fixable with line-height: the term cancels out of that expression.
+ *
+ * So override the metrics instead. Hold the box height as shipped (1766 + 766 = 2532 =
+ * 126.6%) and set the DIFFERENCE to the cap height (1400 = 70%), which puts the cap band
+ * dead centre:
+ *
+ *   ascent  = (2532 + 1400) / 2 = 1966 -> 98.3%
+ *   descent = (2532 - 1400) / 2 =  566 -> 28.3%
+ *
+ * Keeping the sum fixed means the line box does not change size anywhere; only the
+ * baseline moves down 0.1em within it. Deep descenders still clear the box at our
+ * line-heights (at 1.6: baseline 115%, descender bottom 153.3%, box 160%).
+ *
+ * This centres the CAP band, which is the band the eye reads as the line of text.
+ * Labels with descenders therefore hang slightly below centre, by design. If they ever
+ * read low, the lever is the 1400 above: lower it toward ~1300 and recompute both
+ * percentages. Kanit is loaded by next/font/local and is not affected.
+ */
 @font-face {
     font-family: "Overpass";
     font-style: normal;
@@ -145,6 +171,10 @@
     font-weight: 100 900;
     src: url("../assets/fonts/overpass-latin-wght-normal.woff2") format("woff2-variations");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    /* Optical centring, not a tweak: see the note above the first @font-face. */
+    ascent-override: 98.3%;
+    descent-override: 28.3%;
+    line-gap-override: 0%;
 }
 
 @font-face {
@@ -154,6 +184,10 @@
     font-weight: 100 900;
     src: url("../assets/fonts/overpass-latin-ext-wght-normal.woff2") format("woff2-variations");
     unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    /* Optical centring, not a tweak: see the note above the first @font-face. */
+    ascent-override: 98.3%;
+    descent-override: 28.3%;
+    line-gap-override: 0%;
 }
 
 @layer base {

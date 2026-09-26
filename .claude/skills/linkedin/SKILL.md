@@ -129,7 +129,9 @@ Produce a dated posting plan on the **Tuesday owners / Friday developers** sched
 
 **Structure**
 - Strong opening line that hooks the scroll. No generic "In today's fast-paced world..."
-- Short paragraphs, 1–2 sentences max. LinkedIn rewards whitespace.
+- **Paragraphs of 2 to 4 sentences**, with a blank line between them. Let a thought finish and connect inside the paragraph instead of breaking every sentence onto its own line. A wall of one-line paragraphs reads as a slide deck, not a person talking.
+- **Short fragments are a device, not the default rhythm.** Use them where the post lands a beat ("Backlash. Cancelled preorders.") or for a deliberate punch, then go back to full paragraphs. Two or three such moments per post, not twenty.
+- Never let a paragraph run past 4 sentences. Past that it becomes a wall on a phone and people scroll.
 - One clear idea per post. Don't cram multiple messages.
 - End with a soft CTA or question that invites engagement, not a hard sell.
 - 100–250 words. Longer only if the story demands it.

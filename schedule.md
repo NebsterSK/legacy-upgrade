@@ -28,6 +28,7 @@ Small businesses lose real money in places that never appear on an invoice, so n
 | Sep 1 | **Missed** | Portfolio 1: Esmit. Blocked, never received the project details. |
 | Sep 8 | **Missed** | Portfolio 2: Brackets Service Desk. |
 | Sep 15 | **Missed** | Portfolio 3: Moja Cafeteria. |
+| Oct 6 | Planned | **The redesign showcase.** How the Legacy Upgrade site was redesigned. Multiple screenshots plus the live URL. Written for owners, not developers: what it looks like and what it does for a visitor, not which tool produced it. Note the Sep 26 post shipped **without** the teaser line, so this one has to stand on its own rather than pay off a promise. **Dependency: the redesign must be deployed first**, or the link contradicts the post. |
 
 ## Developers chain — "Instructions as software"
 
@@ -38,7 +39,7 @@ Same principle widening each time: don't repeat yourself, and treat what you wri
 | Aug 28 | **Scheduled** | Where rules live. Global vs project file, DRY applied to instructions. |
 | Sep 4 | **Missed** | What rules contain. No explanations, only instructions, and the file keeps getting shorter. |
 | Sep 11 | **Missed** | **Crossover post.** How the whole toolkit travels. Own plugin marketplace, push to GitHub, every machine updates itself. Spine: he stopped treating tooling as machine-local config and started treating it as software. Which is what he sells to businesses. Automate a client's manual process, then go home and do it to your own workflow. Written for developers, deliberately legible to owners. Open question: is the repo public? If yes, link it. |
-| Sep 25 | **Drafted**, `_linkedin/2026_09_25.md` | Where the knowledge comes from. Pulled YouTube captions from 2 design channels with yt-dlp, turned the repeated principles into a frontend-design skill. Spine: the AI was missing the exact input that was making him better, and format was the only obstacle. |
+| Sep 26 | **Published**, `_linkedin/2026_09_26.md` | Built a frontend-design skill from YouTube captions, then lost a 3 branch bake-off to Anthropic's skill and Impeccable. Winning hero screenshot attached. Published without the teaser line and without the second emoji. Does not say which of the two won, so the question is open in comments. Answer fast and credit Impeccable. |
 
 ---
 

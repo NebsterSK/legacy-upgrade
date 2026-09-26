@@ -30,7 +30,9 @@ Run every draft through this before calling it done. Any **hard fail** blocks pu
 
 ## Form
 
-- [ ] Paragraphs are 1–2 sentences
+- [ ] Paragraphs are 2 to 4 sentences, not one line each
+- [ ] Fragments are used as deliberate beats, a few per post, not as the default rhythm
+- [ ] No paragraph longer than 4 sentences
 - [ ] 100–250 words, unless the story genuinely needs more
 - [ ] Reads as Lukáš in first person, conversational, direct
 - [ ] Closes with a soft CTA or real question, not a pitch

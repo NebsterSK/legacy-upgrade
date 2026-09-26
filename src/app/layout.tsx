@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 
 import { Analytics } from '@/components/analytics';
 import { SmoothAnchors } from '@/components/smooth-anchors';
+import { SmoothWheel } from '@/components/smooth-wheel';
 import { ThemeProvider } from '@/components/theme-provider';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { site } from '@/content';
@@ -88,6 +89,7 @@ export default function RootLayout({
                 </ThemeProvider>
 
                 <SmoothAnchors />
+                <SmoothWheel />
                 <Analytics />
             </body>
         </html>

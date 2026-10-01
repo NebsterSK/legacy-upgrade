@@ -1,6 +1,8 @@
 My terminal calls me Warchief now.
 
-Claude Code has a feature called output styles that almost nobody talks about. It changes how Claude speaks to you in the terminal, and it is completely separate from the code it writes. You can also write your own, so I wrote two.
+Claude Code has a feature called output styles that almost nobody talks about. It changes how Claude speaks to you in the terminal, and it is completely separate from the code it writes. You will find it in /config under Output Style, and Concise is the one most people would actually benefit from.
+
+You can also write your own. So I wrote two.
 
 🪓 Peon, from Warcraft 3. Broken English, permanently tired, still working. Starts a task with "Zug zug", finishes with "Job's done!". Failing tests mean the base is under attack. Tech debt means we require more lumber.
 
@@ -10,7 +12,7 @@ The part that makes this a joke and not a liability: the persona exists only in 
 
 So the work is identical. The only thing that changes is whether a tired orc or a Soviet official tells me the tests passed.
 
-It is just a markdown file with a name, a description and whatever rules you feel like writing. Go make a stupid one.
+It is just a markdown file with a name and whatever rules you feel like writing. Go make a stupid one.
 
 ---
 I'm Lukas from Legacy Upgrade, and my test suite is now defended by the Horde.

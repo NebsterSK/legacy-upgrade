@@ -42,6 +42,8 @@ Same principle widening each time: don't repeat yourself, and treat what you wri
 | Sep 4 | **Missed** | What rules contain. No explanations, only instructions, and the file keeps getting shorter. |
 | Sep 11 | **Missed** | **Crossover post.** How the whole toolkit travels. Own plugin marketplace, push to GitHub, every machine updates itself. Spine: he stopped treating tooling as machine-local config and started treating it as software. Which is what he sells to businesses. Automate a client's manual process, then go home and do it to your own workflow. Written for developers, deliberately legible to owners. Open question: is the repo public? If yes, link it. |
 | Sep 26 | **Published**, `_socials/2026_09_26/linkedin.md` | Built a frontend-design skill from YouTube captions, then lost a 3 branch bake-off to Anthropic's skill and Impeccable. Winning hero screenshot attached. Published without the teaser line and without the second emoji. Does not say which of the two won, so the question is open in comments. Answer fast and credit Impeccable. |
+| Oct 9 | **Scheduled**, `_socials/2026_10_09/linkedin.md` | Output styles. The lesser-known Claude Code feature, plus the two he wrote: Peon (Warcraft 3) and Comrade. Developer humour, but the real takeaway is that style is separate from output and you can author your own. Sets up the serious marketplace post. |
+| Oct 16 | Planned | **The marketplace, serious version.** His own plugin: skills, subagents, code review flow, automatic updates across machines. Push to GitHub and every machine follows. Spine: tooling stopped being machine-local config and became software, which is what he sells to businesses. Crossover, legible to owners. Open question: is the repo public? If yes, link it. |
 
 ---
 

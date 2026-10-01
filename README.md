@@ -57,7 +57,7 @@ server shows stale styles after a build, stop it, delete `.next/` and start it a
 | [DESIGN.md](DESIGN.md) | The design system: colours, type scale, spacing, components |
 | [PRODUCT.md](PRODUCT.md) | Audience, purpose, voice; read by the impeccable design skill |
 | [THEMING.md](THEMING.md) | How the theme files work and how to swap a palette |
-| [schedule.md](schedule.md) | LinkedIn posting cadence; published posts are in `_linkedin/` |
+| [schedule.md](schedule.md) | LinkedIn posting cadence; published posts are in `_socials/<date>/` |
 
 ## Deploying
 

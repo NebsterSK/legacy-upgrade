@@ -40,8 +40,9 @@ Setup, commands, the Herd proxy and the deploy steps are in `README.md`; this fi
   static HTML. This bit the old FAQ Accordion (the answers existed only in the RSC payload); the FAQ
   is plain markup now, but anything collapsed that must be crawlable needs the same treatment.
 - For LinkedIn content, use the `/linkedin` skill (`.claude/skills/linkedin/`) — it is the single
-  source of truth for LinkedIn voice and process. `_linkedin/YYYY_MM_DD.md` holds published posts as
-  pure copy only (no frontmatter, no commentary); it is the voice corpus read before drafting.
+  source of truth for LinkedIn voice and process. Published posts live in `_socials/YYYY_MM_DD/`:
+  `linkedin.md`, an optional Slovak `facebook.md`, and an `images/` folder. The .md files are pure
+  post copy only (no frontmatter, no commentary); they are the voice corpus read before drafting.
 - Comments referencing `source/*.blade.php` are **provenance notes** from the Jigsaw → Next refactor.
   Those files no longer exist; retrieve them with `git show 182782f:source/index.blade.php`.
 

@@ -9,7 +9,9 @@ Standing cadence, decided 2026-08-11:
 
 A skipped slot beats a filler post. If there is nothing real to say, skip it rather than padding.
 
-Voice, process, and rules: `.claude/skills/linkedin/SKILL.md`. Published posts: `_linkedin/YYYY_MM_DD.md`.
+Voice, process, and rules: `.claude/skills/linkedin/SKILL.md`. Published posts: `_socials/YYYY_MM_DD/linkedin.md`, with an optional Slovak `facebook.md` and an `images/` folder alongside.
+
+**Slipped three times.** Sep 26 was the only post since Aug 28.
 
 **Slipped twice.** Aug 14 to Aug 21 (3 slots), then Sep 1 to Sep 18 (6 slots). Nothing time-sensitive was lost, but two slips in six weeks means the two-per-week cadence is not holding. Last published: Aug 28. The portfolio run stalled waiting on the Esmit details.
 
@@ -28,7 +30,7 @@ Small businesses lose real money in places that never appear on an invoice, so n
 | Sep 1 | **Missed** | Portfolio 1: Esmit. Blocked, never received the project details. |
 | Sep 8 | **Missed** | Portfolio 2: Brackets Service Desk. |
 | Sep 15 | **Missed** | Portfolio 3: Moja Cafeteria. |
-| Oct 6 | Planned | **The redesign showcase.** How the Legacy Upgrade site was redesigned. Multiple screenshots plus the live URL. Written for owners, not developers: what it looks like and what it does for a visitor, not which tool produced it. Note the Sep 26 post shipped **without** the teaser line, so this one has to stand on its own rather than pay off a promise. **Dependency: the redesign must be deployed first**, or the link contradicts the post. |
+| Oct 2 | **Scheduled** | The redesign showcase. Live site, three screenshots (hero, process, technology), direct offer, link. Slovak `facebook.md` alongside it. **Deliberately posted in the Friday developer slot**: owners post, but the feed had been quiet for weeks and shipping beat waiting until Tuesday. |
 
 ## Developers chain — "Instructions as software"
 
@@ -39,7 +41,7 @@ Same principle widening each time: don't repeat yourself, and treat what you wri
 | Aug 28 | **Scheduled** | Where rules live. Global vs project file, DRY applied to instructions. |
 | Sep 4 | **Missed** | What rules contain. No explanations, only instructions, and the file keeps getting shorter. |
 | Sep 11 | **Missed** | **Crossover post.** How the whole toolkit travels. Own plugin marketplace, push to GitHub, every machine updates itself. Spine: he stopped treating tooling as machine-local config and started treating it as software. Which is what he sells to businesses. Automate a client's manual process, then go home and do it to your own workflow. Written for developers, deliberately legible to owners. Open question: is the repo public? If yes, link it. |
-| Sep 26 | **Published**, `_linkedin/2026_09_26.md` | Built a frontend-design skill from YouTube captions, then lost a 3 branch bake-off to Anthropic's skill and Impeccable. Winning hero screenshot attached. Published without the teaser line and without the second emoji. Does not say which of the two won, so the question is open in comments. Answer fast and credit Impeccable. |
+| Sep 26 | **Published**, `_socials/2026_09_26/linkedin.md` | Built a frontend-design skill from YouTube captions, then lost a 3 branch bake-off to Anthropic's skill and Impeccable. Winning hero screenshot attached. Published without the teaser line and without the second emoji. Does not say which of the two won, so the question is open in comments. Answer fast and credit Impeccable. |
 
 ---
 
@@ -59,4 +61,4 @@ Unused angles, ready to fill a slot.
 
 ## Not scheduled
 
-Facebook (`_facebook/`) has no cadence and no documented process. Slovak copy must be **hovorová, not spisovná**. If it becomes regular it needs its own skill covering register, the share request, and no signature line.
+Facebook (`_socials/<date>/facebook.md`) has no cadence and no documented process. Slovak copy must be **hovorová, not spisovná**. If it becomes regular it needs its own skill covering register, the share request, and no signature line.

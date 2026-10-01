@@ -1,6 +1,6 @@
 ---
 name: linkedin
-description: Act as Lukáš's LinkedIn social media manager for Legacy Upgrade — brainstorm post ideas, consult on angles, draft and critique copy, then save published posts to _linkedin/. Use whenever the user wants to plan, write, review, or improve LinkedIn content.
+description: Act as Lukáš's LinkedIn social media manager for Legacy Upgrade — brainstorm post ideas, consult on angles, draft and critique copy, then save published posts to _socials/. Use whenever the user wants to plan, write, review, or improve LinkedIn content.
 ---
 
 # LinkedIn Social Media Manager
@@ -85,7 +85,7 @@ Owner posts should aim at one of these, named explicitly when planning. If a pos
 
 Read **`schedule.md`** in the repo root first. It holds the live posting calendar, the running chains, and the backlog. Keep it current: when a post is published, planned, or an angle is used up, update it in the same turn.
 
-Then list `_linkedin/` and read the **5 most recent** files (filenames are `YYYY_MM_DD.md`, so sort descending). If fewer than 5 exist, read what's there. If it's empty, say so and work from this file alone.
+Then list `_socials/` and read `linkedin.md` from the **5 most recent** dated folders (folders are `YYYY_MM_DD`, so sort descending). If fewer than 5 exist, read what's there. If it's empty, say so and work from this file alone.
 
 Then state, in one or two lines:
 - what topics, angles, and pain points are already burned recently
@@ -216,10 +216,10 @@ The `[something]` connects to the post's topic. Keep it to one clause, playful o
 
 When he says a post is final or published, or asks you to save it:
 
-- Write it to `_linkedin/YYYY_MM_DD.md` using the **publish date**.
+- Write it to `_socials/YYYY_MM_DD/linkedin.md` using the **publish date**. A Slovak Facebook version of the same post goes next to it as `facebook.md`, and any attached screenshots go in `_socials/YYYY_MM_DD/images/`.
 - The file contains the post copy only. No frontmatter, no commentary, no "Topic:" header. These files are the voice corpus. Anything extra pollutes future reads.
 - If the file already exists, ask before overwriting.
-- Never save a draft he hasn't approved. `_linkedin/` is the record of what actually went out.
+- Never save a draft he hasn't approved. `_socials/` is the record of what actually went out.
 
 ## Standing rule
 

@@ -31,6 +31,7 @@ Small businesses lose real money in places that never appear on an invoice, so n
 | Sep 8 | **Missed** | Portfolio 2: Brackets Service Desk. |
 | Sep 15 | **Missed** | Portfolio 3: Moja Cafeteria. |
 | Oct 2 | **Scheduled** | The redesign showcase. Live site, three screenshots (hero, process, technology), direct offer, link. Slovak `facebook.md` alongside it. **Deliberately posted in the Friday developer slot**: owners post, but the feed had been quiet for weeks and shipping beat waiting until Tuesday. |
+| Oct 7 | **Scheduled**, `_socials/2026_10_07/linkedin.md` | Rented versus owned. A website is never a one time payment: the unavoidable pile (domain, hosting) against the pile that is rent on software you do not own. Ends on his handover policy, you paid for it so it is yours, code, credentials, hosting and domain. Buyer 1. Posted Wednesday rather than the Tuesday slot. |
 
 ## Developers chain — "Instructions as software"
 
@@ -52,7 +53,6 @@ Same principle widening each time: don't repeat yourself, and treat what you wri
 Unused angles, ready to fill a slot.
 
 **Owners**
-- **Rented versus owned.** Most people don't ask what a website costs, they ask what it costs per month. Answers the "custom is too expensive" objection with arithmetic instead of argument.
 - **What the free call actually is.** Kills the fear that a first conversation means committing. Needs one real detail from an actual call, including a time he talked someone out of a project.
 - **The costs you never see, posts 2 and 3.** 🔗 The cost behind the desk (retyping, with the "last time in front of your customers, this time behind your desk" callback) and 📊 the cost of deciding blind. Displaced by the portfolio run; pick them up after Sep 15.
 

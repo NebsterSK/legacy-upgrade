@@ -32,6 +32,7 @@ Small businesses lose real money in places that never appear on an invoice, so n
 | Sep 15 | **Missed** | Portfolio 3: Moja Cafeteria. |
 | Oct 2 | **Scheduled** | The redesign showcase. Live site, three screenshots (hero, process, technology), direct offer, link. Slovak `facebook.md` alongside it. **Deliberately posted in the Friday developer slot**: owners post, but the feed had been quiet for weeks and shipping beat waiting until Tuesday. |
 | Oct 7 | **Scheduled**, `_socials/2026_10_07/linkedin.md` | Rented versus owned. A website is never a one time payment: the unavoidable pile (domain, hosting) against the pile that is rent on software you do not own. Ends on his handover policy, you paid for it so it is yours, code, credentials, hosting and domain. Buyer 1. Posted Wednesday rather than the Tuesday slot. |
+| Oct 13 | **Drafted**, `_socials/2026_10_13/linkedin.md` | Legacy Laravel CRM upgrade for client Brackets. PHP 8.1 to 8.5, Laravel 9 to 13, 51 vulnerabilities to 2, nothing user visible changed. Crossover, owners primary, buyer 2. **Awaiting Brackets approval.** A technical LinkedIn carousel follows once approved. Esmit, Service Desk and Moja Cafeteria posts follow the same pattern. |
 
 ## Developers chain — "Instructions as software"
 

@@ -1,0 +1,6 @@
+domains:
+  - legacy-upgrade
+secured: true
+proxy:
+  command: npm run dev
+  port: 3000

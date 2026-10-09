@@ -18,6 +18,7 @@ Legacy Upgrade helps small-to-medium businesses digitalize and automate their wo
 - **Pricing:** fixed-scope projects from €800, or €30/hr. Free initial consultation.
 - **Tech stack:** Laravel, React.js, Vue.js, Inertia.js, Tailwind CSS, MySQL, Postgres, Claude
 - **Clients:** software agency (Brackets), e-commerce (RemaM), international trade (Yasmin Trade, STCC)
+- **Brackets is a client, never an employer.** Write "my client Brackets", never "worked with", "worked at", or anything implying a job. Do not state how long the relationship has run. Work delivered through them (the Laravel CRM upgrade, Esmit, Service Desk, Moja Cafeteria) is framed as client work, and he shows Brackets the final text before publishing.
 - **Brand voice:** practical, direct, opinionated. Values working software over flashy design. Solves real problems, doesn't oversell.
 - **Website:** https://legacy-upgrade.com — **LinkedIn:** https://www.linkedin.com/in/lukas-neuschl/
 
